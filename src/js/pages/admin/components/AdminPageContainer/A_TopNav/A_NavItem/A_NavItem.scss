@@ -1,0 +1,50 @@
+.A_NavItem{
+    font-size: 1em;
+
+    text-decoration: none;
+    padding: 0 1em;
+    height: calc( 100% - 2px );
+    background-color: #91b7e945;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-right: 1px solid #fffdfd0a;
+    border-bottom: 1px solid #91b7e945;
+    border-top: 1px solid #91b7e945;
+
+    // line-height: 2.2em;
+    flex-grow: 0;
+
+    span{
+        font-size: 0.7em;
+        // font-family: "EuropeExt Normal";
+        color: #beb4b4;
+    }
+
+
+    .ANI_icon{
+        padding: 0 0.14em 0.2em 0;
+
+    }
+    .ANI_title{
+    }
+}
+
+.A_NavItem.isActive{
+    background-color: #00fff8;
+    span{
+        color: #444444;
+    }
+
+}
+.A_NavItem:hover{
+    background-color: #344965ab;
+    span{
+        // color: #fcfcfc;
+        color: #6bd2e9f9;
+    }
+}
+
+

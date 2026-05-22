@@ -1,0 +1,26 @@
+.A_TopNav{
+    font-size: 1em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 2em;
+    width: 100%;
+
+    background-color: #263a72;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+    .A_TopNav_right{
+        font-size: 1em;
+        height: 2em;
+        flex-grow: 1;
+        max-width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+    }
+    
+}

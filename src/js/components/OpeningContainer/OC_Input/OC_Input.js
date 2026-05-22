@@ -1,0 +1,113 @@
+
+import React, { useState, useEffect, useRef } from "react";
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
+
+import './OC_Input.scss';
+
+import { OC_InputTitle } from './OC_InputTitle/OC_InputTitle.js';
+import { OC_InputChackStatusWrap } from './OC_InputChackStatusWrap/OC_InputChackStatusWrap.js';
+import { OC_InputMax } from './OC_InputMax/OC_InputMax.js';
+import { OC_InputErrorText } from './OC_InputErrorText/OC_InputErrorText.js';
+
+import { set_focus_for_input } from './vendors/set_focus_for_input.js';
+
+const OC_InputComponent = ( props ) => {
+
+    let {
+        title = 'Упс, а чё это?',
+        value,
+        setValue,
+        max = 255,
+        isRequired = false,
+        errorText = '',
+        setErrorText = () => {},
+
+        blure = () => {},
+
+        chackStatuse = null, // true false null
+
+    } = props;
+
+    let inpRef = useRef();
+
+    const change = ( e ) => {
+        let val = e.target.value;
+        setValue( val );
+        // setErrorText( '' );
+    }
+
+    const keyDown = ( e ) => {
+
+        let { which } = e;
+        if( which === 13 ){ // enter
+            set_focus_for_input( inpRef.current, 'next' );
+        }else if( which === 40 ){ // down
+            set_focus_for_input( inpRef.current, 'next' );
+        }else if( which === 38 ){  // up
+            set_focus_for_input( inpRef.current, 'preview' );
+        };
+        
+
+
+    }
+
+
+
+
+    return (
+        <div className = { `OC_Input ${ errorText !== ''? 'OC_Input_error': ''}` }>
+
+            <OC_InputTitle
+                title =         { title }
+                isRequired =    { isRequired }
+            />
+
+            <OC_InputChackStatusWrap
+                chackStatuse = { chackStatuse }
+            >
+                <input 
+                    type =          'text'
+                    className =     'OC_Input_inp'
+                    value =         { value }  
+                    ref =           { inpRef }
+                    maxLength =     { max } 
+                    onChange =      { change }
+                    onBlur =        { blure }
+                    onKeyDown =     { keyDown }
+                />
+
+            </OC_InputChackStatusWrap>
+
+            <OC_InputMax
+                value = { value }
+                max = { max }
+            />
+
+            <OC_InputErrorText
+                errorText = { errorText }
+            />
+
+        </div>
+
+    )
+
+};
+
+
+export function OC_Input( props ){
+
+    // const userInfo = useSelector( userInfoSlice );
+    // const dispatch = useDispatch();
+
+    return (
+        <OC_InputComponent
+            { ...props }
+            // userInfo = { userInfo }
+            // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
+
+        />
+    );
+
+
+}

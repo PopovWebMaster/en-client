@@ -1,0 +1,47 @@
+.AdminPageContainer{
+    font-size: 1em;
+
+    .APC_body{
+        font-size: 1em;
+        width: 100%;
+        height: calc( 100vh - 2em );
+        overflow: auto;
+    }
+
+    .APC_body::-webkit-scrollbar {
+        width: 0.7em;
+    }
+        
+    .APC_body::-webkit-scrollbar-track {
+        background-color: #65656500;
+    }
+        
+    .APC_body::-webkit-scrollbar-thumb {
+        border: 1px solid #6c6c6c32;
+        border-radius: 0.1em;
+        background-color: #6f61575c;
+        -webkit-box-shadow: inset 0 0 0.1em #5b41cf;
+        box-shadow: inset 0 0 0.1em #5b41cf;
+    }
+
+    .APC_body::-moz-scrollbar {
+        width: 0.7em;
+    }
+        
+    .APC_body::-moz-scrollbar-track {
+        background-color: #65656500;
+    }
+        
+    .APC_body::-moz-scrollbar-thumb {
+        border: 1px solid #6c6c6c3b;
+        border-radius: 0.1em;
+        background-color: #6f61575c;
+        -moz-box-shadow: inset 0 0 0.1em #5b41cf;
+        box-shadow: inset 0 0 0.1em #5b41cf;
+    }
+
+    .APC_body::-moz-scrollbar {
+        width: thin;
+    }
+   
+}

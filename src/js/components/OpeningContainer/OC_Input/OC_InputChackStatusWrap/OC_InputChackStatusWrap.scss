@@ -1,0 +1,84 @@
+.OC_Input{
+
+    .OC_Input_inp_wrap{
+        font-size: 1em;
+        position: relative;
+
+       
+        .OC_Input_chackStatus{
+            display: none;
+            font-size: 1em;
+            width: 1.8em;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            justify-content: center;
+            align-content: center;
+            align-items: center;
+
+            >span{
+                font-size: 0.9em;
+            }
+
+        }
+    }
+
+    .OC_Input_inp_wrap{
+
+        >.OC_Input_chackStatus.OC_Input_CS_wait{
+            display: flex;
+            >span{
+                color: #008dff;
+            }
+            >span.icon-spin2{
+                display: inline-block;
+            }
+            >span.icon-ok{
+                display: none;
+            }
+        }
+
+        >.OC_Input_chackStatus.OC_Input_CS_ok{
+            display: flex;
+            >span{
+                color: #4dc627;
+            }
+            >span.icon-spin2{
+                display: none;
+
+            }
+            >span.icon-ok{
+                display: inline-block;
+
+            }
+        }
+    }
+
+    .OC_Input_inp_wrap:has( .OC_Input_CS_ok ){
+        .OC_Input_inp{
+            border-color: #7bbb67;
+        }
+
+        .OC_Input_inp:focus{
+            // background-color: #ffffff;
+            // border: 1px solid #e23d3d;
+            border-color: #7bbb67;
+
+        }
+    }
+    .OC_Input_inp_wrap:has( .OC_Input_CS_wait ){
+        .OC_Input_inp{
+            border-color: #7ebef0;
+        }
+        .OC_Input_inp:focus{
+            // background-color: #ffffff;
+            // border: 1px solid #e23d3d;
+            border-color: #7ebef0;
+
+        }
+    }
+
+    
+}

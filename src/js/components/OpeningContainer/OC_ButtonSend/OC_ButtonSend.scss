@@ -1,0 +1,59 @@
+.OC_ButtonSend{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+    padding: 1em 0.8em;
+
+    .OC_ButtonSend_btn{
+        font-size: 1em;
+
+        flex-grow: 0;
+
+        min-width: 9em;
+        height: 1.7em;
+        padding: 0 0.6em;
+
+        border-radius: 0.1em;
+
+        background-color: #6f6f6f;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        // cursor: pointer;
+        // user-select: none;
+        opacity: 0.6;
+
+        span{
+            font-size: 0.8em;
+            color: #ffffff;
+        }
+    }
+
+    .OC_ButtonSend_btn.isReady{
+        opacity: 1;
+        cursor: pointer;
+        user-select: none;
+
+        background-color: #00a21f;
+
+    }
+
+    .OC_ButtonSend_btn.isReady:hover{
+        background-color: #04801c;
+    }
+
+    .OC_ButtonSend_btn.isReady:active{
+        background-color: #03ad22;
+        span{
+            color: #f8d5d5;
+        }
+    }
+
+
+}

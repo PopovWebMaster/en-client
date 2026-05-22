@@ -1,0 +1,46 @@
+.OC_InputFiles{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+
+    >span.OC_InputFiles_btn{
+        font-size: 0.68em;
+        color: #5b5b5b;
+        padding: 0.2em 1em;
+        border-radius: 0.1em;
+        border: 1px solid #d1d1d1;
+        background-color: #ededed;
+        cursor: pointer;
+        user-select: none;
+        margin: 0.5em 1em;
+    }
+
+
+    >span.OC_InputFiles_btn:hover{
+        color: #5b5b5b;
+        border: 1px solid #bfbfbf;
+        background-color: #dfdfdf3b;
+    }
+    >span.OC_InputFiles_btn:active{
+        color: #1b1a1a;
+    }
+
+    >.hiddenInput{
+        display: none;
+    }
+
+    >.OC_InputFiles_list{
+        font-size: 1em;
+        padding: 0.35em 0;
+
+        >p{
+            font-size: 0.7em;
+            padding: 0.2em 0.4em;
+            color: #1a5394;
+        }
+
+    }
+}

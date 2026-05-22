@@ -1,0 +1,47 @@
+.A_RightsLink{
+    font-size: 1em;
+
+    text-decoration: none;
+    padding: 0 1em;
+    height: calc( 100% - 2px );
+    // background-color: #91b7e945;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    border-bottom: 1px solid #91b7e945;
+    border-top: 1px solid #91b7e945;
+
+    flex-grow: 0;
+
+    span{
+        font-size: 0.7em;
+        color: #fcfcfc;
+    }
+
+
+    .ARLicon{
+
+    }
+    .ARL_title{
+    }
+}
+
+.A_RightsLink:hover{
+    background-color: #344965ab;
+    // text-decoration: underline;
+    span{
+        // color: #fcfcfc;
+        color: #6bd2e9f9;
+    }
+}
+
+.A_RightsLink:active{
+    // background-color: #344965ab;
+    // text-decoration: underline;
+    span{
+        // color: #fcfcfc;
+        color: #f12525f9;
+    }
+}
