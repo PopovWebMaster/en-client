@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 
 import './AdminPageWords.scss';
 
+import { selectorData as languageSlice } from './../../../../redux/languageSlice.js';
+
 
 import { AdminPageContainer } from './../AdminPageContainer/AdminPageContainer.js';
 
@@ -15,13 +17,19 @@ import { AddNewWord } from './components/AddNewWord/AddNewWord.js';
 const AdminPageWordsComponent = ( props ) => {
 
     let {
-
+        languageKeyName
     } = props;
+
+    const create = () => {
+
+    }
 
 
     return (
         <AdminPageContainer>
+
             <AddNewWord />
+            
 
 
         </AdminPageContainer>
@@ -32,13 +40,13 @@ const AdminPageWordsComponent = ( props ) => {
 
 export function AdminPageWords( props ){
 
-    // const userInfo = useSelector( userInfoSlice );
+    const language = useSelector( languageSlice );
     // const dispatch = useDispatch();
 
     return (
         <AdminPageWordsComponent
             { ...props }
-            // userInfo = { userInfo }
+            languageKeyName = { language.languageKeyName }
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

@@ -6,7 +6,9 @@ export const wordEditSlice = createSlice({
     name: 'wordEdit',
 
     initialState: {
-        word_en: '',
+        word_en: '', // не использовать
+        word_foreign: '', 
+
         word_ru: '',
         transcription: '',
 
@@ -22,6 +24,7 @@ export const wordEditSlice = createSlice({
 
         clearWordEdit: ( state, action ) => {
             state.word_en =  '';
+            state.word_foreign =  '';
             state.word_ru =  '';
             state.transcription =  '';
             // state.FileList = [];
@@ -29,9 +32,14 @@ export const wordEditSlice = createSlice({
 
         },
 
-        setWordEn: ( state, action ) => {
+        setWordEn: ( state, action ) => { // не использовать
             state.word_en =  action.payload;
         },
+
+        setWordForeign: ( state, action ) => { // не использовать
+            state.word_foreign =  action.payload;
+        },
+
 
         setWordRu: ( state, action ) => {
             state.word_ru =  action.payload;
@@ -53,7 +61,8 @@ export const wordEditSlice = createSlice({
 
 export const {  
     clearWordEdit,
-    setWordEn,
+    setWordEn,// не использовать
+    setWordForeign,
     setWordRu,
     setTranscription,
     // setFileList,
@@ -67,6 +76,7 @@ export const selectorData = ( state ) => {
 
     return {
         word_en:                  state.wordEdit.word_en,
+        word_foreign:             state.wordEdit.word_foreign,
         word_ru:                  state.wordEdit.word_ru,
         transcription:            state.wordEdit.transcription,
         // FileList:            state.wordEdit.FileList,

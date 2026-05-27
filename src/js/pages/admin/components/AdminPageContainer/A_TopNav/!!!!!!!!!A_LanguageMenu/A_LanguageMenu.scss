@@ -1,0 +1,113 @@
+.A_LanguageMenu{
+    font-size: 1em;
+    height: calc( 100% - 2px );
+    margin: 0 0.5em;
+    background-color: #f3f3f3;
+    border: 1px solid #263a72;
+    border-radius: 0.1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    .A_LM_current_wrap{
+        font-size: 1em;
+
+        padding: 0em 0.8em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        
+        img{
+            font-size: 1em;
+            height: 1.6em;
+            max-width: 1.6em;
+            margin-right: 0.5em;
+            object-fit: contain;
+        }
+
+        span{
+            font-size: 0.76em;
+            color: #254658;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+    }
+
+    .A_LM_menu_wrap{
+        font-size: 1em;
+        position: absolute;
+        top: calc( 100% + 2px );
+        right: 0;
+        // height: 5em;
+        width: fit-content;
+        background-color: rgb(255, 255, 255);
+        padding: 0.5em 0em;
+
+        .A_LM_btn_wrap{
+            font-size: 1em;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+            background-color: #ffffff;
+            margin: 0.2em 0.5em;
+            border-radius: 0.1em;
+            padding: 0.2em 0.6em;
+
+            cursor: pointer;
+            user-select: none;
+
+            img{
+                font-size: 1em;
+                height: 1.6em;
+                max-width: 1.6em;
+                margin-right: 0.5em;
+                object-fit: contain;
+            }
+
+            span{
+                font-size: 0.76em;
+                color: #254658;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+        }
+
+        .A_LM_btn_wrap:hover{
+            background-color: #ebebeb;
+        }
+
+
+
+
+
+
+        
+
+    }
+}
+
+.A_LanguageMenu.isActive{
+    >.A_LM_current_wrap{
+        cursor: pointer;
+        user-select: none;
+
+    }
+
+
+}
+
+.A_LanguageMenu.isActive:hover{
+    background-color: #ffffff;
+    .A_LM_current_wrap{
+        span{
+            color: #0d3951;
+        }
+    }
+}

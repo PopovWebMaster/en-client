@@ -14,6 +14,9 @@ import { get_route_list } from './../../../vendors/get_route_list.js';
 import { A_NavItem } from './A_NavItem/A_NavItem.js';
 
 import { A_RightsLink } from './A_RightsLink/A_RightsLink.js';
+// import { A_LanguageMenu } from './A_LanguageMenu/A_LanguageMenu.js';
+
+import { LanguageMenu } from './../../../../../components/LanguageMenu/LanguageMenu.js';
 
 
 const A_TopNavComponent = ( props ) => {
@@ -59,6 +62,8 @@ const A_TopNavComponent = ( props ) => {
             { create() }
 
             <div className = 'A_TopNav_right'>
+
+                <LanguageMenu />
 
                 <A_RightsLink
                     route  = { 'logout' } 

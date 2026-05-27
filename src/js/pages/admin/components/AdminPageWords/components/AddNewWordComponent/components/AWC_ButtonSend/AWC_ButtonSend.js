@@ -5,19 +5,25 @@ import { useDispatch } from 'react-redux';
 
 import './AWC_ButtonSend.scss';
 
-import { selectorData as wordEditSlice } from './../../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as wordEditSlice } from './../../../../../../../../redux/admin/wordEditSlice.js';
+// import { selectorData as languageSlice } from './../../../../../../../../redux//languageSlice.js';
 
-import { OC_ButtonSend } from './../../../../../../../components/OpeningContainer/OC_ButtonSend/OC_ButtonSend.js';
 
-import { MAX_LENGTH } from './../../../../../../../config/words.js';
+import { OC_ButtonSend } from './../../../../../../../../components/OpeningContainer/OC_ButtonSend/OC_ButtonSend.js';
+
+import { MAX_LENGTH } from './../../../../../../../../config/words.js';
+
+import { get_is_ready_status } from './vendors/get_is_ready_status.js';
+import { get_prepared_data } from './vendors/get_prepared_data.js';
 
 const AWC_ButtonSendComponent = ( props ) => {
 
     let {
         isOpen,
         files,
+        word_foreign,
 
-        word_en,
+        // word_en,
         word_ru,
         transcription,
 
@@ -30,21 +36,33 @@ const AWC_ButtonSendComponent = ( props ) => {
 
         if( isOpen ){
 
-            setData( {
+            let isReadyStatus = get_is_ready_status( {
                 files,
-                word_en,
+                word_foreign,
                 word_ru,
                 transcription,
             } );
 
+            setIsReady( isReadyStatus );
+
+            let prepared_data = get_prepared_data({
+                files,
+                word_foreign,
+                word_ru,
+                transcription,
+            });
+
+            setData( prepared_data );
+
         }else{
             setData( {} );
+            setIsReady( false );
         };
 
     }, [ 
         isOpen,
         files,
-        word_en,
+        word_foreign,
         word_ru,
         transcription,
     ] );
@@ -79,7 +97,6 @@ const AWC_ButtonSendComponent = ( props ) => {
                 data =              { data }
                 successCallback =   { successCallback }
                 errorCallback =     { errorCallback }
-            
             />
 
         </div>
@@ -91,14 +108,21 @@ const AWC_ButtonSendComponent = ( props ) => {
 export function AWC_ButtonSend ( props ){
 
     const wordEdit = useSelector( wordEditSlice );
+    // const language = useSelector( languageSlice );
+
+
+    
     const dispatch = useDispatch();
 
     return (
         <AWC_ButtonSendComponent
             { ...props }
-            word_en = { wordEdit.word_en }
+            word_foreign = { wordEdit.word_foreign }
             word_ru = { wordEdit.word_ru }
             transcription = { wordEdit.transcription }
+
+            // transcription = { language.transcription }
+
 
 
             // setFileList = { ( val ) => { dispatch( setFileList( val ) ) } }

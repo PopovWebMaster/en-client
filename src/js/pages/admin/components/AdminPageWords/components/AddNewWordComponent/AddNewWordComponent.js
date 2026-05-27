@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './AddWordComponent.scss';
+import './AddNewWordComponent.scss';
 
 import { selectorData as wordEditSlice, clearWordEdit } from './../../../../../../redux/admin/wordEditSlice.js';
 
@@ -11,19 +11,21 @@ import { ButtonAdd } from './../../../../../../components/ButtonAdd/ButtonAdd.js
 
 import { OpeningContainer } from './../../../../../../components/OpeningContainer/OpeningContainer.js';
 
-import { AWC_WordEn } from './AWC_WordEn/AWC_WordEn.js';
-import { AWC_WordRu } from './AWC_WordRu/AWC_WordRu.js';
-import { AWC_Transcription } from './AWC_Transcription/AWC_Transcription.js';
-import { AWC_AddFile } from './AWC_AddFile/AWC_AddFile.js';
-import { AWC_ButtonSend } from './AWC_ButtonSend/AWC_ButtonSend.js';
+// import { AWC_WordEn } from './AWC_WordEn/AWC_WordEn.js';
+// import { AWC_WordRu } from './AWC_WordRu/AWC_WordRu.js';
+// import { AWC_Transcription } from './AWC_Transcription/AWC_Transcription.js';
+// import { AWC_AddFile } from './AWC_AddFile/AWC_AddFile.js';
+// import { AWC_ButtonSend } from './AWC_ButtonSend/AWC_ButtonSend.js';
+
+import { AWC_WordRu } from './components/AWC_WordRu/AWC_WordRu.js';
+import { AWC_Transcription } from './components/AWC_Transcription/AWC_Transcription.js';
+import { AWC_AddFile } from './components/AWC_AddFile/AWC_AddFile.js';
+import { AWC_ButtonSend } from './components/AWC_ButtonSend/AWC_ButtonSend.js';
+import { AWC_ForeignWord } from './components/AWC_ForeignWord/AWC_ForeignWord.js';
+ 
 
 
-
-
-
-
-
-const AddWordComponentComponent = ( props ) => {
+const AddNewWordComponentComponent = ( props ) => {
 
     let {
         isOpen,
@@ -58,7 +60,7 @@ const AddWordComponentComponent = ( props ) => {
                 setIsOpen =     { setIsOpen }
             >
 
-                <AWC_WordEn 
+                <AWC_ForeignWord
                     isOpen =        { isOpen }
                 />
                 <AWC_WordRu
@@ -75,13 +77,8 @@ const AddWordComponentComponent = ( props ) => {
 
                 <AWC_ButtonSend
                     isOpen =        { isOpen }
-                    files = { files }
+                    files =         { files }
                 />
-
-                
-                
-
-
 
             </OpeningContainer>
             
@@ -93,13 +90,13 @@ const AddWordComponentComponent = ( props ) => {
 };
 
 
-export function AddWordComponent ( props ){
+export function AddNewWordComponent ( props ){
 
     const wordEdit = useSelector( wordEditSlice );
     const dispatch = useDispatch();
 
     return (
-        <AddWordComponentComponent
+        <AddNewWordComponentComponent
             { ...props }
             wordEdit = { wordEdit }
             clearWordEdit = { ( val ) => { dispatch( clearWordEdit( val ) ) } }

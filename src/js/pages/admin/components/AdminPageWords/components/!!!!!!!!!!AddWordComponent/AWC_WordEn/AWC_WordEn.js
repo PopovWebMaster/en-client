@@ -70,12 +70,16 @@ const AWC_WordEnComponent = ( props ) => {
                     isUniq
                 } = resp;
 
-                if( isUniq ){
-                    setChackStatuse( true );
+                if( resp.ok ){
+                    if( isUniq ){
+                        setChackStatuse( true );
+                    }else{
+                        setChackStatuse( null );
+                        setErrorText( 'Это слово уже существует!' );
+                    };
                 }else{
                     setChackStatuse( null );
-                    setErrorText( 'Это слово уже существует!' );
-                };
+                }
             }
         });
 
