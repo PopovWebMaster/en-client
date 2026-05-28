@@ -44,13 +44,17 @@ const AWC_ForeignWordComponent = ( props ) => {
 
     useEffect( () => {
         if( isOpen ){
+            if( word_foreign === '' ){
+                setErrorText( '' );
+                setChackStatuse( null );
+            };
             
         }else{
             setErrorText( '' );
             setChackStatuse( null );
         };
 
-    }, [ isOpen ] );
+    }, [ isOpen, word_foreign ] );
 
     const setValue = ( val ) => {
         if( val.trim() === '' ){

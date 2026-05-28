@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import './AWC_AddFile.scss';
 
-import { selectorData as wordEditSlice } from './../../../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as wordEditSlice, setFiles } from './../../../../../../../../redux/admin/wordEditSlice.js';
 
 import { OC_InputFiles } from './../../../../../../../../components/OpeningContainer/OC_InputFiles/OC_InputFiles.js';
 
@@ -16,6 +16,7 @@ const AWC_AddFileComponent = ( props ) => {
     let {
         // FileList,
         // setFileList,
+        files,
         setFiles,
 
         isOpen,
@@ -27,16 +28,19 @@ const AWC_AddFileComponent = ( props ) => {
     useEffect( () => {
 
         if( isOpen ){
+            if( files.length === 0 ){
+                setFileNamesList( [] );
+            };
 
         }else{
             setFileNamesList( [] );
         };
 
-    }, [ isOpen ] );
+    }, [ isOpen, files ] );
 
-    const change = ( files ) => {
+    const change = ( files_arr ) => {
 
-        let list = getFileNamesList( files );
+        let list = getFileNamesList( files_arr );
 
         setFileNamesList( list );
 
@@ -50,16 +54,16 @@ const AWC_AddFileComponent = ( props ) => {
         }
 
         let base64List = [];
-        for( let i = 0; i < files.length; i++ ){
+        for( let i = 0; i < files_arr.length; i++ ){
             
 
-            audioToBase64( files[i] ).then( ( result ) => {
-                let name = files[ i ].name;
+            audioToBase64( files_arr[i] ).then( ( result ) => {
+                let name = files_arr[ i ].name;
                 base64List.push( {
                     name: name,
                     base64: result
                 } );
-                if( i + 1 === files.length  ){
+                if( i + 1 === files_arr.length  ){
 
                     // console.dir( 'base64List' );
                     // console.dir( base64List );
@@ -99,6 +103,7 @@ const AWC_AddFileComponent = ( props ) => {
             <OC_InputFiles
                 change = { change }
                 fileNames = { fileNamesList }
+                multiple = { true }
             
             />
 
@@ -119,8 +124,8 @@ export function AWC_AddFile ( props ){
     return (
         <AWC_AddFileComponent
             { ...props }
-            // FileList = { wordEdit.FileList }
-            // setFileList = { ( val ) => { dispatch( setFileList( val ) ) } }
+            files = { wordEdit.files }
+            setFiles = { ( val ) => { dispatch( setFiles( val ) ) } }
 
         />
     );

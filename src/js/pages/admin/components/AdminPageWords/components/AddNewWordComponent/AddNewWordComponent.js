@@ -36,13 +36,13 @@ const AddNewWordComponentComponent = ( props ) => {
 
     } = props;
 
-    let [ files, setFiles ] = useState( [] );
+    // let [ files, setFiles ] = useState( [] );
     
 
     useEffect( () => {
         if( isOpen ){
             clearWordEdit();
-            setFiles( [] );
+            // setFiles( [] );
 
 
         }
@@ -72,12 +72,12 @@ const AddNewWordComponentComponent = ( props ) => {
 
                 <AWC_AddFile
                     isOpen =        { isOpen }
-                    setFiles =      { setFiles }
+                    // setFiles =      { setFiles }
                 />
 
                 <AWC_ButtonSend
                     isOpen =        { isOpen }
-                    files =         { files }
+                    // files =         { files }
                 />
 
             </OpeningContainer>

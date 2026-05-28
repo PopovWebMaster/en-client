@@ -8,7 +8,7 @@ import './AWC_WordRu.scss';
 import { selectorData as wordEditSlice, setWordRu } from './../../../../../../../../redux/admin/wordEditSlice.js';
 
 import { OC_Input } from './../../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
-import { MAX_LENGTH } from './../../../../../../../../config/words.js';
+import { MAX_LENGTH, REGEX } from './../../../../../../../../config/words.js';
 
 
 const AWC_WordRuComponent = ( props ) => {
@@ -24,16 +24,18 @@ const AWC_WordRuComponent = ( props ) => {
 
     const setValue = ( val ) => {
 
-        if( val.length > 5 ){
-
-            setErrorText( 'Здесь какой то очень очень длинный текст, который блядь обязательно надо написать именно такоим пиздец каким длинным Здесь какой то очень очень длинный текст, который блядь обязательно надо написать именно такоим пиздец каким длинным' );
-
-        }else{
-            setErrorText( '' );
-        }
+         if( val.trim() === '' ){
             setWordRu( val );
-        
+        }else{
+             if( REGEX.RU.test( val ) ){
+                if( val.length <= MAX_LENGTH.RU ){
+                    setWordRu( val );
+                };
+            };
+        };
 
+        setErrorText( '' );
+        
     };
 
 
@@ -43,11 +45,11 @@ const AWC_WordRuComponent = ( props ) => {
         <div className = 'AWC_WordRu'>
 
             <OC_Input 
-                title =         'Русское'
+                title =         'Русский'
                 value =         { word_ru }
                 setValue =      { setValue }
 
-                isRequired =    { true }
+                isRequired =    { false }
                 max = { MAX_LENGTH.RU }
 
                 errorText = { errorText }

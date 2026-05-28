@@ -11,6 +11,7 @@ export const wordEditSlice = createSlice({
 
         word_ru: '',
         transcription: '',
+        files: [],
 
         // FileList: [],
         
@@ -27,6 +28,7 @@ export const wordEditSlice = createSlice({
             state.word_foreign =  '';
             state.word_ru =  '';
             state.transcription =  '';
+            state.files = [];
             // state.FileList = [];
 
 
@@ -49,6 +51,13 @@ export const wordEditSlice = createSlice({
             state.transcription =  action.payload;
         },
 
+        setFiles: ( state, action ) => {
+            state.files =  action.payload;
+        },
+
+
+        
+
         // setFileList: ( state, action ) => {
         //     state.FileList =  action.payload;
         // },
@@ -65,6 +74,7 @@ export const {
     setWordForeign,
     setWordRu,
     setTranscription,
+    setFiles,
     // setFileList,
 
    
@@ -79,6 +89,10 @@ export const selectorData = ( state ) => {
         word_foreign:             state.wordEdit.word_foreign,
         word_ru:                  state.wordEdit.word_ru,
         transcription:            state.wordEdit.transcription,
+        files:                      state.wordEdit.files,
+
+
+        
         // FileList:            state.wordEdit.FileList,
 
 

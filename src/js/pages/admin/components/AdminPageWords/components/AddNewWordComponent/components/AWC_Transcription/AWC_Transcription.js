@@ -49,7 +49,7 @@ const AWC_TranscriptionComponent = ( props ) => {
                 value =         { transcription }
                 setValue =      { setValue }
 
-                isRequired =    { true }
+                isRequired =    { false }
                 max = { MAX_LENGTH.TRANSCRIPTION }
 
                 errorText = { errorText }

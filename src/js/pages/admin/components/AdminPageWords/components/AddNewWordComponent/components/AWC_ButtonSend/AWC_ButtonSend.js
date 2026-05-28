@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import './AWC_ButtonSend.scss';
 
-import { selectorData as wordEditSlice } from './../../../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as wordEditSlice, clearWordEdit } from './../../../../../../../../redux/admin/wordEditSlice.js';
 // import { selectorData as languageSlice } from './../../../../../../../../redux//languageSlice.js';
 
 
@@ -26,6 +26,7 @@ const AWC_ButtonSendComponent = ( props ) => {
         // word_en,
         word_ru,
         transcription,
+        clearWordEdit,
 
     } = props;
 
@@ -71,9 +72,11 @@ const AWC_ButtonSendComponent = ( props ) => {
     
 
     const successCallback = ( resp ) => {
-
         console.dir( 'resp' );
         console.dir( resp );
+
+        clearWordEdit();
+        
 
     };
 
@@ -120,12 +123,10 @@ export function AWC_ButtonSend ( props ){
             word_foreign = { wordEdit.word_foreign }
             word_ru = { wordEdit.word_ru }
             transcription = { wordEdit.transcription }
-
-            // transcription = { language.transcription }
-
+            files = { wordEdit.files }
 
 
-            // setFileList = { ( val ) => { dispatch( setFileList( val ) ) } }
+            clearWordEdit = { ( val ) => { dispatch( clearWordEdit( val ) ) } }
 
         />
     );

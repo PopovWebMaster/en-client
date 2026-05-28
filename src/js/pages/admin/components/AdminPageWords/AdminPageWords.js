@@ -11,6 +11,7 @@ import { selectorData as languageSlice } from './../../../../redux/languageSlice
 import { AdminPageContainer } from './../AdminPageContainer/AdminPageContainer.js';
 
 import { AddNewWord } from './components/AddNewWord/AddNewWord.js';
+import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
 
 
 
@@ -20,18 +21,19 @@ const AdminPageWordsComponent = ( props ) => {
         languageKeyName
     } = props;
 
-    const create = () => {
-
-    }
-
 
     return (
         <AdminPageContainer>
+            <GetStartingAdminDataFromServer 
+                what_to_take = { [
+                    'wordList',
+                    'aaa',
+                ] }
+            >
 
-            <AddNewWord />
-            
+                <AddNewWord />
 
-
+            </GetStartingAdminDataFromServer>
         </AdminPageContainer>
     )
 
