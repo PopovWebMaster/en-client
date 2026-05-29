@@ -1,11 +1,11 @@
 
-import React, { useRef, useState, useEffect }   from "react";
+import React, { useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './AddNewWordComponent.scss';
 
-import { selectorData as wordEditSlice, clearWordEdit } from './../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as wordEditSlice, clearWordEdit, setNewWordContainerIsOpen } from './../../../../../../redux/admin/wordEditSlice.js';
 
 import { ButtonAdd } from './../../../../../../components/ButtonAdd/ButtonAdd.js';
 
@@ -31,52 +31,65 @@ const AddNewWordComponentComponent = ( props ) => {
         isOpen,
         setIsOpen,
 
-        wordEdit,
+        newWordContainerIsOpen,
         clearWordEdit,
+        setNewWordContainerIsOpen,
 
     } = props;
 
-    // let [ files, setFiles ] = useState( [] );
+    let [ top, setTop ] = useState( 0 );
     
 
     useEffect( () => {
-        if( isOpen ){
+        if( newWordContainerIsOpen ){
             clearWordEdit();
-            // setFiles( [] );
+            let elem = document.querySelector( '.A_TopButtonsContainer' );
+            let { height, paddingTop, paddingBottom, fontSize } = window.getComputedStyle( elem );
+            let height_em = ( parseFloat( height ) + parseFloat( paddingTop ) + parseFloat( paddingTop ) + parseFloat( paddingBottom ) ) / parseFloat( fontSize )
 
+            setTop( height_em - 0.5 );
 
+        }else{
+            setTop( 0 );
         }
 
-    }, [ isOpen ] );
+    }, [ newWordContainerIsOpen ] );
 
     
 
     return (
-        <div className = 'addWord'>
+        <div 
+            className = 'addNewWordComponent'
+            style = {{
+                top: `${top}em`,
+                // top: `0`,
+
+            }}
+        >
 
             <OpeningContainer
                 title =         'Новое слово'
-                isOpen =        { isOpen }
-                setIsOpen =     { setIsOpen }
+                isOpen =        { newWordContainerIsOpen }
+                setIsOpen =     { setNewWordContainerIsOpen }
             >
 
                 <AWC_ForeignWord
-                    isOpen =        { isOpen }
+                    isOpen =        { newWordContainerIsOpen }
                 />
                 <AWC_WordRu
-                    isOpen =        { isOpen }
+                    isOpen =        { newWordContainerIsOpen }
                 />
                 <AWC_Transcription 
-                    isOpen =        { isOpen }
+                    isOpen =        { newWordContainerIsOpen }
                 />
 
                 <AWC_AddFile
-                    isOpen =        { isOpen }
+                    isOpen =        { newWordContainerIsOpen }
                     // setFiles =      { setFiles }
                 />
 
                 <AWC_ButtonSend
-                    isOpen =        { isOpen }
+                    isOpen =        { newWordContainerIsOpen }
                     // files =         { files }
                 />
 
@@ -99,7 +112,13 @@ export function AddNewWordComponent ( props ){
         <AddNewWordComponentComponent
             { ...props }
             wordEdit = { wordEdit }
+            newWordContainerIsOpen = { wordEdit.newWordContainerIsOpen }
+
             clearWordEdit = { ( val ) => { dispatch( clearWordEdit( val ) ) } }
+            setNewWordContainerIsOpen = { ( val ) => { dispatch( setNewWordContainerIsOpen( val ) ) } }
+
+
+            
 
         />
     );

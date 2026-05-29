@@ -9,30 +9,47 @@ import { selectorData as languageSlice } from './../../../../redux/languageSlice
 
 
 import { AdminPageContainer } from './../AdminPageContainer/AdminPageContainer.js';
+import { A_TopButtonsContainer } from './../AdminPageContainer/A_TopButtonsContainer/A_TopButtonsContainer.js';
 
 import { AddNewWord } from './components/AddNewWord/AddNewWord.js';
 import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
+import { FreeWordsList } from './components/FreeWordsList/FreeWordsList.js';
 
+// import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponent.js';
+import { AddNewWordComponent } from './components/AddNewWordComponent/AddNewWordComponent.js';
+import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges.js';
 
 
 const AdminPageWordsComponent = ( props ) => {
 
     let {
-        languageKeyName
+        languageKeyName,
+
     } = props;
+    let what_to_take = [
+        'wordList',
+                    'aaa',
+    ];
 
 
     return (
         <AdminPageContainer>
             <GetStartingAdminDataFromServer 
-                what_to_take = { [
-                    'wordList',
-                    'aaa',
-                ] }
+                what_to_take =      { what_to_take}
+                currentLessonId =   { null }
             >
+                <A_TopButtonsContainer>
 
-                <AddNewWord />
+                    <AddNewWord />
+                    <SaveWordsChanges />
 
+                </A_TopButtonsContainer>
+
+                <AddNewWordComponent />
+
+                <FreeWordsList />
+
+               
             </GetStartingAdminDataFromServer>
         </AdminPageContainer>
     )

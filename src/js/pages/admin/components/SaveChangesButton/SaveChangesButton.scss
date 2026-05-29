@@ -1,0 +1,86 @@
+.saveChangesButton_wrap{
+    font-size: 1em;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+    margin: 0.2em 0.5em;
+
+    transition: width .1s ease-in-out, opacity .3s ease-in-out;
+
+    .saveChangesButton{
+        font-size: 1em;
+
+        // width: 8em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background-color: #ec8181;
+        padding: 0.32em 0.64em;
+        border-radius: 0.1em;
+        border: 1px solid #ec8181;
+
+        cursor: pointer;
+        user-select: none;
+
+        // margin: 0.2em 1em;
+
+        .SCB_icon{
+            font-size: 1em;
+            // margin-right: 0.32em;
+            padding: 0;
+            // width: 1.2em;
+
+            color: #ffffff;
+        }
+        .SCB_title{
+            font-size: 1em;
+            color: #ffffff;
+            margin-left: 0.32em;
+
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+    }
+
+
+    .saveChangesButton:hover{
+        background-color: #d47070;
+        // border: 1px solid #2c7d67;
+    }
+
+    .saveChangesButton:active{
+        background-color: #ec8181;
+        // border: 1px solid #215f4e;
+        .SCB_title{
+            color: #f5caca;
+        }
+    }
+
+    .saveChangesButton.isWaiting{
+        background-color: #ababab;
+        border: 1px solid #aba9a9;
+        cursor: default;
+    }
+    .saveChangesButton.isWaiting:hover{
+        background-color: #ababab;
+        border: 1px solid #aba9a9;
+    }
+
+    .saveChangesButton.isWaiting:active{
+        background-color: #ababab;
+        border: 1px solid #aba9a9;
+        .SCB_title{
+            color: #ffffff;
+        }
+    }
+
+
+
+}
+.saveChangesButton_wrap.isChenges{
+    width: 7.2em;
+    opacity: 1;
+}

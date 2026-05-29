@@ -4,11 +4,10 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './AddNewWord.scss';
+import { selectorData as wordEditSlice, setNewWordContainerIsOpen } from './../../../../../../redux/admin/wordEditSlice.js';
 
 import { ButtonAdd } from './../../../../../../components/ButtonAdd/ButtonAdd.js';
-// import { AddWordComponent } from './../AddWordComponent/AddWordComponent.js';
 
-// import { AddNewWordContainer } from './../AddNewWordContainer/AddNewWordContainer.js';
 import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponent.js';
 
 
@@ -18,13 +17,13 @@ import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponen
 const AddNewWordComponent_ = ( props ) => {
 
     let {
-
+        newWordContainerIsOpen,
+        setNewWordContainerIsOpen,
     } = props;
 
-    let [ isOpen, setIsOpen ] = useState( true );
     
     const click = () => {
-        setIsOpen( true );
+        setNewWordContainerIsOpen( !newWordContainerIsOpen );
     }
 
     return (
@@ -39,11 +38,6 @@ const AddNewWordComponent_ = ( props ) => {
                 />
             </div>
 
-            <AddNewWordComponent
-                isOpen =    { isOpen }
-                setIsOpen = { setIsOpen }
-            />
-
         </div>
     )
 
@@ -52,14 +46,14 @@ const AddNewWordComponent_ = ( props ) => {
 
 export function AddNewWord( props ){
 
-    // const userInfo = useSelector( userInfoSlice );
-    // const dispatch = useDispatch();
+    const wordEdit = useSelector( wordEditSlice );
+    const dispatch = useDispatch();
 
     return (
         <AddNewWordComponent_
             { ...props }
-            // userInfo = { userInfo }
-            // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
+            newWordContainerIsOpen = { wordEdit.newWordContainerIsOpen }
+            setNewWordContainerIsOpen = { ( val ) => { dispatch( setNewWordContainerIsOpen( val ) ) } }
 
         />
     );
