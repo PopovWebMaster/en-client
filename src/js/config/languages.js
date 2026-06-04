@@ -3,6 +3,15 @@ import { get_icon_image_puth } from './../helpers/get_icon_image_puth.js';
 
 export const LANGUAGES = {
 
+    RU: {
+        name: 'Русский',
+        alias: 'ru',
+        icon: get_icon_image_puth( 'rurussiaflag_111751.png' ),
+        keyName: 'EN',
+        regex: /^[а-яА-ЯёЁ,.'!?:;()-\s]+$/,
+        max: 80,
+    },
+
     EN: {
         name: 'Английский',
         alias: 'en',

@@ -1,0 +1,28 @@
+.oneWordEditor{
+    font-size: 1em;
+    margin: 0.3em 0;
+    border-radius: 0.1em;
+    border: 1px solid #e0e9f5;
+    background-color: #f1f1f1;
+
+    .OWE_line_1{
+        font-size: 1em;
+        padding: 0.2em 0.5em 0.1em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .OWE_line_2{
+        font-size: 1em;
+        padding: 0.1em 0.5em 0.2em 4.6em;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+}
+
+.oneWordEditor:has( .OWE_ReadyStatus.readyStatus ){
+    border: 1px solid #c3d4ec;
+    background-color: #f1f5fa;
+}

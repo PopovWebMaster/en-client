@@ -1,0 +1,79 @@
+.OWE_WordInput{
+    font-size: 1em;
+    padding: 0 0.2em 0 0.6em;
+
+    // .OWE_WordInput_title{
+    //     font-size: 0.9em;
+    //     color: #355fb1;
+    //     margin-bottom: -0.2em;
+    //     text-indent: 1em;
+    //     font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    // }
+
+    .OWE_Input_inp_wrap{
+
+        .OWE_WordInput_inp{
+            font-size: 0.9em;
+            text-align: left;
+            padding: .4em 0.4em;
+            margin: 0.26em 0;
+            margin: 0.1em 0;
+
+            text-indent: 1.4em;
+            line-height: 1.2em;
+            background-color: #f7f7f6;
+            border: 1px solid #cccccc;
+            outline: none;
+            // width: calc( 100% - 0.8em );
+            flex-grow: 1;
+            max-width: 100%;
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+            color: #363636;
+        }
+
+        .OWE_WordInput_inp:focus{
+            background-color: #ffffff;
+            border: 1px solid #959595;
+        }
+
+        input::placeholder {
+            color: #9f9c9c;
+            font-family: 'Trebuchet MS', Helvetica, sans-serif;
+
+        }
+
+    }
+
+    
+
+    .OWE_WordInput_err{
+        font-size: 0.7em;
+        display: none;
+        color: #e23d3d;
+        line-height: 1.2em;
+        padding: 0.3em 3em 0.3em 1em;
+        text-indent: 1em;
+        margin-top: -0.5em;
+        border-radius: 0.1em;
+
+        font-family: Verdana, Geneva, sans-serif;
+    }
+}
+
+.OWE_WordInput.OWE_Input_error{
+    padding-bottom: 0.5em;
+    .OWE_WordInput_inp{
+        border-color: #e23d3d;
+
+       
+    }
+    .OWE_WordInput_inp:focus{
+        // background-color: #ffffff;
+        border: 1px solid #e23d3d;
+
+        }
+
+    .OWE_WordInput_err{
+        display: block;
+    }
+}
