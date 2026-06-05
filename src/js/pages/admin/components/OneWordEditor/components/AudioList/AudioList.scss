@@ -1,18 +1,156 @@
 .OFW_AudioList{
     font-size: 1em;
 
-    span{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+    h4{
         font-size: 0.8em;
-        color: #205192;
+        color: #a4a4a4;
         margin: 0.2em 0.5em 0.2em;
-        cursor: pointer;
-        user-select: none;
     }
 
-    span:hover{
-        text-decoration: underline;
+    .OFW_AudioList_add{
+        font-size: 1em;
+        background-color: #ccded9;
+        height: 1.2em;
+        width: 1.3em;
+
+        border-radius: 0.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        cursor: pointer;
+        user-select: none;
+        
+
+        span{
+            font-size: 0.8em;
+            color: #5c7b80;
+            padding: 0.2em 0 0em 0em;
+        }
+
+        >.hiddenInput{
+            display: none;
+        }
+
     }
-    span:active{
-        color: #4987d8;
+
+    .OFW_AudioList_add:hover{
+        background-color: #87e3c9;
+        span{
+            color: #525c5e;
+        }
     }
+    .OFW_AudioList_add:active{
+        span{
+            color: #b49c80;
+        }
+    }
+
+    .OFW_AudioList_item{
+        font-size: 1em;
+        // background-color: #ccded9;
+        padding: 0.1em 0.5em;
+        margin: 0.1em 0.5em;
+       
+        border-radius: 0.1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: relative;
+
+        cursor: pointer;
+        user-select: none;
+        
+
+        .OFW_AudioList_fileName{
+            font-size: 0.8em;
+            color: #205192;
+            margin: 0.2em 0.5em 0.2em;
+        }
+
+        .OFW_AudioList_fileName:hover{
+            text-decoration: underline;
+        }
+
+        .OFW_AudioList_fileName:active{
+            color: #4987d8;
+        }
+
+
+        .OFW_AudioList_cancel{
+            font-size: 0.76em;
+            position: absolute;
+            top: -0.8em;
+            right: -0.9em;
+            // background-color: red;
+            color: #ff6666;
+            border-radius: 0.2em;
+
+            display: none;
+
+            cursor: pointer;
+            user-select: none;
+
+            padding: 0.3em 0.1em 0.1em;
+
+
+        }
+
+        .OFW_AudioList_cancel:hover{
+            background-color: red;
+            color: rgb(255, 255, 255);
+        }
+
+        .OFW_AudioList_cancel:active{
+            background-color: rgb(247, 95, 95);
+            color: rgb(248, 203, 203);
+        }
+    }
+
+    .OFW_AudioList_item:hover{
+        background-color: #cce0e7;
+        // .OFW_AudioList_fileName{
+        //     text-decoration: underline;
+        // }
+        .OFW_AudioList_cancel{
+            display: inline-block;
+        }
+    }
+
+    .OFW_AudioList_item:active{
+        // .OFW_AudioList_fileName{
+        //     color: #4987d8;
+        // }
+    }
+
+
+
+
+
+
+
+
+
+
+    // >span{
+    //     font-size: 0.8em;
+    //     color: #205192;
+    //     margin: 0.2em 0.5em 0.2em;
+    //     cursor: pointer;
+    //     user-select: none;
+    // }
+
+    // >span:hover{
+    //     text-decoration: underline;
+    // }
+    // >span:active{
+    //     color: #4987d8;
+    // }
 }

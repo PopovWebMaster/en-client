@@ -6,17 +6,23 @@ import { useDispatch } from 'react-redux';
 
 import './WordForeign.scss';
 import { selectorData as languageSlice } from './../../../../../../redux/languageSlice.js';
+import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
+
 
 import { WordInput } from './../WordInput/WordInput.js';
 import { LANGUAGES } from './../../../../../../config/languages.js';
+
+import { word_foreign_is_valid } from './../../../../../../helpers/word_foreign_is_valid.js';
 
 
 
 const WordForeignComponent = ( props ) => {
 
     let {
-        languageKeyName,
         wordId,
+
+        languageKeyName,
+        wordListById,
 
     } = props;
     let [ value, setValue ] = useState( '' );
@@ -24,10 +30,31 @@ const WordForeignComponent = ( props ) => {
     let [ chackStatuse, setChackStatuse ] = useState( null );
 
     useEffect( () => {
-        if( value.length === 10 ){
-            setErrorText( 'Здесь какой то длинный текст с сообщением об ошибке sdds Здесь какой то длинный текст с сообщением об ошибке Здесь какой то длинный текст с сообщением об ошибке' );
+        if( wordListById[ wordId ] ){
+            let { foreign } = wordListById[ wordId ];
+            setValue( foreign );
+
         }else{
-             setErrorText( '' );
+            setValue( '' );
+        };
+
+
+    }, [ wordId, wordListById ] );
+
+
+
+
+    useEffect( () => {
+
+        if( value.trim() === '' ){
+            setErrorText( '' );
+        }else{
+            let isValid = word_foreign_is_valid( value );
+            if( isValid ){
+                setErrorText( '' );
+            }else{
+                setErrorText( 'Есть запрещённые символы' );
+            };
         };
 
     }, [ value ] );
@@ -44,7 +71,7 @@ const WordForeignComponent = ( props ) => {
             <WordInput
                 value =         { value }
                 keyName =       { languageKeyName }
-                max =           { 10 }
+                max =           { LANGUAGES[ languageKeyName ].max }
                 setValue =      { setValue }
                 errorText =     { errorText }
                 setErrorText =  { setErrorText }
@@ -62,12 +89,17 @@ const WordForeignComponent = ( props ) => {
 export function WordForeign( props ){
 
     const language = useSelector( languageSlice );
+    const words = useSelector( wordsSlice );
+
+
     // const dispatch = useDispatch();
 
     return (
         <WordForeignComponent
             { ...props }
             languageKeyName = { language.languageKeyName }
+            wordListById = { words.wordListById }
+
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

@@ -51,9 +51,24 @@ const WordInputComponent = ( props ) => {
         
     }
 
+    const getContentStyle = ( val, key_name ) => {
+        let result = 'OWE_foreign';
+        if( key_name === 'RU' ){
+            result = 'OWE_ru';
+        }else if( key_name === 'TRANSCRIPTION' ){
+            result = 'OWE_transcription';
+        };
+
+        if( val.trim() === '' ){
+            result = result + ' OWE_empty'
+        };
+
+        return result;
+    }
+
 
     return (
-        <div className = { `OWE_WordInput ${ errorText !== ''? 'OWE_Input_error': ''}` }>
+        <div className = { `OWE_WordInput ${ errorText !== ''? 'OWE_Input_error': ''} ${ getContentStyle( value, keyName ) }` }>
 
             <OWE_InputChackStatusWrap
                 chackStatuse = { chackStatuse }

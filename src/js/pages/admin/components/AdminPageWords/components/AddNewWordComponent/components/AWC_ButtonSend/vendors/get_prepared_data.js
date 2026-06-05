@@ -23,7 +23,7 @@ export const get_prepared_data = ( data ) => {
         word_foreign: null,
         word_ru: make_fit_format_word_ru( word_ru ),
         transcription: make_fit_format_transcription( transcription ),
-        kayName: languageKeyName,
+        keyName: languageKeyName,
     };
 
     if( languageKeyName === 'EN' ){

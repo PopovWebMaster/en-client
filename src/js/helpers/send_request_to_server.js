@@ -5,7 +5,7 @@
 
 let sendCount = 0;
 
-export const send_request_to_server = ( params ) => {
+export const send_request_to_server = ( params, withWaiting = false ) => {
     let {
         route,
         data,
@@ -58,6 +58,16 @@ export const send_request_to_server = ( params ) => {
 
     const send = async () => {
 
+        if( withWaiting ){
+
+            let elem = document.createElement( 'div' );
+            elem.id = 'totalWaiting';
+            let app = document.getElementById( 'app' );
+
+            app.append( elem );
+
+        };
+
         console.dir({
             headers,
             url,
@@ -80,6 +90,13 @@ export const send_request_to_server = ( params ) => {
                 let data_respons = await response.json();
                 successCallback( data_respons );
                 sendCount = 0;
+
+                let totalWaiting = document.getElementById( 'totalWaiting' );
+                if( totalWaiting ){
+                    totalWaiting.remove();
+                };
+
+
             }else{
 
                 // // send();
@@ -91,6 +108,10 @@ export const send_request_to_server = ( params ) => {
                 // };
 
                 errorCallback( response );
+               let totalWaiting = document.getElementById( 'totalWaiting' );
+                if( totalWaiting ){
+                    totalWaiting.remove();
+                };
             };
 
         } catch (error) {
@@ -113,6 +134,10 @@ export const send_request_to_server = ( params ) => {
                 data,
             });
             console.log('');
+            let totalWaiting = document.getElementById( 'totalWaiting' );
+            if( totalWaiting ){
+                totalWaiting.remove();
+            };
         };
 
     };

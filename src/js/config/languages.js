@@ -8,7 +8,7 @@ export const LANGUAGES = {
         alias: 'ru',
         icon: get_icon_image_puth( 'rurussiaflag_111751.png' ),
         keyName: 'EN',
-        regex: /^[а-яА-ЯёЁ,.'!?:;()-\s]+$/,
+        regex: /^[а-яА-ЯёЁ1-9,.'!?:;()-\s]+$/,
         max: 80,
     },
 
@@ -17,7 +17,7 @@ export const LANGUAGES = {
         alias: 'en',
         icon: get_icon_image_puth( 'uk_flags_flag_8834.png' ),
         keyName: 'EN',
-        regex: /^[a-zA-Z,.'!?:;()-\s]+$/,
+        regex: /^[a-zA-Z1-9,.'!?:;()-\s]+$/,
         max: 80,
     },
 
@@ -26,7 +26,7 @@ export const LANGUAGES = {
         alias: 'de',
         icon: get_icon_image_puth( 'Germany_29761.png' ),
         keyName: 'DE',
-        regex: /^[a-zA-Z,.'!?:;()-\s]+$/,
+        regex: /^[a-zA-Z1-9,.'!?:;()-\s]+$/,
         max: 80,
     },
 
@@ -35,7 +35,7 @@ export const LANGUAGES = {
         alias: 'cn',
         icon: get_icon_image_puth( 'cnchinaflag_111955.png' ),
         keyName: 'CN',
-        regex: /^[a-zA-Z,.'!?:;()-\s]+$/,
+        regex: /^[a-zA-Z1-9,.'!?:;()-\s]+$/,
         max: 80,
     },
 
@@ -44,7 +44,17 @@ export const LANGUAGES = {
         alias: 'fr',
         icon: get_icon_image_puth( 'frfranceflag_111874.png' ),
         keyName: 'FR',
-        regex: /^[a-zA-Z,.'!?:;()-\s]+$/,
+        regex: /^[a-zA-Z1-9,.'!?:;()-\s]+$/,
+        max: 80,
+    },
+
+    TRANSCRIPTION: {
+        name: 'Транскрипция',
+        alias: 'transcription',
+        // icon: get_icon_image_puth( 'rurussiaflag_111751.png' ),
+        icon: '',
+        keyName: 'TRANSCRIPTION',
+        regex: /^[a-zA-Zа-яА-ЯёЁ1-9,.'\[\]!?:;()-\s]+$/,
         max: 80,
     },
 

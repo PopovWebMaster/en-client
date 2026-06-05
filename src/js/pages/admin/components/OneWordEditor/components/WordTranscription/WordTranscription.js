@@ -5,8 +5,12 @@ import { useDispatch } from 'react-redux';
 
 import './WordTranscription.scss';
 
+import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
+
 import { WordInput } from './../WordInput/WordInput.js';
 import { LANGUAGES } from './../../../../../../config/languages.js';
+
+import { word_transcription_is_valid } from './../../../../../../helpers/word_transcription_is_valid.js';
 
 
 
@@ -15,23 +19,40 @@ const WordTranscriptionComponent = ( props ) => {
     let {
         wordId,
 
+        wordListById,
+
     } = props;
 
     let [ value, setValue ] = useState( '' );
     let [ errorText, setErrorText ] = useState( '' );
 
     useEffect( () => {
-            if( value.length === 10 ){
-                setErrorText( 'Здесь какой то длинный текст с сообщением об ошибке' );
+        if( wordListById[ wordId ] ){
+            let { transcription } = wordListById[ wordId ];
+            setValue( transcription );
+
+        }else{
+            setValue( '' );
+        };
+
+    }, [ wordId, wordListById ] );
+
+    useEffect( () => {
+        if( value.trim() === '' ){
+            setErrorText( '' );
+        }else{
+            let isValid = word_transcription_is_valid( value );
+            if( isValid ){
+                setErrorText( '' );
             }else{
-                    setErrorText( '' );
+                setErrorText( 'Есть запрещённые символы' );
             };
-    
-        }, [ value ] );
-    
-        const blur = () => {
-    
-        }
+        };
+    }, [ value ] );
+
+    const blur = () => {
+
+    }
 
 
 
@@ -40,12 +61,13 @@ const WordTranscriptionComponent = ( props ) => {
             
             <WordInput
                 value =         { value }
-                max =           { 10 }
+                keyName =       { 'TRANSCRIPTION' }
+                max =           { LANGUAGES[ 'TRANSCRIPTION' ].max }
                 setValue =      { setValue }
                 errorText =     { errorText }
                 setErrorText =  { setErrorText }
                 blur =          { blur }
-                placeholder =   { '[транскрипция]' }
+                placeholder =   { `[${ LANGUAGES[ 'TRANSCRIPTION' ].name }]` }
             />
         </div>
     )
@@ -55,13 +77,13 @@ const WordTranscriptionComponent = ( props ) => {
 
 export function WordTranscription( props ){
 
-    // const userInfo = useSelector( userInfoSlice );
+    const words = useSelector( wordsSlice );
     // const dispatch = useDispatch();
 
     return (
         <WordTranscriptionComponent
             { ...props }
-            // userInfo = { userInfo }
+            wordListById = { words.wordListById }
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

@@ -77,3 +77,39 @@
         display: block;
     }
 }
+
+.OWE_WordInput.OWE_foreign{
+    .OWE_Input_inp_wrap{
+        .OWE_WordInput_inp{
+            color: #479613;
+        }
+    }
+
+}
+
+.OWE_WordInput.OWE_ru{
+    .OWE_Input_inp_wrap{
+        .OWE_WordInput_inp{
+            color: #1e3599;
+        }
+    }
+}
+
+.OWE_WordInput.OWE_transcription{
+    .OWE_Input_inp_wrap{
+        .OWE_WordInput_inp{
+            color: #414141;
+        }
+    }
+}
+
+.OWE_WordInput.OWE_empty{
+    .OWE_Input_inp_wrap{
+        .OWE_WordInput_inp{
+            background-color: #ffeded;
+            border: 1px solid #eca0a0;
+        }
+    }
+}
+
+

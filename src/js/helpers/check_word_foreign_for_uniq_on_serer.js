@@ -16,7 +16,7 @@ export const check_word_foreign_for_uniq_on_serer = ( params ) => {
         route: 'admin/chack-word-foreign-for-uniq',
         data: {
             word_foreign,
-            kayName: languageKeyName,
+            keyName: languageKeyName,
 
         },
         successCallback: ( response ) => {

@@ -6,6 +6,7 @@ import React, { useState, useEffect, useRef } from "react";
 import './OC_InputFiles.scss';
 
 import { get_file_names_list } from './vendors/get_file_names_list.js';
+import { AUDIO_FORMATS } from './../../../config/audio.js';
 
 
 const OC_InputFilesComponent = ( props ) => {
@@ -26,7 +27,9 @@ const OC_InputFilesComponent = ( props ) => {
 
     const click = () => {
 
-        let accept = [ '.mp3', '.mov' ];
+        // let accept = [ '.mp3', '.mov' ];
+        let accept = AUDIO_FORMATS;
+
         let input = inpRef.current;
         input.setAttribute('accept', accept.join(',') );
         input.click();

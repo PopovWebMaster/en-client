@@ -5,9 +5,12 @@ import { useDispatch } from 'react-redux';
 
 import './WordRu.scss';
 
+import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
+
 import { WordInput } from './../WordInput/WordInput.js';
 import { LANGUAGES } from './../../../../../../config/languages.js';
 
+import { word_ru_is_valid } from './../../../../../../helpers/word_ru_is_valid.js';
 
 
 const WordRuComponent = ( props ) => {
@@ -15,26 +18,43 @@ const WordRuComponent = ( props ) => {
     let {
         wordId,
 
+        wordListById,
+
     } = props;
 
     let [ value, setValue ] = useState( '' );
     let [ errorText, setErrorText ] = useState( '' );
     let [ chackStatuse, setChackStatuse ] = useState( null );
 
+     useEffect( () => {
+        if( wordListById[ wordId ] ){
+            let { ru } = wordListById[ wordId ];
+            setValue( ru );
+
+        }else{
+            setValue( '' );
+        };
+
+
+    }, [ wordId, wordListById ] );
 
 
     useEffect( () => {
-            if( value.length === 10 ){
-                setErrorText( 'Здесь какой то длинный текст с сообщением об ошибке' );
+        if( value.trim() === '' ){
+            setErrorText( '' );
+        }else{
+            let isValid = word_ru_is_valid( value );
+            if( isValid ){
+                setErrorText( '' );
             }else{
-                 setErrorText( '' );
+                setErrorText( 'Есть запрещённые символы' );
             };
-    
-        }, [ value ] );
-    
-        const blur = () => {
-    
-        }
+        };
+    }, [ value ] );
+
+    const blur = () => {
+
+    }
 
 
 
@@ -44,7 +64,7 @@ const WordRuComponent = ( props ) => {
             <WordInput
                 value =         { value }
                 keyName =       { 'RU' }
-                max =           { 10 }
+                max =           { LANGUAGES[ 'RU' ].max }
                 setValue =      { setValue }
                 errorText =     { errorText }
                 setErrorText =  { setErrorText }
@@ -60,13 +80,14 @@ const WordRuComponent = ( props ) => {
 
 export function WordRu( props ){
 
-    // const userInfo = useSelector( userInfoSlice );
+    const words = useSelector( wordsSlice );
     // const dispatch = useDispatch();
 
     return (
         <WordRuComponent
             { ...props }
-            // userInfo = { userInfo }
+            
+            wordListById = { words.wordListById }
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

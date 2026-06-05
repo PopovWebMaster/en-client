@@ -30,7 +30,7 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
             route: 'admin/get-starting-data',
             data: {
                 what_to_take,
-                kayName: languageKeyName,
+                keyName: languageKeyName,
                 lessonId: currentLessonId,
             },
             successCallback: ( resp ) => {
