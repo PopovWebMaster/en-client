@@ -17,7 +17,7 @@ export const set_focus_for_input = ( elem, where = 'next' ) => { // where = 'nex
                 if( listElem[ i + 1 ] ){
                     listElem[ i + 1 ].focus();
                 }else{
-                    // elem.blur();
+                    listElem[ i ].blur();
                 };
 
             }else if( where === 'preview' ){

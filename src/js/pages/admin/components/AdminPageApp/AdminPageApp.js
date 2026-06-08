@@ -47,12 +47,12 @@ const AdminPageAppComponent = ( props ) => {
 
 
             <Routes>
-                <Route path = { ADMIN_ROUTES.MAIN.ROUTE }               element = { <AdminMainPage /> } />
-                <Route path = { ADMIN_ROUTES.WORDS.ROUTE }              element = { <AdminPageWords /> } />
-                <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE }       element = { <AdminPageDictionaries /> } />
+                <Route path = { ADMIN_ROUTES.MAIN.ROUTE }                   element = { <AdminMainPage /> } />
+                <Route path = { ADMIN_ROUTES.WORDS.ROUTE }                  element = { <AdminPageWords /> } />
+                <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE }           element = { <AdminPageDictionaries /> } />
                 <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE + '/:id' }  element = { <AdminPageEditDictionary /> } />
-                <Route path = { ADMIN_ROUTES.ADD_DICTIONARY.ROUTE }     element = { <AdminPageNewDictionary /> } />
-                <Route path = { ADMIN_ROUTES.ICONS.ROUTE }          element = { <AdminPageIcons /> } />
+                <Route path = { ADMIN_ROUTES.ADD_DICTIONARY.ROUTE }         element = { <AdminPageNewDictionary /> } />
+                <Route path = { ADMIN_ROUTES.ICONS.ROUTE }                  element = { <AdminPageIcons /> } />
                 
 
 

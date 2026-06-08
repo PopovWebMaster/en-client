@@ -7,6 +7,8 @@ import './SaveWordsChanges.scss';
 import { selectorData as wordsSlice, setWordListIsChanged } from './../../../../../../redux/admin/wordsSlice.js';
 import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButton.js';
 
+import { save_word_list_changes_on_server } from './../../../../../../helpers/save_word_list_changes_on_server.js';
+import { set_word_list_to_store } from './../../../../../../helpers/set_word_list_to_store.js';
 
 
 
@@ -19,17 +21,42 @@ const SaveWordsChangesComponent = ( props ) => {
     } = props;
     let [ isWaiting, setIsWaiting ] = useState( false );
 
-    
-    const click = () => {
+    useEffect(() => {
 
-        
-
-        if( wordListIsChanged ){
-            setIsWaiting( true );
-            console.dir( 'save' );
-
+        if( IS_DEVELOPMENT === false ){
+            if( wordListIsChanged ){
+                window.onbeforeunload = ( ev ) => {
+                    ev.preventDefault();
+                    ev.returnValue = 'Are you sure you want to close?';
+                    // return 
+                };
+            }else{
+                window.onbeforeunload = null
+            };
         };
         
+        return () => {
+            if( wordListIsChanged ){
+                save_word_list_changes_on_server();
+            };
+
+        }
+    }, [ wordListIsChanged ]);
+  
+    const click = () => {
+        if( wordListIsChanged ){
+            setIsWaiting( true );
+
+            save_word_list_changes_on_server(( resp ) => {
+                setIsWaiting( false );
+                if( resp.ok ){
+                    if( resp.wordList ){
+                        set_word_list_to_store( resp.wordList );
+                    };
+                };
+            });
+
+        };
     }
 
     return (

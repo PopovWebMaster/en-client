@@ -28,7 +28,6 @@ const AdminPageWordsComponent = ( props ) => {
     } = props;
     let what_to_take = [
         'wordList',
-                    'aaa',
     ];
 
 

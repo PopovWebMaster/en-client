@@ -12,7 +12,7 @@ import { LANGUAGES } from './../../../../../../config/languages.js';
 
 import { word_transcription_is_valid } from './../../../../../../helpers/word_transcription_is_valid.js';
 
-
+import { set_word_list_value_into_store } from './../../../../../../helpers/set_word_list_value_into_store.js';
 
 const WordTranscriptionComponent = ( props ) => {
 
@@ -24,15 +24,20 @@ const WordTranscriptionComponent = ( props ) => {
     } = props;
 
     let [ value, setValue ] = useState( '' );
+    let [ valueOld, setValueOld ] = useState( '' );
     let [ errorText, setErrorText ] = useState( '' );
 
     useEffect( () => {
         if( wordListById[ wordId ] ){
             let { transcription } = wordListById[ wordId ];
             setValue( transcription );
+            setValueOld( transcription );
+
 
         }else{
             setValue( '' );
+            setValueOld( '' );
+
         };
 
     }, [ wordId, wordListById ] );
@@ -51,7 +56,9 @@ const WordTranscriptionComponent = ( props ) => {
     }, [ value ] );
 
     const blur = () => {
-
+        if( valueOld !== value.trim() ){
+            set_word_list_value_into_store( wordId, { transcription: value } );
+        };
     }
 
 

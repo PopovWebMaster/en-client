@@ -14,6 +14,8 @@ import { LANGUAGES } from './../../../../../../config/languages.js';
 
 import { word_foreign_is_valid } from './../../../../../../helpers/word_foreign_is_valid.js';
 
+import { set_word_list_value_into_store } from './../../../../../../helpers/set_word_list_value_into_store.js';
+
 
 
 const WordForeignComponent = ( props ) => {
@@ -26,6 +28,8 @@ const WordForeignComponent = ( props ) => {
 
     } = props;
     let [ value, setValue ] = useState( '' );
+    let [ valueOld, setValueOld ] = useState( '' );
+
     let [ errorText, setErrorText ] = useState( '' );
     let [ chackStatuse, setChackStatuse ] = useState( null );
 
@@ -33,9 +37,12 @@ const WordForeignComponent = ( props ) => {
         if( wordListById[ wordId ] ){
             let { foreign } = wordListById[ wordId ];
             setValue( foreign );
+            setValueOld( foreign );
 
         }else{
             setValue( '' );
+            setValueOld( '' );
+
         };
 
 
@@ -60,6 +67,9 @@ const WordForeignComponent = ( props ) => {
     }, [ value ] );
 
     const blur = () => {
+        if( valueOld !== value.trim() ){
+            set_word_list_value_into_store( wordId, { foreign: value } );
+        };
 
     }
 

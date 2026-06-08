@@ -11,6 +11,7 @@ import { WordInput } from './../WordInput/WordInput.js';
 import { LANGUAGES } from './../../../../../../config/languages.js';
 
 import { word_ru_is_valid } from './../../../../../../helpers/word_ru_is_valid.js';
+import { set_word_list_value_into_store } from './../../../../../../helpers/set_word_list_value_into_store.js';
 
 
 const WordRuComponent = ( props ) => {
@@ -23,6 +24,7 @@ const WordRuComponent = ( props ) => {
     } = props;
 
     let [ value, setValue ] = useState( '' );
+    let [ valueOld, setValueOld ] = useState( '' );
     let [ errorText, setErrorText ] = useState( '' );
     let [ chackStatuse, setChackStatuse ] = useState( null );
 
@@ -30,9 +32,11 @@ const WordRuComponent = ( props ) => {
         if( wordListById[ wordId ] ){
             let { ru } = wordListById[ wordId ];
             setValue( ru );
-
+            setValueOld( ru );
         }else{
             setValue( '' );
+            setValueOld( '' );
+
         };
 
 
@@ -53,8 +57,10 @@ const WordRuComponent = ( props ) => {
     }, [ value ] );
 
     const blur = () => {
-
-    }
+        if( valueOld !== value.trim() ){
+            set_word_list_value_into_store( wordId, { ru: value } );
+        };
+    };
 
 
 

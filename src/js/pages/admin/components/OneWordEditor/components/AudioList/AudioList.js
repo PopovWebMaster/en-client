@@ -15,6 +15,8 @@ import { send_request_to_server } from './../../../../../../helpers/send_request
 import { set_word_list_to_store } from './../../../../../../helpers/set_word_list_to_store.js';
 import { AUDIO_FORMATS } from './../../../../../../config/audio.js';
 
+import { AudioButtonAdd } from './AudioButtonAdd/AudioButtonAdd.js';
+
 
 
 const AudioListComponent = ( props ) => {
@@ -33,8 +35,6 @@ const AudioListComponent = ( props ) => {
     useEffect( () => {
 
         if( wordListById[ wordId ] ){
-            // console.dir( 'wordListById[ wordId ]' );
-            // console.dir( wordListById[ wordId ] );
             let arr = [];
             let { audio } = wordListById[ wordId ];
             for( let i = 0; i < audio.length; i++ ){
@@ -74,7 +74,7 @@ const AudioListComponent = ( props ) => {
                 console.dir( resp );
 
                 if( resp.ok ){
-                    set_word_list_to_store( resp.wordList );
+                    set_word_list_to_store( resp.wordList, [ 'audio' ] );
                 };
             },
         }, true );
@@ -110,97 +110,14 @@ const AudioListComponent = ( props ) => {
 
     };
 
-    let inpRef = useRef();
-
-
-    const clickAdd = () => {
-
-        let accept = AUDIO_FORMATS;
-        let input = inpRef.current;
-        input.setAttribute('accept', accept.join(',') );
-        input.click();
-
-    };
-
-    const inputHandler = (e) => {
-
-        if( !e.target.files.length ){
-            return;
-        };
-        let files = e.target.files;
-
-        async function audioToBase64(audioFile) {
-            return new Promise((resolve, reject) => {
-                let reader = new FileReader();
-                reader.onerror = reject;
-                reader.onload = (e) => resolve(e.target.result);
-                reader.readAsDataURL(audioFile);
-            });
-        }
-
-        let base64List = [];
-        for( let i = 0; i < files.length; i++ ){
-            
-            audioToBase64( files[i] ).then( ( result ) => {
-                let name = files[ i ].name;
-                base64List.push( {
-                    name: name,
-                    base64: result
-                } );
-
-                if( i + 1 === files.length  ){
-
-                    console.dir( 'base64List' );
-                    console.dir( base64List );
-
-                    send_request_to_server({
-                        route: 'admin/add-audio-files-to-word',
-                        data: {
-                            keyName: languageKeyName,
-                            lessonId: currentLessonId,
-                            foreignWordId: wordId,
-                            // audioFileName: fileName,
-
-                            files: base64List,
-
-                        },
-                        successCallback: ( resp ) => {
-                            console.dir( 'resp' );
-                            console.dir( resp );
-
-                            if( resp.ok ){
-                                set_word_list_to_store( resp.wordList );
-                            };
-                        },
-                    });
-
-                }
-            })
-
-        }
-
-
-    }
-
-
 
     return (
         <div className = 'OFW_AudioList'>
             <h4>audio</h4>
-            <div 
-                className = 'OFW_AudioList_add'
-                onClick = { clickAdd }
-            >
-                <span className = 'icon-plus'></span>
 
-                <input 
-                    type =          'file' 
-                    ref =           { inpRef }
-                    className =     'hiddenInput'
-                    onChange =      { inputHandler }
-                    multiple =      { true }
-                />
-            </div>
+            <AudioButtonAdd
+                wordId = { wordId }
+            />
 
             { create( list ) }
 

@@ -12,46 +12,6 @@
         margin: 0.2em 0.5em 0.2em;
     }
 
-    .OFW_AudioList_add{
-        font-size: 1em;
-        background-color: #ccded9;
-        height: 1.2em;
-        width: 1.3em;
-
-        border-radius: 0.1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-
-        cursor: pointer;
-        user-select: none;
-        
-
-        span{
-            font-size: 0.8em;
-            color: #5c7b80;
-            padding: 0.2em 0 0em 0em;
-        }
-
-        >.hiddenInput{
-            display: none;
-        }
-
-    }
-
-    .OFW_AudioList_add:hover{
-        background-color: #87e3c9;
-        span{
-            color: #525c5e;
-        }
-    }
-    .OFW_AudioList_add:active{
-        span{
-            color: #b49c80;
-        }
-    }
-
     .OFW_AudioList_item{
         font-size: 1em;
         // background-color: #ccded9;
@@ -98,7 +58,7 @@
             cursor: pointer;
             user-select: none;
 
-            padding: 0.3em 0.1em 0.1em;
+            padding: 0.28em 0.1em 0.3em;
 
 
         }
