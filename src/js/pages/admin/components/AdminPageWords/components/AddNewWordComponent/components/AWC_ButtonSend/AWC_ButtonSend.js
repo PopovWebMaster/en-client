@@ -16,6 +16,8 @@ import { MAX_LENGTH } from './../../../../../../../../config/words.js';
 import { get_is_ready_status } from './vendors/get_is_ready_status.js';
 import { get_prepared_data } from './vendors/get_prepared_data.js';
 
+import { set_word_list_to_store } from './../../../../../../../../helpers/set_word_list_to_store.js';
+
 const AWC_ButtonSendComponent = ( props ) => {
 
     let {
@@ -75,8 +77,11 @@ const AWC_ButtonSendComponent = ( props ) => {
         console.dir( 'resp' );
         console.dir( resp );
 
-        clearWordEdit();
-        
+        if( resp.ok ){
+            set_word_list_to_store( resp.wordList );
+            clearWordEdit();
+        };
+
 
     };
 

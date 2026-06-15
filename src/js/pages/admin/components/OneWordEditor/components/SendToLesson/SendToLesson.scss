@@ -1,0 +1,45 @@
+.OFW_SendToLesson{
+    font-size: 1em;
+    flex-grow: 0;
+    border-radius: 0.1em;
+    border: 1px solid #e1454500;
+    cursor: pointer;
+    user-select: none;
+
+    padding: 0.2em 0.6em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 4.8em;
+
+    
+
+    >.icon{
+        font-size: 0.76em;
+        margin-right: 0.1em;
+        color: #5540ce;
+    }
+
+    >.text{
+        font-size: 0.76em;
+        color: #5540ce;
+    }
+
+}
+
+.OFW_SendToLesson:hover{
+    border: 1px solid #3722b1;
+    >.text{
+        color: #3722b1;
+    }
+}
+
+.OFW_SendToLesson:active{
+    border: 1px solid #2a16a0;
+    background-color: #a9a2cf;
+    >.text{
+        color: #2a16a0;
+    }
+}

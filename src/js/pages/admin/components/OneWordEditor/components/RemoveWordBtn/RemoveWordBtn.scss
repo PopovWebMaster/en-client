@@ -1,0 +1,45 @@
+.OFW_RemoveWordBtn{
+    font-size: 1em;
+    flex-grow: 0;
+    border-radius: 0.1em;
+    border: 1px solid #e1454500;
+    cursor: pointer;
+    user-select: none;
+
+    padding: 0.2em 0.6em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 4.6em;
+
+    
+
+    >.icon{
+        font-size: 0.76em;
+        margin-right: 0.1em;
+        color: #ce4040;
+    }
+
+    >.text{
+        font-size: 0.76em;
+        color: #d15c5c;
+    }
+
+}
+
+.OFW_RemoveWordBtn:hover{
+    border: 1px solid #fa2626;
+    >.text{
+        color: #fa2626;
+    }
+}
+
+.OFW_RemoveWordBtn:active{
+    border: 1px solid #c90000;
+    background-color: #f8dfdf;
+    >.text{
+        color: #c90000;
+    }
+}

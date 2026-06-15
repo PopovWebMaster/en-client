@@ -15,10 +15,13 @@ export const save_word_list_changes_on_server = ( callback = () => {} ) => {
     send_request_to_server({
         route: 'admin/save-word-list-changes',
         data: {
-            keyName:    languageKeyName,
-            lessonId:   currentLessonId,
-            wordList,
+            // keyName:    languageKeyName,
+            // lessonId:   currentLessonId,
+            wordList: structuredClone( wordList ),
         },
+        addKeyName: true,
+        addLessonId: true,
+        
         successCallback: ( resp ) => {
             console.dir( 'resp <<<<' );
             console.dir( resp );

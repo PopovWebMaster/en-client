@@ -1,14 +1,18 @@
 
 // import store from './../redux/store.js';
 
-
-
 let sendCount = 0;
+import { get_keyName_for_admin } from './get_keyName_for_admin.js';
+import { get_lessonId_for_admin } from './get_lessonId_for_admin.js';
+
 
 export const send_request_to_server = ( params, withWaiting = false ) => {
     let {
         route,
         data,
+        addKeyName = false,
+        addLessonId = false,
+
         successCallback = () => {},
         errorCallback = () => {},
     } = params;
@@ -28,6 +32,24 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
     let headers = {};
 
     let data_complete = { ...data };
+
+    if( addKeyName === true ){
+        data_complete.keyName = get_keyName_for_admin(); 
+
+    };
+
+    if( addLessonId === true ){
+        
+        data_complete.lessonId = get_lessonId_for_admin(); 
+
+    };
+
+
+
+
+
+
+
 
     if( IS_DEVELOPMENT ){
 
@@ -72,7 +94,7 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
             headers,
             url,
              route,
-            data,
+            data_complete,
         });
         try {
             const response = await fetch( url, {
@@ -131,7 +153,7 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
             console.error({
                 _token: token,
                 url,
-                data,
+                data_complete,
             });
             console.log('');
             let totalWaiting = document.getElementById( 'totalWaiting' );

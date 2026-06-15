@@ -5,6 +5,9 @@ import { useDispatch } from 'react-redux';
 
 import './ControlButtons.scss';
 
+import { RemoveWordBtn } from './../RemoveWordBtn/RemoveWordBtn.js';
+import { SendToLesson } from './../SendToLesson/SendToLesson.js';
+
 
 
 const ControlButtonsComponent = ( props ) => {
@@ -19,6 +22,8 @@ const ControlButtonsComponent = ( props ) => {
 
     return (
         <div className = 'OFW_ControlButtons'>
+            <SendToLesson wordId = { wordId }/>
+            <RemoveWordBtn wordId = { wordId }/>
             
 
         </div>
