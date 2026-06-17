@@ -11,9 +11,11 @@ import { useNavigate } from "react-router-dom";
 import { AdminMainPage } from './../AdminMainPage/AdminMainPage.js';
 import { AdminPageIcons } from './../AdminPageIcons/AdminPageIcons.js';
 import { AdminPageWords } from './../AdminPageWords/AdminPageWords.js';
-import { AdminPageDictionaries } from './../AdminPageDictionaries/AdminPageDictionaries.js';
-import { AdminPageNewDictionary } from './../AdminPageNewDictionary/AdminPageNewDictionary.js';
-import { AdminPageEditDictionary } from './../AdminPageEditDictionary/AdminPageEditDictionary.js';
+// import { AdminPageDictionaries } from './../AdminPageDictionaries/AdminPageDictionaries.js';
+// import { AdminPageNewDictionary } from './../AdminPageNewDictionary/AdminPageNewDictionary.js';
+// import { AdminPageEditDictionary } from './../AdminPageEditDictionary/AdminPageEditDictionary.js';
+
+import { AdminPageLessons } from './../AdminPageLessons/AdminPageLessons.js';
 
 import { ADMIN_ROUTES } from './../../config/routes.js';
 
@@ -33,7 +35,9 @@ const AdminPageAppComponent = ( props ) => {
             
             // navigate( `/admin` );
             // navigate( ADMIN_ROUTES.MAIN.ROUTE );
-            navigate( ADMIN_ROUTES.WORDS.ROUTE );
+            // navigate( ADMIN_ROUTES.WORDS.ROUTE );
+            navigate( ADMIN_ROUTES.LESSONS.ROUTE );
+
 
 
         }else{
@@ -49,9 +53,15 @@ const AdminPageAppComponent = ( props ) => {
             <Routes>
                 <Route path = { ADMIN_ROUTES.MAIN.ROUTE }                   element = { <AdminMainPage /> } />
                 <Route path = { ADMIN_ROUTES.WORDS.ROUTE }                  element = { <AdminPageWords /> } />
-                <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE }           element = { <AdminPageDictionaries /> } />
+                <Route path = { ADMIN_ROUTES.LESSONS.ROUTE }                element = { <AdminPageLessons /> } />
+
+
+
+
+                
+                {/* <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE }           element = { <AdminPageDictionaries /> } />
                 <Route path = { ADMIN_ROUTES.DICTIONARIES.ROUTE + '/:id' }  element = { <AdminPageEditDictionary /> } />
-                <Route path = { ADMIN_ROUTES.ADD_DICTIONARY.ROUTE }         element = { <AdminPageNewDictionary /> } />
+                <Route path = { ADMIN_ROUTES.ADD_DICTIONARY.ROUTE }         element = { <AdminPageNewDictionary /> } /> */}
                 <Route path = { ADMIN_ROUTES.ICONS.ROUTE }                  element = { <AdminPageIcons /> } />
                 
 

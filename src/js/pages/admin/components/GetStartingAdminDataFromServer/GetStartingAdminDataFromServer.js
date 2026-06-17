@@ -10,6 +10,7 @@ import { selectorData as languageSlice } from './../../../../redux/languageSlice
 import { send_request_to_server } from './../../../../helpers/send_request_to_server.js';
 import { set_word_list_to_store } from './../../../../helpers/set_word_list_to_store.js';
 import { set_lesson_id_to_store } from './../../../../helpers/set_lesson_id_to_store.js';
+import { set_lesson_list_to_store } from './../../../../helpers/set_lesson_list_to_store.js';
 
 
 
@@ -39,11 +40,8 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
 
                 set_lesson_id_to_store( currentLessonId );
 
-                switch( true ){
-                    case resp.wordList? true: false: set_word_list_to_store( resp.wordList );
-
-                };
-
+                if( resp.wordList ){ set_word_list_to_store( resp.wordList ); }
+                if( resp.lessonList ){ set_lesson_list_to_store( resp.lessonList ); }
 
 
 

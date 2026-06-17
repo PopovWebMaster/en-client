@@ -8,6 +8,12 @@ export const lessonsSlice = createSlice({
 
         currentLessonId: null, 
 
+        lessonList: [],
+        lessonListById: {},
+
+        lessonListIsChanged: false,
+
+
         
 
        
@@ -21,6 +27,19 @@ export const lessonsSlice = createSlice({
             state.currentLessonId =  action.payload;
         },
 
+        setLessonList: ( state, action ) => { 
+            state.lessonList =  action.payload;
+        },
+
+        setLessonListById: ( state, action ) => { 
+            state.lessonListById =  action.payload;
+        },
+
+        setLessonListIsChanged: ( state, action ) => { 
+            state.lessonListIsChanged =  action.payload;
+        },
+
+
 
 
         
@@ -30,6 +49,10 @@ export const lessonsSlice = createSlice({
 
 export const {  
     setCurrentLessonId,
+    setLessonList,
+    setLessonListById,
+    setLessonListIsChanged,
+
 
 
    
@@ -40,6 +63,11 @@ export const selectorData = ( state ) => {
 
     return {
         currentLessonId:    state.lessons.currentLessonId,
+        lessonList:         state.lessons.lessonList,
+        lessonListById:     state.lessons.lessonListById,
+        lessonListIsChanged:     state.lessons.lessonListIsChanged,
+
+
 
 
 
