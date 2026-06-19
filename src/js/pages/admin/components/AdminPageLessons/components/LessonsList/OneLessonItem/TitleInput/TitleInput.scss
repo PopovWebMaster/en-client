@@ -1,0 +1,26 @@
+.APL_TitleInput{
+    font-size: 1em;
+    flex-grow: 1;
+    max-width: 100%;
+    padding: 0 0.5em;
+
+    input{
+        font-size: 0.9em;
+        width: calc( 100% - 1em );
+        padding: 0.3em 1em;
+        background-color: #ffffff41;
+        border: 1px solid #e1e1e1a1;
+        outline: none;
+        border-radius: 0.1em;
+        color: #343434;
+
+        max-width: 40em;
+
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input:focus{
+        border: 1px solid #c7c7c7;
+        background-color: #ffffff;
+    }
+}

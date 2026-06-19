@@ -7,6 +7,8 @@ import './LessonsList.scss';
 
 import { selectorData as lessonsSlice } from './../../../../../../redux/admin/lessonsSlice.js';
 
+import { OneLessonItem } from './OneLessonItem/OneLessonItem.js';
+
 
 const LessonsListComponent = ( props ) => {
 
@@ -15,9 +17,26 @@ const LessonsListComponent = ( props ) => {
 
     } = props;
 
+    const create = ( arr ) => {
+
+        let div = arr.map( ( item, index ) => {
+            let { id } = item;
+
+            return (
+                <OneLessonItem 
+                    key = { index }
+                    lessonId = { id }
+                />
+            );
+        } );
+
+        return div
+
+    };
+
     return (
         <div className = 'APL_LessonsList'>
-            APL_LessonsList
+            { create( lessonList ) }
         </div>
 
     )

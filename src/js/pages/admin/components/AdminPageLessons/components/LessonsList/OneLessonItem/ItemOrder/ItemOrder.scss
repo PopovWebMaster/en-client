@@ -1,0 +1,55 @@
+.APL_ItemOrder{
+    font-size: 1em;
+    width: fit-content;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    // padding: 0.2em 0.2em;
+    // border-radius: 0.1em;
+    // border: 1px solid #b9b9b9;
+    // background-color: #fcfcfc;
+
+
+    .APL_ItemOrder_value{
+        font-size: 1.2em;
+        color: #363636;
+        width: 2.2em;
+        text-align: center;
+        padding-left: 0.2em;
+        font-weight: bold;
+
+    }
+
+
+    .APL_ItemOrder_BtnWrap{
+        font-size: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .APL_ItemOrder_btn{
+            font-size: 1em;
+            padding: 0.1em 0.1em 0.24em 0.1em;
+            color: #343434;
+            border-radius: 0.1em;
+
+            background-color: #ebebeb;
+        }
+        .APL_ItemOrder_btn:hover{
+            background-color: #d9d5d5;
+        }
+        .APL_ItemOrder_btn:active{
+            background-color: #e2e2e2;
+            color: #ff0000;
+        }
+
+
+        .APL_ItemOrder_btn:first-child{
+            margin-bottom: 0.1em;
+        }
+    }
+
+}

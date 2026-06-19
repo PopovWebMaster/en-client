@@ -1,0 +1,42 @@
+.APL_OneLessonItem_wrap{
+    font-size: 1em;
+    position: relative;
+
+    
+
+    .APL_OneLessonItem{
+        font-size: 1em;
+        margin: 0;
+        padding: 0.3em 1em;
+
+        top: 0;
+        left: 0;
+
+        transition: top 0.2s ease-out;
+        
+        .APL_OLI_wrap{
+            font-size: 1em;
+            border-radius: 0.1em;
+            border: 1px solid #d2d2d2;
+            padding: 0.5em 1em;
+            background-color: #f5f5f5;
+
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+        }
+    }
+
+    .APL_OneLessonItem.APL_OLI_isActive{
+
+        .APL_OLI_wrap{
+            // background-color: #eaffe8;
+            background-color: #edf3ef;
+            border: 1px solid #66bb20;
+
+        }
+
+    }
+
+}
