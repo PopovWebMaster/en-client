@@ -60,7 +60,7 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
 
 
     return (
-        <>{ isReady? children: 'Ждёмс..' }</>
+        <>{ isReady? children: (<div className = 'SDWaiting'><span>Ждёмс..</span></div>) }</>
     )
 
 };

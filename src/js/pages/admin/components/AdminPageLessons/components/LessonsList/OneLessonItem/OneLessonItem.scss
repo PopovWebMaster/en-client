@@ -25,6 +25,13 @@
             justify-content: flex-start;
             align-items: center;
             align-content: center;
+            cursor: pointer;
+        }
+        .APL_OLI_wrap:hover{
+            // background-color: #ece7e7;
+            background-color: #e6f9ec;
+            border: 1px solid #c4c2c2;
+
         }
     }
 
@@ -34,6 +41,11 @@
             // background-color: #eaffe8;
             background-color: #edf3ef;
             border: 1px solid #66bb20;
+
+        }
+        .APL_OLI_wrap:hover{
+            // background-color: #d0e4d7;
+            background-color: #e6f9ec;
 
         }
 

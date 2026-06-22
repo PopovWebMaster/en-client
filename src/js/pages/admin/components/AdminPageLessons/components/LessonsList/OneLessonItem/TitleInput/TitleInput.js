@@ -38,8 +38,10 @@ const TitleInputComponent = ( props ) => {
 
 
     const blur = () => {
-        set_lesson_list_value_into_store( lessonId, { title: titleValue } );
-
+        if( value !== titleValue.trim() ){
+            set_lesson_list_value_into_store( lessonId, { title: titleValue.trim() } );
+        };
+        
     }
 
     const enter = ( e ) => {
@@ -54,6 +56,7 @@ const TitleInputComponent = ( props ) => {
 
             <input
                 type = 'text'
+                className = 'APL_TitleInput_inp'
                 ref = { inpRef }
                 value = { titleValue }
                 onChange = { change }

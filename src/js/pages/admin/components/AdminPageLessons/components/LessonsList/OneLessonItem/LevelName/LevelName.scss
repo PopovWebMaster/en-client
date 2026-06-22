@@ -1,0 +1,17 @@
+.APL_LevelName{
+    font-size: 1em;
+    flex-grow: 1;
+    max-width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+
+    >span{
+        font-size: 0.74em;
+        color: #007dff;
+        margin: 0 0.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}

@@ -16,6 +16,7 @@ import { AdminPageWords } from './../AdminPageWords/AdminPageWords.js';
 // import { AdminPageEditDictionary } from './../AdminPageEditDictionary/AdminPageEditDictionary.js';
 
 import { AdminPageLessons } from './../AdminPageLessons/AdminPageLessons.js';
+import { AdminPageLessonEditor } from './../AdminPageLessonEditor/AdminPageLessonEditor.js';
 
 import { ADMIN_ROUTES } from './../../config/routes.js';
 
@@ -54,7 +55,7 @@ const AdminPageAppComponent = ( props ) => {
                 <Route path = { ADMIN_ROUTES.MAIN.ROUTE }                   element = { <AdminMainPage /> } />
                 <Route path = { ADMIN_ROUTES.WORDS.ROUTE }                  element = { <AdminPageWords /> } />
                 <Route path = { ADMIN_ROUTES.LESSONS.ROUTE }                element = { <AdminPageLessons /> } />
-
+                <Route path = { ADMIN_ROUTES.LESSONS.ROUTE + '/:id' }       element = { <AdminPageLessonEditor /> } />
 
 
 

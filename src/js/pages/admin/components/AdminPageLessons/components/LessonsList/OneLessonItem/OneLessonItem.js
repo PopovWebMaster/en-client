@@ -5,12 +5,17 @@ import { useDispatch } from 'react-redux';
 
 import './OneLessonItem.scss';
 
-import { selectorData as lessonsSlice } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { useNavigate } from "react-router-dom";
+
+import { selectorData as lessonsSlice, setCurrentLessonId } from './../../../../../../../redux/admin/lessonsSlice.js';
 
 import { ActiveSwichButton } from './ActiveSwichButton/ActiveSwichButton.js';
 import { TitleInput } from './TitleInput/TitleInput.js';
 import { WordsCount } from './WordsCount/WordsCount.js';
 import { ItemOrder } from './ItemOrder/ItemOrder.js';
+import { LevelName } from  './LevelName/LevelName.js';
+
+import { ADMIN_ROUTES } from './../../../../../config/routes.js';
 
 
 const OneLessonItemComponent = ( props ) => {
@@ -19,6 +24,8 @@ const OneLessonItemComponent = ( props ) => {
         lessonId,
         lessonListById,
 
+        setCurrentLessonId,
+
     } = props;
 
     let [ classNameValue, setClassNameValue ] = useState( '' );
@@ -26,8 +33,9 @@ const OneLessonItemComponent = ( props ) => {
     let [ titleValue, setTitleValue ] = useState( false );
     let [ wordsCountValue, setWordsCountValue ] = useState( 0 );
     let [ orderValue, setOrderValue ] = useState( 0 );
+    let [ levelNameValue, setLevelNameValue ] = useState( '' );
 
-
+    let navigate = useNavigate();
 
 
     useEffect( () => {
@@ -48,6 +56,7 @@ const OneLessonItemComponent = ( props ) => {
             setWordsCountValue( wordsCount );
 
             setOrderValue( order );
+            setLevelNameValue( level_name );
 
         }else{
 
@@ -56,17 +65,54 @@ const OneLessonItemComponent = ( props ) => {
             setClassNameValue( '' );
             setWordsCountValue( 0 );
             setOrderValue( 0 );
+            setLevelNameValue('');
 
         };
 
+        setCurrentLessonId( null );
+
     }, [ lessonListById, lessonId ] );
+
+
+
+    const click = ( e ) => {
+        let no_react_list = [ 
+            'TSB_circle',
+            'toggleSwitchButton',
+            'TSB_left',
+            'APL_ItemOrder_btn',
+            'APL_TitleInput_inp',
+        ];
+        let { classList } = e.target;
+
+        let isActual = true;
+        for( let i = 0; i < classList.length; i++ ){
+            let CN = classList[ i ];
+            if( no_react_list.indexOf( CN ) !== -1){
+                isActual = false;
+            };
+        };
+        if( isActual ){
+            setCurrentLessonId( lessonId );
+            let timerId = setTimeout( () => {
+                navigate( `${ADMIN_ROUTES.LESSONS.ROUTE}/${lessonId}` );
+                clearTimeout( timerId );
+            }, 200 );
+            
+            
+        };
+
+    };
 
     return (
         <div className = 'APL_OneLessonItem_wrap'>
             <div 
                 className = { `APL_OneLessonItem ${classNameValue} ${isActiveValue? 'APL_OLI_isActive': '' }` }
             >
-                <div className = 'APL_OLI_wrap'>
+                <div
+                    className = 'APL_OLI_wrap'
+                    onClick = { click }
+                >
                     <ActiveSwichButton
                         lessonId = { lessonId }
                         isActiveValue = { isActiveValue }
@@ -75,6 +121,11 @@ const OneLessonItemComponent = ( props ) => {
                     <TitleInput
                         lessonId = { lessonId }
                         value = { titleValue }
+                    />
+
+                    <LevelName 
+                        lessonId = { lessonId }
+                        value = { levelNameValue }
                     />
 
                     <WordsCount
@@ -99,14 +150,15 @@ const OneLessonItemComponent = ( props ) => {
 export function OneLessonItem( props ){
 
     const lessons = useSelector( lessonsSlice );
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     return (
         <OneLessonItemComponent
             { ...props }
             lessonListById = { lessons.lessonListById }
 
-            // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
+
+            setCurrentLessonId = { ( val ) => { dispatch( setCurrentLessonId( val ) ) } }
 
         />
     );
