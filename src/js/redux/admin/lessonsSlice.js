@@ -7,7 +7,7 @@ export const lessonsSlice = createSlice({
     initialState: {
 
         currentLessonId: null, 
-        currentLessonIsChanged: true,
+        currentLessonIsChanged: false,
 
         
 

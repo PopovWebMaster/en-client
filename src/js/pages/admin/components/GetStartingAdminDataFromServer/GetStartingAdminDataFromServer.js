@@ -11,6 +11,7 @@ import { send_request_to_server } from './../../../../helpers/send_request_to_se
 import { set_word_list_to_store } from './../../../../helpers/set_word_list_to_store.js';
 import { set_lesson_id_to_store } from './../../../../helpers/set_lesson_id_to_store.js';
 import { set_lesson_list_to_store } from './../../../../helpers/set_lesson_list_to_store.js';
+import { set_one_lesson_data_to_store } from './../../../../helpers/set_one_lesson_data_to_store.js';
 
 
 
@@ -42,6 +43,8 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
 
                 if( resp.wordList ){ set_word_list_to_store( resp.wordList ); }
                 if( resp.lessonList ){ set_lesson_list_to_store( resp.lessonList ); }
+                if( resp.oneLessonData ){ set_one_lesson_data_to_store( resp.oneLessonData ); }
+
 
 
 
