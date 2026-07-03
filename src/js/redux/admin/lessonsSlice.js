@@ -9,7 +9,17 @@ export const lessonsSlice = createSlice({
         currentLessonId: null, 
         currentLessonIsChanged: false,
 
-        
+        currentLessonDescription: '',
+        currentLessonIsActive: '',
+        currentLessonLevelName: '',
+        currentLessonOrder: '',
+        currentLessonPhrasesList: [],
+        currentLessonTitle: '',
+        currentPageDescription: '',
+        currentPageKeyWords: '',
+        currentPageText: '',
+        currentPageTitle: '',
+
 
         lessonList: [],
         lessonListById: {},
@@ -50,6 +60,52 @@ export const lessonsSlice = createSlice({
 
 
 
+
+
+        setCurrentLessonDescription: ( state, action ) => { 
+            state.currentLessonDescription =  action.payload;
+        },
+        setCurrentLessonIsActive: ( state, action ) => { 
+            state.currentLessonIsActive =  action.payload;
+        },
+
+        setCurrentLessonLevelName: ( state, action ) => { 
+            state.currentLessonLevelName =  action.payload;
+        },
+
+        setCurrentLessonOrder: ( state, action ) => { 
+            state.currentLessonOrder =  action.payload;
+        },
+
+        setCurrentLessonPhrasesList: ( state, action ) => { 
+            state.currentLessonPhrasesList =  action.payload;
+        },
+
+        setCurrentLessonTitle: ( state, action ) => { 
+            state.currentLessonTitle =  action.payload;
+        },
+
+        setCurrentPageDescription: ( state, action ) => { 
+            state.currentPageDescription =  action.payload;
+        },
+
+        setCurrentPageKeyWords: ( state, action ) => { 
+            state.currentPageKeyWords =  action.payload;
+        },
+
+        setCurrentPageText: ( state, action ) => { 
+            state.currentPageText =  action.payload;
+        },
+
+        setCurrentPageTitle: ( state, action ) => { 
+            state.currentPageTitle =  action.payload;
+        },
+
+
+
+
+
+
         
     },
 
@@ -59,12 +115,20 @@ export const {
     setCurrentLessonId,
     setCurrentLessonIsChanged,
 
-
-
-
     setLessonList,
     setLessonListById,
     setLessonListIsChanged,
+
+    setCurrentLessonDescription,
+    setCurrentLessonIsActive,
+    setCurrentLessonLevelName,
+    setCurrentLessonOrder,
+    setCurrentLessonPhrasesList,
+    setCurrentLessonTitle,
+    setCurrentPageDescription,
+    setCurrentPageKeyWords,
+    setCurrentPageText,
+    setCurrentPageTitle,
 
 
 
@@ -75,12 +139,19 @@ export const {
 export const selectorData = ( state ) => {
 
     return {
-        currentLessonId:    state.lessons.currentLessonId,
+        currentLessonId:            state.lessons.currentLessonId,
         currentLessonIsChanged:    state.lessons.currentLessonIsChanged,
 
-
-
-
+        currentLessonDescription:   state.lessons.currentLessonDescription,
+        currentLessonIsActive:      state.lessons.currentLessonIsActive,
+        currentLessonLevelName:     state.lessons.currentLessonLevelName,
+        currentLessonOrder:         state.lessons.currentLessonOrder,
+        currentLessonPhrasesList:   state.lessons.currentLessonPhrasesList,
+        currentLessonTitle:         state.lessons.currentLessonTitle,
+        currentPageDescription:     state.lessons.currentPageDescription,
+        currentPageKeyWords:        state.lessons.currentPageKeyWords,
+        currentPageText:            state.lessons.currentPageText,
+        currentPageTitle:           state.lessons.currentPageTitle,
 
 
         lessonList:         state.lessons.lessonList,

@@ -22,6 +22,7 @@ const OC_InputComponent = ( props ) => {
         isRequired = false,
         errorText = '',
         setErrorText = () => {},
+        asTextArea = false,
 
         blure = () => {},
 
@@ -30,6 +31,9 @@ const OC_InputComponent = ( props ) => {
     } = props;
 
     let inpRef = useRef();
+    let textRef = useRef();
+
+
 
     const change = ( e ) => {
         let val = e.target.value;
@@ -38,17 +42,22 @@ const OC_InputComponent = ( props ) => {
     }
 
     const keyDown = ( e ) => {
-
-        let { which } = e;
-        if( which === 13 ){ // enter
-            set_focus_for_input( inpRef.current, 'next' );
-        }else if( which === 40 ){ // down
-            set_focus_for_input( inpRef.current, 'next' );
-        }else if( which === 38 ){  // up
-            set_focus_for_input( inpRef.current, 'preview' );
+        let { which, shiftKey } = e;
+        if( asTextArea === false ){
+            
+            if( which === 13 ){ // enter
+                set_focus_for_input( inpRef.current, 'next' );
+                
+            }else if( which === 40 ){ // down
+                set_focus_for_input( inpRef.current, 'next' );
+            }else if( which === 38 ){  // up
+                set_focus_for_input( inpRef.current, 'preview' );
+            };
+        }else{
+            if( which === 13 && shiftKey === false ){ // enter
+                textRef.current.blur();
+            };
         };
-        
-
 
     }
 
@@ -66,16 +75,29 @@ const OC_InputComponent = ( props ) => {
             <OC_InputChackStatusWrap
                 chackStatuse = { chackStatuse }
             >
-                <input 
-                    type =          'text'
-                    className =     'OC_Input_inp'
-                    value =         { value }  
-                    ref =           { inpRef }
-                    maxLength =     { max } 
-                    onChange =      { change }
-                    onBlur =        { blure }
-                    onKeyDown =     { keyDown }
-                />
+                <>{ asTextArea? (
+                    <textarea 
+                        className =     'OC_Input_inp'
+                        value =         { value }  
+                        ref =           { textRef }
+                        maxLength =     { max } 
+                        onChange =      { change }
+                        onBlur =        { blure }
+                        onKeyDown =     { keyDown }
+                    />
+                ): (
+                    <input 
+                        type =          'text'
+                        className =     'OC_Input_inp'
+                        value =         { value }  
+                        ref =           { inpRef }
+                        maxLength =     { max } 
+                        onChange =      { change }
+                        onBlur =        { blure }
+                        onKeyDown =     { keyDown }
+                    />
+                ) }</>
+                
 
             </OC_InputChackStatusWrap>
 

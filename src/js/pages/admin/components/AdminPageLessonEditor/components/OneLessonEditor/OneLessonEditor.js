@@ -8,6 +8,11 @@ import './OneLessonEditor.scss';
 import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../redux/admin/lessonsSlice.js';
 import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButton.js';
 
+import { PageTitleEdit } from './PageTitleEdit/PageTitleEdit.js';
+import { PageDescriptionEdit } from './PageDescriptionEdit/PageDescriptionEdit.js';
+import { PageKeyWordsEdit } from './PageKeyWordsEdit/PageKeyWordsEdit.js';
+import { PageTextEdit } from './PageTextEdit/PageTextEdit.js';
+
 
 const OneLessonEditorComponent = ( props ) => {
 
@@ -16,10 +21,33 @@ const OneLessonEditorComponent = ( props ) => {
 
     } = props;
 
+// lessonDescription,
+// lessonIsActive,
+// lessonLevelName,
+// lessonOrder,
+// lessonPhrasesList,
+// lessonTitle,
+// pageDescription,
+// pageKeyWords,
+// pageText,
+// pageTitle,
+// wordList,,
+
 
     return (
         <div className = 'APLE_OneLessonEditor'>
-            APLE_OneLessonEditor
+            <div className = 'OLE_blockWrap'>
+                <h2 className = 'OLE_block_head'>Страница</h2>
+                <PageTitleEdit />
+                <PageDescriptionEdit />
+                <PageKeyWordsEdit />
+                <PageTextEdit />
+            </div>
+            <div className = 'OLE_blockWrap'>
+                <h2 className = 'OLE_block_head'>Урок</h2>
+                {/* <PageTitleEdit /> */}
+            </div>
+            
 
         </div>
     )

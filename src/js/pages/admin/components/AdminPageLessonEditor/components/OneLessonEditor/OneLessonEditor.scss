@@ -1,3 +1,26 @@
 .APLE_OneLessonEditor{
     font-size: 1em;
+    
+
+    .OLE_blockWrap{
+        font-size: 1em;
+        background-color: #f6f2f6;
+        border: 1px solid #e5c6e5;
+        border-radius: 0.1em;
+        margin: 0.5em 2em;
+        padding: 0.5em 1em;
+
+        .OLE_block_head{
+            font-size: 1em;
+            color: #3b55a0;
+            margin-bottom: 0.5em;
+            font-family: Verdana, Geneva, sans-serif;
+            padding: 0.3em 0.6em;
+            border-bottom: 1px solid #d5d5d5;
+
+        }
+
+    }
+
+
 }
