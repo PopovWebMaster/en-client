@@ -1,0 +1,29 @@
+.APLE_LessonOrderEdit{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0;
+    margin: 0 1em;
+
+    background-color: #ffffff;
+    padding: 0.2em 0.8em;
+    border-radius: 0.1em;
+    border: 1px solid #c4c4c4;
+
+    .APLE_LessonOrderEdit_text{
+        font-size: 0.74em;
+        font-family: Verdana, Geneva, sans-serif;
+        color: #6a6a6a;
+    }
+
+    .APLE_LessonOrderEdit_value{
+        font-size: 0.74em;
+        font-family: Verdana, Geneva, sans-serif;
+        margin: 0 0.2em;
+        color: #3b3b3b;
+        font-weight: bold;
+    }
+}

@@ -11,6 +11,8 @@ import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButto
 // import { save_lesson_list_changes_on_server } from './../../../../../../helpers/save_lesson_list_changes_on_server.js';
 // import { set_lesson_list_to_store } from './../../../../../../helpers/set_lesson_list_to_store.js';
 
+import { set_one_lesson_changes_on_server } from './../../../../../../helpers/set_one_lesson_changes_on_server.js';
+
 
 
 
@@ -41,26 +43,27 @@ const SaveLessonDataChangesComponent = ( props ) => {
         
         return () => {
             if( currentLessonIsChanged ){
-                // save_lesson_list_changes_on_server();
+                set_one_lesson_changes_on_server();
             };
 
         }
     }, [ currentLessonIsChanged ]);
   
     const click = () => {
-        // if( currentLessonIsChanged ){
-        //     setIsWaiting( true );
+        if( currentLessonIsChanged ){
 
-        //     save_lesson_list_changes_on_server(( resp ) => {
-        //         setIsWaiting( false );
-        //         if( resp.ok ){
-        //             if( resp.lessonList ){
-        //                 set_lesson_list_to_store( resp.lessonList );
-        //             };
-        //         };
-        //     });
+            setIsWaiting( true );
 
-        // };
+            set_one_lesson_changes_on_server(( resp ) => {
+                setIsWaiting( false );
+                if( resp.ok ){
+                    // if( resp.lessonList ){
+                    //     set_lesson_list_to_store( resp.lessonList );
+                    // };
+                };
+            });
+
+        };
     }
 
     return (

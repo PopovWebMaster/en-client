@@ -1,0 +1,53 @@
+
+import store from './../redux/admin/store.js';
+
+import { send_request_to_server } from './send_request_to_server.js';
+
+import { setCurrentLessonIsChanged } from './../redux/admin/lessonsSlice.js';
+
+export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
+
+    let { lessons } = store.getState();
+    let {
+        currentLessonDescription,
+        currentLessonIsActive,
+        currentLessonLevelName,
+        currentLessonOrder,
+        currentLessonPhrasesList,
+        currentLessonTitle,
+        currentPageDescription,
+        currentPageKeyWords,
+        currentPageText,
+        currentPageTitle,
+    } = lessons;
+
+    send_request_to_server({
+        route: 'admin/save-one-lesson-changes',
+        data: {
+            pageTitle:          currentPageTitle,
+            pageDescription:    currentPageDescription,
+            pageKeyWords:       currentPageKeyWords,
+            lessonPhrasesList:  currentLessonPhrasesList,
+            lessonTitle:        currentLessonTitle,
+            lessonDescription:  currentLessonDescription,
+            lessonLevelName:    currentLessonLevelName,
+            lessonIsActive:     currentLessonIsActive,
+            lessonOrder:        currentLessonOrder,
+            wordList: [],
+
+            
+        },
+        addKeyName: true,
+        addLessonId: true,
+        
+        successCallback: ( resp ) => {
+            console.dir( 'resp <<<<' );
+            console.dir( resp );
+
+            callback( resp );
+
+
+        },
+    }, true );
+
+};
