@@ -12,7 +12,7 @@ import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButto
 // import { set_lesson_list_to_store } from './../../../../../../helpers/set_lesson_list_to_store.js';
 
 import { set_one_lesson_changes_on_server } from './../../../../../../helpers/set_one_lesson_changes_on_server.js';
-
+import { set_one_lesson_data_to_store } from './../../../../../../helpers/set_one_lesson_data_to_store.js';
 
 
 
@@ -57,9 +57,9 @@ const SaveLessonDataChangesComponent = ( props ) => {
             set_one_lesson_changes_on_server(( resp ) => {
                 setIsWaiting( false );
                 if( resp.ok ){
-                    // if( resp.lessonList ){
-                    //     set_lesson_list_to_store( resp.lessonList );
-                    // };
+                    if( resp.oneLessonData ){
+                        set_one_lesson_data_to_store( resp.oneLessonData );
+                    };
                 };
             });
 

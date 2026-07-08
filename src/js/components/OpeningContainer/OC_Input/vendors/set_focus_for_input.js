@@ -10,12 +10,16 @@ export const set_focus_for_input = ( elem, where = 'next' ) => { // where = 'nex
     let listElem = parent.querySelectorAll( '.OC_Input_inp' );
 
 
+    let noSearcheFocus = true;
+
+
     for( let i = 0; i < listElem.length; i++ ){
         if( listElem[ i ] === elem ){
 
             if( where === 'next' ){
                 if( listElem[ i + 1 ] ){
                     listElem[ i + 1 ].focus();
+                    noSearcheFocus = false;
                 }else{
                     // elem.blur();
                 };
@@ -23,13 +27,16 @@ export const set_focus_for_input = ( elem, where = 'next' ) => { // where = 'nex
             }else if( where === 'preview' ){
                 if( listElem[ i - 1 ]){
                     listElem[ i - 1 ].focus();
+                    noSearcheFocus = false;
                 }else{
 
                 };
 
             };
-
         }
 
-    }
+    };
+    if( noSearcheFocus ){
+        elem.blur();
+    };
 }

@@ -37,8 +37,13 @@ const OC_InputComponent = ( props ) => {
 
     const change = ( e ) => {
         let val = e.target.value;
-        setValue( val );
-        // setErrorText( '' );
+        if( val.charCodeAt( 0 ) !== 10 ){
+            /*
+                10 это код символа перевода строки enter
+                это здесь, чтоб не появлялся \n при включении фокуса от соседнего input/textarea
+            */
+            setValue( val );
+        };
     }
 
     const keyDown = ( e ) => {
@@ -47,9 +52,10 @@ const OC_InputComponent = ( props ) => {
             
             if( which === 13 ){ // enter
                 set_focus_for_input( inpRef.current, 'next' );
-                
+
             }else if( which === 40 ){ // down
                 set_focus_for_input( inpRef.current, 'next' );
+
             }else if( which === 38 ){  // up
                 set_focus_for_input( inpRef.current, 'preview' );
             };

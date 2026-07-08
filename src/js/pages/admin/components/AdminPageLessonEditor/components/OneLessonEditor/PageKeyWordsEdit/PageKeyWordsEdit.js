@@ -4,29 +4,34 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './PageKeyWordsEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentPageKeyWords } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const PageKeyWordsEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentPageKeyWords,
+        setCurrentLessonIsChanged,
+        setCurrentPageKeyWords,
 
     } = props;
-    let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
+    let [ pageValue, setPageValue ] = useState( currentPageKeyWords );
 
     useEffect( () => {
 
-        setPageTitleValue( currentPageTitle );
+        setPageValue( currentPageKeyWords );
 
-    }, [ currentPageTitle ] );
+    }, [ currentPageKeyWords ] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
+        // let val = e.target.value;
 
-        console.dir( 'val' );
-        console.dir( val );
+        let val = e.target.value.trim();
+        if( val !== currentPageKeyWords ){
+            setCurrentPageKeyWords( val );
+            setCurrentLessonIsChanged( true );
+        };
 
 
     }
@@ -36,13 +41,13 @@ const PageKeyWordsEditComponent = ( props ) => {
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
                 title =         'Ключевые слова'
-                value =         { pageTitleValue }
-                setValue =      { setPageTitleValue }
+                value =         { pageValue }
+                setValue =      { setPageValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
-                // asTextArea =    { true }
+                // isRequired =    { true }
+                // errorText =     { '' }
+                // setErrorText =  { () => {} }
+                asTextArea =    { true }
                 blure =         { blurHandler }
                 chackStatuse =  { null }// true false null
             />
@@ -61,9 +66,13 @@ export function PageKeyWordsEdit( props ){
     return (
         <PageKeyWordsEditComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentPageKeyWords = { lessons.currentPageKeyWords }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentPageKeyWords = { ( val ) => { dispatch( setCurrentPageKeyWords( val ) ) } }
+
+
+            
 
         />
     );

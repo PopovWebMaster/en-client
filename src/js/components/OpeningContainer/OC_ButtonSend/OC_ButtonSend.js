@@ -13,11 +13,12 @@ const OC_ButtonSendComponent = ( props ) => {
 
     let {
         title = 'Отправить',
-
         isReady = true,
-
         route,
         data,
+        addKeyName = false,
+        addLessonId = false,
+
         successCallback = () => {},
         errorCallback = () => {},
 
@@ -38,6 +39,8 @@ const OC_ButtonSendComponent = ( props ) => {
             send_request_to_server({
                 route,
                 data,
+                addKeyName,
+                addLessonId,
                 successCallback: ( response ) => {
                     successCallback( response );
                     setInProcess( false );
@@ -62,7 +65,7 @@ const OC_ButtonSendComponent = ( props ) => {
                 className = { `OC_ButtonSend_btn ${ isReady? 'isReady': '' }` }
                 onClick = { click }
             >
-                { inProcess? <span className = 'icon-spin4 animate-spin'></span>: <span className = ''>Отправить</span> }
+                { inProcess? <span className = 'icon-spin4 animate-spin'></span>: <span className = ''>{ title }</span> }
 
             </div>
 

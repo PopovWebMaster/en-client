@@ -4,14 +4,16 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './PageTitleEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentPageTitle, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const PageTitleEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentPageTitle,
+        setCurrentPageTitle,
+        setCurrentLessonIsChanged,
 
     } = props;
     let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
@@ -20,14 +22,14 @@ const PageTitleEditComponent = ( props ) => {
 
         setPageTitleValue( currentPageTitle );
 
-    }, [ currentPageTitle ] );
+    }, [ currentPageTitle] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
-
-        console.dir( 'val' );
-        console.dir( val );
-
+        let val = e.target.value.trim();
+        if( val !== currentPageTitle ){
+            setCurrentPageTitle( val );
+            setCurrentLessonIsChanged( true );
+        };
 
     }
 
@@ -39,12 +41,7 @@ const PageTitleEditComponent = ( props ) => {
                 value =         { pageTitleValue }
                 setValue =      { setPageTitleValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
-                // asTextArea =    { true }
                 blure =         { blurHandler }
-                chackStatuse =  { null }// true false null
             />
 
         </div>
@@ -63,7 +60,12 @@ export function PageTitleEdit( props ){
             { ...props }
             currentPageTitle = { lessons.currentPageTitle }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+
+            setCurrentPageTitle = { ( val ) => { dispatch( setCurrentPageTitle( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+
+
+            
 
         />
     );

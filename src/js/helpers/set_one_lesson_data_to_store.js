@@ -42,7 +42,7 @@ export const set_one_lesson_data_to_store = ( oneLessonData ) => {
     store.dispatch( setCurrentLessonLevelName( lessonLevelName ) );
     store.dispatch( setCurrentLessonOrder( lessonOrder ) );
     store.dispatch( setCurrentLessonPhrasesList( lessonPhrasesList ) );
-    store.dispatch( setCurrentLessonPhrasesList( lessonPhrasesList ) );
+    // store.dispatch( setCurrentLessonPhrasesList( lessonPhrasesList ) );
     store.dispatch( setCurrentLessonTitle( lessonTitle ) );
     store.dispatch( setCurrentPageDescription( pageDescription ) );
     store.dispatch( setCurrentPageKeyWords( pageKeyWords ) );

@@ -6,29 +6,32 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './PageDescriptionEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentPageDescription } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const PageDescriptionEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentPageDescription,
+        setCurrentLessonIsChanged,
+        setCurrentPageDescription,
 
     } = props;
-    let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
+    let [ pageValue, setPageValue ] = useState( currentPageDescription );
 
     useEffect( () => {
 
-        setPageTitleValue( currentPageTitle );
+        setPageValue( currentPageDescription );
 
-    }, [ currentPageTitle ] );
+    }, [ currentPageDescription ] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
-
-        console.dir( 'val' );
-        console.dir( val );
+        let val = e.target.value.trim();
+        if( val !== currentPageDescription ){
+            setCurrentPageDescription( val );
+            setCurrentLessonIsChanged( true );
+        };
 
 
     }
@@ -38,15 +41,11 @@ const PageDescriptionEditComponent = ( props ) => {
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
                 title =         'Описание страницы'
-                value =         { pageTitleValue }
-                setValue =      { setPageTitleValue }
+                value =         { pageValue }
+                setValue =      { setPageValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
-                // asTextArea =    { true }
+                asTextArea =    { true }
                 blure =         { blurHandler }
-                chackStatuse =  { null }// true false null
             />
 
         </div>
@@ -63,9 +62,13 @@ export function PageDescriptionEdit( props ){
     return (
         <PageDescriptionEditComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentPageDescription = { lessons.currentPageDescription }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentPageDescription = { ( val ) => { dispatch( setCurrentPageDescription( val ) ) } }
+
+
+            
 
         />
     );

@@ -4,30 +4,32 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './LessonTitleEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentLessonTitle } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const LessonTitleEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentLessonTitle,
+        setCurrentLessonIsChanged,
+        setCurrentLessonTitle,
 
     } = props;
-    let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
+    let [ lessonValue, setLessonValue ] = useState( currentLessonTitle );
 
     useEffect( () => {
 
-        setPageTitleValue( currentPageTitle );
+        setLessonValue( currentLessonTitle );
 
-    }, [ currentPageTitle ] );
+    }, [ currentLessonTitle ] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
-
-        console.dir( 'val' );
-        console.dir( val );
-
+        let val = e.target.value.trim();
+        if( val !== currentLessonTitle ){
+            setCurrentLessonTitle( val );
+            setCurrentLessonIsChanged( true );
+        };
 
     }
 
@@ -35,16 +37,16 @@ const LessonTitleEditComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Текст'
-                value =         { pageTitleValue }
-                setValue =      { setPageTitleValue }
+                title =         'Заголовок урока'
+                value =         { lessonValue }
+                setValue =      { setLessonValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
+                // isRequired =    { true }
+                // errorText =     { '' }
+                // setErrorText =  { () => {} }
                 // asTextArea =    { true }
                 blure =         { blurHandler }
-                chackStatuse =  { null }// true false null
+                // chackStatuse =  { null }// true false null
             />
 
         </div>
@@ -61,9 +63,12 @@ export function LessonTitleEdit( props ){
     return (
         <LessonTitleEditComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentLessonTitle = { lessons.currentLessonTitle }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonTitle = { ( val ) => { dispatch( setCurrentLessonTitle( val ) ) } }
+
+
 
         />
     );

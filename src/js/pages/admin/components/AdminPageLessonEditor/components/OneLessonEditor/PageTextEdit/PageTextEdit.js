@@ -4,30 +4,32 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './PageTextEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentPageText } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const PageTextEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentPageText,
+        setCurrentLessonIsChanged,
+        setCurrentPageText,
 
     } = props;
-    let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
+    let [ pageValue, setPageValue ] = useState( currentPageText );
 
     useEffect( () => {
 
-        setPageTitleValue( currentPageTitle );
+        setPageValue( currentPageText );
 
-    }, [ currentPageTitle ] );
+    }, [ currentPageText ] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
-
-        console.dir( 'val' );
-        console.dir( val );
-
+        let val = e.target.value.trim();
+        if( val !== currentPageText ){
+            setCurrentPageText( val );
+            setCurrentLessonIsChanged( true );
+        };
 
     }
 
@@ -36,15 +38,12 @@ const PageTextEditComponent = ( props ) => {
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
                 title =         'Текст'
-                value =         { pageTitleValue }
-                setValue =      { setPageTitleValue }
+                value =         { pageValue }
+                setValue =      { setPageValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
-                // asTextArea =    { true }
+                asTextArea =    { true }
                 blure =         { blurHandler }
-                chackStatuse =  { null }// true false null
+                // chackStatuse =  { null }// true false null
             />
 
         </div>
@@ -61,9 +60,11 @@ export function PageTextEdit( props ){
     return (
         <PageTextEditComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentPageText = { lessons.currentPageText }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentPageText = { ( val ) => { dispatch( setCurrentPageText( val ) ) } }
+
 
         />
     );

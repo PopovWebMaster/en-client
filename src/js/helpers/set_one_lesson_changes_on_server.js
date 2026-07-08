@@ -27,6 +27,8 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
             pageTitle:          currentPageTitle,
             pageDescription:    currentPageDescription,
             pageKeyWords:       currentPageKeyWords,
+            pageText:       currentPageText,
+
             lessonPhrasesList:  currentLessonPhrasesList,
             lessonTitle:        currentLessonTitle,
             lessonDescription:  currentLessonDescription,
@@ -45,6 +47,10 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
             console.dir( resp );
 
             callback( resp );
+
+            if( resp.ok ){
+                store.dispatch( setCurrentLessonIsChanged( false ) );
+            };
 
 
         },

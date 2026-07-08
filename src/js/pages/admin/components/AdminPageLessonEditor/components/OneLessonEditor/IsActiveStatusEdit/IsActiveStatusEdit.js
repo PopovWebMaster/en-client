@@ -25,9 +25,6 @@ const IsActiveStatusEditComponent = ( props ) => {
 
     
 
-
-
-
     return (
         <div className = 'APLE_IsActiveStatusEdit'>
             <span className = 'APLE_IsActiveStatusEdit_text'>Статус активности</span>

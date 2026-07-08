@@ -4,47 +4,41 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './LessonLevelNameEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentLessonLevelName } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
 const LessonLevelNameEditComponent = ( props ) => {
 
     let {
-        currentPageTitle
+        currentLessonLevelName,
+        setCurrentLessonIsChanged,
+        setCurrentLessonLevelName,
 
     } = props;
-    let [ pageTitleValue, setPageTitleValue ] = useState( currentPageTitle );
+
+    let [ lessonValue, setLessonValue ] = useState( currentLessonLevelName );
 
     useEffect( () => {
-
-        setPageTitleValue( currentPageTitle );
-
-    }, [ currentPageTitle ] );
+        setLessonValue( currentLessonLevelName );
+    }, [ currentLessonLevelName ] );
 
     const blurHandler = ( e ) => {
-        let val = e.target.value;
-
-        console.dir( 'val' );
-        console.dir( val );
-
-
+        let val = e.target.value.trim();
+        if( val !== currentLessonLevelName ){
+            setCurrentLessonLevelName( val );
+            setCurrentLessonIsChanged( true );
+        };
     }
-
 
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Текст'
-                value =         { pageTitleValue }
-                setValue =      { setPageTitleValue }
+                title =         'Уровень'
+                value =         { lessonValue }
+                setValue =      { setLessonValue }
                 max =           { 255 }
-                isRequired =    { true }
-                errorText =     { '' }
-                setErrorText =  { () => {} }
-                // asTextArea =    { true }
                 blure =         { blurHandler }
-                chackStatuse =  { null }// true false null
             />
 
         </div>
@@ -61,9 +55,11 @@ export function LessonLevelNameEdit( props ){
     return (
         <LessonLevelNameEditComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentLessonLevelName = { lessons.currentLessonLevelName }
 
-            // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setCurrentLessonLevelName = { ( val ) => { dispatch( setCurrentLessonLevelName( val ) ) } }
+
 
         />
     );
