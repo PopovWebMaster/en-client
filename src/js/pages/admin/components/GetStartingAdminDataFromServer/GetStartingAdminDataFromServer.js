@@ -46,10 +46,6 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
                 if( resp.oneLessonData ){ set_one_lesson_data_to_store( resp.oneLessonData ); }
 
 
-
-
-
-
                 setIsReady( true );
 
 

@@ -15,7 +15,6 @@ import { AddNewWord } from './components/AddNewWord/AddNewWord.js';
 import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
 import { FreeWordsList } from './components/FreeWordsList/FreeWordsList.js';
 
-// import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponent.js';
 import { AddNewWordComponent } from './components/AddNewWordComponent/AddNewWordComponent.js';
 import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges.js';
 

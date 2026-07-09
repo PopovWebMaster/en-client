@@ -21,6 +21,10 @@ const AddNewWordComponent_ = ( props ) => {
         setNewWordContainerIsOpen,
     } = props;
 
+    useEffect( () => {
+        setNewWordContainerIsOpen( false );
+    }, [] );
+
     
     const click = () => {
         setNewWordContainerIsOpen( !newWordContainerIsOpen );

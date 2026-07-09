@@ -5,14 +5,12 @@ import { useDispatch } from 'react-redux';
 
 import './OnePhraseItem.scss';
 
-import { selectorData as lessonsSlice, setCurrentLessonPhrasesList } from './../../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as lessonsSlice, setCurrentLessonPhrasesList, setCurrentLessonIsChanged } from './../../../../../../../../redux/admin/lessonsSlice.js';
 import { selectorData as languageSlice } from './../../../../../../../../redux/languageSlice.js';
-
-
-
 import { OC_Input } from './../../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
-import { OC_ButtonSend } from './../../../../../../../../components/OpeningContainer/OC_ButtonSend/OC_ButtonSend.js';
 import { LANGUAGES } from './../../../../../../../../config/languages.js';
+
+import { send_request_to_server } from './../../../../../../../../helpers/send_request_to_server.js'
 
 
 
@@ -20,24 +18,87 @@ import { LANGUAGES } from './../../../../../../../../config/languages.js';
 const OnePhraseItemComponent = ( props ) => {
 
     let {
-       
 
+        id, 
+        foreign, 
+        ru,
+       
+        currentLessonPhrasesList,
         languageKeyName,
         setCurrentLessonPhrasesList,
 
+        setCurrentLessonIsChanged,
+        
+
     } = props;
 
-    let [ valueForeign, setValueForeign ] = useState( '' );
-    let [ valueRu, setValueRu ] = useState( '' );
+    let [ valueForeign, setValueForeign ] = useState( foreign );
+    let [ valueRu, setValueRu ] = useState( ru );
+
+    useEffect( () => {
+        setValueForeign( foreign );
+        setValueRu( ru );
+
+
+    }, [ foreign, ru, id ] );
 
 
     const blureForeign = () => {
+        if( valueForeign.trim() !== foreign ){
+            let arr = [];
+            for( let i = 0; i < currentLessonPhrasesList.length; i++ ){
+                let item = { ...currentLessonPhrasesList[ i ] };
+                if( item.id === id ){
+                    item.foreign = valueForeign.trim();
+                };
+                arr.push( item );
+            };
+            setCurrentLessonPhrasesList( arr );
+            setCurrentLessonIsChanged( true );
+
+        };
 
     };
 
     const blureRu = () => {
-        
+        if( valueRu.trim() !== ru ){
+            let arr = [];
+            for( let i = 0; i < currentLessonPhrasesList.length; i++ ){
+                let item = { ...currentLessonPhrasesList[ i ] };
+                if( item.id === id ){
+                    item.ru = valueRu.trim();
+                };
+                arr.push( item );
+            };
+            setCurrentLessonPhrasesList( arr );
+            setCurrentLessonIsChanged( true );
+        };
     };
+
+    const remove = () => {
+
+        send_request_to_server({
+            route: 'admin/remove-one-lesson-phrase',
+            data: {
+                lessonPhraseId: id,
+            },
+            addKeyName: true,
+            addLessonId: true,
+
+            successCallback: ( resp ) => {
+                console.dir( 'resp' );
+                console.dir( resp );
+   
+                if( resp.ok ){
+                    if( resp.oneLessonData ){
+                        setCurrentLessonPhrasesList( resp.oneLessonData.lessonPhrasesList );
+                    };
+                };
+
+            },
+        });
+
+    }
 
 
 
@@ -66,20 +127,11 @@ const OnePhraseItemComponent = ( props ) => {
             </div>
 
             <div className = 'OLE_OnePhraseItem_right'>
-                <span>удалить</span>
-                {/* <OC_ButtonSend
-                    title =             'Добавить'
-                    isReady =           { isReady }
-                    route =             { 'admin/add-new-lesson-phrase' }
-                    addKeyName =        { true }
-                    addLessonId =       { true }
-                    data =              { {
-                        foreign: valueForeign,
-                        ru: valueRu,
+                <span 
+                    className = 'OLE_OnePhraseItem_remove'
+                    onClick = { remove }
+                >удалить</span>
 
-                    } }
-                    successCallback =   { success }
-                /> */}
             </div>
 
         </div>
@@ -91,7 +143,7 @@ const OnePhraseItemComponent = ( props ) => {
 
 export function OnePhraseItem( props ){
 
-    // const lessons = useSelector( lessonsSlice );
+    const lessons = useSelector( lessonsSlice );
     const language = useSelector( languageSlice );
 
     const dispatch = useDispatch();
@@ -99,10 +151,16 @@ export function OnePhraseItem( props ){
     return (
         <OnePhraseItemComponent
             { ...props }
-            // currentPageTitle = { lessons.currentPageTitle }
             languageKeyName = { language.languageKeyName }
+            currentLessonPhrasesList = { lessons.currentLessonPhrasesList }
+
+
 
             setCurrentLessonPhrasesList = { ( val ) => { dispatch( setCurrentLessonPhrasesList( val ) ) } }
+            setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+
+
+            
 
         />
     );

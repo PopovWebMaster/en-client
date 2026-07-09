@@ -7,10 +7,10 @@
     justify-content: center;
     align-items: center;
     align-content: center;
-    background-color: #2c836c;
+    // background-color: #2c836c;
     padding: 0.32em 0.64em;
     border-radius: 0.1em;
-    border: 1px solid #2c7d67;
+    // border: 1px solid #2c7d67;
 
     cursor: pointer;
     user-select: none;
@@ -20,25 +20,66 @@
         margin-right: 0.32em;
         padding: 0.2em 0 0em;
 
-        color: #ffffff;
+        // color: #ffffff;
     }
     .ButtonAdd_title{
         font-size: 1em;
-        color: #ffffff;
+        // color: #ffffff;
 
         font-family: Arial, Helvetica, sans-serif;
     }
 }
 
-.ButtonAdd:hover{
+.ButtonAdd.CS_green{
+    background-color: #2c836c;
+    border: 1px solid #2c7d67;
+
+    .ButtonAdd_icon{
+        color: #ffffff;
+    }
+    .ButtonAdd_title{
+        color: #ffffff;
+    }
+
+}
+
+.ButtonAdd.CS_green:hover{
     background-color: #489983;
     border: 1px solid #2c7d67;
 }
 
-.ButtonAdd:active{
+.ButtonAdd.CS_green:active{
     background-color: #489983;
     border: 1px solid #215f4e;
     .ButtonAdd_title{
         color: #f5caca;
     }
 }
+
+
+.ButtonAdd.CS_blue{
+    background-color: #2c5c83;
+    border: 1px solid #2c5c83;
+
+    .ButtonAdd_icon{
+        color: #ffffff;
+    }
+    .ButtonAdd_title{
+        color: #ffffff;
+    }
+
+}
+
+.ButtonAdd.CS_blue:hover{
+    background-color: #3b80b9;
+    border: 1px solid #3677ac;
+}
+
+.ButtonAdd.CS_blue:active{
+    background-color: #3a79ac;
+    border: 1px solid #3677ac;
+    .ButtonAdd_title{
+        color: #f5caca;
+    }
+}
+

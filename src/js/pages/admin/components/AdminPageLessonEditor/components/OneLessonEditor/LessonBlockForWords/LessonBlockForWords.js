@@ -10,6 +10,12 @@ import { selectorData as lessonsSlice } from './../../../../../../../redux/admin
 
 import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockContainer.js';
 
+// import { AddNewWord } from './components/AddNewWord/AddNewWord.js';
+import { AddNewWord } from './../../../../AdminPageWords/components/AddNewWord/AddNewWord.js';
+import { AddNewWordComponent } from './../../../../AdminPageWords/components/AddNewWordComponent/AddNewWordComponent.js';
+import { FreeWordsList } from './../../../../AdminPageWords/components/FreeWordsList/FreeWordsList.js';
+import { AddWordsFromBufferButton } from './AddWordsFromBufferButton/AddWordsFromBufferButton.js';
+ 
 
 const LessonBlockForWordsComponent = ( props ) => {
 
@@ -34,7 +40,17 @@ const LessonBlockForWordsComponent = ( props ) => {
             blockSecondTitle =      { `Всего слов: ${0}` }
             openingContainerTitle = 'Слова'
         >
-            <>LessonBlockForWords</>
+            <div className = 'OLE_topButtonsWrap'>
+                <AddNewWord />
+                <AddWordsFromBufferButton />
+            </div>
+
+            
+
+            <AddNewWordComponent />
+
+            <FreeWordsList />
+            
 
         </LessonBlockContainer>
 

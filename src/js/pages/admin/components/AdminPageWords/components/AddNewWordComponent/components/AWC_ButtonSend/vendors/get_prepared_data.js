@@ -15,8 +15,9 @@ export const get_prepared_data = ( data ) => {
         transcription,
     } = data;
 
-    let { language } = store.getState();
+    let { language, lessons } = store.getState();
     let { languageKeyName } = language;
+    let { currentLessonId } = lessons;
 
     let result = {
         files: [ ...files ],
@@ -24,6 +25,7 @@ export const get_prepared_data = ( data ) => {
         word_ru: make_fit_format_word_ru( word_ru ),
         transcription: make_fit_format_transcription( transcription ),
         keyName: languageKeyName,
+        lessonId: currentLessonId
     };
 
     if( languageKeyName === 'EN' ){

@@ -10,7 +10,9 @@ const ButtonAddComponent = ( props ) => {
     let {
         style = {},
         click,
-        title = 'Добавить'
+        icon = 'icon-plus-1',
+        title = 'Добавить',
+        colorStyle = 'green', // blue
     } = props;
 
     let [ isOpen, setIsOpen ] = useState( false );
@@ -18,11 +20,11 @@ const ButtonAddComponent = ( props ) => {
 
     return (
         <div 
-            className = 'ButtonAdd'
+            className = { `ButtonAdd CS_${colorStyle}` }
             style = { style }
             onClick = { click }
         >
-            <span className = 'ButtonAdd_icon icon-plus-1'></span>
+            <span className = { `ButtonAdd_icon ${icon}` }></span>
             <span className = 'ButtonAdd_title'>{ title }</span>
         </div>
 

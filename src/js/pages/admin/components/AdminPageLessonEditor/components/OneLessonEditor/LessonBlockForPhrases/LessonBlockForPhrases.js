@@ -20,11 +20,32 @@ import { OnePhraseItem } from './OnePhraseItem/OnePhraseItem.js';
 const LessonBlockForPhrasesComponent = ( props ) => {
 
     let {
-        currentPageTitle,
+        currentLessonPhrasesList,
 
     } = props;
 
-    let [ phrasesIsOpen, setPhrasesIsOpen ] = useState( true );
+    let [ phrasesIsOpen, setPhrasesIsOpen ] = useState( false );
+
+    const create = ( arr ) => {
+
+        let div = arr.map( ( item, index ) => {
+
+            let { id, foreign, ru } = item;
+
+            return (
+                <OnePhraseItem 
+                    key =       { index }
+                    id =        { id }
+                    foreign =   { foreign }
+                    ru =        { ru }
+                />
+            )
+
+        } );
+
+        return div;
+
+    };
 
    
 
@@ -37,12 +58,12 @@ const LessonBlockForPhrasesComponent = ( props ) => {
             isOpen =                { phrasesIsOpen }
             setIsOpen =             { setPhrasesIsOpen }
             blockTitle =            'Фразы'
-            blockSecondTitle =      { `Всего фраз: ${0}` }
+            blockSecondTitle =      { `Всего фраз: ${currentLessonPhrasesList.length}` }
             openingContainerTitle = 'Фразы'
         >
             <NewPhraseInput />
 
-            <OnePhraseItem />
+            { create( currentLessonPhrasesList ) }
 
         </LessonBlockContainer>
 
@@ -59,7 +80,7 @@ export function LessonBlockForPhrases( props ){
     return (
         <LessonBlockForPhrasesComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentLessonPhrasesList = { lessons.currentLessonPhrasesList }
             // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
 
         />

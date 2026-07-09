@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import './RemoveWordBtn.scss';
 
 import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
+import { selectorData as lessonsSlice } from './../../../../../../redux/admin/lessonsSlice.js';
+
 
 
 import { AlertWindowContainer } from './../../../../../../components/AlertWindowContainer/AlertWindowContainer.js';
@@ -24,6 +26,7 @@ const RemoveWordBtnComponent = ( props ) => {
 
         wordListById,
         wordListIsChanged,
+        currentLessonId,
 
     } = props;
 
@@ -93,7 +96,18 @@ const RemoveWordBtnComponent = ( props ) => {
             remove();
         };
 
+        
     }
+
+
+    const click = () => {
+        if( currentLessonId === null ){
+            setIsOpen( true )
+        }else{
+            remove();
+        };
+
+    };
 
 
 
@@ -142,7 +156,7 @@ const RemoveWordBtnComponent = ( props ) => {
 
         <div
             className = 'OFW_RemoveWordBtn'
-            onClick = { () => { setIsOpen( true ) } }
+            onClick = { click }
         >
             <span className = 'icon-trash icon'></span>
             <span className = 'text'>Удалить</span>
@@ -156,6 +170,11 @@ const RemoveWordBtnComponent = ( props ) => {
 export function RemoveWordBtn( props ){
 
     const words = useSelector( wordsSlice );
+    const lessons = useSelector( lessonsSlice );
+
+
+
+    
 
 
     // const dispatch = useDispatch();
@@ -165,6 +184,9 @@ export function RemoveWordBtn( props ){
             { ...props }
             wordListById = { words.wordListById }
             wordListIsChanged = { words.wordListIsChanged }
+
+            currentLessonId = { lessons.currentLessonId }
+
 
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
