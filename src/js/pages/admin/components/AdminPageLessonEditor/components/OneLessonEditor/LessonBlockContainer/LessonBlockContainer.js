@@ -16,6 +16,7 @@ const LessonBlockContainerComponent = ( props ) => {
         blockTitle = '',
         blockSecondTitle = '',
         openingContainerTitle = '',
+        attention = false,
 
         children,
 
@@ -27,7 +28,7 @@ const LessonBlockContainerComponent = ( props ) => {
     };
 
     return (
-        <div className = 'OLE_blockWrap'>
+        <div className = { `OLE_blockWrap ${ attention? 'OLE_blockWrap_attention': ''}` }>
             <h2
                 className = 'OLE_block_head'
                 onClick = { click }

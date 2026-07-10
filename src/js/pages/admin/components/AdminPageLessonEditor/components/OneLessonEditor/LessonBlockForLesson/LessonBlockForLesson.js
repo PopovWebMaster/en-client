@@ -18,21 +18,26 @@ import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockConta
 const LessonBlockForLessonComponent = ( props ) => {
 
     let {
+        currentLessonDescription,
+        currentLessonLevelName,
         currentLessonTitle,
 
     } = props;
 
     let [ lessonIsOpen, setLessonIsOpen ] = useState( false );
+    let [ attention, setAttention ] = useState( false );
 
     useEffect( () => {
-
-        let timerId = setTimeout( () => {
-            setLessonIsOpen( get_isOpen_for_lesson() );
-            clearTimeout( timerId );
-        }, 300 );
+        if( get_isOpen_for_lesson() ){
+            setAttention( true );
+        };
         
 
-    }, [] );
+    }, [
+        currentLessonDescription,
+        currentLessonLevelName,
+        currentLessonTitle,
+    ] );
 
 
 
@@ -45,6 +50,7 @@ const LessonBlockForLessonComponent = ( props ) => {
             blockTitle =            'Урок'
             blockSecondTitle =      { currentLessonTitle }
             openingContainerTitle = 'Данные урока'
+            attention = { attention }
         >
             <LessonTitleEdit />
             <LessonDescription />
@@ -66,6 +72,12 @@ export function LessonBlockForLesson( props ){
         <LessonBlockForLessonComponent
             { ...props }
             currentLessonTitle = { lessons.currentLessonTitle }
+            currentLessonDescription = { lessons.currentLessonDescription }
+            currentLessonLevelName = { lessons.currentLessonLevelName }
+
+            
+
+
             // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
 
         />

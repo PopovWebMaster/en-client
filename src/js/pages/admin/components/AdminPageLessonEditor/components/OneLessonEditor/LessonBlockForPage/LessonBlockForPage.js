@@ -21,21 +21,32 @@ import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockConta
 const LessonBlockForPageComponent = ( props ) => {
 
     let {
+        currentPageDescription,
+        currentPageKeyWords,
+        currentPageText,
         currentPageTitle,
+
 
     } = props;
 
     let [ pageIsOpen, setPageIsOpen ] = useState( false );
+    let [ attention, setAttention ] = useState( false );
 
     useEffect( () => {
 
-        let timerId = setTimeout( () => {
-            setPageIsOpen( get_isOpen_for_page() );
-            clearTimeout( timerId );
-        }, 300 );
+        if( get_isOpen_for_page() ){
+            setAttention( true );
+        };
+
         
 
-    }, [] );
+    }, [
+        currentPageDescription,
+        currentPageKeyWords,
+        currentPageText,
+        currentPageTitle,
+
+    ] );
 
 
 
@@ -48,6 +59,8 @@ const LessonBlockForPageComponent = ( props ) => {
             blockTitle =            'Страница'
             blockSecondTitle =      { currentPageTitle }
             openingContainerTitle = 'Данные страницы'
+            attention = { attention }
+
         >
             <PageTitleEdit />
             <PageDescriptionEdit />
@@ -69,7 +82,14 @@ export function LessonBlockForPage( props ){
     return (
         <LessonBlockForPageComponent
             { ...props }
-            currentPageTitle = { lessons.currentPageTitle }
+            currentPageTitle =          { lessons.currentPageTitle }
+            currentPageDescription =    { lessons.currentPageDescription }
+            currentPageKeyWords =       { lessons.currentPageKeyWords }
+            currentPageText =           { lessons.currentPageText }
+
+
+            
+
             // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
 
         />

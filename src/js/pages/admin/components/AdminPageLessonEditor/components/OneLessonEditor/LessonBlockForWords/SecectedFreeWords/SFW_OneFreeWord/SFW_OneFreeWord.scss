@@ -1,0 +1,122 @@
+.OLE_SFW_OneFreeWord{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    padding: 0.3em 0;
+    margin: 0.2em 0;
+    background-color: #fdfdfd;
+    border: 1px solid #f2f2f2f2;
+    border-radius: 0.1em;
+
+    .OLE_SFW_chack{
+        font-size: 1em;
+        margin: 0 0.5em;
+        width: 1.4em;
+        height: 1.4em;
+        border: 1px solid #d0d0d0;
+        border-radius: 0.1em;
+        background-color: #ffffff;
+        cursor: pointer;
+        user-select: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        >span{
+            font-size: 1em;
+            color: #09a52b;
+        }
+    }
+    .OLE_SFW_words{
+        font-size: 1em;
+        max-width: calc( 100% - 9em );
+        // max-width: 5em;
+
+        flex-grow: 1;
+        // text-overflow: ellipsis;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // background-color: red;
+
+        .OLE_SFW_words_1{
+            font-size: 1em;
+            padding: 0 0 0 0.6em ;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            .OLE_SFW_words_foreign{
+                font-size: 0.75em;
+                color: #371c9b;
+                
+            }
+            .OLE_SFW_words_transcription{
+                font-size: 0.75em;
+                color: #c2c2c2;
+                margin: 0 0.3em;
+            }
+        }
+        .OLE_SFW_words_2{
+            font-size: 1em;
+            padding: 0 0 0 0.4em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+
+            .OLE_SFW_words_ru{
+                font-size: 0.75em;
+                color: #31ce23;
+                
+            }
+        }
+
+    }
+    .OLE_SFW_audio{
+
+        font-size: 1em;
+
+        width: 6em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        >span{
+            font-size: 0.8em;
+            padding: 0.2em 0.9em;
+            border-radius: 0.1em;
+            border: 1px solid #d0d0d0;
+            // background-color: #16b607;
+            color: #6b6b6b;
+            cursor: pointer;
+            user-select: none;
+            // font-family: Verdana, Geneva, sans-serif;
+
+        }
+
+        >span:hover{
+            background-color: #139c07;
+            border: 1px solid #16b607;
+            color: #f5f5f5;
+        }
+        >span:active{
+            color: #fcd5d5;
+        }
+        
+    }
+}
+
+.OLE_SFW_OneFreeWord.isSelected{
+    background-color: #f7f7f7de;
+    border: 1px solid #e0e0e0;
+}
+
+.OLE_SFW_OneFreeWord:hover{
+    background-color: #f7f7f7;
+    border: 1px solid #dbdada;
+}

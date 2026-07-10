@@ -73,12 +73,11 @@ const AudioButtonAddComponent = ( props ) => {
                         route: 'admin/add-audio-files-to-word',
                         data: {
                             keyName: languageKeyName,
-                            lessonId: currentLessonId,
+                            // lessonId: currentLessonId,
                             foreignWordId: wordId,
-
                             files: base64List,
-
                         },
+                        addLessonId: true,
                         successCallback: ( resp ) => {
                             console.dir( 'resp' );
                             console.dir( resp );

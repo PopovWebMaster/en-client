@@ -7,7 +7,7 @@ import { setCurrentLessonIsChanged } from './../redux/admin/lessonsSlice.js';
 
 export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
 
-    let { lessons } = store.getState();
+    let { lessons, words } = store.getState();
     let {
         currentLessonDescription,
         currentLessonIsActive,
@@ -20,6 +20,7 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
         currentPageText,
         currentPageTitle,
     } = lessons;
+    let { wordList } = words;
 
     send_request_to_server({
         route: 'admin/save-one-lesson-changes',
@@ -35,7 +36,7 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
             lessonLevelName:    currentLessonLevelName,
             lessonIsActive:     currentLessonIsActive,
             lessonOrder:        currentLessonOrder,
-            wordList: [],
+            wordList: wordList,
 
             
         },

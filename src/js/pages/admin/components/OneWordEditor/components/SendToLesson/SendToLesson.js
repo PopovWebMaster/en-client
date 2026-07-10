@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import './SendToLesson.scss';
 
 import { AlertWindowContainer } from './../../../../../../components/AlertWindowContainer/AlertWindowContainer.js';
+import { SelectedLessons } from './SelectedLessons/SelectedLessons.js';
 
 
 
@@ -26,12 +27,17 @@ const SendToLessonComponent = ( props ) => {
         <AlertWindowContainer
             isOpen = { isOpen }
             setIsOpen = { setIsOpen }
-            title = 'тут что-то'
-            width = '25vw'
-            height = '20vh'
+            title = 'Отправить слово в урок'
+            width = '70vw'
+            height = '80vh'
         >
 
-            zxczxc
+            <SelectedLessons 
+                isOpen = { isOpen }
+                setIsOpen = { setIsOpen }
+                wordId = { wordId }
+            />
+
         </AlertWindowContainer>
 
         <div

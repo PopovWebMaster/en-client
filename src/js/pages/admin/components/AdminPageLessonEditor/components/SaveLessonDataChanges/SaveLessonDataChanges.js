@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 
 import './SaveLessonDataChanges.scss';
 import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as wordsSlice, setWordListIsChanged } from './../../../../../../redux/admin/wordsSlice.js';
+
 import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButton.js';
 
 // import { save_lesson_list_changes_on_server } from './../../../../../../helpers/save_lesson_list_changes_on_server.js';
@@ -23,14 +25,18 @@ const SaveLessonDataChangesComponent = ( props ) => {
         lessonListIsChanged,
         currentLessonIsChanged,
         setCurrentLessonIsChanged,
+        setWordListIsChanged,
 
     } = props;
+
+  
+
     let [ isWaiting, setIsWaiting ] = useState( false );
 
     useEffect(() => {
 
         if( IS_DEVELOPMENT === false ){
-            if( currentLessonIsChanged ){
+            if( currentLessonIsChanged || wordListIsChanged ){
                 window.onbeforeunload = ( ev ) => {
                     ev.preventDefault();
                     ev.returnValue = 'Are you sure you want to close?';
@@ -42,15 +48,15 @@ const SaveLessonDataChangesComponent = ( props ) => {
         };
         
         return () => {
-            if( currentLessonIsChanged ){
+            if( currentLessonIsChanged || wordListIsChanged ){
                 set_one_lesson_changes_on_server();
             };
 
         }
-    }, [ currentLessonIsChanged ]);
+    }, [ currentLessonIsChanged, wordListIsChanged ]);
   
     const click = () => {
-        if( currentLessonIsChanged ){
+        if( currentLessonIsChanged || wordListIsChanged ){
 
             setIsWaiting( true );
 
@@ -59,6 +65,7 @@ const SaveLessonDataChangesComponent = ( props ) => {
                 if( resp.ok ){
                     if( resp.oneLessonData ){
                         set_one_lesson_data_to_store( resp.oneLessonData );
+                        setWordListIsChanged( false );
                     };
                 };
             });
@@ -69,7 +76,7 @@ const SaveLessonDataChangesComponent = ( props ) => {
     return (
         <SaveChangesButton
             fontSize = { '0.75em' }
-            isChenges =     { currentLessonIsChanged }
+            isChenges =     { currentLessonIsChanged || wordListIsChanged }
             setIsChanges =  { setCurrentLessonIsChanged }
             isWaiting =     { isWaiting }
             clickHandler =  { click }
@@ -82,13 +89,23 @@ const SaveLessonDataChangesComponent = ( props ) => {
 export function SaveLessonDataChanges( props ){
 
     const lessons = useSelector( lessonsSlice );
+    const words = useSelector( wordsSlice );
+
+
+
     const dispatch = useDispatch();
 
     return (
         <SaveLessonDataChangesComponent
             { ...props }
-            currentLessonIsChanged = { lessons.currentLessonIsChanged }
+            currentLessonIsChanged =    { lessons.currentLessonIsChanged }
+            wordListIsChanged =         { words.wordListIsChanged }
+
             setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
+            setWordListIsChanged = { ( val ) => { dispatch( setWordListIsChanged( val ) ) } }
+
+
+            // setWordListIsChanged
 
         />
     );

@@ -6,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import './LessonBlockForWords.scss';
 
 import { selectorData as lessonsSlice } from './../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as wordsSlice } from './../../../../../../../redux/admin/wordsSlice.js';
+
 
 
 import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockContainer.js';
@@ -21,10 +23,11 @@ const LessonBlockForWordsComponent = ( props ) => {
 
     let {
         // currentPageTitle,
+        wordList,
 
     } = props;
 
-    let [ wordsIsOpen, setWordsIsOpen ] = useState( false );
+    let [ wordsIsOpen, setWordsIsOpen ] = useState( true );
 
    
 
@@ -37,7 +40,7 @@ const LessonBlockForWordsComponent = ( props ) => {
             isOpen =                { wordsIsOpen }
             setIsOpen =             { setWordsIsOpen }
             blockTitle =            'Слова'
-            blockSecondTitle =      { `Всего слов: ${0}` }
+            blockSecondTitle =      { `Всего слов: ${wordList.length}` }
             openingContainerTitle = 'Слова'
         >
             <div className = 'OLE_topButtonsWrap'>
@@ -62,12 +65,15 @@ const LessonBlockForWordsComponent = ( props ) => {
 export function LessonBlockForWords( props ){
 
     const lessons = useSelector( lessonsSlice );
+    const words = useSelector( wordsSlice );
+
+
     // const dispatch = useDispatch();
 
     return (
         <LessonBlockForWordsComponent
             { ...props }
-            // currentPageTitle = { lessons.currentPageTitle }
+            wordList = { words.wordList }
             // setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
 
         />

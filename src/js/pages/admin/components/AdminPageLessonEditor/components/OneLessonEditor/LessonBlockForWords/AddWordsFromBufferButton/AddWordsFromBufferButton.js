@@ -9,7 +9,8 @@ import { selectorData as lessonsSlice } from './../../../../../../../../redux/ad
 
 import { ButtonAdd } from './../../../../../../../../components/ButtonAdd/ButtonAdd.js';
 
-import { AlertWindowContainer } from './../../../../../../../../components/AlertWindowContainer/AlertWindowContainer.js'
+import { AlertWindowContainer } from './../../../../../../../../components/AlertWindowContainer/AlertWindowContainer.js';
+import { SecectedFreeWords } from './../SecectedFreeWords/SecectedFreeWords.js';
 
 
 
@@ -40,7 +41,10 @@ const AddWordsFromBufferButtonComponent = ( props ) => {
                 height = '80vh'
             >
 
-                <>sdafdsf</>
+                <SecectedFreeWords
+                    isOpen = { isOpen }
+                    setIsOpen = { setIsOpen }
+                />
 
 
             </AlertWindowContainer>
