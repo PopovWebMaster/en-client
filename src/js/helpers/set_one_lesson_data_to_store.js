@@ -14,6 +14,7 @@ import {
     setCurrentPageKeyWords,
     setCurrentPageText,
     setCurrentPageTitle,
+    setCurrentLessonIsPaid,
 } from './../redux/admin/lessonsSlice.js';
 
 
@@ -33,6 +34,7 @@ export const set_one_lesson_data_to_store = ( oneLessonData ) => {
         pageText,
         pageTitle,
         wordList,
+        lessonIsPaid,
     } = oneLessonData;
 
     console.dir( 'oneLessonData' );
@@ -63,6 +65,10 @@ export const set_one_lesson_data_to_store = ( oneLessonData ) => {
     store.dispatch( setCurrentPageKeyWords( pageKeyWords ) );
     store.dispatch( setCurrentPageText( pageText ) );
     store.dispatch( setCurrentPageTitle( pageTitle ) );
+    store.dispatch( setCurrentLessonIsPaid( lessonIsPaid ) );
+
+
+
 
     set_word_list_to_store( wordList );
 

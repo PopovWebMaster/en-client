@@ -1,4 +1,4 @@
-.APLE_IsActiveStatusEdit{
+.APLE_IsPaidStatust{
     font-size: 1em;
 
     display: flex;
@@ -13,12 +13,12 @@
     // border-radius: 0.1em;
     // border: 1px solid #c4c4c4;
 
-    .APLE_IsActiveStatusEdit_text{
+    .APLE_IsPaidStatus_text{
         font-size: 0.74em;
         font-family: Verdana, Geneva, sans-serif;
         color: #6a6a6a;
 
-        .APLE_IAS_yes{
+        .APLE_IPS_yes{
             font-size: 1em;
             display: inline-block;
             width: 2.6em;
@@ -27,7 +27,7 @@
             font-weight: bold;
             text-shadow: 1px 0px 4px #ffffff80;
         }
-        .APLE_IAS_no{
+        .APLE_IPS_no{
             font-size: 1em;
             display: inline-block;
             width: 2.6em;

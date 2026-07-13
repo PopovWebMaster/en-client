@@ -19,6 +19,7 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
         currentPageKeyWords,
         currentPageText,
         currentPageTitle,
+        currentLessonIsPaid,
     } = lessons;
     let { wordList } = words;
 
@@ -28,7 +29,7 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
             pageTitle:          currentPageTitle,
             pageDescription:    currentPageDescription,
             pageKeyWords:       currentPageKeyWords,
-            pageText:       currentPageText,
+            pageText:           currentPageText,
 
             lessonPhrasesList:  currentLessonPhrasesList,
             lessonTitle:        currentLessonTitle,
@@ -36,6 +37,7 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
             lessonLevelName:    currentLessonLevelName,
             lessonIsActive:     currentLessonIsActive,
             lessonOrder:        currentLessonOrder,
+            lessonIsPaid:       currentLessonIsPaid,
             wordList: wordList,
 
             

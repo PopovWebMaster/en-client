@@ -67,9 +67,9 @@ export const LANGUAGE_LIST = [
         Здесь список тех яхыков, которые учавствуют в сайте
     */
     { ...LANGUAGES.EN },
-    { ...LANGUAGES.DE },
-    { ...LANGUAGES.CN },
-    { ...LANGUAGES.FR },
+    // { ...LANGUAGES.DE },
+    // { ...LANGUAGES.CN },
+    // { ...LANGUAGES.FR },
 
 ];
 

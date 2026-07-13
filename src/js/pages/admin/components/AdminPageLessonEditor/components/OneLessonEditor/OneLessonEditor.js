@@ -8,6 +8,7 @@ import './OneLessonEditor.scss';
 // import { selectorData as lessonsSlice, setCurrentLessonIsChanged } from './../../../../../../redux/admin/lessonsSlice.js';
 
 import { IsActiveStatusEdit } from './IsActiveStatusEdit/IsActiveStatusEdit.js';
+import { IsPaidStatus } from './IsPaidStatus/IsPaidStatus.js';
 import { LessonOrderEdit } from './LessonOrderEdit/LessonOrderEdit.js';
 
 import { LessonBlockForPage } from './LessonBlockForPage/LessonBlockForPage.js';
@@ -30,6 +31,7 @@ const OneLessonEditorComponent = ( props ) => {
 
             <div className = 'OLE_blockWrap'>
                 <div className = 'OLE_topBlockWrap'>
+                    <IsPaidStatus />
                     <LessonOrderEdit />
                     <IsActiveStatusEdit />
                 </div>

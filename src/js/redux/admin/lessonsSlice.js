@@ -15,6 +15,8 @@ export const lessonsSlice = createSlice({
         currentLessonOrder: '',
         currentLessonPhrasesList: [],
         currentLessonPhrasesById: {},
+        currentLessonIsPaid: false,
+
 
         currentLessonTitle: '',
         currentPageDescription: '',
@@ -113,6 +115,10 @@ export const lessonsSlice = createSlice({
             state.currentPageTitle =  action.payload;
         },
 
+        setCurrentLessonIsPaid: ( state, action ) => { 
+            state.currentLessonIsPaid =  action.payload;
+        },
+
 
 
 
@@ -142,6 +148,7 @@ export const {
     setCurrentPageKeyWords,
     setCurrentPageText,
     setCurrentPageTitle,
+    setCurrentLessonIsPaid,
 
 
 
@@ -162,6 +169,7 @@ export const selectorData = ( state ) => {
         currentLessonPhrasesList:   state.lessons.currentLessonPhrasesList,
         currentLessonPhrasesById:   state.lessons.currentLessonPhrasesById,
         currentLessonTitle:         state.lessons.currentLessonTitle,
+        currentLessonIsPaid:         state.lessons.currentLessonIsPaid,
         currentPageDescription:     state.lessons.currentPageDescription,
         currentPageKeyWords:        state.lessons.currentPageKeyWords,
         currentPageText:            state.lessons.currentPageText,

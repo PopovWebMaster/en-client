@@ -14,6 +14,7 @@ import { TitleInput } from './TitleInput/TitleInput.js';
 import { WordsCount } from './WordsCount/WordsCount.js';
 import { ItemOrder } from './ItemOrder/ItemOrder.js';
 import { LevelName } from  './LevelName/LevelName.js';
+import { IsPaid } from './IsPaid/IsPaid.js';
 
 import { ADMIN_ROUTES } from './../../../../../config/routes.js';
 
@@ -30,6 +31,8 @@ const OneLessonItemComponent = ( props ) => {
 
     let [ classNameValue, setClassNameValue ] = useState( '' );
     let [ isActiveValue, setIsActiveValue ] = useState( false );
+    let [ isPaidValue, setIsPaidValue ] = useState( false );
+
     let [ titleValue, setTitleValue ] = useState( false );
     let [ wordsCountValue, setWordsCountValue ] = useState( 0 );
     let [ orderValue, setOrderValue ] = useState( 0 );
@@ -47,6 +50,7 @@ const OneLessonItemComponent = ( props ) => {
                 is_active,
                 wordsCount,
                 order,
+                isPaid,
             } = lessonListById[ lessonId ];
 
 
@@ -57,6 +61,7 @@ const OneLessonItemComponent = ( props ) => {
 
             setOrderValue( order );
             setLevelNameValue( level_name );
+            setIsPaidValue( isPaid );
 
         }else{
 
@@ -66,6 +71,7 @@ const OneLessonItemComponent = ( props ) => {
             setWordsCountValue( 0 );
             setOrderValue( 0 );
             setLevelNameValue('');
+            setIsPaidValue( false );
 
         };
 
@@ -118,10 +124,16 @@ const OneLessonItemComponent = ( props ) => {
                         isActiveValue = { isActiveValue }
                     />
 
+                    <IsPaid
+                        lessonId = { lessonId }
+                        value = { isPaidValue }
+                    />
+
                     <TitleInput
                         lessonId = { lessonId }
                         value = { titleValue }
                     />
+                    
 
                     <LevelName 
                         lessonId = { lessonId }

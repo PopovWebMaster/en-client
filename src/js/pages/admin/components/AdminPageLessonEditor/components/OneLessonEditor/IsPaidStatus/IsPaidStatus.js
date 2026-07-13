@@ -1,39 +1,40 @@
 
+
 import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './IsActiveStatusEdit.scss';
-import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentLessonIsActive } from './../../../../../../../redux/admin/lessonsSlice.js';
+import './IsPaidStatus.scss';
+import { selectorData as lessonsSlice, setCurrentLessonIsPaid, setCurrentLessonIsChanged } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 import { ToggleSwitchButton } from './../../../../../../../components/ToggleSwitchButton/ToggleSwitchButton.js';
 
 
-const IsActiveStatusEditComponent = ( props ) => {
+const IsPaidStatusComponent = ( props ) => {
 
     let {
-        currentLessonIsActive,
+        currentLessonIsPaid,
         setCurrentLessonIsChanged,
-        setCurrentLessonIsActive
+        setCurrentLessonIsPaid
 
     } = props;
 
     const click = () => {
-        setCurrentLessonIsActive( !currentLessonIsActive );
+        setCurrentLessonIsPaid( !currentLessonIsPaid );
         setCurrentLessonIsChanged( true );
     }
 
     
 
     return (
-        <div className = 'APLE_IsActiveStatusEdit'>
-            <span className = 'APLE_IsActiveStatusEdit_text'>Статус активности
-                { currentLessonIsActive? (<span className = 'APLE_IAS_yes'>Да</span>): (<span className = 'APLE_IAS_no'>Нет</span>) }
+        <div className = 'APLE_IsPaidStatust'>
+            <span className = 'APLE_IsPaidStatus_text'>Платный
+                { currentLessonIsPaid? (<span className = 'APLE_IPS_yes'>Да</span>): (<span className = 'APLE_IPS_no'>Нет</span>) }
                 
             </span>
 
             <ToggleSwitchButton
-                value = { currentLessonIsActive }
+                value = { currentLessonIsPaid }
                 changeHandler = { click }
                 style = {{ fontSize: '0.8em', margin: '0 0.5em'}}
             />
@@ -45,18 +46,18 @@ const IsActiveStatusEditComponent = ( props ) => {
 };
 
 
-export function IsActiveStatusEdit( props ){
+export function IsPaidStatus( props ){
 
     const lessons = useSelector( lessonsSlice );
     const dispatch = useDispatch();
 
     return (
-        <IsActiveStatusEditComponent
+        <IsPaidStatusComponent
             { ...props }
-            currentLessonIsActive = { lessons.currentLessonIsActive }
+            currentLessonIsPaid = { lessons.currentLessonIsPaid }
 
             setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
-            setCurrentLessonIsActive = { ( val ) => { dispatch( setCurrentLessonIsActive( val ) ) } }
+            setCurrentLessonIsPaid = { ( val ) => { dispatch( setCurrentLessonIsPaid( val ) ) } }
 
 
             

@@ -1,0 +1,26 @@
+.APL_IsPaid{
+    font-size: 1em;
+    flex-grow: 0;
+    // max-width: 100%;
+    width: 6em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0 0 0 0.5em;
+
+    >span{
+        font-size: 0.74em;
+        // color: #262626;
+        color: #677e9c;
+
+        padding: 0.26em 1em;
+        border-radius: 0.1em;
+        background-color: #e7ecf3;
+        border: 1px solid #a7bedd;
+        font-weight: bold;
+        margin: 0 0.5em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
