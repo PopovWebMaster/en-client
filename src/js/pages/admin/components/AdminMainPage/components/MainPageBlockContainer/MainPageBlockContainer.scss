@@ -1,0 +1,50 @@
+.AMP_AdminMainPage{
+    .MP_blockWrap{
+
+        .MP_block_head{
+            font-size: 1em;
+            // color: #3b55a0;
+            margin-bottom: 0.5em;
+            // font-family: Verdana, Geneva, sans-serif;
+            padding: 0.3em 0.6em;
+            border-bottom: 1px solid #d5d5d5;
+            cursor: pointer;
+            border-radius: 0.1em;
+            // background-color: #e4e4e4;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+
+            .MP_block_head_icon{
+                font-size: 0.7em;
+                color: #427bab;
+                padding: 0.1em 0em;
+            }
+
+            .MP_block_head_text{
+                font-size: 1em;
+                color: #3b55a0;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+
+            .MP_block_head_text_second{
+                font-size: 0.8em;
+                color: #8d8d8f;
+                margin-left: 1em;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+
+        }
+        .MP_block_head:hover{
+            color: #324785;
+            background-color: #e4e4e4;
+        }
+
+    }
+
+    .MP_blockWrap.OLE_blockWrap_attention{
+        background-color: #ffdddd;
+    }
+
+}

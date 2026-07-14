@@ -9,9 +9,15 @@ import './AdminMainPage.scss';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { useNavigate } from "react-router-dom";
 
-
-import { IconsDemonstration } from './../../../../components/IconsDemonstration/IconsDemonstration.js';
 import { AdminPageContainer } from './../AdminPageContainer/AdminPageContainer.js';
+
+import { A_TopButtonsContainer } from './../AdminPageContainer/A_TopButtonsContainer/A_TopButtonsContainer.js';
+
+import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
+import { SaveMainChanges } from './components/SaveMainChanges/SaveMainChanges.js';
+
+import { SiteBlock } from './components/SiteBlock/SiteBlock.js';
+import { LanguagePageBlock } from './components/LanguagePageBlock/LanguagePageBlock.js';
 
 
 
@@ -21,11 +27,32 @@ const AdminMainPageComponent = ( props ) => {
 
     } = props;
 
+    let what_to_take = [
+        'mainPage',
+    ];
+
+
 
     return (
         <AdminPageContainer>
+            <GetStartingAdminDataFromServer 
+                what_to_take =      { what_to_take }
+            >
 
 
+                <A_TopButtonsContainer>
+                    <SaveMainChanges />
+
+                </A_TopButtonsContainer>
+
+                <div className = 'AMP_AdminMainPage'>
+                    <SiteBlock />
+                    <LanguagePageBlock />
+
+                </div>
+
+ 
+            </GetStartingAdminDataFromServer>
         </AdminPageContainer>
     )
 
