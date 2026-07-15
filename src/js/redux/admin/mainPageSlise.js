@@ -14,14 +14,11 @@ export const mainPageSlise = createSlice({
         siteParagraphList: [],
         siteKeywords: '',
         siteDescription: '',
-        pageTitle: '',
-        pageHeader: '',
-        pageParagraphList: [],
-        pageDescription: '',
-        pageKeywords: '',
-
-       
-
+        languagePageTitle: '',
+        languagePageHeader: '',
+        languagePageParagraphList: [],
+        languagePageDescription: '',
+        languagePageKeywords: '',
 
 
 
@@ -53,20 +50,20 @@ export const mainPageSlise = createSlice({
         setSiteDescription: ( state, action ) => { 
             state.siteDescription =  action.payload;
         },
-        setPageTitle: ( state, action ) => { 
-            state.pageTitle =  action.payload;
+        setLanguagePageTitle: ( state, action ) => { 
+            state.languagePageTitle =  action.payload;
         },
-        setPageHeader: ( state, action ) => { 
-            state.pageHeader =  action.payload;
+        setLanguagePageHeader: ( state, action ) => { 
+            state.languagePageHeader =  action.payload;
         },
-        setPageParagraphList: ( state, action ) => { 
-            state.pageParagraphList =  action.payload;
+        setLanguagePageParagraphList: ( state, action ) => { 
+            state.languagePageParagraphList =  action.payload;
         },
-        setPageDescription: ( state, action ) => { 
-            state.pageDescription =  action.payload;
+        setLanguagePageDescription: ( state, action ) => { 
+            state.languagePageDescription =  action.payload;
         },
-        setPageKeywords: ( state, action ) => { 
-            state.pageKeywords =  action.payload;
+        setLanguagePageKeywords: ( state, action ) => { 
+            state.languagePageKeywords =  action.payload;
         },
 
 
@@ -86,11 +83,11 @@ export const {
     setSiteParagraphList,
     setSiteKeywords,
     setSiteDescription,
-    setPageTitle,
-    setPageHeader,
-    setPageParagraphList,
-    setPageDescription,
-    setPageKeywords,
+    setLanguagePageTitle,
+    setLanguagePageHeader,
+    setLanguagePageParagraphList,
+    setLanguagePageDescription,
+    setLanguagePageKeywords,
 
 } = mainPageSlise.actions;
 
@@ -104,11 +101,11 @@ export const selectorData = ( state ) => {
         siteParagraphList:      state.mainPage.siteParagraphList,
         siteKeywords:           state.mainPage.siteKeywords,
         siteDescription:        state.mainPage.siteDescription,
-        pageTitle:              state.mainPage.pageTitle,
-        pageHeader:             state.mainPage.pageHeader,
-        pageParagraphList:      state.mainPage.pageParagraphList,
-        pageDescription:        state.mainPage.pageDescription,
-        pageKeywords:           state.mainPage.pageKeywords,
+        languagePageTitle:         state.mainPage.languagePageTitle,
+        languagePageHeader:        state.mainPage.languagePageHeader,
+        languagePageParagraphList: state.mainPage.languagePageParagraphList,
+        languagePageDescription:   state.mainPage.languagePageDescription,
+        languagePageKeywords:      state.mainPage.languagePageKeywords,
 
 
 

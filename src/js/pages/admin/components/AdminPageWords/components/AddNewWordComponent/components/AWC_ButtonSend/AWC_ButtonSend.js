@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import './AWC_ButtonSend.scss';
 
 import { selectorData as wordEditSlice, clearWordEdit } from './../../../../../../../../redux/admin/wordEditSlice.js';
-// import { selectorData as languageSlice } from './../../../../../../../../redux//languageSlice.js';
 
 
 import { OC_ButtonSend } from './../../../../../../../../components/OpeningContainer/OC_ButtonSend/OC_ButtonSend.js';

@@ -10,6 +10,13 @@ import './LanguagePageBlock.scss';
 
 import { MainPageBlockContainer } from './../MainPageBlockContainer/MainPageBlockContainer.js';
 
+import { LanguagePageTitleEdit } from './../LanguagePageTitleEdit/LanguagePageTitleEdit.js';
+import { LanguagePageHeaderEdit } from './../LanguagePageHeaderEdit/LanguagePageHeaderEdit.js';
+import { LanguagePageParagraphListEdit } from './../LanguagePageParagraphListEdit/LanguagePageParagraphListEdit.js';
+import { LanguagePageDescriptionEdit } from './../LanguagePageDescriptionEdit/LanguagePageDescriptionEdit.js';
+import { LanguagePageKeywordsEdit } from './../LanguagePageKeywordsEdit/LanguagePageKeywordsEdit.js';
+
+
 
 
 const LanguagePageBlockComponent = ( props ) => {
@@ -24,9 +31,6 @@ const LanguagePageBlockComponent = ( props ) => {
 
 
 
-
-
-
     return (
 
         <MainPageBlockContainer
@@ -38,7 +42,12 @@ const LanguagePageBlockComponent = ( props ) => {
             attention = { false }
 
         >
-LanguagePageBlock
+
+            <LanguagePageTitleEdit />
+            <LanguagePageHeaderEdit />
+            <LanguagePageParagraphListEdit />
+            <LanguagePageDescriptionEdit />
+            <LanguagePageKeywordsEdit />
 
         </MainPageBlockContainer>
 

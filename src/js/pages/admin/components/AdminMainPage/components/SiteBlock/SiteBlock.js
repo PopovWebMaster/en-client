@@ -10,6 +10,13 @@ import './SiteBlock.scss';
 
 import { MainPageBlockContainer } from './../MainPageBlockContainer/MainPageBlockContainer.js';
 
+import { SiteTitleEdit } from './../SiteTitleEdit/SiteTitleEdit.js';
+import { SiteHeaderEdit } from './../SiteHeaderEdit/SiteHeaderEdit.js';
+import { SiteParagraphListEdit } from './../SiteParagraphListEdit/SiteParagraphListEdit.js';
+import { SiteDescriptionEdit } from './../SiteDescriptionEdit/SiteDescriptionEdit.js';
+import { SiteKeywordsEdit } from './../SiteKeywordsEdit/SiteKeywordsEdit.js';
+
+
 
 
 const SiteBlockComponent = ( props ) => {
@@ -32,13 +39,18 @@ const SiteBlockComponent = ( props ) => {
         <MainPageBlockContainer
             isOpen =                { siteIsOpen }
             setIsOpen =             { setSiteIsOpen }
-            blockTitle =            'Сайт'
+            blockTitle =            'Главная страница'
             // blockSecondTitle =      { 'xcvxcv' }
-            openingContainerTitle = 'Данные сайта'
+            openingContainerTitle = 'Данные главной страницы'
             attention = { false }
-
         >
-SiteBlock
+
+            <SiteTitleEdit />
+            <SiteHeaderEdit />
+            <SiteParagraphListEdit />
+            <SiteDescriptionEdit />
+            <SiteKeywordsEdit />
+
 
         </MainPageBlockContainer>
 

@@ -8,11 +8,16 @@ import {
     setSiteParagraphList,
     setSiteKeywords,
     setSiteDescription,
-    setPageTitle,
-    setPageHeader,
-    setPageParagraphList,
-    setPageDescription,
-    setPageKeywords,
+    // setPageTitle,
+    // setPageHeader,
+    // setPageParagraphList,
+    // setPageDescription,
+    // setPageKeywords,
+    setLanguagePageTitle,
+    setLanguagePageHeader,
+    setLanguagePageParagraphList,
+    setLanguagePageDescription,
+    setLanguagePageKeywords,
 } from './../redux/admin/mainPageSlise.js';
 
 export const set_main_page_data_to_store = ( mainPage ) => {
@@ -23,31 +28,24 @@ export const set_main_page_data_to_store = ( mainPage ) => {
         siteParagraphList,
         siteKeywords,
         siteDescription,
-        pageTitle,
-        pageHeader,
-        pageParagraphList,
-        pageDescription,
-        pageKeywords,
+        languagePageTitle,
+        languagePageHeader,
+        languagePageParagraphList,
+        languagePageDescription,
+        languagePageKeywords,
 
     } = mainPage;
-
-
-
-
-    // store.dispatch( setMainPageDataIsChanged( false ) );
-    // store.dispatch( setMainPageDataIsChanged( true ) );
 
     store.dispatch( setSiteTitle( siteTitle ) );
     store.dispatch( setSiteHeader( siteHeader ) );
     store.dispatch( setSiteParagraphList( siteParagraphList ) );
     store.dispatch( setSiteKeywords( siteKeywords ) );
     store.dispatch( setSiteDescription( siteDescription ) );
-    store.dispatch( setPageTitle( pageTitle ) );
-    store.dispatch( setPageHeader( pageHeader ) );
-    store.dispatch( setPageParagraphList( pageParagraphList ) );
-    store.dispatch( setPageDescription( pageDescription ) );
-    store.dispatch( setPageKeywords( pageKeywords ) );
-
+    store.dispatch( setLanguagePageTitle( languagePageTitle ) );
+    store.dispatch( setLanguagePageHeader( languagePageHeader ) );
+    store.dispatch( setLanguagePageParagraphList( languagePageParagraphList ) );
+    store.dispatch( setLanguagePageDescription( languagePageDescription ) );
+    store.dispatch( setLanguagePageKeywords( languagePageKeywords ) );
 
 
 
