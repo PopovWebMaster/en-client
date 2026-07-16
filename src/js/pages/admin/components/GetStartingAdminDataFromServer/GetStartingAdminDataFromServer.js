@@ -53,7 +53,7 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
             },
         });
 
-    }, [] );
+    }, [ languageKeyName ] );
 
 
 

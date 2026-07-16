@@ -96,7 +96,10 @@ const LanguageMenuComponent = ( props ) => {
 
     return (
 
-        <div className = { `LanguageMenu ${ isActive? 'isActive': '' }` }>
+        <div 
+            className = { `LanguageMenu ${ isActive? 'isActive': '' }` }
+            onMouseLeave = { () => { setIsOpen( false ) } }
+        >
 
             <div
                 className = 'LM_current_btn'
