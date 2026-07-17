@@ -40,9 +40,16 @@ export const set_lesson_list_to_store = ( lesson_list ) => {
 
     } );
 
-
+    let arr_3 = [];
     for( let i = 0; i < arr_2.length; i++ ){
         let item = structuredClone( arr_2[ i ] );
+        item.order = i + 1;
+        arr_3.push( item );
+    };
+
+
+    for( let i = 0; i < arr_3.length; i++ ){
+        let item = structuredClone( arr_3[ i ] );
         let { id } = item;
         arr.push( item );
         obj[ id ] = item;

@@ -28,13 +28,13 @@ export const get_prepared_data = ( data ) => {
         lessonId: currentLessonId
     };
 
-    if( languageKeyName === 'EN' ){
+    // if( languageKeyName === 'EN' ){
         result.word_foreign = make_fit_format_word_en( word_foreign );
-    }else{
-        console.error( 'get_prepared_data' );
-        console.error( 'не прописан метод получения данных для '+ languageKeyName );
+    // }else{
+    //     console.error( 'get_prepared_data' );
+    //     console.error( 'не прописан метод получения данных для '+ languageKeyName );
 
-    };
+    // };
 
    
 
