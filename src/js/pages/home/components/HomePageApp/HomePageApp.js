@@ -19,37 +19,10 @@ const HomePageAppComponent = ( props ) => {
 
 
 
-    const click = () => {
-
-        send_request_to_server({
-
-            route: 'test-route',
-            data: {
-                'test': 100
-            },
-            successCallback: ( response ) => {
-                console.dir( 'response' );
-                console.dir( response );
-
-            },
-            errorCallback: ( response ) => {
-                console.dir( '!!!! response' );
-                console.dir( response );
-            },
-
-        });
-
-    }
-
 
     return (
         <div className = 'homePageApp'>
 
-            <span 
-                className = 'btn'
-                onClick = { click }
-            >Тест</span>
-            
 
         </div>
     )

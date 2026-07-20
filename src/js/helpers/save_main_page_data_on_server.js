@@ -20,7 +20,7 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
         languagePageParagraphList,
         languagePageDescription,
         languagePageKeywords,
-
+        languageActiveList,
 
 
     } = mainPage;
@@ -38,6 +38,7 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
             languagePageParagraphList,
             languagePageDescription,
             languagePageKeywords,
+            languageActiveList,
         },
         addKeyName: true,
         

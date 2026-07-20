@@ -133,6 +133,8 @@ export const LANGUAGE_LIST = [
     { ...LANGUAGES.GR },
     { ...LANGUAGES.JP },
     { ...LANGUAGES.KR },
+    { ...LANGUAGES.TR },
+
 
 
 

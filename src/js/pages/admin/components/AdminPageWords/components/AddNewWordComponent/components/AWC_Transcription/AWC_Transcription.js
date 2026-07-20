@@ -26,16 +26,8 @@ const AWC_TranscriptionComponent = ( props ) => {
 
     const setValue = ( val ) => {
 
-        if( val.length > 5 ){
-
-            setErrorText( 'Здесь какой то очень очень длинный текст, который блядь обязательно надо написать именно такоим пиздец каким длинным Здесь какой то очень очень длинный текст, который блядь обязательно надо написать именно такоим пиздец каким длинным' );
-
-        }else{
-            setErrorText( '' );
-        }
-            setTranscription( val );
-        
-
+        setTranscription( val );
+    
     };
 
 

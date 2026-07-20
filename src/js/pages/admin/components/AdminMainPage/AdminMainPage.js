@@ -18,6 +18,7 @@ import { SaveMainChanges } from './components/SaveMainChanges/SaveMainChanges.js
 
 import { SiteBlock } from './components/SiteBlock/SiteBlock.js';
 import { LanguagePageBlock } from './components/LanguagePageBlock/LanguagePageBlock.js';
+import { LanguageActiveListBlock } from './components/LanguageActiveListBlock/LanguageActiveListBlock.js'
 
 
 
@@ -48,6 +49,7 @@ const AdminMainPageComponent = ( props ) => {
                 <div className = 'AMP_AdminMainPage'>
                     <SiteBlock />
                     <LanguagePageBlock />
+                    <LanguageActiveListBlock />
 
                 </div>
 

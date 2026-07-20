@@ -18,6 +18,7 @@ import {
     setLanguagePageParagraphList,
     setLanguagePageDescription,
     setLanguagePageKeywords,
+    setLanguageActiveList,
 } from './../redux/admin/mainPageSlise.js';
 
 export const set_main_page_data_to_store = ( mainPage ) => {
@@ -33,6 +34,7 @@ export const set_main_page_data_to_store = ( mainPage ) => {
         languagePageParagraphList,
         languagePageDescription,
         languagePageKeywords,
+        languageActiveList,
 
     } = mainPage;
 
@@ -46,6 +48,7 @@ export const set_main_page_data_to_store = ( mainPage ) => {
     store.dispatch( setLanguagePageParagraphList( languagePageParagraphList ) );
     store.dispatch( setLanguagePageDescription( languagePageDescription ) );
     store.dispatch( setLanguagePageKeywords( languagePageKeywords ) );
+    store.dispatch( setLanguageActiveList( languageActiveList ) );
 
 
 

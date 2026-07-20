@@ -20,6 +20,8 @@ export const mainPageSlise = createSlice({
         languagePageDescription: '',
         languagePageKeywords: '',
 
+        languageActiveList: [],
+
 
 
         
@@ -66,6 +68,11 @@ export const mainPageSlise = createSlice({
             state.languagePageKeywords =  action.payload;
         },
 
+        setLanguageActiveList: ( state, action ) => { 
+            state.languageActiveList =  action.payload;
+        },
+
+
 
 
 
@@ -88,6 +95,7 @@ export const {
     setLanguagePageParagraphList,
     setLanguagePageDescription,
     setLanguagePageKeywords,
+    setLanguageActiveList,
 
 } = mainPageSlise.actions;
 
@@ -106,6 +114,9 @@ export const selectorData = ( state ) => {
         languagePageParagraphList: state.mainPage.languagePageParagraphList,
         languagePageDescription:   state.mainPage.languagePageDescription,
         languagePageKeywords:      state.mainPage.languagePageKeywords,
+
+        languageActiveList:      state.mainPage.languageActiveList,
+
 
 
 
