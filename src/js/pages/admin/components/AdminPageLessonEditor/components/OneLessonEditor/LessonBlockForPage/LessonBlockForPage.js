@@ -13,7 +13,7 @@ import { PageKeyWordsEdit } from './../PageKeyWordsEdit/PageKeyWordsEdit.js';
 import { PageTextEdit } from './../PageTextEdit/PageTextEdit.js';
 
 
-import { get_isOpen_for_page } from './../vendors/get_isOpen_for_page.js';
+// import { get_isOpen_for_page } from './../vendors/get_isOpen_for_page.js';
 
 import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockContainer.js';
 
@@ -34,7 +34,9 @@ const LessonBlockForPageComponent = ( props ) => {
 
     useEffect( () => {
 
-        if( get_isOpen_for_page() ){
+        if( currentPageDescription !== '' && currentPageKeyWords !== '' && currentPageText !== '' && currentPageTitle !== '' ){
+            setAttention( false );
+        }else{
             setAttention( true );
         };
 
@@ -45,7 +47,6 @@ const LessonBlockForPageComponent = ( props ) => {
         currentPageKeyWords,
         currentPageText,
         currentPageTitle,
-
     ] );
 
 
@@ -63,9 +64,10 @@ const LessonBlockForPageComponent = ( props ) => {
 
         >
             <PageTitleEdit />
+            <PageTextEdit />
             <PageDescriptionEdit />
             <PageKeyWordsEdit />
-            <PageTextEdit />
+            
 
         </LessonBlockContainer>
 

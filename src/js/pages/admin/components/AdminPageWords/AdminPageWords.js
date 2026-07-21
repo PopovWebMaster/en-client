@@ -18,6 +18,9 @@ import { FreeWordsList } from './components/FreeWordsList/FreeWordsList.js';
 import { AddNewWordComponent } from './components/AddNewWordComponent/AddNewWordComponent.js';
 import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges.js';
 
+import { WordsCount } from './../WordsCount/WordsCount.js';
+import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
+
 
 const AdminPageWordsComponent = ( props ) => {
 
@@ -37,6 +40,11 @@ const AdminPageWordsComponent = ( props ) => {
                 currentLessonId =   { null }
             >
                 <A_TopButtonsContainer>
+
+                    <div className = 'A_TopButtonsLeftBlock'>
+                        <WordsCount />
+                        <WordsSortingButtons />
+                    </div>
 
                     <AddNewWord />
                     <SaveWordsChanges />

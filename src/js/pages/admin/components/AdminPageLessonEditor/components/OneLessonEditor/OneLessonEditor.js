@@ -15,6 +15,7 @@ import { LessonBlockForPage } from './LessonBlockForPage/LessonBlockForPage.js';
 import { LessonBlockForLesson } from './LessonBlockForLesson/LessonBlockForLesson.js';
 import { LessonBlockForPhrases } from './LessonBlockForPhrases/LessonBlockForPhrases.js';
 import { LessonBlockForWords } from './LessonBlockForWords/LessonBlockForWords.js';
+import { RemoveLessonButton } from './RemoveLessonButton/RemoveLessonButton.js';
 
 
 const OneLessonEditorComponent = ( props ) => {
@@ -41,6 +42,12 @@ const OneLessonEditorComponent = ( props ) => {
             <LessonBlockForLesson />
             <LessonBlockForWords />
             <LessonBlockForPhrases />
+
+            <div className = 'OLE_blockWrap'>
+                <div className = 'OLE_topBlockWrap'>
+                    <RemoveLessonButton />
+                </div>
+            </div>
             
 
             

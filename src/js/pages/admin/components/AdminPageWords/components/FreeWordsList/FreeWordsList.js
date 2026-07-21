@@ -9,6 +9,7 @@ import { OneFreeWordItem } from './OneFreeWordItem/OneFreeWordItem.js';
 import { OneWordEditor } from './../../../OneWordEditor/OneWordEditor.js';
 
 import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
+import { ScrollContainer } from './../../../../../../components/ScrollContainer/ScrollContainer.js';
 
 
 
@@ -37,9 +38,12 @@ const FreeWordsListComponent = ( props ) => {
 
 
     return (
-        <div className = 'freeWordsList'>
-            { create( wordList ) }
-        </div>
+        <ScrollContainer height = '75vh' >
+            <div className = 'freeWordsList'>
+                { create( wordList ) }
+            </div>
+        </ScrollContainer>
+        
     )
 
 };

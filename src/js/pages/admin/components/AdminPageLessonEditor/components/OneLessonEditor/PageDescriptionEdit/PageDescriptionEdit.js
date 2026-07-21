@@ -40,7 +40,7 @@ const PageDescriptionEditComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Описание страницы'
+                title =         'Описание страницы <meta name="description" content>'
                 value =         { pageValue }
                 setValue =      { setPageValue }
                 max =           { 255 }

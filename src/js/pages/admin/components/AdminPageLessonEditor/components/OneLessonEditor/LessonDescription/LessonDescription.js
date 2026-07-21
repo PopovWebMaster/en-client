@@ -35,7 +35,7 @@ const LessonDescriptionComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Краткое описание'
+                title =         'Краткое описание. Видно в меню со списком уроков, кратко о чём этот урок.'
                 value =         { lessonValue }
                 setValue =      { setLessonValue }
                 max =           { 255 }

@@ -17,6 +17,14 @@ import { AddNewWord } from './../../../../AdminPageWords/components/AddNewWord/A
 import { AddNewWordComponent } from './../../../../AdminPageWords/components/AddNewWordComponent/AddNewWordComponent.js';
 import { FreeWordsList } from './../../../../AdminPageWords/components/FreeWordsList/FreeWordsList.js';
 import { AddWordsFromBufferButton } from './AddWordsFromBufferButton/AddWordsFromBufferButton.js';
+
+
+
+// import { WordsCount } from './../WordsCount/WordsCount.js';
+// import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
+
+import { WordsCount } from './../../../../WordsCount/WordsCount.js';
+import { WordsSortingButtons } from './../../../../WordsSortingButtons/WordsSortingButtons.js';
  
 
 const LessonBlockForWordsComponent = ( props ) => {
@@ -44,6 +52,14 @@ const LessonBlockForWordsComponent = ( props ) => {
             openingContainerTitle = 'Слова'
         >
             <div className = 'OLE_topButtonsWrap'>
+
+                <div className = 'OLE_topButtons_left'>
+
+                    <WordsCount />
+                    <WordsSortingButtons />
+
+
+                </div>
                 <AddNewWord />
                 <AddWordsFromBufferButton />
             </div>

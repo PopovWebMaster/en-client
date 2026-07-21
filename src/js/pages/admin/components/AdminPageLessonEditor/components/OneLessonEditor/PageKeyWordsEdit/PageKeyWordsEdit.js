@@ -40,7 +40,7 @@ const PageKeyWordsEditComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Ключевые слова'
+                title =         'Ключевые слова <meta name="keywords" content>'
                 value =         { pageValue }
                 setValue =      { setPageValue }
                 max =           { 255 }

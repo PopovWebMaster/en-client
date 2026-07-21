@@ -7,6 +7,9 @@ import './SiteParagraphListEdit.scss';
 
 import { selectorData as mainPageSlise, setMainPageDataIsChanged, setSiteParagraphList } from './../../../../../../redux/admin/mainPageSlise.js';
 import { OC_Input } from './../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
+import { convert_array_to_string } from './../../../../../../helpers/convert_array_to_string.js';
+import { convert_string_to_array } from './../../../../../../helpers/convert_string_to_array.js';
+
 
 
 const SiteParagraphListEditComponent = ( props ) => {
@@ -19,18 +22,19 @@ const SiteParagraphListEditComponent = ( props ) => {
         setSiteParagraphList,
 
     } = props;
-    let [ value, setValue ] = useState( siteParagraphList );
+    let [ value, setValue ] = useState( convert_array_to_string( siteParagraphList ) );
 
     useEffect( () => {
-        setValue( siteParagraphList );
+        setValue( convert_array_to_string( siteParagraphList ) );
     }, [ siteParagraphList ] );
 
     const blurHandler = ( e ) => {
         let val = e.target.value.trim();
-        if( val !== siteParagraphList ){
-            setSiteParagraphList( val );
+        
+        // if( val !== siteParagraphList ){
+            setSiteParagraphList( convert_string_to_array( val ) );
             setMainPageDataIsChanged( true );
-        };
+        // };
 
     }
 

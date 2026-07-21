@@ -37,6 +37,7 @@ const OC_InputComponent = ( props ) => {
 
     const change = ( e ) => {
         let val = e.target.value;
+
         if( val.charCodeAt( 0 ) !== 10 ){
             /*
                 10 это код символа перевода строки enter

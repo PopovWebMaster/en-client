@@ -37,7 +37,7 @@ const PageTextEditComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Текст'
+                title =         'Текст на странице урока'
                 value =         { pageValue }
                 setValue =      { setPageValue }
                 max =           { 255 }

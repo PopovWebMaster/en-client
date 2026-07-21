@@ -17,7 +17,7 @@ const ScrollContainerComponent = ( props ) => {
     return (
         <div 
             className = 'scrollContainer'
-            style = { height === null? {}: { height } }
+            style = { height === null? {}: { maxHeight: height } }
         >
             { children }
         </div>

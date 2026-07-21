@@ -1,0 +1,22 @@
+.wordsCount{
+    font-size: 1em;
+    margin: 0 1em;
+    width: 8.4em;
+    padding: 0 0.5em;
+    
+    >span{
+        font-size: .8em;
+        font-family: Verdana, Geneva, sans-serif;
+        
+    }
+
+    .WC_text{
+        color: #8d8d8f;
+    }
+
+    .WC_value{
+        margin-left: 0.2em;
+        font-weight: bold;
+        color: #656567;
+    }
+}

@@ -11,7 +11,7 @@ import { LessonTitleEdit } from './../LessonTitleEdit/LessonTitleEdit.js';
 import { LessonDescription } from './../LessonDescription/LessonDescription.js';
 import { LessonLevelNameEdit } from './../LessonLevelNameEdit/LessonLevelNameEdit.js';
 
-import { get_isOpen_for_lesson } from './../vendors/get_isOpen_for_lesson.js';
+// import { get_isOpen_for_lesson } from './../vendors/get_isOpen_for_lesson.js';
 
 import { LessonBlockContainer } from './../LessonBlockContainer/LessonBlockContainer.js';
 
@@ -28,7 +28,9 @@ const LessonBlockForLessonComponent = ( props ) => {
     let [ attention, setAttention ] = useState( false );
 
     useEffect( () => {
-        if( get_isOpen_for_lesson() ){
+        if( currentLessonDescription !== '' && currentLessonLevelName !== '' && currentLessonTitle !== '' ){
+            setAttention( false );
+        }else{
             setAttention( true );
         };
         
