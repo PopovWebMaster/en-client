@@ -1,20 +1,12 @@
-.homePageApp{
+.homePage{
     font-size: 1em;
-    padding: 5em 0;;
+    margin: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-start;
+    width: 100%;
 
-    .btn{
-        font-size: 1em;
-        margin: 5em 10em;
-        background-color: rgb(52, 145, 24);
-        color: #ffffff;
-        padding: 0.4em 0.8em;
-        cursor: pointer;
-        user-select: none;
-    }
-    .btn:hover{
-        background-color: rgb(44, 119, 21);
-    }
-    .btn:active{
-        background-color: rgb(58, 153, 30);
-    }
+   
 }
