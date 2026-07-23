@@ -3,16 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-// import store from './../../App/redux/store.js';
 import store from './../../redux/store.js';
 
-import './home.scss';
+import './lesson.scss';
 
-import { HomePageApp } from './components/HomePageApp/HomePageApp.js';
-// import { HomePageApp } from './components/HomePageApp/HomePageApp.js';
+import { LessonPageApp } from './components/LessonPageApp/LessonPageApp.js';
 
 
-console.dir('home');
+console.dir('lesson');
 console.log( 'HOST_TO_API_SERVER', HOST_TO_API_SERVER );
 
 const container = document.getElementById('appDev');
@@ -22,9 +20,8 @@ if( container ){
     root.render(
         <Provider store={store}>
             <BrowserRouter>
-                <HomePageApp />
+                <LessonPageApp />
             </BrowserRouter>
         </Provider>
     );
 };
-
