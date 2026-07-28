@@ -8,6 +8,7 @@ import './LessonsPageApp.scss';
 // import { selectorData as userInfoSlice } from "../../../../redux/userInfoSlice.js";
 
 import { PageContainer } from './../../../../components/PageContainer/PageContainer.js';
+
  
 const LessonsPageAppComponent = ( props ) => {
 
@@ -16,13 +17,21 @@ const LessonsPageAppComponent = ( props ) => {
         user_position,
     } = props;
 
+    
+    const click = () => {
 
+
+
+
+    }
 
 
     return (
         <PageContainer>
             <div className = 'lessonsPage'>
-LessonsPage
+
+                <h2 onClick = { click }>click</h2>
+
                 
             </div>
         </PageContainer>

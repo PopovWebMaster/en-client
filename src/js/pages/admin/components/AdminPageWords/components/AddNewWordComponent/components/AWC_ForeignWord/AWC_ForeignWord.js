@@ -34,12 +34,33 @@ const AWC_ForeignWordComponent = ( props ) => {
         isOpen,
 
         languageKeyName,
+        files,
 
     } = props;
 
 
     let [ errorText, setErrorText ] = useState( '' );
     let [ chackStatuse, setChackStatuse ] = useState( null );
+
+    let divRef = useRef();
+
+    useEffect( () => {
+        if( word_foreign === '' ){
+            if( files.length === 1 ){
+                let { name } = files[ 0 ];
+                let onlyName = name.replace( /\.[^/.]+$/, '' );
+                setValue( onlyName );
+
+                let timerId = setTimeout( () => {
+                    let elem = divRef.current.querySelector( '.OC_Input_inp' );
+                    elem.select();
+                    clearTimeout( timerId );
+                }, 100 );
+
+            };
+        };
+
+    }, [ files ] );
 
 
     useEffect( () => {
@@ -105,7 +126,7 @@ const AWC_ForeignWordComponent = ( props ) => {
     
 
     return (
-        <div className = 'AWC_ForeignWord'>
+        <div className = 'AWC_ForeignWord' ref = { divRef }>
 
 
             <OC_Input 
@@ -140,6 +161,8 @@ export function AWC_ForeignWord ( props ){
         <AWC_ForeignWordComponent
             { ...props }
             word_foreign = { wordEdit.word_foreign }
+            files = { wordEdit.files }
+
 
             languageKeyName = { language.languageKeyName }
 

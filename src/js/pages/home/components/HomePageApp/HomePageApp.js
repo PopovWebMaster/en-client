@@ -11,7 +11,9 @@ import { selectorData as userInfoSlice } from "../../../../redux/userInfoSlice.j
 // import { BackgroundContainer }      from './../BackgroundContainer/BackgroundContainer.js';
 // import { BodyContainer } from './../BodyContainer/BodyContainer.js';
 
-import { PageContainer } from './../../../../components/PageContainer/PageContainer.js'
+import { PageContainer } from './../../../../components/PageContainer/PageContainer.js';
+
+import { LessonsListOfAllLanguages } from './../../../../components/LessonsListOfAllLanguages/LessonsListOfAllLanguages.js';
  
 
 const HomePageAppComponent = ( props ) => {
@@ -39,6 +41,11 @@ const HomePageAppComponent = ( props ) => {
                 <p className = 'text'>Далее вкладка «Зубрёжка». Задача на этом этапе – постараться выучить как можно больше, как получится. К совершенству стремиться не надо, этого вы добьётесь на этапе тренинга. Там система будет спрашивать вас снова и снова, прорабатывая ваши слабые места до того, как вы их окончательно не запомните. А в «Зубрёжке» просто постарайтесь запомнить, как можно больше. Даже если вы пропустите этап зубрения, вы всё равно всё выучите на тренинге, только с большими затратами сил и времени.</p> 
                 <p className = 'text'>Ну, и конечно же тесты. Проходя тесты, вы получите реальную картину вашего прогресса. Тесты нужны для оценки полученных знаний, и для того, чтоб определить ваш реальный словарный запас на данном этапе обучения.</p> 
                 <p className = 'text'>Вот и вся сложность, друзья, желаем вам успехов в учёбе!</p> 
+
+                <LessonsListOfAllLanguages />
+
+
+                
 
             </div>
         </PageContainer>
