@@ -14,11 +14,20 @@ export const mainPageSlise = createSlice({
         siteParagraphList: [],
         siteKeywords: '',
         siteDescription: '',
+
         languagePageTitle: '',
         languagePageHeader: '',
         languagePageParagraphList: [],
         languagePageDescription: '',
         languagePageKeywords: '',
+
+        lessonsListPageTitle: '',
+        lessonsListPageHeader: '',
+        lessonsListPageParagraphList: [],
+        lessonsListPageDescription: '',
+        lessonsListPageKeywords: '',
+
+
 
         languageActiveList: [],
 
@@ -52,6 +61,9 @@ export const mainPageSlise = createSlice({
         setSiteDescription: ( state, action ) => { 
             state.siteDescription =  action.payload;
         },
+
+
+
         setLanguagePageTitle: ( state, action ) => { 
             state.languagePageTitle =  action.payload;
         },
@@ -67,6 +79,38 @@ export const mainPageSlise = createSlice({
         setLanguagePageKeywords: ( state, action ) => { 
             state.languagePageKeywords =  action.payload;
         },
+
+        setLessonsListPageTitle: ( state, action ) => { 
+            state.lessonsListPageTitle =  action.payload;
+        },
+        setLessonsListPageHeader: ( state, action ) => { 
+            state.lessonsListPageHeader =  action.payload;
+        },
+        setLessonsListPageParagraphList: ( state, action ) => { 
+            state.lessonsListPageParagraphList =  action.payload;
+        },
+        setLessonsListPageDescription: ( state, action ) => { 
+            state.lessonsListPageDescription =  action.payload;
+        },
+        setLessonsListPageKeywords: ( state, action ) => { 
+            state.lessonsListPageKeywords =  action.payload;
+        },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         setLanguageActiveList: ( state, action ) => { 
             state.languageActiveList =  action.payload;
@@ -95,6 +139,15 @@ export const {
     setLanguagePageParagraphList,
     setLanguagePageDescription,
     setLanguagePageKeywords,
+
+    setLessonsListPageTitle,
+    setLessonsListPageHeader,
+    setLessonsListPageParagraphList,
+    setLessonsListPageDescription,
+    setLessonsListPageKeywords,
+
+
+
     setLanguageActiveList,
 
 } = mainPageSlise.actions;
@@ -109,11 +162,37 @@ export const selectorData = ( state ) => {
         siteParagraphList:      state.mainPage.siteParagraphList,
         siteKeywords:           state.mainPage.siteKeywords,
         siteDescription:        state.mainPage.siteDescription,
+
+
         languagePageTitle:         state.mainPage.languagePageTitle,
         languagePageHeader:        state.mainPage.languagePageHeader,
         languagePageParagraphList: state.mainPage.languagePageParagraphList,
         languagePageDescription:   state.mainPage.languagePageDescription,
         languagePageKeywords:      state.mainPage.languagePageKeywords,
+
+
+        lessonsListPageTitle:         state.mainPage.lessonsListPageTitle,
+        lessonsListPageHeader:        state.mainPage.lessonsListPageHeader,
+        lessonsListPageParagraphList: state.mainPage.lessonsListPageParagraphList,
+        lessonsListPageDescription:   state.mainPage.lessonsListPageDescription,
+        lessonsListPageKeywords:      state.mainPage.lessonsListPageKeywords,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         languageActiveList:      state.mainPage.languageActiveList,
 

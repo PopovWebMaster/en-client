@@ -9,6 +9,8 @@ import './LessonsPageApp.scss';
 
 import { PageContainer } from './../../../../components/PageContainer/PageContainer.js';
 
+import { LessonsListOfAllLanguages } from './../../../../components/LessonsListOfAllLanguages/LessonsListOfAllLanguages.js';
+
  
 const LessonsPageAppComponent = ( props ) => {
 
@@ -30,7 +32,10 @@ const LessonsPageAppComponent = ( props ) => {
         <PageContainer>
             <div className = 'lessonsPage'>
 
-                <h2 onClick = { click }>click</h2>
+                <p className = 'text'>Здесь вы можете изучать самостоятельно английские слова без посторонней помощи, пополнить свой словарный запас, подтянуть свой английских до любого уровня. Наше приложения создано специально для этого.</p> 
+                <p className = 'text'>Вам не нужен репетитор, вам нужно лишь свободное время и немного усилий для того, чтоб сформировать привычку регулярно заниматься. Остальное мы уже сделали за вас.</p> 
+
+                <LessonsListOfAllLanguages />
 
                 
             </div>

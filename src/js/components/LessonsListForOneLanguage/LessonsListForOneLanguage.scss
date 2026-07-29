@@ -13,6 +13,9 @@
         .LLFOL_btn{
             font-size: 1.12em;
 
+            max-width: 100%;
+            flex-grow: 1;
+
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -35,10 +38,19 @@
                 object-fit: contain;
             }
 
-            span{
+            a{
                 font-size: 0.76em;
                 color: #254658;
                 font-family: Verdana, Geneva, sans-serif;
+                text-decoration: none;
+            }
+            a:hover{
+                text-decoration: underline;
+                color: #1676aa;
+            }
+            a:active{
+                text-decoration: none;
+                color: #499dca;
             }
         }
 

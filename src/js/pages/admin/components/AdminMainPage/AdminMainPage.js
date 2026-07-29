@@ -17,8 +17,10 @@ import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromSer
 import { SaveMainChanges } from './components/SaveMainChanges/SaveMainChanges.js';
 
 import { SiteBlock } from './components/SiteBlock/SiteBlock.js';
-import { LanguagePageBlock } from './components/LanguagePageBlock/LanguagePageBlock.js';
-import { LanguageActiveListBlock } from './components/LanguageActiveListBlock/LanguageActiveListBlock.js'
+// import { LanguagePageBlock } from './components/LanguagePageBlock/LanguagePageBlock.js';
+import { LanguageActiveListBlock } from './components/LanguageActiveListBlock/LanguageActiveListBlock.js';
+import { LessonsListAllLanguagesBlock } from './components/LessonsListAllLanguagesBlock/LessonsListAllLanguagesBlock.js';
+import { LessonsListOneLessonBlock } from './components/LessonsListOneLessonBlock/LessonsListOneLessonBlock.js';
 
 
 
@@ -48,7 +50,9 @@ const AdminMainPageComponent = ( props ) => {
 
                 <div className = 'AMP_AdminMainPage'>
                     <SiteBlock />
-                    <LanguagePageBlock />
+                    {/* <LanguagePageBlock /> */}
+                    <LessonsListAllLanguagesBlock />
+                    <LessonsListOneLessonBlock />
                     <LanguageActiveListBlock />
 
                 </div>

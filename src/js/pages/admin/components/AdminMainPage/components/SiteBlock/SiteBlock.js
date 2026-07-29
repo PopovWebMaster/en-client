@@ -39,8 +39,8 @@ const SiteBlockComponent = ( props ) => {
         <MainPageBlockContainer
             isOpen =                { siteIsOpen }
             setIsOpen =             { setSiteIsOpen }
-            blockTitle =            'Главная страница'
-            // blockSecondTitle =      { 'xcvxcv' }
+            blockTitle =            'Главная страница (все языки)'
+            blockSecondTitle =      { `${HOST_TO_API_SERVER}/` }
             openingContainerTitle = 'Данные главной страницы'
             attention = { false }
         >

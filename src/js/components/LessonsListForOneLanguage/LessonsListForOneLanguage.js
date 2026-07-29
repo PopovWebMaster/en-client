@@ -44,7 +44,7 @@ const LessonsListForOneLanguageComponent = ( props ) => {
                     
                 >
                     <img src = { LANGUAGES[ language ].icon }/>
-                    <span>{ LANGUAGES[ language ].name }</span>
+                    <a href = '#' >{ LANGUAGES[ language ].name }</a>
                 </div>
             </div>
             <div className = 'LLFOL_lassons_place'>

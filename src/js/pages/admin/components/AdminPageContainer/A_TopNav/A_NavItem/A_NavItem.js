@@ -20,12 +20,26 @@ const A_NavItemComponent = ( props ) => {
         routeName,
         title,
         icon,
+        asLink = false,
+        target = '_self',
+
 
     } = props;
 
 
-    return (
-
+    return (<>{ asLink? (
+        <a 
+            href = { route }
+            className = 'A_NavItem'
+            target = { target }
+        >
+            <>
+                <span className = { `ANI_icon ${ icon }` }></span>
+                <span className = 'ANI_title'>{ title }</span>
+            </>
+                
+        </a>
+    ): (
         <NavLink
             to = { route }
             className={ ({ isActive }) => isActive ? "isActive A_NavItem" : "A_NavItem" }
@@ -37,6 +51,9 @@ const A_NavItemComponent = ( props ) => {
             </>
                 
         </NavLink>
+    ) }</>
+
+
 
 
     )

@@ -16,6 +16,23 @@
             justify-content: flex-end;
             align-items: center;
             align-content: center;
+
+            .OLE_topLessonPuth{
+                font-size: 1em;
+                flex-grow: 1;
+                max-width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+                
+                >span{
+                    font-size: 0.8em;
+                    color: #8d8d8f;
+                    margin-left: 1em;
+                    font-family: Verdana, Geneva, sans-serif;
+                }
+            }
         }
 
         // .OLE_block_head{

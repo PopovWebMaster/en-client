@@ -38,16 +38,42 @@ const A_TopNavComponent = ( props ) => {
                 ICON
             } = item;
 
-            return (
-                <A_NavItem
-                    key =       { index }
-                    route =     { ROUTE }
-                    routeName = { NAME }
-                    title =     { TITLE }
-                    icon =      { ICON }
+            if( index === 0 ){
+                return (
+                    <React.Fragment key =       { index }>
+                        <A_NavItem
+                            route =     { HOST_TO_API_SERVER }
+                            routeName = { '' }
+                            title =     { 'Site' }
+                            icon =      { 'icon-star-empty' }
+                            asLink =    { true }
+                            target =    '_blank'
 
-                />
-            );
+                        />
+                        <A_NavItem
+                            key =       { index }
+                            route =     { ROUTE }
+                            routeName = { NAME }
+                            title =     { TITLE }
+                            icon =      { ICON }
+
+                        />
+                    </React.Fragment>
+                );
+            }else{
+                return (
+                    <A_NavItem
+                        key =       { index }
+                        route =     { ROUTE }
+                        routeName = { NAME }
+                        title =     { TITLE }
+                        icon =      { ICON }
+
+                    />
+                );
+            }
+
+            
 
         } );
 

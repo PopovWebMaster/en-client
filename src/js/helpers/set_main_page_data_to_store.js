@@ -19,6 +19,12 @@ import {
     setLanguagePageDescription,
     setLanguagePageKeywords,
     setLanguageActiveList,
+
+    setLessonsListPageTitle,
+    setLessonsListPageHeader,
+    setLessonsListPageParagraphList,
+    setLessonsListPageDescription,
+    setLessonsListPageKeywords,
 } from './../redux/admin/mainPageSlise.js';
 
 export const set_main_page_data_to_store = ( mainPage ) => {
@@ -34,6 +40,13 @@ export const set_main_page_data_to_store = ( mainPage ) => {
         languagePageParagraphList,
         languagePageDescription,
         languagePageKeywords,
+        
+        lessonsListPageTitle,
+        lessonsListPageHeader,
+        lessonsListPageParagraphList,
+        lessonsListPageDescription,
+        lessonsListPageKeywords,
+
         languageActiveList,
 
     } = mainPage;
@@ -48,6 +61,27 @@ export const set_main_page_data_to_store = ( mainPage ) => {
     store.dispatch( setLanguagePageParagraphList( languagePageParagraphList ) );
     store.dispatch( setLanguagePageDescription( languagePageDescription ) );
     store.dispatch( setLanguagePageKeywords( languagePageKeywords ) );
+
+    store.dispatch( setLessonsListPageTitle( lessonsListPageTitle ) );
+    store.dispatch( setLessonsListPageHeader( lessonsListPageHeader ) );
+    store.dispatch( setLessonsListPageParagraphList( lessonsListPageParagraphList ) );
+    store.dispatch( setLessonsListPageDescription( lessonsListPageDescription ) );
+    store.dispatch( setLessonsListPageKeywords( lessonsListPageKeywords ) );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     store.dispatch( setLanguageActiveList( languageActiveList ) );
 
 

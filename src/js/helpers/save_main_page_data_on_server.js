@@ -15,11 +15,20 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
         siteParagraphList,
         siteKeywords,
         siteDescription,
+
         languagePageTitle,
         languagePageHeader,
         languagePageParagraphList,
         languagePageDescription,
         languagePageKeywords,
+
+        lessonsListPageTitle,
+        lessonsListPageHeader,
+        lessonsListPageParagraphList,
+        lessonsListPageDescription,
+        lessonsListPageKeywords,
+
+
         languageActiveList,
 
 
@@ -33,11 +42,19 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
             siteParagraphList,
             siteKeywords,
             siteDescription,
+
             languagePageTitle,
             languagePageHeader,
             languagePageParagraphList,
             languagePageDescription,
             languagePageKeywords,
+
+            lessonsListPageTitle,
+            lessonsListPageHeader,
+            lessonsListPageParagraphList,
+            lessonsListPageDescription,
+            lessonsListPageKeywords,
+
             languageActiveList,
         },
         addKeyName: true,
