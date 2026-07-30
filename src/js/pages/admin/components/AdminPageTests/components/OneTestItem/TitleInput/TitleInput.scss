@@ -1,0 +1,21 @@
+.APT_TitleInput{
+    font-size: 1em;
+    flex-grow: 1;
+    max-width: 100%;
+    padding: 0 0.5em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+    .APT_TitleInput_span{
+        font-size: 0.9em;
+        color: #343434;
+        max-width: 20em;
+        font-family: Arial, Helvetica, sans-serif;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+}

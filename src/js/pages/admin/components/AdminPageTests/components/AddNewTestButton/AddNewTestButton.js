@@ -1,26 +1,31 @@
 
+
 import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './AddNewLessonButton.scss';
+import './AddNewTestButton.scss';
 
-import { selectorData as lessonsSlice } from './../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as testsSlice } from './../../../../../../redux/admin/testsSlice.js';
 
 import { ButtonAdd } from './../../../../../../components/ButtonAdd/ButtonAdd.js';
 import { AlertWindowContainer } from './../../../../../../components/AlertWindowContainer/AlertWindowContainer.js';
 import { AWInputText } from './../../../../../../components/AlertWindowContainer/AWInputText/AWInputText.js';
 import { AWButtonAdd } from './../../../../../../components/AlertWindowContainer/AWButtonAdd/AWButtonAdd.js';
 
-import { LESSON_TITLE } from './../../../../../../config/lessons.js';
+// import { LESSON_LITLE } from './../../../../../../config/lessons.js';
+import { TEST_TITLE } from './../../../../../../config/tests.js';
 
 import { send_request_to_server } from './../../../../../../helpers/send_request_to_server.js';
-import { set_lesson_list_to_store } from './../../../../../../helpers/set_lesson_list_to_store.js';
 
-const AddNewLessonButtonComponent = ( props ) => {
+// import { set_lesson_list_to_store } from './../../../../../../helpers/set_lesson_list_to_store.js';
+import { set_tests_list_to_store } from './../../../../../../helpers/set_tests_list_to_store.js';
+
+
+const AddNewTestButtonComponent = ( props ) => {
 
     let {
-        lessonList,
+        testsList,
 
     } = props;
 
@@ -28,9 +33,13 @@ const AddNewLessonButtonComponent = ( props ) => {
 
     let [ newTitle, setNewTitle ] = useState( '' );
 
+    console.dir( 'testsList<<<<<<<<<<' );
+    console.dir( testsList );
+
+
     useEffect( () => {
         if( isOpen ){
-            setNewTitle( `Урок ${lessonList.length + 1}` );
+            setNewTitle( `Тест ${testsList.length + 1}` );
         }else{
             setNewTitle( '' );
         };
@@ -46,17 +55,17 @@ const AddNewLessonButtonComponent = ( props ) => {
     const send = () => {
 
         send_request_to_server({
-            route: 'admin/add-new-lesson',
+            route: 'admin/add-new-test',
             data: {
-                lessonTitle: newTitle,
+                testTitle: newTitle,
             },
             addKeyName: true,
             successCallback: ( resp ) => {
                 console.dir( 'resp' );
                 console.dir( resp );
                 if( resp.ok ){
-                    if( resp.lessonList ){
-                        set_lesson_list_to_store( resp.lessonList );
+                    if( resp.testsList ){
+                        set_tests_list_to_store( resp.testsList );
                     };
                     setIsOpen( false );
                 };
@@ -70,20 +79,20 @@ const AddNewLessonButtonComponent = ( props ) => {
    
 
     return (
-        <div className = 'ANL_AddNewLessonButton'>
+        <div className = 'APT_AddNewTestButton'>
             <AlertWindowContainer
                 isOpen  = { isOpen }
                 setIsOpen  = { setIsOpen }
-                title = 'Добавить урок'
+                title = 'Добавить тест'
                 width = '40vw'
                 height = '40vh'
             >
 
                 <AWInputText
-                    title =     { 'Название урока' }
+                    title =     { 'Название теста' }
                     value =     { newTitle }
                     onChange =  { setNewTitle }
-                    max =       { LESSON_TITLE.MAX }
+                    max =       { TEST_TITLE.MAX }
                 />
 
                 <AWButtonAdd
@@ -100,7 +109,7 @@ const AddNewLessonButtonComponent = ( props ) => {
                     fontSize: '0.75em',
                 }}
                 click = { click }
-                title = 'Добавить урок'
+                title = 'Добавить тест'
             />
         </div>
 
@@ -109,15 +118,15 @@ const AddNewLessonButtonComponent = ( props ) => {
 };
 
 
-export function AddNewLessonButton( props ){
+export function AddNewTestButton( props ){
 
-    const lessons = useSelector( lessonsSlice );
+    const tests = useSelector( testsSlice );
     // const dispatch = useDispatch();
 
     return (
-        <AddNewLessonButtonComponent
+        <AddNewTestButtonComponent
             { ...props }
-            lessonList = { lessons.lessonList }
+            testsList = { tests.testsList }
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

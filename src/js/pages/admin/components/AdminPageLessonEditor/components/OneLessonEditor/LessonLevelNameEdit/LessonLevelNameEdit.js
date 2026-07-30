@@ -6,8 +6,7 @@ import { useDispatch } from 'react-redux';
 import './LessonLevelNameEdit.scss';
 import { selectorData as lessonsSlice, setCurrentLessonIsChanged, setCurrentLessonLevelName } from './../../../../../../../redux/admin/lessonsSlice.js';
 // import { OC_Input } from './../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
-import { LEVEL_NAME_LIST } from './../../../../../../../config/lessons.js';
-
+import { LEVEL_NAME_LIST } from './../../../../../../../config/levelName.js';
 
 const LessonLevelNameEditComponent = ( props ) => {
 
@@ -43,7 +42,7 @@ const LessonLevelNameEditComponent = ( props ) => {
         let div = arr.map( ( item, index ) => {
 
             let isSelected = false;
-            if( item === currentLessonLevelName ){
+            if( item.value === currentLessonLevelName ){
                 isSelected = true;
             };
 
@@ -51,7 +50,7 @@ const LessonLevelNameEditComponent = ( props ) => {
                 <div
                     className = 'APLE_LevelName_item'
                     key = { index }
-                    onClick = { () => { click( item ) } }
+                    onClick = { () => { click( item.value ) } }
                 >
                     <div className = 'APLE_LN_chack'>
                         <div className = 'APLE_LN_chack_box'>
@@ -60,7 +59,7 @@ const LessonLevelNameEditComponent = ( props ) => {
                     </div>
 
                     <div className = { `APLE_LN_name ${isSelected? 'isSelected': ''}` }>
-                        <span>{ item }</span>
+                        <span>{ item.value }</span>
                     </div>
 
                 </div>

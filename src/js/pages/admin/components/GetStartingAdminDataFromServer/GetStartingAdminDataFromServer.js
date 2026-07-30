@@ -13,6 +13,7 @@ import { set_lesson_id_to_store } from './../../../../helpers/set_lesson_id_to_s
 import { set_lesson_list_to_store } from './../../../../helpers/set_lesson_list_to_store.js';
 import { set_one_lesson_data_to_store } from './../../../../helpers/set_one_lesson_data_to_store.js';
 import { set_main_page_data_to_store } from './../../../../helpers/set_main_page_data_to_store.js';
+import { set_tests_list_to_store } from './../../../../helpers/set_tests_list_to_store.js'
 
 
 const GetStartingAdminDataFromServerComponent = ( props ) => {
@@ -45,6 +46,8 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
                 if( resp.lessonList ){ set_lesson_list_to_store( resp.lessonList ); }
                 if( resp.oneLessonData ){ set_one_lesson_data_to_store( resp.oneLessonData ); }
                 if( resp.mainPage ){ set_main_page_data_to_store( resp.mainPage ) };
+                if( resp.testsList ){ set_tests_list_to_store( resp.testsList ) };
+
 
 
                 setIsReady( true );
