@@ -12,14 +12,17 @@ export const testsSlice = createSlice({
 
         currentTestIsActive: '',
         currentTestOrder: '',
-        currentTestPhrasesList: [],
-        currentTestPhrasesById: {},
+        currentTestLessons: [],
+        currentTestLevelName: '',
+        currentTestDescription: '',
+
+        currentTestWordsCount: 0,
 
         currentTestTitle: '',
         currentTestPageDescription: '',
         currentTestPageKeyWords: '',
         currentTestPageTitle: '',
-        currentTestPageHeader: '',
+        currentTestPageText: '',
 
 
         testsList: [],
@@ -42,12 +45,6 @@ export const testsSlice = createSlice({
         setCurrentTestOrder: ( state, action ) => { 
             state.currentTestOrder =  action.payload;
         },
-        setCurrentTestPhrasesList: ( state, action ) => { 
-            state.currentTestPhrasesList =  action.payload;
-        },
-        setCurrentTestPhrasesById: ( state, action ) => { 
-            state.currentTestPhrasesById =  action.payload;
-        },
         setCurrentTestTitle: ( state, action ) => { 
             state.currentTestTitle =  action.payload;
         },
@@ -60,9 +57,6 @@ export const testsSlice = createSlice({
         setCurrentTestPageTitle: ( state, action ) => { 
             state.currentTestPageTitle =  action.payload;
         },
-        setCurrentTestPageHeader: ( state, action ) => { 
-            state.currentTestPageHeader =  action.payload;
-        },
         setTestsList: ( state, action ) => { 
             state.testsList =  action.payload;
         },
@@ -72,6 +66,25 @@ export const testsSlice = createSlice({
         setTestsListIsChanged: ( state, action ) => { 
             state.testsListIsChanged =  action.payload;
         },
+        setCurrentTestLessons: ( state, action ) => { 
+            state.currentTestLessons =  action.payload;
+        },
+        setCurrentTestLevelName: ( state, action ) => { 
+            state.currentTestLevelName =  action.payload;
+        },
+        setCurrentTestPageText: ( state, action ) => { 
+            state.currentTestPageText =  action.payload;
+        },
+        setCurrentTestWordsCount: ( state, action ) => { 
+            state.currentTestWordsCount =  action.payload;
+        },
+        setCurrentTestDescription: ( state, action ) => { 
+            state.currentTestDescription =  action.payload;
+        },
+
+
+
+        
 
         
     },
@@ -83,16 +96,18 @@ export const {
     setCurrentTestIsChanged,
     setCurrentTestIsActive,
     setCurrentTestOrder,
-    setCurrentTestPhrasesList,
-    setCurrentTestPhrasesById,
     setCurrentTestTitle,
     setCurrentTestPageDescription,
     setCurrentTestPageKeyWords,
     setCurrentTestPageTitle,
-    setCurrentTestPageHeader,
     setTestsList,
     setTestsListById,
     setTestsListIsChanged,
+    setCurrentTestLessons,
+    setCurrentTestLevelName,
+    setCurrentTestPageText,
+    setCurrentTestWordsCount,
+    setCurrentTestDescription,
    
 
 } = testsSlice.actions;
@@ -104,16 +119,19 @@ export const selectorData = ( state ) => {
         currentTestIsChanged:       state.tests.currentTestIsChanged,
         currentTestIsActive:        state.tests.currentTestIsActive,
         currentTestOrder:           state.tests.currentTestOrder,
-        currentTestPhrasesList:     state.tests.currentTestPhrasesList,
-        currentTestPhrasesById:     state.tests.currentTestPhrasesById,
         currentTestTitle:           state.tests.currentTestTitle,
         currentTestPageDescription: state.tests.currentTestPageDescription,
         currentTestPageKeyWords:    state.tests.currentTestPageKeyWords,
         currentTestPageTitle:       state.tests.currentTestPageTitle,
-        currentTestPageHeader:      state.tests.currentTestPageHeader,
-        testsList:                   state.tests.testsList,
-        testsListById:               state.tests.testsListById,
-        testsListIsChanged:          state.tests.testsListIsChanged,
+        testsList:                  state.tests.testsList,
+        testsListById:              state.tests.testsListById,
+        testsListIsChanged:         state.tests.testsListIsChanged,
+        currentTestLessons:         state.tests.currentTestLessons,
+        currentTestLevelName:       state.tests.currentTestLevelName,
+        currentTestPageText:        state.tests.currentTestPageText,
+        currentTestWordsCount:      state.tests.currentTestWordsCount,
+        currentTestDescription:     state.tests.currentTestDescription,
+
 
 
 

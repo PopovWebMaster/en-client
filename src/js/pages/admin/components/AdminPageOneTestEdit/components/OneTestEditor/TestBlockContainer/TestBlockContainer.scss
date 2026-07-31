@@ -1,0 +1,47 @@
+.APTE_OneTestEditor{
+
+    .OTE_blockWrap{
+
+        .OTE_block_head{
+            font-size: 1em;
+            margin-bottom: 0.5em;
+            padding: 0.3em 0.6em;
+            border-bottom: 1px solid #d5d5d5;
+            cursor: pointer;
+            border-radius: 0.1em;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: center;
+
+            .OTE_block_head_icon{
+                font-size: 0.7em;
+                color: #427bab;
+                padding: 0.1em 0em;
+            }
+
+            .OTE_block_head_text{
+                font-size: 1em;
+                color: #3b55a0;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+
+            .OTE_block_head_text_second{
+                font-size: 0.8em;
+                color: #8d8d8f;
+                margin-left: 1em;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+
+        }
+        .OTE_block_head:hover{
+            color: #324785;
+            background-color: #e4e4e4;
+        }
+
+    }
+
+    .OTE_blockWrap.OTE_blockWrap_attention{
+        background-color: #ffdddd;
+    }
+}

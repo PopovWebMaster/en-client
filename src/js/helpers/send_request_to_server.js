@@ -2,8 +2,10 @@
 // import store from './../redux/store.js';
 
 let sendCount = 0;
+
 import { get_keyName_for_admin } from './get_keyName_for_admin.js';
 import { get_lessonId_for_admin } from './get_lessonId_for_admin.js';
+import { get_testId_for_admin } from './get_testId_for_admin.js';
 
 
 export const send_request_to_server = ( params, withWaiting = false ) => {
@@ -12,6 +14,7 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
         data,
         addKeyName = false,
         addLessonId = false,
+        addTestId = false,
 
         successCallback = () => {},
         errorCallback = () => {},
@@ -35,19 +38,15 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
 
     if( addKeyName === true ){
         data_complete.keyName = get_keyName_for_admin(); 
-
     };
 
     if( addLessonId === true ){
-        
         data_complete.lessonId = get_lessonId_for_admin(); 
-
     };
 
-
-
-
-
+    if( addTestId === true ){
+        data_complete.testId = get_testId_for_admin(); 
+    };
 
 
 

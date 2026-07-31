@@ -13,6 +13,8 @@ import { A_TopButtonsContainer } from './../AdminPageContainer/A_TopButtonsConta
 import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
 
 // import { SaveMainChanges } from './components/SaveMainChanges/SaveMainChanges.js';
+import { SaveOneTestChanges } from './components/SaveOneTestChanges/SaveOneTestChanges.js';
+import { OneTestEditor } from './components/OneTestEditor/OneTestEditor.js';
 
 
 const AdminPageOneTestEditComponent = ( props ) => {
@@ -22,7 +24,7 @@ const AdminPageOneTestEditComponent = ( props ) => {
     } = props;
 
     let what_to_take = [
-        'mainPage',
+        'oneTestData',
     ];
 
 
@@ -32,15 +34,16 @@ const AdminPageOneTestEditComponent = ( props ) => {
             <GetStartingAdminDataFromServer 
                 what_to_take =      { what_to_take }
             >
-
-
                 <A_TopButtonsContainer>
-                    {/* <SaveMainChanges /> */}
-
+                    <SaveOneTestChanges />
                 </A_TopButtonsContainer>
 
                 <div className = 'AMP_AdminPageOneTestEdit'>
-AdminPageOneTestEdit
+
+                    <OneTestEditor />
+
+
+
                 </div>
 
  

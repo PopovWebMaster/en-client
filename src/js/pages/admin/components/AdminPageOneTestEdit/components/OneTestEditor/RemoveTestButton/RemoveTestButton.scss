@@ -1,0 +1,28 @@
+.APTE_RemoveTestButton{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    >span{
+        font-size: 0.7em;
+        padding: 0.3em 0.8em;
+        border: 1px solid #00000000;
+        border-radius: 0.1em;
+        color: #f85d5d;
+        cursor: pointer;
+        user-select: none;
+    }
+    >span:hover{
+        background-color: #f85d5d;
+        color: #ffffff;
+    }
+    >span:active{
+        background-color: #ff8080;
+        border-color: #eb5151;
+        color: #fae8e8;
+    }
+
+}

@@ -1,0 +1,37 @@
+.APTE_OneTestEditor{
+    font-size: 1em;
+
+    .OTE_blockWrap{
+        font-size: 1em;
+        background-color: #f6f2f6;
+        border: 1px solid #e5c6e5;
+        border-radius: 0.1em;
+        margin: 0.5em 2em;
+        padding: 0.5em 1em;
+
+        .OTE_topBlockWrap{
+            font-size: 1em;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: center;
+
+            .OTE_topTestPuth{
+                font-size: 1em;
+                flex-grow: 1;
+                max-width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                align-content: center;
+                
+                >span{
+                    font-size: 0.8em;
+                    color: #8d8d8f;
+                    margin-left: 1em;
+                    font-family: Verdana, Geneva, sans-serif;
+                }
+            }
+        }
+    }
+}

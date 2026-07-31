@@ -45,29 +45,12 @@ export const set_one_lesson_data_to_store = ( oneLessonData ) => {
     store.dispatch( setCurrentLessonLevelName( lessonLevelName ) );
     store.dispatch( setCurrentLessonOrder( lessonOrder ) );
     store.dispatch( setCurrentLessonPhrasesList( lessonPhrasesList ) );
-
-    // let obj = {};
-    // for( let i = 0; i < lessonPhrasesList.length; i++ ){
-    //     let { id } = lessonPhrasesList[ i ];
-    //     obj[ id ] = { ...lessonPhrasesList[ i ] };
-    // };
-    // store.dispatch( setCurrentLessonPhrasesById( obj ) );
-
-
-    
-
-
-
-
-    // store.dispatch( setCurrentLessonPhrasesList( lessonPhrasesList ) );
     store.dispatch( setCurrentLessonTitle( lessonTitle ) );
     store.dispatch( setCurrentPageDescription( pageDescription ) );
     store.dispatch( setCurrentPageKeyWords( pageKeyWords ) );
     store.dispatch( setCurrentPageText( pageText ) );
     store.dispatch( setCurrentPageTitle( pageTitle ) );
     store.dispatch( setCurrentLessonIsPaid( lessonIsPaid ) );
-
-
 
 
     set_word_list_to_store( wordList );

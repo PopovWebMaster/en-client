@@ -25,7 +25,7 @@ const LessonOrderEditComponent = ( props ) => {
     return (
         <div className = 'APLE_LessonOrderEdit'>
             <span className = 'APLE_LessonOrderEdit_text'>Порядковый номер урока - </span>
-            <span className = 'APLE_LessonOrderEdit_value'>{ value + 1 }</span>
+            <span className = 'APLE_LessonOrderEdit_value'>{ value }</span>
 
 
         </div>
