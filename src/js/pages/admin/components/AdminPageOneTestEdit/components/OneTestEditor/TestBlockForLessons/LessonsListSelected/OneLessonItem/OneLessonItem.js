@@ -14,15 +14,53 @@ const OneLessonItemComponent = ( props ) => {
         level_name,
         testId,
         title,
+        description,
         wordsCount,
         isChecked,
+        lessonChackToggle,
 
     } = props;
 
+    const click = () => {
+        lessonChackToggle( lessonId );
+    };
+
 
     return (
-        <div className = 'LLS_OneLessonItem'>
-{ title }
+        <div
+            className = { `LLS_OneLessonItem ${ isChecked? 'isChecked': ''}` }
+            onClick = { click }
+        >
+            <div className = 'LLS_OLI_check'>
+
+                <div className = 'LLS_OLI_check_box'>
+                    <span className = { isChecked? `icon-ok`: '' }></span>
+                </div>
+
+            </div>
+
+            <div className = 'LLS_OLI_words'>
+                <div className = 'LLS_OLI_words_wrap'>
+                    <span className = 'LLS_OLI_words_val'>{ wordsCount }</span>
+                    <span className = 'LLS_OLI_words_title'>сл.</span>
+                </div>
+            </div>
+
+            <div className = 'LLS_OLI_name_descr'>
+                <h3>{ title }</h3>
+                <h4>{ description }</h4>
+            </div>
+
+            <div className = 'LLS_OLI_levelName'>
+                <span>{ level_name }</span>
+            </div>
+
+            <div className = 'LLS_OLI_active'>
+                { is_active? (<span>Включен</span>): '' }
+                
+            </div>
+
+
            
         </div>
     )

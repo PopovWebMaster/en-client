@@ -37,6 +37,7 @@ const AddNewLessonButtonComponent_ = ( props ) => {
             >
                 <LessonsListSelected
                     isOpen = { isOpen }
+                    setIsOpen = { setIsOpen }
                 />
 
             </AlertWindowContainer>

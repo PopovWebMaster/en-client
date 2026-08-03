@@ -1,0 +1,20 @@
+.LLS_AllCheckedWordsCount{
+    font-size: 1em;
+    padding: 0.5em 1em;
+    >span{
+        font-size: 0.8em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .LLS_AllCheckedWordsCount_text{
+        color: #5b5b5b;
+        margin-right: 0.2em;
+    }
+    .LLS_AllCheckedWordsCount_val{
+        
+        font-weight: bold;
+        padding: 0.4em 0.6em;
+        border-radius: 0.1em;
+        background-color: #c9f5f6;
+        color: #181818;
+    }
+}
