@@ -28,6 +28,12 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
         lessonsListPageDescription,
         lessonsListPageKeywords,
 
+        testsListPageTitle,
+        testsListPageHeader,
+        testsListPageParagraphList,
+        testsListPageDescription,
+        testsListPageKeywords,
+
 
         languageActiveList,
 
@@ -54,6 +60,12 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
             lessonsListPageParagraphList,
             lessonsListPageDescription,
             lessonsListPageKeywords,
+
+            testsListPageTitle,
+            testsListPageHeader,
+            testsListPageParagraphList,
+            testsListPageDescription,
+            testsListPageKeywords,
 
             languageActiveList,
         },

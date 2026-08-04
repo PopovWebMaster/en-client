@@ -25,6 +25,12 @@ import {
     setLessonsListPageParagraphList,
     setLessonsListPageDescription,
     setLessonsListPageKeywords,
+
+    setTestsListPageTitle,
+    setTestsListPageHeader,
+    setTestsListPageParagraphList,
+    setTestsListPageDescription,
+    setTestsListPageKeywords,
 } from './../redux/admin/mainPageSlise.js';
 
 export const set_main_page_data_to_store = ( mainPage ) => {
@@ -47,6 +53,12 @@ export const set_main_page_data_to_store = ( mainPage ) => {
         lessonsListPageDescription,
         lessonsListPageKeywords,
 
+        testsListPageTitle,
+        testsListPageHeader,
+        testsListPageParagraphList,
+        testsListPageDescription,
+        testsListPageKeywords,
+
         languageActiveList,
 
     } = mainPage;
@@ -68,17 +80,11 @@ export const set_main_page_data_to_store = ( mainPage ) => {
     store.dispatch( setLessonsListPageDescription( lessonsListPageDescription ) );
     store.dispatch( setLessonsListPageKeywords( lessonsListPageKeywords ) );
 
-
-
-
-
-
-
-
-
-
-
-
+    store.dispatch( setTestsListPageTitle( testsListPageTitle ) );
+    store.dispatch( setTestsListPageHeader( testsListPageHeader ) );
+    store.dispatch( setTestsListPageParagraphList( testsListPageParagraphList ) );
+    store.dispatch( setTestsListPageDescription( testsListPageDescription ) );
+    store.dispatch( setTestsListPageKeywords( testsListPageKeywords ) );
 
 
 

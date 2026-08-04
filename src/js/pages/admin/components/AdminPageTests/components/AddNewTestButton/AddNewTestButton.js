@@ -76,6 +76,13 @@ const AddNewTestButtonComponent = ( props ) => {
         
 
     }
+
+
+    const change = ( e ) => {
+        let val = e.target.value;
+        setNewTitle( val );
+
+    };
    
 
     return (
@@ -91,7 +98,7 @@ const AddNewTestButtonComponent = ( props ) => {
                 <AWInputText
                     title =     { 'Название теста' }
                     value =     { newTitle }
-                    onChange =  { setNewTitle }
+                    onChange =  { change }
                     max =       { TEST_TITLE.MAX }
                 />
 

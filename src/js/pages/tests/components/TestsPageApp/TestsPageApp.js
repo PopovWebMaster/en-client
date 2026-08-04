@@ -8,6 +8,7 @@ import './TestsPageApp.scss';
 // import { selectorData as userInfoSlice } from "../../../../redux/userInfoSlice.js";
 
 import { PageContainer } from './../../../../components/PageContainer/PageContainer.js';
+import { TestsListOfAllLanguages } from './../../../../components/TestsListOfAllLanguages/TestsListOfAllLanguages.js';
  
 
 const TestsPageAppComponent = ( props ) => {
@@ -23,7 +24,11 @@ const TestsPageAppComponent = ( props ) => {
     return (
         <PageContainer>
             <div className = 'testsPage'>
-TestsPageApp
+
+                <p className = 'text'>Здесь вы можете изучать самостоятельно английские слова без посторонней помощи, пополнить свой словарный запас, подтянуть свой английских до любого уровня. Наше приложения создано специально для этого.</p> 
+                <p className = 'text'>Вам не нужен репетитор, вам нужно лишь свободное время и немного усилий для того, чтоб сформировать привычку регулярно заниматься. Остальное мы уже сделали за вас.</p> 
+
+                <TestsListOfAllLanguages />
                 
             </div>
         </PageContainer>

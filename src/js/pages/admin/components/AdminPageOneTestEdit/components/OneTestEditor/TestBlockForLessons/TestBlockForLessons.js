@@ -11,6 +11,7 @@ import { selectorData as testsSlice } from './../../../../../../../redux/admin/t
 
 import { TestBlockContainer } from './../TestBlockContainer/TestBlockContainer.js';
 import { AddNewLessonButton } from './AddNewLessonButton/AddNewLessonButton.js';
+import { TestLessonsList } from './TestLessonsList/TestLessonsList.js';
 
 
 const TestBlockForLessonsComponent = ( props ) => {
@@ -57,6 +58,8 @@ const TestBlockForLessonsComponent = ( props ) => {
 
                 
             </div>
+
+            <TestLessonsList />
 
 
 

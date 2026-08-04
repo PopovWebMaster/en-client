@@ -20,6 +20,7 @@ import { SiteBlock } from './components/SiteBlock/SiteBlock.js';
 import { LanguageActiveListBlock } from './components/LanguageActiveListBlock/LanguageActiveListBlock.js';
 import { LessonsListAllLanguagesBlock } from './components/LessonsListAllLanguagesBlock/LessonsListAllLanguagesBlock.js';
 import { LessonsListOneLessonBlock } from './components/LessonsListOneLessonBlock/LessonsListOneLessonBlock.js';
+import { TestsListAllLanguagesBlock } from './components/TestsListAllLanguagesBlock/TestsListAllLanguagesBlock.js';
 
 
 
@@ -52,6 +53,7 @@ const AdminMainPageComponent = ( props ) => {
                     {/* <LanguagePageBlock /> */}
                     <LessonsListAllLanguagesBlock />
                     <LessonsListOneLessonBlock />
+                    <TestsListAllLanguagesBlock />
                     <LanguageActiveListBlock />
 
                 </div>

@@ -53,8 +53,8 @@ const SaveTestsChangesComponent = ( props ) => {
             save_tests_data_on_server(( resp ) => {
                 setIsWaiting( false );
                 if( resp.ok ){
-                    if( resp.mainPage ){
-                        set_tests_list_to_store( resp.mainPage );
+                    if( resp.testsList ){
+                        set_tests_list_to_store( resp.testsList );
                         setTestsListIsChanged( false );
                     };
                 };

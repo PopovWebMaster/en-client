@@ -16,6 +16,8 @@ module.exports = merge(baseWebpackConfig, {
         lessons: `${PATHS.src}/js/pages/lessons/lessons.js`,
         lesson: `${PATHS.src}/js/pages/lesson/lesson.js`,
         tests: `${PATHS.src}/js/pages/tests/tests.js`,
+        test: `${PATHS.src}/js/pages/test/test.js`,
+
 
         
 

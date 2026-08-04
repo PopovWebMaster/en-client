@@ -1,10 +1,10 @@
 
 import React, { useRef, useState, useEffect }   from "react";
-// import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import './LessonsListSelected.scss';
-// import { selectorData as wordEditSlice, setNewWordContainerIsOpen } from './../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as testsSlice, setCurrentTestIsChanged } from './../../../../../../../../redux/admin/testsSlice.js';
 import { ScrollContainer } from './../../../../../../../../components/ScrollContainer/ScrollContainer.js';
 import { ButtonAdd } from './../../../../../../../../components/ButtonAdd/ButtonAdd.js';
 
@@ -13,12 +13,17 @@ import { get_lessons_list_from_server } from './vendors/get_lessons_list_from_se
 
 import { OneLessonItem } from './OneLessonItem/OneLessonItem.js';
 import { AllCheckedWordsCount } from './AllCheckedWordsCount/AllCheckedWordsCount.js';
+import { set_one_test_data_to_store } from './../../../../../../../../helpers/set_one_test_data_to_store.js';
+import { save_one_test_data_on_server } from './../../../../../../../../helpers/save_one_test_data_on_server.js';
 
 const LessonsListSelectedComponent = ( props ) => {
 
     let {
         isOpen,
         setIsOpen,
+
+        currentTestIsChanged,
+        setCurrentTestIsChanged,
 
     } = props;
 
@@ -98,6 +103,25 @@ const LessonsListSelectedComponent = ( props ) => {
 
     }
 
+    const send = ( lessonsIdList, callback = () => {} ) => {
+        send_request_to_server( {
+            route: 'admin/add-lessons-into-test',
+            data: {
+                lessonsIdList,
+            },
+            addKeyName: true,
+            addTestId: true,
+            successCallback: ( resp ) => {
+
+                console.dir( 'resp' );
+                console.dir( resp );
+
+                callback( resp );
+
+            }
+        }, true );
+    };
+
     const addLessons = () => {
 
         let lessonsIdList = [];
@@ -108,9 +132,27 @@ const LessonsListSelectedComponent = ( props ) => {
             };
         };
         if( lessonsIdList.length > 0 ){
+            if( currentTestIsChanged ){
+                save_one_test_data_on_server( ( resp ) => {
+                    if( resp.ok ){
+                        send( lessonsIdList, ( resp_2 ) => {
+                            if( resp_2.ok ){
+                                set_one_test_data_to_store( resp_2.oneTestData );
+                                setIsOpen( false ); 
+                                setCurrentTestIsChanged( false );
+                            };
+                        } );
+                    };
+                });
 
-            
-
+            }else{
+                send( lessonsIdList, ( resp ) => {
+                    if( resp.ok ){
+                        set_one_test_data_to_store( resp.oneTestData );
+                        setIsOpen( false ); 
+                    };
+                } );
+            };
         };
     };
 
@@ -141,14 +183,14 @@ const LessonsListSelectedComponent = ( props ) => {
 
 export function LessonsListSelected( props ){
 
-    // const wordEdit = useSelector( wordEditSlice );
-    // const dispatch = useDispatch();
+    const tests = useSelector( testsSlice );
+    const dispatch = useDispatch();
 
     return (
         <LessonsListSelectedComponent
             { ...props }
-            // newWordContainerIsOpen = { wordEdit.newWordContainerIsOpen }
-            // setNewWordContainerIsOpen = { ( val ) => { dispatch( setNewWordContainerIsOpen( val ) ) } }
+            currentTestIsChanged = { tests.currentTestIsChanged }
+            setCurrentTestIsChanged = { ( val ) => { dispatch( setCurrentTestIsChanged( val ) ) } }
 
         />
     );

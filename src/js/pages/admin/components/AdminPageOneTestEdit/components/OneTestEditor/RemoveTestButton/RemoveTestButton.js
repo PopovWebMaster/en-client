@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import './RemoveTestButton.scss';
 // import { selectorData as lessonsSlice } from './../../../../../../../redux/admin/lessonsSlice.js';
 import { send_request_to_server } from './../../../../../../../helpers/send_request_to_server.js';
+import { set_tests_list_to_store } from './../../../../../../../helpers/set_tests_list_to_store.js';
 
 const RemoveTestButtonComponent = ( props ) => {
 
@@ -34,7 +35,11 @@ const RemoveTestButtonComponent = ( props ) => {
                     console.dir( resp );
 
                     if( resp.ok ){
-                        navigate( -1 );
+                        if( resp.testsList ){
+                            set_tests_list_to_store( resp.testsList );
+                            navigate( -1 );
+                        };
+
                     };
 
                 },

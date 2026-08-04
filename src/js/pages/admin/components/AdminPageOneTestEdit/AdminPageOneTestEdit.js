@@ -30,7 +30,9 @@ const AdminPageOneTestEditComponent = ( props ) => {
 
 
     return (
-        <AdminPageContainer>
+        <AdminPageContainer
+            goBackButton = { true }
+        >
             <GetStartingAdminDataFromServer 
                 what_to_take =      { what_to_take }
             >

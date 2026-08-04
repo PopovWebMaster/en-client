@@ -3,32 +3,32 @@ import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './LLAL_Description.scss';
+import './TLAL_Keywords.scss';
 
-import { selectorData as mainPageSlise, setMainPageDataIsChanged, setLessonsListPageDescription } from './../../../../../../../../redux/admin/mainPageSlise.js';
+import { selectorData as mainPageSlise, setMainPageDataIsChanged, setTestsListPageKeywords } from './../../../../../../../../redux/admin/mainPageSlise.js';
 import { OC_Input } from './../../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
-const LLAL_DescriptionComponent = ( props ) => {
+const TLAL_KeywordsComponent = ( props ) => {
 
     let {
-        lessonsListPageDescription,
+        testsListPageKeywords,
 
 
         setMainPageDataIsChanged,
-        setLessonsListPageDescription,
+        setTestsListPageKeywords,
 
     } = props;
-    let [ value, setValue ] = useState( lessonsListPageDescription );
+    let [ value, setValue ] = useState( testsListPageKeywords );
 
     useEffect( () => {
-        setValue( lessonsListPageDescription );
-    }, [ lessonsListPageDescription ] );
+        setValue( testsListPageKeywords );
+    }, [ testsListPageKeywords ] );
 
     const blurHandler = ( e ) => {
         let val = e.target.value.trim();
-        if( val !== lessonsListPageDescription ){
-            setLessonsListPageDescription( val );
+        if( val !== testsListPageKeywords ){
+            setTestsListPageKeywords( val );
             setMainPageDataIsChanged( true );
         };
 
@@ -36,9 +36,9 @@ const LLAL_DescriptionComponent = ( props ) => {
 
 
     return (
-        <div className = 'LLAL_Description'>
+        <div className = 'TLAL_Keywords'>
             <OC_Input
-                title =         'Описание <meta name="description" content>'
+                title =         'Ключевые слова <meta name="keywords" content>'
                 value =         { value }
                 setValue =      { setValue }
                 max =           { 2000 }
@@ -52,19 +52,21 @@ const LLAL_DescriptionComponent = ( props ) => {
 };
 
 
-export function LLAL_Description( props ){
+export function TLAL_Keywords( props ){
 
     const mainPage = useSelector( mainPageSlise );
     const dispatch = useDispatch();
 
     return (
-        <LLAL_DescriptionComponent
+        <TLAL_KeywordsComponent
             { ...props }
-            lessonsListPageDescription = { mainPage.lessonsListPageDescription }
+            
+            testsListPageKeywords = { mainPage.testsListPageKeywords }
+
 
 
             setMainPageDataIsChanged = { ( val ) => { dispatch( setMainPageDataIsChanged( val ) ) } }
-            setLessonsListPageDescription = { ( val ) => { dispatch( setLessonsListPageDescription( val ) ) } }
+            setTestsListPageKeywords = { ( val ) => { dispatch( setTestsListPageKeywords( val ) ) } }
 
 
             

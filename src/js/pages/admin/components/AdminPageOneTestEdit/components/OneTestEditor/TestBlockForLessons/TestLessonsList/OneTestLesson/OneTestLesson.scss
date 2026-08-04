@@ -1,0 +1,149 @@
+.LLS_OneTestLesson{
+    font-size: 1em;
+    margin: 0.3em 0;
+    padding: 0.2em 0.5em;
+    border: 1px solid #c0baba;
+    border-radius: 0.1em;
+    background-color: #efefef;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+
+
+
+    .LLS_OTL_words{
+        font-size: 1em;
+        width: 4em;
+        max-width: 4em;
+        min-width: 4em;
+
+
+        flex-grow: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+            font-family: Arial, Helvetica, sans-serif;
+
+        .LLS_OTL_words_wrap{
+            font-size: 0.9em;
+            background-color: #c9f5f6;
+            border: 1px solid #c5e6e8;
+            border-radius: 0.1em;
+            padding: 0em 0.6em;
+
+            .LLS_OTL_words_val{
+                font-size: 0.78em;
+                color: #040404;
+                margin-right: 0.2em;
+                font-weight: bold;
+            }
+            .LLS_OTL_words_title{
+                font-size: 0.7em;
+                color: #636262;
+            }
+        }
+    }
+
+    .LLS_OTL_name_descr{
+        font-size: 1em;
+        flex-grow: 1;
+        max-width: 100%;
+        // white-space: nowrap;
+        overflow: hidden;
+
+        >h3{
+            font-size: 0.74em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0.1em 0.5em;
+            text-indent: 1em;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        >p{
+            font-size: 0.7em;
+            // text-overflow: ellipsis;
+            // white-space: nowrap;
+            // overflow: hidden;
+            // white-space: nowrap;
+            padding: 0.1em 0.5em;
+            line-height: 1.4em;
+            color: #9e9696;
+        }
+    }
+
+    .LLS_OTL_levelName{
+        font-size: 1em;
+        white-space: nowrap;
+
+        >span{
+            font-size: 0.66em;
+            color: #2c47e4;
+            padding: 0 0.2em;
+                font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+
+    .LLS_OTL_active{
+        font-size: 1em;
+        width: 4.5em;
+        min-width: 4.5em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        >span{
+            font-size: 0.66em;
+            padding: 0.2em 0.6em;
+            border-radius: 0.1em;
+            background-color: #5bbe19;
+            color: #ffffff;
+                font-family: Arial, Helvetica, sans-serif;
+        }
+    }
+
+    .LLS_OTL_remove{
+        font-size: 1em;
+        width: 4.5em;
+        min-width: 4.5em;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        >span{
+            font-size: 0.66em;
+            padding: 0.2em 0.6em;
+            border-radius: 0.1em;
+            // background-color: #5bbe19;
+            color: #ff6a6a;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            user-select: none;
+        }
+        >span:hover{
+            background-color: #ff6a6a;
+            color: #f3f3f3;
+        }
+        >span:active{
+            background-color: #ff2a2a;
+            color: #e5d3d3;
+        }
+    }
+
+}
+// .LLS_OneLessonItem.isChecked{
+//     border: 1px solid #c0baba;
+//     background-color: #efefef;
+// }
+// .LLS_OneLessonItem:hover{
+//         border: 1px solid #cdcbcb;
+//     background-color: #efefef;
+// }

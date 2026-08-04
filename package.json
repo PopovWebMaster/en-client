@@ -10,7 +10,9 @@
         "home": "webpack-dev-server --open --config ./build/webpack.dev.home.conf.js",
         "lessons": "webpack-dev-server --open --config ./build/webpack.dev.lessons.conf.js",
         "lesson": "webpack-dev-server --open --config ./build/webpack.dev.lesson.conf.js",
-        "tests": "webpack-dev-server --open --config ./build/webpack.dev.tests.conf.js"
+        "tests": "webpack-dev-server --open --config ./build/webpack.dev.tests.conf.js",
+        "test": "webpack-dev-server --open --config ./build/webpack.dev.test.conf.js"
+
     },
     "keywords": [],
     "author": "",

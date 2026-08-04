@@ -27,6 +27,12 @@ export const mainPageSlise = createSlice({
         lessonsListPageDescription: '',
         lessonsListPageKeywords: '',
 
+        testsListPageTitle: '',
+        testsListPageHeader: '',
+        testsListPageParagraphList: [],
+        testsListPageDescription: '',
+        testsListPageKeywords: '',
+
 
 
         languageActiveList: [],
@@ -96,16 +102,21 @@ export const mainPageSlise = createSlice({
             state.lessonsListPageKeywords =  action.payload;
         },
 
-
-
-
-
-
-
-
-
-
-
+        setTestsListPageTitle: ( state, action ) => { 
+            state.testsListPageTitle =  action.payload;
+        },
+        setTestsListPageHeader: ( state, action ) => { 
+            state.testsListPageHeader =  action.payload;
+        },
+        setTestsListPageParagraphList: ( state, action ) => { 
+            state.testsListPageParagraphList =  action.payload;
+        },
+        setTestsListPageDescription: ( state, action ) => { 
+            state.testsListPageDescription =  action.payload;
+        },
+        setTestsListPageKeywords: ( state, action ) => { 
+            state.testsListPageKeywords =  action.payload;
+        },
 
 
 
@@ -146,6 +157,11 @@ export const {
     setLessonsListPageDescription,
     setLessonsListPageKeywords,
 
+    setTestsListPageTitle,
+    setTestsListPageHeader,
+    setTestsListPageParagraphList,
+    setTestsListPageDescription,
+    setTestsListPageKeywords,
 
 
     setLanguageActiveList,
@@ -176,6 +192,14 @@ export const selectorData = ( state ) => {
         lessonsListPageParagraphList: state.mainPage.lessonsListPageParagraphList,
         lessonsListPageDescription:   state.mainPage.lessonsListPageDescription,
         lessonsListPageKeywords:      state.mainPage.lessonsListPageKeywords,
+
+        testsListPageTitle:         state.mainPage.testsListPageTitle,
+        testsListPageHeader:        state.mainPage.testsListPageHeader,
+        testsListPageParagraphList: state.mainPage.testsListPageParagraphList,
+        testsListPageDescription:   state.mainPage.testsListPageDescription,
+        testsListPageKeywords:      state.mainPage.testsListPageKeywords,
+
+
 
 
 

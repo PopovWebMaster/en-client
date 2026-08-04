@@ -3,32 +3,33 @@ import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './LLAL_Description.scss';
+import './TLAL_Description.scss';
 
-import { selectorData as mainPageSlise, setMainPageDataIsChanged, setLessonsListPageDescription } from './../../../../../../../../redux/admin/mainPageSlise.js';
+import { selectorData as mainPageSlise, setMainPageDataIsChanged, setTestsListPageDescription } from './../../../../../../../../redux/admin/mainPageSlise.js';
 import { OC_Input } from './../../../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
-const LLAL_DescriptionComponent = ( props ) => {
+const TLAL_DescriptionComponent = ( props ) => {
 
     let {
-        lessonsListPageDescription,
+        testsListPageDescription,
 
 
         setMainPageDataIsChanged,
-        setLessonsListPageDescription,
+        setTestsListPageDescription,
 
     } = props;
-    let [ value, setValue ] = useState( lessonsListPageDescription );
+
+    let [ value, setValue ] = useState( testsListPageDescription );
 
     useEffect( () => {
-        setValue( lessonsListPageDescription );
-    }, [ lessonsListPageDescription ] );
+        setValue( testsListPageDescription );
+    }, [ testsListPageDescription ] );
 
     const blurHandler = ( e ) => {
         let val = e.target.value.trim();
-        if( val !== lessonsListPageDescription ){
-            setLessonsListPageDescription( val );
+        if( val !== testsListPageDescription ){
+            setTestsListPageDescription( val );
             setMainPageDataIsChanged( true );
         };
 
@@ -36,7 +37,7 @@ const LLAL_DescriptionComponent = ( props ) => {
 
 
     return (
-        <div className = 'LLAL_Description'>
+        <div className = 'TLAL_Description'>
             <OC_Input
                 title =         'Описание <meta name="description" content>'
                 value =         { value }
@@ -52,19 +53,18 @@ const LLAL_DescriptionComponent = ( props ) => {
 };
 
 
-export function LLAL_Description( props ){
+export function TLAL_Description( props ){
 
     const mainPage = useSelector( mainPageSlise );
     const dispatch = useDispatch();
 
     return (
-        <LLAL_DescriptionComponent
+        <TLAL_DescriptionComponent
             { ...props }
-            lessonsListPageDescription = { mainPage.lessonsListPageDescription }
-
+            testsListPageDescription = { mainPage.testsListPageDescription }
 
             setMainPageDataIsChanged = { ( val ) => { dispatch( setMainPageDataIsChanged( val ) ) } }
-            setLessonsListPageDescription = { ( val ) => { dispatch( setLessonsListPageDescription( val ) ) } }
+            setTestsListPageDescription = { ( val ) => { dispatch( setTestsListPageDescription( val ) ) } }
 
 
             
