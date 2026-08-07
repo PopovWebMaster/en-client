@@ -23,6 +23,7 @@
             font-size: 1em;
 
             height: 6.8em;
+            position: relative;
 
 
             >nav{
@@ -78,6 +79,12 @@
                     justify-content: flex-end;
                     align-items: center;
                     align-content: center;
+
+                    .BC_CA_nav_login{
+                        opacity: 0;
+                        // font-size: 1em;
+                        cursor: copy
+                    }
                 }
             }
 
@@ -93,6 +100,70 @@
                 // height: 2.4em;
 
             }
+
+
+            .BC_CA_header_info{
+                font-size: 0.84em;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                align-content: center;
+                padding: 0.3em 1em;
+                width: fit-content;
+
+                .BC_CA_header_info_wordsCount{
+                    font-size: 1em;
+                    // width: 4.4em;
+                    background-color: #d9fffd;
+                    border: 1px solid #c4dfde;
+                    border-radius: .1em;
+                    padding: .23em .8em;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    >span{
+                        font-size: 0.8em;
+                        font-family: Verdana, Geneva, sans-serif;
+                        white-space: nowrap;
+                    }
+                    >span:first-child{
+                        // font-size: .84em;
+                        color: #868686;
+                        margin-right: 0.2em;
+                    }
+                    >span:last-child{
+                        // font-size: .84em;
+                        color: #353434;
+                    }
+                }
+
+                .BC_CA_header_info_levelName{
+                    font-size: 1em;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    align-content: center;
+                    padding: 0 0.5em;
+                    >span{
+                        font-size: 0.8em;
+                        // color: #2c6ae0;
+                        color: #245cc8;
+                        font-family: Verdana, Geneva, sans-serif;
+                        
+                        white-space: nowrap;
+                    }
+
+                }
+
+
+
+            }
             
         }
 
@@ -103,6 +174,8 @@
             font-family: Verdana, Geneva, sans-serif;
             border-top: 1px solid #e1e1e1;
             border-bottom: 1px solid #e1e1e1;
+
+            position: relative;
 
 
             p.text{
@@ -116,7 +189,7 @@
                 // width: 60em;
                 width: 100%;
 
-                flex-grow: 1;
+                // flex-grow: 1;
             }
         }
 

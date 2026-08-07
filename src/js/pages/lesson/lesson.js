@@ -8,6 +8,7 @@ import store from './../../redux/store.js';
 import './lesson.scss';
 
 import { LessonPageApp } from './components/LessonPageApp/LessonPageApp.js';
+import { AppLesson } from './../../components/AppLesson/AppLesson.js';
 
 
 console.dir('lesson');
@@ -25,3 +26,25 @@ if( container ){
         </Provider>
     );
 };
+
+if( IS_DEVELOPMENT ){
+
+}else{
+
+const container = document.getElementById('appPlace');
+if( container ){
+    const root = createRoot(container);
+
+    root.render(
+        <Provider store={store}>
+            <BrowserRouter>
+                <AppLesson />
+            </BrowserRouter>
+        </Provider>
+    );
+};
+
+
+};
+
+

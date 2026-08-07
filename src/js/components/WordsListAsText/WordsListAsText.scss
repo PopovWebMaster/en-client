@@ -1,0 +1,17 @@
+.wordsListAsText{
+    font-size: 1em;
+    background-color: #f9eee8;
+    padding: 1em;
+    border-radius: 0.1em;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 56em;
+    >span{
+        font-size: 0.9em;
+        margin: 0.3em;
+    }
+}

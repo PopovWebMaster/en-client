@@ -26,13 +26,24 @@ export const BodyContainer = ( props ) => {
                         </div>
 
                         <div className = 'header_right_wrap'>
-                            <a href = '#' >login</a>
+                            <a href = '#' className = 'BC_CA_nav_login'>login</a>
 
                         </div>
 
                     </nav>
 
                     <h1>Изучение английских слов самостоятельно</h1>
+
+                    <div className = 'BC_CA_header_info'>
+                        <div className = 'BC_CA_header_info_levelName'>
+                            <span>A2 (Элементарный уровень)</span>
+                        </div>
+                        <div className = 'BC_CA_header_info_wordsCount'>
+                            <span>Cлов:</span>
+                            <span>211</span>
+                        </div>
+                
+                    </div>
                     
                 </header>
 
