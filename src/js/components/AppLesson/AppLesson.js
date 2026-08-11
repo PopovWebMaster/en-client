@@ -8,6 +8,8 @@ import { useDispatch } from 'react-redux';
 
 import './AppLesson.scss';
 
+import { AppShowAnimationContainer } from './../AppShowAnimationContainer/AppShowAnimationContainer.js';
+
 const AppLessonComponent = ( props ) => {
 
     let {
@@ -15,71 +17,69 @@ const AppLessonComponent = ( props ) => {
         setShowStatus,
     } = props;
 
-    let [ isOpen, setIsOpen ] = useState( false );
+    // let [ isOpen, setIsOpen ] = useState( false );
 
 
-    useEffect( () => {
-        let appPlace = document.getElementById( 'appPlace' );
-        if( showStatus ){
-            if( appPlace ){
-                appPlace.style.width = '100%';
-                appPlace.style.height = '100%';
-            };
+    // useEffect( () => {
+    //     let appPlace = document.getElementById( 'appPlace' );
+    //     if( showStatus ){
+    //         if( appPlace ){
+    //             appPlace.style.width = '100%';
+    //             appPlace.style.height = '100%';
+    //         };
 
-            let buttonStartApp = document.getElementById( 'buttonStartApp' );
-            buttonStartApp.onclick = null
+    //         let buttonStartApp = document.getElementById( 'buttonStartApp' );
+    //         buttonStartApp.onclick = null
 
-        }else{
+    //     }else{
 
-            let buttonStartApp = document.getElementById( 'buttonStartApp' );
-            // console.dir( buttonStartApp );
-            buttonStartApp.onclick = btnclick;
-
-
-
-
-            let timerId = setTimeout( () => {
-                if( appPlace ){
-                    appPlace.style.width = '0%';
-                    appPlace.style.height = '0%';
-                };
-                clearTimeout( timerId );
-            }, 200 )
-        };
+    //         let buttonStartApp = document.getElementById( 'buttonStartApp' );
+    //         buttonStartApp.onclick = btnclick;
 
 
 
 
-    }, [ showStatus ] );
+    //         let timerId = setTimeout( () => {
+    //             if( appPlace ){
+    //                 appPlace.style.width = '0%';
+    //                 appPlace.style.height = '0%';
+    //             };
+    //             clearTimeout( timerId );
+    //         }, 200 )
+    //     };
 
-     const btnclick = () => {
-        console.log( 'open' );
 
-        let elem = document.getElementById( 'textPlace' );
-        elem.classList.add( 'textPlaceHide' );
-        elem.classList.remove( 'textPlaceShow' );
-        setShowStatus( true );
-    }
 
-    const click = () => {
-        let elem = document.getElementById( 'textPlace' );
-        elem.classList.remove( 'textPlaceHide' );
-        elem.classList.add( 'textPlaceShow' );
+
+    // }, [ showStatus ] );
+
+    //  const btnclick = () => {
+
+    //     let elem = document.getElementById( 'textPlace' );
+    //     elem.classList.add( 'textPlaceHide' );
+    //     elem.classList.remove( 'textPlaceShow' );
+    //     setShowStatus( true );
+    // }
+
+    // const click = () => {
+    //     let elem = document.getElementById( 'textPlace' );
+    //     elem.classList.remove( 'textPlaceHide' );
+    //     elem.classList.add( 'textPlaceShow' );
 
 
         
-        setShowStatus( false );
-    }
+    //     setShowStatus( false );
+    // }
 
 
     return (
-        <div id = 'appLesson' className = { showStatus? 'appPlaceShow': 'appPlaceHide' } onClick = { click } >
-           
-           <p className = 'text'>Свойство transform в CSS открывает множество возможностей для манипуляций с элементами на веб-странице. С его помощью можно поворачивать, изменять масштаб, искажать и перемещать элементы, создавая удивительные визуальные эффекты. В этой статье мы рассмотрим все основные аспекты использования свойства transform и приведем примеры для каждого из них.</p> 
-                <p className = 'text'>Вам не нужен репетитор, вам нужно лишь свободное время и немного усилий для того, чтоб сформировать привычку регулярно заниматься. Остальное мы уже сделали за вас.</p> 
-                <p className = 'text'>Весь процесс обучения разбит на уроки. Все уроки выстроены по порядку от простого к сложному. Каждый урок – это набор слов и выражений который необходимо выучить. Не приступайте к следующему уроку пока не освоите предыдущий.</p>
-                
-        </div>
+        // <div id = 'appLesson' className = { showStatus? 'appPlaceShow': 'appPlaceHide' } >
+          
+        // </div>
+
+        <AppShowAnimationContainer>
+AppLesson
+        </AppShowAnimationContainer>
 
     )
 

@@ -10,7 +10,7 @@ import './ButtonStartApp.scss';
 const ButtonStartAppComponent = ( props ) => {
 
     let {
-        click,
+        // click,
         title = 'Начнёмс',
     } = props;
 

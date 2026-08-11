@@ -25,15 +25,15 @@ const LessonPageAppComponent = ( props ) => {
     // let elem = document.getElementById( "words_json" );
     // console.dir( JSON.parse( elem.innerText ) );
 
-    const click = () => {
+    // const click = () => {
 
-        let elem = document.getElementById( 'textPlace' );
-        elem.classList.add( 'textPlaceHide' );
-        elem.classList.remove( 'textPlaceShow' );
-        setShowStatus( true );
+    //     let elem = document.getElementById( 'textPlace' );
+    //     elem.classList.add( 'textPlaceHide' );
+    //     elem.classList.remove( 'textPlaceShow' );
+    //     setShowStatus( true );
 
-        // elem.style.display = 'none';
-    }
+    //     // elem.style.display = 'none';
+    // }
 
 
 
@@ -47,7 +47,7 @@ const LessonPageAppComponent = ( props ) => {
                 
 
                 <ButtonStartApp
-                    click = { click }
+                    // click = { click }
                     title = 'Начать обучение'
                 />
 

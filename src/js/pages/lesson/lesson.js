@@ -30,21 +30,18 @@ if( container ){
 if( IS_DEVELOPMENT ){
 
 }else{
+    const container = document.getElementById('appPlace');
+    if( container ){
+        const root = createRoot(container);
 
-const container = document.getElementById('appPlace');
-if( container ){
-    const root = createRoot(container);
-
-    root.render(
-        <Provider store={store}>
-            <BrowserRouter>
-                <AppLesson />
-            </BrowserRouter>
-        </Provider>
-    );
-};
-
-
+        root.render(
+            <Provider store={store}>
+                <BrowserRouter>
+                    <AppLesson />
+                </BrowserRouter>
+            </Provider>
+        );
+    };
 };
 
 
