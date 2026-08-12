@@ -7,6 +7,8 @@ import './GetStartingAdminDataFromServer.scss';
 
 import { selectorData as languageSlice } from './../../../../redux/languageSlice.js';
 import { selectorData as testsSlice } from './../../../../redux/admin/testsSlice.js';
+import { setUserPosition } from './../../../../redux/userInfoSlice.js';
+
 
 
 import { send_request_to_server } from './../../../../helpers/send_request_to_server.js';
@@ -27,6 +29,8 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
         languageKeyName,
         currentLessonId = null,
         currentTestId,
+
+        setUserPosition,
     } = props;
 
     let [ isReady, setIsReady ] = useState( false );
@@ -41,11 +45,21 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
                 lessonId: currentLessonId,
                 testId: currentTestId,
             },
+            /*
+                Здесь нельзя использовать:
+
+                addKeyName: true,
+                addLessonId: true,
+                addTestId: true,
+                
+            */
             successCallback: ( resp ) => {
                 console.dir( 'resp' );
                 console.dir( resp );
 
                 set_lesson_id_to_store( currentLessonId );
+
+                setUserPosition( 'admin' ); // используется только для того, чтоб из стора не админки можно было понять, админка это или нет
 
                 if( resp.wordList ){ set_word_list_to_store( resp.wordList ); }
                 if( resp.lessonList ){ set_lesson_list_to_store( resp.lessonList ); }
@@ -79,8 +93,9 @@ export function GetStartingAdminDataFromServer( props ){
     const language = useSelector( languageSlice );
     const tests = useSelector( testsSlice );
 
+
     
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     return (
         <GetStartingAdminDataFromServerComponent
@@ -88,7 +103,7 @@ export function GetStartingAdminDataFromServer( props ){
             languageKeyName = { language.languageKeyName }
             currentTestId = { tests.currentTestId }
 
-            // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
+            setUserPosition = { ( val ) => { dispatch( setUserPosition( val ) ) } }
 
         />
     );

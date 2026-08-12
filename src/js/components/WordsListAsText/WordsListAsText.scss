@@ -1,17 +1,36 @@
-.wordsListAsText{
+#wordsListAsText{
     font-size: 1em;
-    background-color: #f9eee8;
-    padding: 1em;
-    border-radius: 0.1em;
+    .wordsListAsText{
+        font-size: 1em;
+        background-color: #f9eee8;
+        padding: 0.8em 1em;
+        border-radius: 0.1em;
 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    max-width: 56em;
-    >span{
-        font-size: 0.9em;
-        margin: 0.3em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        max-width: 56em;
+
+        >span{
+            font-size: 0.9em;
+            margin: 0.1em 0;
+            padding: 0.2em 0.8em;
+            border-radius: 0.1em;
+            cursor: pointer;
+            user-select: none;
+            border: 1px solid #e7c5b200;
+            color: #000000;
+        }
+        >span:hover{
+            background-color: #ffffff;
+            border: 1px solid #e7c5b2;
+        }
+        >span:active{
+            // background-color: #ffffff;
+            // border: 1px solid #e7c5b2;
+            color: #e50000;
+        }
     }
 }

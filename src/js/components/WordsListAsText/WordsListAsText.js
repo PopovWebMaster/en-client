@@ -3,27 +3,42 @@ import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
+import { selectorData as appWordsSlice } from './../../redux/appWordsSlice.js';
+
 import './WordsListAsText.scss';
+import { app_audio_play_random } from './../../helpers/app_audio_play_random.js';
 
 const WordsListAsTextComponent = ( props ) => {
 
     let {
         
-        
+        appWordsList
     } = props;
 
-    let list = [
-        'access','hot','reason','brain','academic','acre','amuse','beg','blind','breakfast','cable','camp','carry','case','chat','deer','define','dive','divide','except',
-        'access','hot','reason','brain','academic','acre','amuse','beg','blind','breakfast','cable','camp','carry','case','chat','deer','define','dive','divide','except',
-        'access','hot','reason','brain','academic','acre','amuse','beg','blind','breakfast','cable','camp','carry','case','chat','deer','define','dive','divide','except',
+    console.dir( 'appWordsList' );
+    console.dir( appWordsList );
 
-    ]; 
+
+
 
     const create = ( arr  ) => {
 
         let  span = arr.map( ( item, index ) => {
+            let {
+                audio,
+                foreign,
+                id,
+                keyName,
+                ru,
+                transcription,
+            } = item;
+
             return (
-                <span key = { index }>{ item },</span>
+                <span 
+                    key = { index }
+                    onClick = { () => { app_audio_play_random( id ) } }
+                    title = { ru }
+                >{ foreign },</span>
             );
 
         } );
@@ -40,7 +55,7 @@ const WordsListAsTextComponent = ( props ) => {
     return (
         <div className = 'wordsListAsText'>
             
-            { create( list ) }
+            { create( appWordsList ) }
         </div>
 
     )
@@ -50,13 +65,13 @@ const WordsListAsTextComponent = ( props ) => {
 
 export function WordsListAsText( props ){
 
-    // const userInfo = useSelector( userInfoSlice );
+    const appWords = useSelector( appWordsSlice );
     // const dispatch = useDispatch();
 
     return (
         <WordsListAsTextComponent
             { ...props }
-            // userInfo = { userInfo }
+            appWordsList = { appWords.appWordsList }
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 
         />

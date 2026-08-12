@@ -1,7 +1,7 @@
 
 // import store from './../redux/store.js';
 
-let sendCount = 0;
+// let sendCount = 0;
 
 import { get_keyName_for_admin } from './get_keyName_for_admin.js';
 import { get_lessonId_for_admin } from './get_lessonId_for_admin.js';
@@ -15,24 +15,20 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
         addKeyName = false,
         addLessonId = false,
         addTestId = false,
+        breakdownSending = false,
 
         successCallback = () => {},
         errorCallback = () => {},
     } = params;
 
-    /*
-        Внимание!!!
-        Все пост запросы отправляются по принципу HOST/page/route( строка без / )
-        "currentPage" и "companyAlias" передаются в объекте data
-        ТОЛЬКО ТАК!!!!!!!!!!
     
-    */
-
-    let isError = false;
 
     let token = '';
     let url = '';
     let headers = {};
+
+    // let sendCount = 0;
+    // let isError = false;
 
     let data_complete = { ...data };
 
@@ -72,12 +68,11 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
                 "X-CSRF-TOKEN": token
             };
         }else{
-            isError = true;
             console.error( 'Токен не найден' );
         };
     };
 
-    const send = async () => {
+    const send = async ( recursivSendError = () => {} ) => {
 
         if( withWaiting ){
 
@@ -95,6 +90,7 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
              route,
             data_complete,
         });
+
         try {
             const response = await fetch( url, {
                 method: 'post',  
@@ -107,10 +103,13 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
                 }) 
             });
 
+            
+
             if ( response.ok ) { 
                 let data_respons = await response.json();
                 successCallback( data_respons );
-                sendCount = 0;
+
+                recursivSendError( false );
 
                 let totalWaiting = document.getElementById( 'totalWaiting' );
                 if( totalWaiting ){
@@ -120,16 +119,12 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
 
             }else{
 
-                // // send();
-                // let conf = confirm( 'Ошибка соединения, попробовать снова?' );
-                // if( conf ){
-                //     send();
-                // }else{
+                recursivSendError( true );
 
-                // };
+                console.error( `Ошибка 1:  При попытке вызвать fetch` );
 
                 errorCallback( response );
-               let totalWaiting = document.getElementById( 'totalWaiting' );
+                let totalWaiting = document.getElementById( 'totalWaiting' );
                 if( totalWaiting ){
                     totalWaiting.remove();
                 };
@@ -137,18 +132,10 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
 
         } catch (error) {
 
-            // let conf = confirm( 'Ошибка соединения, попробовать снова?' );
-            // if( conf ){
-            //     send();
-            // }else{
+            // sendCount++;
+            recursivSendError( true );
 
-            // };
-
-
-
-
-            // send();
-            console.error( `Ошибка : ${error}. При попытке вызвать fetch` );
+            console.error( `Ошибка 2: ${error}. При попытке вызвать fetch` );
             console.error({
                 _token: token,
                 url,
@@ -163,16 +150,28 @@ export const send_request_to_server = ( params, withWaiting = false ) => {
 
     };
 
-    if( isError ){
+    if( breakdownSending ){
+
+        function recursiveeSend( count ){
+            send( ( isError ) => {
+                if( isError === true ){
+                    if( count < 10 ){
+                        recursiveeSend( count + 1 )
+                    }else{
+
+                    };
+                };
+            } );
+        };
+
+        recursiveeSend( 0 );
 
     }else{
-
-        if( sendCount < 3 ){
-            send();
-        }else{
-            sendCount = 0;
-        };
-        
+        send();
     };
+
+
+        
+        
 
 }

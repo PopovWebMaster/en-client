@@ -51,8 +51,10 @@ const LessonPageAppComponent = ( props ) => {
                     title = 'Начать обучение'
                 />
 
-
-                <WordsListAsText />
+                <div id = 'wordsListAsText'>
+                    <WordsListAsText />
+                </div>
+                
 
 
             </div>

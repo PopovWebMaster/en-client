@@ -13,8 +13,6 @@ export const add_event_click_into_buttonStart = () => {
         if( elem ){
 
             btn.onclick = () => {
-                // elem.classList.add( 'textPlaceHide' );
-                // elem.classList.remove( 'textPlaceShow' );
                 textPlace_DOM_controller.hide();
                 store.dispatch( setShowStatus( true ) );
             };

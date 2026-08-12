@@ -49,6 +49,10 @@ export const userInfoSlice = createSlice({
             };
 
         },
+
+        setUserPosition: ( state, action ) => {
+            state.user_position = action.payload;
+        },
         
 
     },
@@ -58,6 +62,7 @@ export const userInfoSlice = createSlice({
 export const {  
     // setFileExtension,
     setUserData,
+    setUserPosition
    
 
 } = userInfoSlice.actions;
