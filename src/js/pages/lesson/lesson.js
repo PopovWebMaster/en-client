@@ -1,6 +1,6 @@
 import React  from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+// import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './../../redux/store.js';
@@ -20,9 +20,9 @@ if( container ){
 
     root.render(
         <Provider store={store}>
-            <BrowserRouter>
+            {/* <BrowserRouter> */}
                 <LessonPageApp />
-            </BrowserRouter>
+            {/* </BrowserRouter> */}
         </Provider>
     );
 };
@@ -36,9 +36,9 @@ if( IS_DEVELOPMENT ){
 
         root.render(
             <Provider store={store}>
-                <BrowserRouter>
+                {/* <BrowserRouter> */}
                     <AppLesson />
-                </BrowserRouter>
+                {/* </BrowserRouter> */}
             </Provider>
         );
     };

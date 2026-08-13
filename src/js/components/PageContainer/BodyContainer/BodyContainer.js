@@ -4,6 +4,7 @@ import React from "react";
 // import { useDispatch } from 'react-redux';
 
 import './BodyContainer.scss';
+import './bс_media_screen.scss';
 
 import { ScrollContainer } from './../../ScrollContainer/ScrollContainer.js';
 

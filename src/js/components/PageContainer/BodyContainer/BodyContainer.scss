@@ -89,12 +89,12 @@
             }
 
             >h1{
-                font-size: 1.4em;
+                font-size: 1.3em;
                 color: #242424;
                 font-family: Verdana, Geneva, sans-serif;
                 text-align: center;
-                padding: 0.8em 1em 0;
-                margin: 0 1em;
+                padding: 0.8em 0 0;
+                // margin: 0 1em;
                 // border-bottom: 1px solid #e1e1e1;
                 // height: 1.6em;
                 // height: 2.4em;
@@ -118,8 +118,8 @@
                 .BC_CA_header_info_wordsCount{
                     font-size: 1em;
                     // width: 4.4em;
-                    background-color: #d9fffd;
-                    border: 1px solid #c4dfde;
+                    // background-color: #d9fffd;
+                    // border: 1px solid #c4dfde;
                     border-radius: .1em;
                     padding: .23em .8em;
                     display: flex;
@@ -138,7 +138,8 @@
                     }
                     >span:last-child{
                         // font-size: .84em;
-                        color: #353434;
+                        color: #4e3939;
+                        font-weight: bold;
                     }
                 }
 
@@ -191,6 +192,10 @@
                 // width: 100%;
 
                 // flex-grow: 1;
+            }
+
+            .lessonPage{
+                width: calc(100% - 0.8em);
             }
         }
 

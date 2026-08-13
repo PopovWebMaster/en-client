@@ -1,0 +1,80 @@
+@media screen and (min-width: 1180px) and (max-width: 16000px){
+    .bodyContainer{
+        font-size: 1em;
+        
+    }
+    
+}
+
+@media screen and (min-width: 960px) and (max-width: 1180px){
+     .bodyContainer{
+        font-size: 0.9em;
+        .contentArea{
+            >header{
+                >h1{
+                    font-size: 1.28em;
+                }
+                // .BC_CA_header_info{
+                //     font-size: 0.83em;
+                // }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 740px) and (max-width: 960px){
+    .bodyContainer{
+        font-size: 0.86em;
+        .contentArea{
+            >header{
+                >h1{
+                    font-size: 1.26em;
+                }
+                .BC_CA_header_info{
+                    font-size: 0.9em;
+                }
+            }
+            >main{
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 480px) and (max-width: 740px){
+    .bodyContainer{
+        font-size: 0.76em;
+        .contentArea{
+            >header{
+                >h1{
+                    font-size: 1.1em;
+                }
+                .BC_CA_header_info{
+                    font-size: 1em;
+                }
+            }
+            >main{
+                font-size: 1.1em;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 10px) and (max-width: 480px){
+    .bodyContainer{
+        font-size: 0.66em;
+        .contentArea{
+            >header{
+                >h1{
+                    font-size: 1em;
+                }
+                .BC_CA_header_info{
+                    font-size: 1.1em;
+                }
+            }
+            >main{
+                font-size: 1.22em;
+            }
+        }
+    }
+}
