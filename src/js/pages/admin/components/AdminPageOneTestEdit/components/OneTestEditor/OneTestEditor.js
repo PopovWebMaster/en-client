@@ -18,6 +18,8 @@ import { TestBlockForPage } from './TestBlockForPage/TestBlockForPage.js';
 import { TestBlockForTest } from './TestBlockForTest/TestBlockForTest.js';
 import { TestBlockForLessons } from './TestBlockForLessons/TestBlockForLessons.js';
 
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
+
 
 const OneTestEditorComponent = ( props ) => {
 
@@ -47,7 +49,11 @@ const OneTestEditorComponent = ( props ) => {
             <div className = 'OTE_blockWrap'>
                 <div className = 'OTE_topBlockWrap'>
                     <div className = 'OTE_topTestPuth'>
-                        <span>{ `${HOST_TO_API_SERVER}/tests/${languageAlias}/${currentTestId}` }</span>
+                        <ShowRoute
+                            fontSize = '0.8em'
+                            margin = '0'
+                            routeName = 'oneTest'
+                        />
                     </div>
                     <TestOrderEdit />
                     <IsActiveStatusEdit />

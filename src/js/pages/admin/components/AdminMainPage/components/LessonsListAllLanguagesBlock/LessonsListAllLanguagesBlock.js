@@ -20,6 +20,8 @@ import { LLAL_ParagraphList } from './components/LLAL_ParagraphList/LLAL_Paragra
 import { LLAL_Description } from './components/LLAL_Description/LLAL_Description.js';
 import { LLAL_Keywords } from './components/LLAL_Keywords/LLAL_Keywords.js';
 
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
+
 
 
 
@@ -40,7 +42,7 @@ const LessonsListAllLanguagesBlockComponent = ( props ) => {
             isOpen =                { isOpen }
             setIsOpen =             { setIsOpen }
             blockTitle =            'Страница "Список уроков" (все языки)'
-            blockSecondTitle =      { `${HOST_TO_API_SERVER}/lessons` }
+            blockSecondTitle =      { <ShowRoute routeName = 'lessons'/> }
             openingContainerTitle = 'Страница "Список уроков"'
             attention = { false }
 

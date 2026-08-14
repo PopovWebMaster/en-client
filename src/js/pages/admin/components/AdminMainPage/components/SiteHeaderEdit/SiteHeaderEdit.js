@@ -39,10 +39,10 @@ const SiteHeaderEditComponent = ( props ) => {
     return (
         <div className = 'AMP_SiteHeaderEdit'>
             <OC_Input
-                title =         'Заголовок главной страницы'
+                title =         'Заголовок страницы "Главная"'
                 value =         { value }
                 setValue =      { setValue }
-                max =           { 255 }
+                max =           { 65 }
                 blure =         { blurHandler }
             />
 

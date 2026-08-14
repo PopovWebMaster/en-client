@@ -1,0 +1,41 @@
+.APL_LessonsCount{
+    font-size: 0.9em;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    align-content: center;
+    padding: 0 0.8em;
+
+    .APL_LC_title{
+        font-size: 0.8em;
+        color: #8d8d8f;
+        padding-right: 0.2em;
+        font-family: Verdana, Geneva, sans-serif;
+        
+    }
+
+    .APL_LC_num{
+        font-size: .8em;
+        // font-weight: bold;
+        color: #656567;
+        padding-top: 0.1em;
+
+        
+        font-family: Verdana, Geneva, sans-serif;
+    }
+
+    .APL_LC_num.APL_LC_num_bold{
+        font-weight: bold;
+    }
+
+    .APL_LC_slesh{
+        font-size: .96em;
+        // font-weight: bold;
+        color: #656567;
+        margin: 0 0.1em;
+        
+        // font-family: Verdana, Geneva, sans-serif;
+    }
+}

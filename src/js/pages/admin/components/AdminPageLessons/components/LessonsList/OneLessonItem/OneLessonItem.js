@@ -15,6 +15,7 @@ import { WordsCount } from './WordsCount/WordsCount.js';
 import { ItemOrder } from './ItemOrder/ItemOrder.js';
 import { LevelName } from  './LevelName/LevelName.js';
 import { IsPaid } from './IsPaid/IsPaid.js';
+import { LessonIdValue } from './LessonIdValue/LessonIdValue.js';
 
 import { ADMIN_ROUTES } from './../../../../../config/routes.js';
 
@@ -116,9 +117,10 @@ const OneLessonItemComponent = ( props ) => {
                 className = { `APL_OneLessonItem ${classNameValue} ${isActiveValue? 'APL_OLI_isActive': '' }` }
             >
                 <div
-                    className = 'APL_OLI_wrap'
+                    className = 'APL_OLI_wrap_'
                     onClick = { click }
                 >
+                    <LessonIdValue lessonId = { lessonId } />
                     <ActiveSwichButton
                         lessonId = { lessonId }
                         isActiveValue = { isActiveValue }

@@ -24,14 +24,14 @@ import { LLOL_ParagraphList } from './components/LLOL_ParagraphList/LLOL_Paragra
 import { LLOL_Description } from './components/LLOL_Description/LLOL_Description.js';
 import { LLOL_Keywords } from './components/LLOL_Keywords/LLOL_Keywords.js';
 
-
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
 
 
 const LessonsListOneLessonBlockComponent = ( props ) => {
 
     let {
         languageActiveList,
-        languageAlias,
+        // languageAlias,
 
     } = props;
 
@@ -45,7 +45,7 @@ const LessonsListOneLessonBlockComponent = ( props ) => {
             isOpen =                { isOpen }
             setIsOpen =             { setIsOpen }
             blockTitle =            'Главная страница одного языка'
-            blockSecondTitle =      { `${HOST_TO_API_SERVER}/lessons/${languageAlias}/` }
+            blockSecondTitle =      { <ShowRoute routeName = 'langLessons'/> }
             openingContainerTitle = 'Страница "Список уроков"'
             attention = { false }
 

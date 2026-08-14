@@ -1,12 +1,18 @@
 
 import React, { useRef, useState, useEffect }   from "react";
-// import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
+import { useNavigate } from "react-router-dom";
 
 import './OneTestLesson.scss';
-// import { selectorData as wordEditSlice, setNewWordContainerIsOpen } from './../../../../../../redux/admin/wordEditSlice.js';
+import { selectorData as languageSlice } from './../../../../../../../../../redux/languageSlice.js';
+import { setCurrentLessonId } from './../../../../../../../../../redux/admin/lessonsSlice.js';
 import { send_request_to_server } from './../../../../../../../../../helpers/send_request_to_server.js';
 import { set_one_test_data_to_store } from './../../../../../../../../../helpers/set_one_test_data_to_store.js';
+
+// import { ADMIN_ROUTES } from './../../config/routes.js';
+import { ADMIN_ROUTES } from './../../../../../../../config/routes.js';
 
 const OneTestLessonComponent = ( props ) => {
 
@@ -20,7 +26,12 @@ const OneTestLessonComponent = ( props ) => {
         title,
         wordsCount,
 
+        languageAlias,
+        setCurrentLessonId,
+
     } = props;
+
+    let navigate = useNavigate();
 
     const remove = () => {
         let isConfirm = confirm( `Прибить урок "${title}", да?` );
@@ -50,6 +61,11 @@ const OneTestLessonComponent = ( props ) => {
 
     }
 
+    const openLesson = () => {
+        setCurrentLessonId( lessonId );
+        navigate( `${ADMIN_ROUTES.LESSONS.ROUTE}/${lessonId}`);
+    }
+
 
 
 
@@ -69,18 +85,25 @@ const OneTestLessonComponent = ( props ) => {
                 <p>{ description }</p>
             </div>
 
+            
+
             <div className = 'LLS_OTL_levelName'>
                 <span>{ levelName }</span>
+            </div>
+
+            <div className = 'LLS_OTL_openLesson'>
+                <span onClick = { openLesson }>Открыть урок</span>
             </div>
 
             <div className = 'LLS_OTL_active'>
                 { isActive? (<span>Включен</span>): '' }
             </div>
 
+
             <div className = 'LLS_OTL_remove'>
                 <span
                     onClick = { remove }
-                >Удалиь</span>
+                >Убрать из списка</span>
             </div>
 
 
@@ -93,14 +116,14 @@ const OneTestLessonComponent = ( props ) => {
 
 export function OneTestLesson( props ){
 
-    // const wordEdit = useSelector( wordEditSlice );
-    // const dispatch = useDispatch();
+    const language = useSelector( languageSlice );
+    const dispatch = useDispatch();
 
     return (
         <OneTestLessonComponent
             { ...props }
-            // newWordContainerIsOpen = { wordEdit.newWordContainerIsOpen }
-            // setNewWordContainerIsOpen = { ( val ) => { dispatch( setNewWordContainerIsOpen( val ) ) } }
+            languageAlias = { language.languageAlias }
+            setCurrentLessonId = { ( val ) => { dispatch( setCurrentLessonId( val ) ) } }
 
         />
     );

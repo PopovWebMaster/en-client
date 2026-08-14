@@ -1,23 +1,34 @@
 .APT_WordsCount{
     font-size: 1em;
-    width: 5em;
+    width: 9em;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     align-content: flex-end;
 
-    .APT_WordsCount_value{ 
+    .APT_WC_title{ 
+        font-size: 0.76em;
+        color: #9c9c9c;
+        margin-right: 0.2em;
+        padding-bottom: 0.03em;
+
+    }
+    .APT_WC_num{ 
         font-size: 0.8em;
         color: #676767;
-        font-weight: bold;
         font-family: Arial, Helvetica, sans-serif;
 
     }
 
-    .APT_WordsCount_text{ 
-        font-size: 0.76em;
-        color: #9c9c9c;
-        margin-left: 0.2em;
+    .APT_WC_num_bold{
+        font-weight: bold;
+    }
+
+    .APT_WC_slesh{ 
+        font-size: 0.96em;
+        color: #676767;
+        // font-family: Arial, Helvetica, sans-serif;
+        margin: 0 0.1em;
 
     }
 }

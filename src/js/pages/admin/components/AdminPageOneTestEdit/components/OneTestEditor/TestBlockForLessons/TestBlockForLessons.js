@@ -22,7 +22,7 @@ const TestBlockForLessonsComponent = ( props ) => {
     
     } = props;
 
-    let [ isOpen, setIsOpen ] = useState( false );
+    let [ isOpen, setIsOpen ] = useState( true );
     let [ attention, setAttention ] = useState( false );
 
     useEffect( () => {

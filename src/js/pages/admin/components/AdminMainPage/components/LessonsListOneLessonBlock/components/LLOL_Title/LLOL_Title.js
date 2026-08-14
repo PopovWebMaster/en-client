@@ -38,7 +38,7 @@ const LLOL_TitleComponent = ( props ) => {
     return (
         <div className = 'LLOL_Title'>
             <OC_Input
-                title =         'Название страницы'
+                title =         'Заголовок вкладки <title></title>'
                 value =         { value }
                 setValue =      { setValue }
                 max =           { 255 }

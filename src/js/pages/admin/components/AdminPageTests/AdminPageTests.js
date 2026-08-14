@@ -15,6 +15,10 @@ import { SaveTestsChanges } from './components/SaveTestsChanges/SaveTestsChanges
 import { AddNewTestButton } from './components/AddNewTestButton/AddNewTestButton.js';
 import { TestsList } from './components/TestsList/TestsList.js';
 
+import { TestsCount } from './components/TestsCount/TestsCount.js';
+
+import { ShowRoute } from './../ShowRoute/ShowRoute.js';
+
 
 const AdminPageTestsComponent = ( props ) => {
 
@@ -35,6 +39,18 @@ const AdminPageTestsComponent = ( props ) => {
 
 
                 <A_TopButtonsContainer>
+
+                    <div className = 'A_TopButtonsLeftBlock'>
+                        <TestsCount />
+
+                        <ShowRoute 
+                            routeName = 'langTests'
+                            fontSize = '0.8em'
+                            margin = '0 1em'
+                        />
+
+
+                    </div>
                     <AddNewTestButton />
                     <SaveTestsChanges />
 

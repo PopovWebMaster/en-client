@@ -41,7 +41,7 @@ const LLAL_HeaderComponent = ( props ) => {
                 title =         'Заголовок страницы'
                 value =         { value }
                 setValue =      { setValue }
-                max =           { 255 }
+                max =           { 65 }
                 blure =         { blurHandler }
             />
 

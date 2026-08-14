@@ -20,8 +20,8 @@ const WordsListAsTextComponent = ( props ) => {
 
     let [ list, setList ] = useState( [] );
 
-    console.dir( 'appWordsList' );
-    console.dir( appWordsList );
+    // console.dir( 'appWordsList' );
+    // console.dir( appWordsList );
 
     useEffect( () => {
         let arr = [];

@@ -20,6 +20,8 @@ import { LessonBlockForPhrases } from './LessonBlockForPhrases/LessonBlockForPhr
 import { LessonBlockForWords } from './LessonBlockForWords/LessonBlockForWords.js';
 import { RemoveLessonButton } from './RemoveLessonButton/RemoveLessonButton.js';
 
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
+
 
 const OneLessonEditorComponent = ( props ) => {
 
@@ -49,7 +51,11 @@ const OneLessonEditorComponent = ( props ) => {
             <div className = 'OLE_blockWrap'>
                 <div className = 'OLE_topBlockWrap'>
                     <div className = 'OLE_topLessonPuth'>
-                        <span>{ `${HOST_TO_API_SERVER}/lessons/${languageAlias}/${currentLessonId}` }</span>
+                        <ShowRoute
+                            fontSize = '0.8em'
+                            margin = '0'
+                            routeName = 'oneLesson'  
+                        />
                     </div>
                     <IsPaidStatus />
                     <LessonOrderEdit />

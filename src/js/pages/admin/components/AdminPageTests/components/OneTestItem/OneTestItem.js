@@ -17,6 +17,7 @@ import { LevelName } from  './LevelName/LevelName.js';
 import { LessonsCount } from './LessonsCount/LessonsCount.js';
 
 import { ADMIN_ROUTES } from './../../../../config/routes.js';
+import { TestIdValue } from './TestIdValue/TestIdValue.js';
 
 
 const OneTestItemComponent = ( props ) => {
@@ -34,10 +35,10 @@ const OneTestItemComponent = ( props ) => {
     let [ isActiveValue, setIsActiveValue ] = useState( false );
 
     let [ titleValue, setTitleValue ] = useState( false );
-    let [ wordsCountValue, setWordsCountValue ] = useState( 0 );
+    // let [ wordsCountValue, setWordsCountValue ] = useState( 0 );
     let [ orderValue, setOrderValue ] = useState( 0 );
     let [ levelNameValue, setLevelNameValue ] = useState( '' );
-    let [ lessonsCountValue, setLessonsCountValue ] = useState( 0 );
+    // let [ lessonsCountValue, setLessonsCountValue ] = useState( 0 );
 
     let navigate = useNavigate();
 
@@ -58,21 +59,21 @@ const OneTestItemComponent = ( props ) => {
             setTitleValue( title );
             setIsActiveValue( isActive );
             setClassNameValue( `APL_OLI_order_${order}` );
-            setWordsCountValue( wordsCount );
+            // setWordsCountValue( wordsCount );
 
             setOrderValue( order );
             setLevelNameValue( levelName );
-            setLessonsCountValue( lessons.length );
+            // setLessonsCountValue( lessons.length );
 
         }else{
 
             setTitleValue( '' );
             setIsActiveValue( false );
             setClassNameValue( '' );
-            setWordsCountValue( 0 );
+            // setWordsCountValue( 0 );
             setOrderValue( 0 );
             setLevelNameValue('');
-            setLessonsCountValue( 0 );
+            // setLessonsCountValue( 0 );
 
         };
 
@@ -120,6 +121,7 @@ const OneTestItemComponent = ( props ) => {
                     className = 'APL_OLI_wrap'
                     onClick = { click }
                 >
+                    <TestIdValue testId = { testId }/>
                     <ActiveSwichButton
                         testId = { testId }
                         isActiveValue = { isActiveValue }
@@ -135,11 +137,13 @@ const OneTestItemComponent = ( props ) => {
                     />
 
                     <LessonsCount
-                        value = { lessonsCountValue }
+                        testId = { testId }
+                        // value = { lessonsCountValue }
                     />
 
                     <WordsCount
-                        value = { wordsCountValue }
+                        testId = { testId }
+                        // value = { wordsCountValue }
                     />
 
                     <ItemOrder

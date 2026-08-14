@@ -17,6 +17,9 @@ import { AddNewLessonButton } from './components/AddNewLessonButton/AddNewLesson
 import { LessonsList } from './components/LessonsList/LessonsList.js';
 import { SaveLessonsChanges } from './components/SaveLessonsChanges/SaveLessonsChanges.js';
 
+import { LessonsCount } from './components/LessonsCount/LessonsCount.js';
+import { ShowRoute } from './../ShowRoute/ShowRoute.js';
+
 const AdminPageLessonsComponent = ( props ) => {
 
     let {
@@ -37,6 +40,15 @@ const AdminPageLessonsComponent = ( props ) => {
 
                 
                 <A_TopButtonsContainer>
+                    <div className = 'A_TopButtonsLeftBlock'>
+
+                        <LessonsCount />
+                        <ShowRoute 
+                            routeName = 'langLessons'
+                            fontSize = '0.8em'
+                            margin = '0 1em'
+                        />
+                    </div>
 
                     <AddNewLessonButton />
                     <SaveLessonsChanges />

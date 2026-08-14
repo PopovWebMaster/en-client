@@ -1,24 +1,55 @@
 
-import React from "react";
-// import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
 import './LessonsCount.scss';
 
-// import { selectorData as lessonsSlice } from './../../../../../../../../redux/admin/lessonsSlice.js';
+import { selectorData as testsSlice } from './../../../../../../../redux/admin/testsSlice.js';
 
 const LessonsCountComponent = ( props ) => {
 
     let {
-        value,
+        // value,
+        testId,
+
+        testsListById,
 
     } = props;
+
+    let [ isActiveValue, setIsActiveValue ] = useState( 0 );
+    let [ isAllValue, setIsAllValue ] = useState( 0 );
+
+    useEffect( () => {
+        if( testsListById[ testId ] ){
+            // console.dir( testsListById[ testId ] );
+            let { lessons } = testsListById[ testId ];
+            let all = 0;
+            for( let i = 0; i < lessons.length; i++ ){
+                let { isActive } = lessons[ i ];
+                if( isActive === true ){
+                    all++;
+                };
+            };
+
+            setIsActiveValue( all );
+            setIsAllValue( lessons.length );
+
+        }
+
+    }, [ testsListById, testId ] );
+
 
 
     return (
         <div className = 'APT_LessonsCount' >
-            <span className = 'APT_LessonsCount_value'>{ value }</span>
-            <span className = 'APT_LessonsCount_text'>уроков</span>
+            <span className = 'APT_LC_title'>Уроков:</span>
+            <span className = 'APT_LC_num APT_LC_num_bold'>{ isActiveValue }</span>
+            <span className = 'APT_LC_slesh'>/</span>
+            <span className = 'APT_LC_num'>{ isAllValue }</span>
+
+
+            
             
         </div>
 
@@ -29,13 +60,13 @@ const LessonsCountComponent = ( props ) => {
 
 export function LessonsCount( props ){
 
-    // const lessons = useSelector( lessonsSlice );
+    const tests = useSelector( testsSlice );
     // const dispatch = useDispatch();
 
     return (
         <LessonsCountComponent
             { ...props }
-            // lessonListById = { lessons.lessonListById }
+            testsListById = { tests.testsListById }
 
             // aaaa = { ( callback ) => { dispatch( aaa( callback ) ) } }
 

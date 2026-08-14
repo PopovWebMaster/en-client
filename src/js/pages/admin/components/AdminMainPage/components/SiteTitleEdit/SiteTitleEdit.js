@@ -38,7 +38,7 @@ const SiteTitleEditComponent = ( props ) => {
     return (
         <div className = 'AMP_SiteTitleEdit'>
             <OC_Input
-                title =         'Название сайта'
+                title =         'Заголовок вкладки <title></title>'
                 value =         { value }
                 setValue =      { setValue }
                 max =           { 255 }

@@ -38,7 +38,7 @@ const TLAL_TitleComponent = ( props ) => {
     return (
         <div className = 'TLAL_Title'>
             <OC_Input
-                title =         'Название страницы'
+                title =         'Заголовок вкладки <title></title>'
                 value =         { value }
                 setValue =      { setValue }
                 max =           { 255 }

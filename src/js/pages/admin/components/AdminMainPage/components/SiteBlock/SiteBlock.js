@@ -16,6 +16,8 @@ import { SiteParagraphListEdit } from './../SiteParagraphListEdit/SiteParagraphL
 import { SiteDescriptionEdit } from './../SiteDescriptionEdit/SiteDescriptionEdit.js';
 import { SiteKeywordsEdit } from './../SiteKeywordsEdit/SiteKeywordsEdit.js';
 
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
+
 
 
 
@@ -40,7 +42,7 @@ const SiteBlockComponent = ( props ) => {
             isOpen =                { siteIsOpen }
             setIsOpen =             { setSiteIsOpen }
             blockTitle =            'Главная страница (все языки)'
-            blockSecondTitle =      { `${HOST_TO_API_SERVER}/` }
+            blockSecondTitle =      { <ShowRoute routeName = 'home'/> }
             openingContainerTitle = 'Данные главной страницы'
             attention = { false }
         >

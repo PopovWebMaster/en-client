@@ -20,6 +20,7 @@ import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges
 
 import { WordsCount } from './../WordsCount/WordsCount.js';
 import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
+import { ButtonAddWordsGroup } from './../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
 
 
 const AdminPageWordsComponent = ( props ) => {
@@ -45,6 +46,8 @@ const AdminPageWordsComponent = ( props ) => {
                         <WordsCount />
                         <WordsSortingButtons />
                     </div>
+
+                    <ButtonAddWordsGroup />
 
                     <AddNewWord />
                     <SaveWordsChanges />

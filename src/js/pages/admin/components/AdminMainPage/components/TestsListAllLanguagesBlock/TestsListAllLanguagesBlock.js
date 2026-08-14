@@ -23,7 +23,7 @@ import { TLAL_Description } from './components/TLAL_Description/TLAL_Description
 import { TLAL_Keywords } from './components/TLAL_Keywords/TLAL_Keywords.js';
 
 
-
+import { ShowRoute } from './../../../ShowRoute/ShowRoute.js';
 
 const TestsListAllLanguagesBlockComponent = ( props ) => {
 
@@ -42,7 +42,7 @@ const TestsListAllLanguagesBlockComponent = ( props ) => {
             isOpen =                { isOpen }
             setIsOpen =             { setIsOpen }
             blockTitle =            'Страница "Список тестов" (все языки)'
-            blockSecondTitle =      { `${HOST_TO_API_SERVER}/tests` }
+            blockSecondTitle =      { <ShowRoute routeName = 'tests'/> }
             openingContainerTitle = 'Страница "Список тестов"'
             attention = { false }
 
