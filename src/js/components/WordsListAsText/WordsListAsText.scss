@@ -29,7 +29,7 @@
             }
         }
 
-        .WLAT_changeBtns{
+        >.WLAT_changeBtns{
             font-size: 1em;
             position: absolute;
             top: -1.8em;;
@@ -43,7 +43,7 @@
             align-content: center;
             
 
-            .WLAT_btn{
+            >.WLAT_btn{
                 font-size: 1em;
                 display: flex;
                 justify-content: center;
@@ -56,18 +56,18 @@
                 cursor: pointer;
                 user-select: none;
 
-                .lang_name{
+                >.lang_name{
                     font-size: 0.8em;
                     color: #814524;
                 }
 
-                .icon{
+                >.icon{
                     font-size: 0.52em;
                     // padding: 0 0.1em;
                     color: #d18255;
                 }
 
-                .icon.icon-shuffle{
+                >.icon.icon-shuffle{
                     font-size: 0.78em;
                     padding-top: 0.2em;
                     color: #614b4b;
@@ -77,10 +77,10 @@
             .WLAT_btn.isActive{
                 background-color: #f2c0a4;
                 border: 1px solid #e4b9a2;
-                .lang_name{
+                >.lang_name{
                     color: #6f2903;
                 }
-                .icon{
+                >.icon{
                     color: #646464;
                 }
             }
@@ -102,7 +102,7 @@
             @media screen and (min-width: 10px) and (max-width: 480px){
 
                 .WLAT_btn.isSingle{
-                    .lang_name{
+                    >.lang_name{
                         display: none;
                     }
             
@@ -115,10 +115,10 @@
             .WLAT_btn.isSingle:hover{
                 background-color: #f9e1d3;
                 border: 1px solid #e4b9a2;
-                .lang_name{
+                >.lang_name{
                     color: #6f2903;
                 }
-                .icon{
+                >.icon{
                     color: #646464;
                 }
             }
@@ -126,10 +126,10 @@
             .WLAT_btn.isSingle:active{
                 // background-color: #f9e1d3;
                 border: 1px solid #be886b;
-                .lang_name{
+                >.lang_name{
                     color: #be886b;
                 }
-                .icon{
+                >.icon{
                     color: #646464;
                 }
             }
@@ -145,22 +145,23 @@
             border: 1px solid #e7c5b200;
             color: #000000;
         }
-        >span:hover{
+
+        >span.forTitle:hover{
             background-color: #ffffff;
             border: 1px solid #e7c5b2;
         }
-        >span:active{
+        >span.forTitle:active{
             // background-color: #ffffff;
             // border: 1px solid #e7c5b2;
             color: #e50000;
         }
 
-        >span[data-title] {
+        >span.forTitle[data-title] {
             // font-size: 0.8em;
             position: relative; /* Важно для позиционирования псевдоэлемента */
         }
 
-        >span[data-title]::after {
+        >span.forTitle[data-title]::after {
             font-size: 0.8em;
             content: attr(data-title);
             position: absolute;
@@ -177,21 +178,95 @@
             height: fit-content;
         }
 
-        >span[data-title]:hover::after {
+        >span.forTitle[data-title]:hover::after {
             display: block; /* Показываем при наведении */
         }
+
+
+
+
+
+        // >span.wordColumn{
+        //     font-size: 1em;
+        //     width: 100%;
+
+        //     >span{
+        //         font-size: 0.9em;
+        //         margin: 0.1em 0;
+        //         padding: 0.2em 0.8em;
+        //         border-radius: 0.1em;
+        //         cursor: pointer;
+        //         user-select: none;
+        //         border: 1px solid #e7c5b200;
+        //         color: #000000;
+        //     }
+
+        //     >span.forTitle:hover{
+        //         background-color: #ffffff;
+        //         border: 1px solid #e7c5b2;
+        //     }
+        //     >span.forTitle:active{
+        //         // background-color: #ffffff;
+        //         // border: 1px solid #e7c5b2;
+        //         color: #e50000;
+        //     }
+
+        //     >span.forTitle[data-title] {
+        //         // font-size: 0.8em;
+        //         position: relative; /* Важно для позиционирования псевдоэлемента */
+        //     }
+
+        //     >span.forTitle[data-title]::after {
+        //         font-size: 0.8em;
+        //         content: attr(data-title);
+        //         position: absolute;
+        //         bottom: calc(100% + 0.2em);
+        //         left: 0;
+        //         z-index: 100;
+        //         background: #db6f35;
+        //         color: #fff;
+        //         padding: 0.4em 0.8em;
+        //         border-radius: 0.1em;
+        //         display: none; /* По умолчанию скрыта */
+        //         white-space: nowrap; /* Чтобы текст не переносился */
+        //         font-family: Verdana, Geneva, sans-serif;
+        //         height: fit-content;
+        //     }
+
+        //     >span.forTitle[data-title]:hover::after {
+        //         display: block; /* Показываем при наведении */
+        //     }
+
+
+           
+        // }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     .WLAT_typeText.wordsListAsText{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        align-content: center;
+        align-items: flex-start;
+        align-content: flex-start;
         // max-width: 56em;
         // min-width: 56em;
 
-        width: 100%;
+        width: calc( 100% - 2em );
+        padding-left: 2em;
 
 
         >span[data-title]::after {

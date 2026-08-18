@@ -1,0 +1,24 @@
+.AL_lessonTask{
+    font-size: 1em;
+    flex-grow: 0;
+    background-color: #ffffff;
+    margin: 0.5em 1em;
+    padding: 0.5em 1.6em;
+    border: 1px solid #84d5b3;
+    border-radius: 0.1em;
+    >span{
+        line-height: 1.4em;
+    }
+
+    .AL_lessonTask_title{
+        font-size: 0.9em;
+        padding: 0 0.5em;
+        color: #ff2929;
+        
+    }
+
+    .AL_lessonTask_text{
+        font-size: 0.8em;
+        color: #494949;
+    }
+}

@@ -16,7 +16,7 @@ const WordsListAsTextComponent = ( props ) => {
     } = props;
 
     let [ ruIsActive, setRuIsActive ] = useState( false );
-    let [ typeStringActive, setTypeStringActive ] = useState( true );
+    let [ typeStringActive, setTypeStringActive ] = useState( false );
 
     let [ list, setList ] = useState( [] );
 
@@ -57,11 +57,20 @@ const WordsListAsTextComponent = ( props ) => {
             } = item;
 
             if( activeRuLang ){
-                return (
+                // return (
+                //     <span 
+                //         key = { index }
+                //         data-title = { foreign }
+                //         className = 'forTitle'
+                //     >{ ru },</span>
+                // );
+                 return (
                     <span 
                         key = { index }
                         data-title = { foreign }
-                    >{ ru },</span>
+                        className = 'forTitle'
+                    >{ ru },</span> 
+                       
                 );
             }else{
                 return (
@@ -69,6 +78,7 @@ const WordsListAsTextComponent = ( props ) => {
                         key = { index }
                         onClick = { () => { app_audio_play_random( id ) } }
                         data-title = { ru }
+                        className = 'forTitle'
                     >{ foreign },</span>
                 );
             };

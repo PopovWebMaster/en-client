@@ -12,6 +12,7 @@ import { AppShowAnimationContainer } from './../AppShowAnimationContainer/AppSho
 import { SetAppWordsListToStore } from './../SetAppWordsListToStore/SetAppWordsListToStore.js';
 import { SetDataFromMetaToStore } from './../SetDataFromMetaToStore/SetDataFromMetaToStore.js';
 import { add_WordsListAsText_to_DOM } from './../../helpers/add_WordsListAsText_to_DOM.js';
+import { LessonTask } from './components/LessonTask/LessonTask.js';
 
 const AppLessonComponent = ( props ) => {
 
@@ -31,8 +32,12 @@ const AppLessonComponent = ( props ) => {
         <SetDataFromMetaToStore>
             <AppShowAnimationContainer>
                 <SetAppWordsListToStore>
+                    <div className = 'appLesson'>
 
-                    AppLesson
+                        <LessonTask />
+
+
+                    </div>
                 </SetAppWordsListToStore>
             </AppShowAnimationContainer>
         </SetDataFromMetaToStore>
