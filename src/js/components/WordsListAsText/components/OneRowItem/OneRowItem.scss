@@ -1,0 +1,120 @@
+.WLAT_OneRowItem{
+    font-size: 1em;
+    margin: 0.5em 0;
+    position: relative;
+
+    >.WLAT_ORI_visibleLang{
+        font-size: 0.9em;
+        
+        padding: 0.3em 0.8em;
+        border-radius: 0.1em;
+        cursor: pointer;
+        user-select: none;
+        border: 1px solid #e7c5b200;
+        color: #000000;
+        position: relative;
+
+        >.WLAT_ORI_hiddenLang_triangle{
+            font-size: 1em;
+            position: absolute;
+            display: none;
+            z-index: 200;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-width: 0.36em;
+            border-style: solid;
+            transition: opacity 0.3s linear 0.3s;
+        }
+    }
+
+    >.WLAT_ORI_visibleLang:hover{
+        background-color: #ffffff;
+        border: 1px solid #e7c5b2;
+    }
+    >.WLAT_ORI_visibleLang.visibleForeign:active{
+        color: #e50000;
+    }
+
+    >.WLAT_ORI_visibleLang.visibleForeign:hover{
+        background-color: #ffffff;
+        border: 1px solid #e7c5b2;
+    }
+
+    >.WLAT_ORI_hiddenLang{
+        font-size: 0.8em;
+        position: absolute;
+        display: none;
+        z-index: 100;
+        background: #db6f35;
+        color: #fff;
+        padding: 0.4em 0.8em;
+        border-radius: 0.1em;
+        
+        white-space: nowrap;
+        font-family: Verdana, Geneva, sans-serif;
+        height: fit-content;
+
+        transition: opacity 0.3s linear 0.3s;
+
+
+    }
+
+   
+
+
+}
+
+.WLAT_OneRowItem:hover{
+    >.WLAT_ORI_hiddenLang{
+        display: inline-block;
+        opacity: 0;
+    }
+    >.WLAT_ORI_visibleLang{
+        >.WLAT_ORI_hiddenLang_triangle{
+            display: inline-block;
+            opacity: 0;
+            
+        }
+    }
+
+}
+
+.WLAT_OneRowItem.VL_top_left{
+    >.WLAT_ORI_visibleLang{
+        >.WLAT_ORI_hiddenLang_triangle{
+            display: inline-block;
+            top: -0.4em;
+            left: 1.2em;
+            border-color: #db6f35 transparent transparent transparent;
+            opacity: 1;
+        }
+    }
+
+    >.WLAT_ORI_hiddenLang{
+        top: calc( -100% - 1em );
+        left: 0;
+        display: inline-block;
+        opacity: 1;
+    }
+
+}
+
+.WLAT_OneRowItem.VL_top_right{
+    >.WLAT_ORI_visibleLang{
+        >.WLAT_ORI_hiddenLang_triangle{
+            display: inline-block;
+            top: -0.4em;
+            right: 0.2em;
+            border-color: #db6f35 transparent transparent transparent;
+            opacity: 1;
+        }
+    }
+    >.WLAT_ORI_hiddenLang{
+        top: calc( -100% - 1em );
+        right: 0;
+        display: inline-block;
+        opacity: 1;
+    }
+
+}

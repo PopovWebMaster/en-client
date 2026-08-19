@@ -28,7 +28,7 @@ export const app_audio_play_random = ( word_id ) => {
 
 
     }else{
-        console.error( 'Тревога! Нельзя пвоспроизвести аудио' );
+        console.error( 'Тревога! Нельзя воспроизвести аудио' );
         console.dir( 'word_id' );
         console.dir( word_id );
         console.dir( 'appWordsListById' );

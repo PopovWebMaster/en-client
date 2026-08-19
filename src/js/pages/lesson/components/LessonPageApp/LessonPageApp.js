@@ -22,19 +22,6 @@ const LessonPageAppComponent = ( props ) => {
         setShowStatus,
     } = props;
 
-    // let elem = document.getElementById( "words_json" );
-    // console.dir( JSON.parse( elem.innerText ) );
-
-    // const click = () => {
-
-    //     let elem = document.getElementById( 'textPlace' );
-    //     elem.classList.add( 'textPlaceHide' );
-    //     elem.classList.remove( 'textPlaceShow' );
-    //     setShowStatus( true );
-
-    //     // elem.style.display = 'none';
-    // }
-
 
 
 
@@ -47,7 +34,6 @@ const LessonPageAppComponent = ( props ) => {
                 
 
                 <ButtonStartApp
-                    // click = { click }
                     title = 'Начать обучение'
                 />
 
@@ -55,8 +41,6 @@ const LessonPageAppComponent = ( props ) => {
                     <WordsListAsText />
                 </div>
                 
-
-
             </div>
 
             <div id = 'appPlace'>

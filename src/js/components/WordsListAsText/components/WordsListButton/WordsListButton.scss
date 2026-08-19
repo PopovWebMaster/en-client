@@ -1,0 +1,143 @@
+.WLAT_btn{
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 0.2em 0.6em;
+    border: 1px solid #e4b9a2;
+    margin-right: 0.8em;
+    cursor: pointer;
+    user-select: none;
+
+    .lang_name{
+        font-size: 0.8em;
+        color: #814524;
+    }
+
+    .icon{
+        font-size: 0.52em;
+        color: #d18255;
+    }
+
+    // .icon.icon-shuffle{
+    //     font-size: 0.78em;
+    //     padding-top: 0.2em;
+    //     color: #614b4b;
+    // }
+
+    // .elipse{
+    //     text-overflow: ellipsis;
+    //     white-space: nowrap;
+    //     overflow: hidden;
+    // }
+}
+
+// .WLAT_btn.isShortenable{
+//     .lang_name{
+//         width: 0;
+//         overflow: hidden;
+//     }
+// }
+
+
+
+.WLAT_btn.isActive{
+    background-color: #f2c0a4;
+    border: 1px solid #e4b9a2;
+    .lang_name{
+        color: #6f2903;
+    }
+    .icon{
+        color: #646464;
+    }
+}
+// .WLAT_btn:hover{
+//     background-color: #f2c0a4;
+// }
+// .WLAT_btn:active{
+//     border: 1px solid #be9078;
+// }
+
+.WLAT_btn:hover{
+    background-color: #f9e1d3;
+    border: 1px solid #e4b9a2;
+    >.lang_name{
+        color: #6f2903;
+    }
+    >.icon{
+        color: #646464;
+    }
+}
+
+.WLAT_btn:active{
+    // background-color: #f9e1d3;
+    border: 1px solid #be886b;
+    .lang_name{
+        color: #be886b;
+    }
+    .icon{
+        color: #646464;
+    }
+}
+
+
+
+
+
+
+
+
+.WLAT_btn.isFirst{
+    margin-left: 1em;
+}
+
+// .WLAT_btn.isSingle{
+
+// }
+
+@media screen and (min-width: 10px) and (max-width: 480px){
+
+    // .WLAT_btn.isSingle{
+    //     .lang_name{
+    //         display: none;
+    //     }
+
+    // }
+    .WLAT_btn.isFirst{
+        margin-left: 0;
+    }
+    .WLAT_btn{
+        .lang_name.isShortenable{
+            width: 0;
+            overflow: hidden;
+        }
+        .icon.isShortenable{
+            width: 0;
+            overflow: hidden;
+        }
+    }
+
+}
+
+// .WLAT_btn.isSingle:hover{
+//     background-color: #f9e1d3;
+//     border: 1px solid #e4b9a2;
+//     >.lang_name{
+//         color: #6f2903;
+//     }
+//     >.icon{
+//         color: #646464;
+//     }
+// }
+
+// .WLAT_btn.isSingle:active{
+//     // background-color: #f9e1d3;
+//     border: 1px solid #be886b;
+//     .lang_name{
+//         color: #be886b;
+//     }
+//     .icon{
+//         color: #646464;
+//     }
+// }
