@@ -36,6 +36,8 @@ const AppLessonComponent = ( props ) => {
 
                         <LessonTask />
 
+                        <div>11111111</div>
+
 
                     </div>
                 </SetAppWordsListToStore>

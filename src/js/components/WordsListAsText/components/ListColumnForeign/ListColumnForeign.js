@@ -8,6 +8,7 @@ import React from "react";
 import './ListColumnForeign.scss';
 
 import { ColumnContainer } from './../ColumnContainer/ColumnContainer.js';
+import { OneColumnItem } from './../OneColumnItem/OneColumnItem.js';
 
 const ListColumnForeignComponent = ( props ) => {
 
@@ -16,10 +17,35 @@ const ListColumnForeignComponent = ( props ) => {
         
     } = props;
 
+    const create = ( arr ) => {
+        let div = arr.map( ( item, index ) => {
+            let {
+                foreign,
+                id,
+                ru,
+            } = item;
+
+            return (
+                <OneColumnItem
+                    key =           { index }
+                    foreign =       { foreign }
+                    id =            { id }
+                    ru =            { ru }
+                    visibleLang =   { 'foreign' }
+                />
+
+            )
+
+        } );
+
+        return div;
+
+    }
+
 
     return (
         <ColumnContainer className = 'WLAT_ListColumnForeign' >
-            en колонка
+            { create( list ) }
         </ColumnContainer>
   
     )

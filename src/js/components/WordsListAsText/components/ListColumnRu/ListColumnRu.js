@@ -7,6 +7,7 @@ import React from "react";
 
 import './ListColumnRu.scss';
 import { ColumnContainer } from './../ColumnContainer/ColumnContainer.js';
+import { OneColumnItem } from './../OneColumnItem/OneColumnItem.js';
 
 const ListColumnRuComponent = ( props ) => {
 
@@ -15,10 +16,36 @@ const ListColumnRuComponent = ( props ) => {
         
     } = props;
 
+    const create = ( arr ) => {
+        let div = arr.map( ( item, index ) => {
+            let {
+                foreign,
+                id,
+                ru,
+            } = item;
+
+            return (
+                <OneColumnItem
+                    key =           { index }
+                    foreign =       { foreign }
+                    id =            { id }
+                    ru =            { ru }
+                    visibleLang =   { 'ru' }
+                />
+
+            )
+
+        } );
+
+        return div;
+
+    }
+    
+
 
     return (
         <ColumnContainer className = 'WLAT_ListColumnRu'>
-            ru колонка
+            { create( list ) }
         </ColumnContainer>
 
     )
