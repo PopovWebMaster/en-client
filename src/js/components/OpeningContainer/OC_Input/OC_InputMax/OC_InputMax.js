@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 // import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
@@ -11,6 +11,7 @@ const OC_InputMaxComponent = ( props ) => {
 
     let {
         value,
+        min = 0,
         max,
         
     } = props;
@@ -18,7 +19,9 @@ const OC_InputMaxComponent = ( props ) => {
     return (
 
         <div className = 'OC_Input_max'>
-            <span>{ value.length }/{ max }</span>
+            { typeof value === 'number'? <span>{ `${min} > ${value} < ${max}` }</span>: <span>{value.length}/{ max }</span>}
+            {/* { typeof value === 'number'? <span>{ `${min} > ` }</span>: ''}
+            <span>{ typeof value === 'number'? ` ${value} < `: `${value.length}/` }{ max }</span> */}
         </div>
 
     )

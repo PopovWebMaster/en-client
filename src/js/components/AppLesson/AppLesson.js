@@ -13,12 +13,15 @@ import { SetAppWordsListToStore } from './../SetAppWordsListToStore/SetAppWordsL
 import { SetDataFromMetaToStore } from './../SetDataFromMetaToStore/SetDataFromMetaToStore.js';
 import { add_WordsListAsText_to_DOM } from './../../helpers/add_WordsListAsText_to_DOM.js';
 import { LessonTask } from './components/LessonTask/LessonTask.js';
+// import { SetAppDataToStore } from './../SetAppDataToStore/SetAppDataToStore.js';
+import { SetAppDataToStore } from './../SetAppDataToStore/SetAppDataToStore.js';
+
 
 const AppLessonComponent = ( props ) => {
 
     let {
-        showStatus,
-        setShowStatus,
+        // showStatus,
+        // setShowStatus,
     } = props;
 
     useEffect( () => {
@@ -32,14 +35,17 @@ const AppLessonComponent = ( props ) => {
         <SetDataFromMetaToStore>
             <AppShowAnimationContainer>
                 <SetAppWordsListToStore>
-                    <div className = 'appLesson'>
+                    <SetAppDataToStore>
+                        <div className = 'appLesson'>
 
-                        <LessonTask />
+                            <LessonTask />
 
-                        <div>11111111</div>
+                            <div>11111111</div>
 
 
-                    </div>
+                        </div>
+
+                    </SetAppDataToStore>
                 </SetAppWordsListToStore>
             </AppShowAnimationContainer>
         </SetDataFromMetaToStore>

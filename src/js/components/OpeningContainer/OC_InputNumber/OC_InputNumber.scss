@@ -1,0 +1,36 @@
+.OC_InputNumber{
+    font-size: 1em;
+    margin: 0.3em 0.5em;
+    flex-grow: 1;
+    max-width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    
+
+    input.OC_Input_inp_number{
+        font-size: 0.9em;
+        text-align: left;
+        padding: .4em 0.4em;
+        margin: 0.2em 0;
+        text-indent: 1.4em;
+        background-color: #f7f7f6;
+        border: 1px solid #cccccc;
+        outline: none;
+        // width: calc( 100% - 0.8em );
+        width: 8em;
+        margin: 0 1em;
+
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+
+    input.OC_Input_inp_number:focus{
+        background-color: #ffffff;
+        border: 1px solid #959595;
+
+    }
+
+   
+}

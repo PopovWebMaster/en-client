@@ -1,5 +1,5 @@
 
-import React, { useRef, useState, useEffect }   from "react";
+import React, { useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -19,6 +19,7 @@ import { set_one_lesson_data_to_store } from './../../../../helpers/set_one_less
 import { set_main_page_data_to_store } from './../../../../helpers/set_main_page_data_to_store.js';
 import { set_tests_list_to_store } from './../../../../helpers/set_tests_list_to_store.js';
 import { set_one_test_data_to_store } from './../../../../helpers/set_one_test_data_to_store.js';
+import { set_app_data_to_store } from './../../../../helpers/set_app_data_to_store.js';
 
 
 const GetStartingAdminDataFromServerComponent = ( props ) => {
@@ -67,6 +68,8 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
                 if( resp.mainPage ){ set_main_page_data_to_store( resp.mainPage ) };
                 if( resp.testsList ){ set_tests_list_to_store( resp.testsList ) };
                 if( resp.oneTestData ){ set_one_test_data_to_store( resp.oneTestData ) };
+                if( resp.appData ){ set_app_data_to_store( resp.appData ) };
+
 
 
                 setIsReady( true );

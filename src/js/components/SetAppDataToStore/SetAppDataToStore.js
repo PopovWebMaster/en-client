@@ -6,13 +6,13 @@ import React, { useState, useEffect }   from "react";
 // import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
-import './SetAppWordsListToStore.scss';
-import { set_app_words_list_to_store } from './../../helpers/set_app_words_list_to_store.js';
+import './SetAppDataToStore.scss';
 
+import { set_app_data_to_store } from './../../helpers/set_app_data_to_store.js';
 import { send_request_to_server } from './../../helpers/send_request_to_server.js';
 
 
-const SetAppWordsListToStoreComponent = ( props ) => {
+const SetAppDataToStoreComponent = ( props ) => {
 
     let {
         // showStatus,
@@ -24,15 +24,15 @@ const SetAppWordsListToStoreComponent = ( props ) => {
 
     useEffect( () => {
 
-        if( typeof app_words_from_DOM !== 'undefined'){
+        if( typeof app_data_json_from_DOM !== 'undefined'){
             
-            set_app_words_list_to_store( app_words_from_DOM );
+            set_app_data_to_store( app_data_json_from_DOM );
             setIsReady( true );
         }else{
-            console.error('Тревога! пременная "app_words_from_DOM" отсутствует');
+            console.error('Тревога! пременная "app_data_json_from_DOM" отсутствует');
 
             send_request_to_server( {
-                route: 'lessons/get-lesson-app-words-list',
+                route: 'lessons/get-lesson-app-data',
                 data: {},
                 addKeyName: true,
                 addLessonId: true,
@@ -43,8 +43,8 @@ const SetAppWordsListToStoreComponent = ( props ) => {
                     console.dir( resp );
 
                     if( resp.ok === true ){
-                        if( resp.app_words ){
-                            set_app_words_list_to_store( resp.app_words );
+                        if( resp.appData ){
+                            set_app_data_to_store( resp.appData );
                             setIsReady( true );
                         };
                     }else{
@@ -66,13 +66,13 @@ const SetAppWordsListToStoreComponent = ( props ) => {
 };
 
 
-export function SetAppWordsListToStore( props ){
+export function SetAppDataToStore( props ){
 
     // const appControl = useSelector( appControlSlise );
     // const dispatch = useDispatch();
 
     return (
-        <SetAppWordsListToStoreComponent
+        <SetAppDataToStoreComponent
             { ...props }
             // showStatus = { appControl.showStatus }
             // setShowStatus = { ( val ) => { dispatch( setShowStatus( val ) ) } }

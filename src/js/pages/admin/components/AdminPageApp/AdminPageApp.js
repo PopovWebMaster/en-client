@@ -1,11 +1,11 @@
 
-import React, { useRef, useState, useEffect }   from "react";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import React, { useEffect }   from "react";
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './AdminPageApp.scss';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 import { AdminMainPage }            from './../AdminMainPage/AdminMainPage.js';
@@ -38,11 +38,14 @@ const AdminPageAppComponent = ( props ) => {
             
             // navigate( `/admin` );
             // navigate( ADMIN_ROUTES.MAIN.ROUTE );
-            navigate( ADMIN_ROUTES.WORDS.ROUTE );
+            // navigate( ADMIN_ROUTES.WORDS.ROUTE );
             // navigate( ADMIN_ROUTES.LESSONS.ROUTE );
             // navigate( ADMIN_ROUTES.MAIN.ROUTE );
 
             // navigate( ADMIN_ROUTES.TESTS.ROUTE );
+            navigate( ADMIN_ROUTES.SETTINGS.ROUTE );
+
+
 
 
 

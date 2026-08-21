@@ -13,6 +13,15 @@ import { A_TopButtonsContainer } from './../AdminPageContainer/A_TopButtonsConta
 import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromServer/GetStartingAdminDataFromServer.js';
 
 // import { SaveMainChanges } from './components/SaveMainChanges/SaveMainChanges.js';
+import { SaveSettingsChanges } from './components/SaveSettingsChanges/SaveSettingsChanges.js';
+import { ButtonNameStep_1 } from './components/ButtonNameStep_1/ButtonNameStep_1.js';
+import { ButtonNameStep_2 } from './components/ButtonNameStep_2/ButtonNameStep_2.js';
+import { ButtonNameStep_3 } from './components/ButtonNameStep_3/ButtonNameStep_3.js';
+import { TaskTextStep_1 } from './components/TaskTextStep_1/TaskTextStep_1.js';
+import { TaskTextStep_2 } from './components/TaskTextStep_2/TaskTextStep_2.js';
+import { TaskTextStep_3 } from './components/TaskTextStep_3/TaskTextStep_3.js';
+import { RepeateCircleLengtn } from './components/RepeateCircleLengtn/RepeateCircleLengtn.js';
+import { CorrectAnswersLength } from './components/CorrectAnswersLength/CorrectAnswersLength.js';
 
 
 const AdminPageSettingsComponent = ( props ) => {
@@ -22,7 +31,7 @@ const AdminPageSettingsComponent = ( props ) => {
     } = props;
 
     let what_to_take = [
-        'mainPage',
+        'appData',
     ];
 
 
@@ -35,11 +44,21 @@ const AdminPageSettingsComponent = ( props ) => {
 
 
                 <A_TopButtonsContainer>
-                    {/* <SaveMainChanges /> */}
+                    <SaveSettingsChanges />
 
                 </A_TopButtonsContainer>
 
                 <div className = 'AMP_AdminPageSettings'>
+
+                    <ButtonNameStep_1 />
+                    <TaskTextStep_1 />
+                    <ButtonNameStep_2 />
+                    <TaskTextStep_2 />
+                    <ButtonNameStep_3 />
+                    <TaskTextStep_3 />
+
+                    <RepeateCircleLengtn />
+                    <CorrectAnswersLength />
 
                 </div>
 

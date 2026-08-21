@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef }   from "react";
+import React, { useRef }   from "react";
 
 // import { selectorData as appControlSlise, setShowStatus } from './../../redux/appControlSlise.js';
 
@@ -12,11 +12,11 @@ import './LessonTask.scss';
 const LessonTaskComponent = ( props ) => {
 
     let {
-        showStatus,
-        setShowStatus,
+        // showStatus,
+        // setShowStatus,
     } = props;
 
-    let [ isOpen, setIsOpen ] = useState( false );
+    // let [ isOpen, setIsOpen ] = useState( false );
 
     let taskRef = useRef();
 
@@ -35,7 +35,7 @@ const LessonTaskComponent = ( props ) => {
         let appLesson = document.querySelector( '.appLesson' );
         let appLesson_style = window.getComputedStyle( appLesson );
         let appLesson_width_px = parseFloat( appLesson_style.width );
-        let appLesson_font_size_px = parseFloat( appLesson_style.fontSize );
+        // let appLesson_font_size_px = parseFloat( appLesson_style.fontSize );
 
         task.style.top = absY + 'px';
         task.style.left = absX + 'px';
