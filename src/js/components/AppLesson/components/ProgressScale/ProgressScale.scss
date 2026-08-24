@@ -1,0 +1,54 @@
+.AL_ProgressScale{
+    font-size: 1em;
+    width: calc( 100% - 2em );
+    padding: 0 1em 0.4em 1em;
+
+    .AL_ProgressScale_wrap{
+        font-size: 1em;
+        width: 100%;
+        // display: flex;
+        // justify-content: flex-end;
+        // align-items: center;
+        // align-content: center;
+
+        .AL_ProgressScale_value{
+            font-size: 1em;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: center;
+            margin-bottom: 0.2em;
+
+            span{
+                font-size: 0.7em;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+
+        }
+
+        .AL_ProgressScale_scale_wrap{
+            font-size: 1em;
+            width: 100%;
+            position: relative;
+            background-color: #e9e7e7;
+            border-radius: 0.16em;
+            height: 0.34em;
+
+            .AL_ProgressScale_scale{
+                font-size: 1em;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                background-color: #43c432;
+            }
+
+        }
+
+        
+
+
+    }
+}
+

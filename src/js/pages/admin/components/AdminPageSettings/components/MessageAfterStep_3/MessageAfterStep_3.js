@@ -3,31 +3,33 @@ import React, { useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './ButtonNameStep_3.scss';
-import { selectorData as settingsSlice, setSettingsIsChanged, setButtonNameStep_3 } from './../../../../../../redux/settingsSlice.js';
+import './MessageAfterStep_3.scss';
+import { selectorData as settingsSlice, setSettingsIsChanged, setMessageAfterStep_3 } from './../../../../../../redux/settingsSlice.js';
 
 import { OC_Input } from './../../../../../../components/OpeningContainer/OC_Input/OC_Input.js';
 
 
-const ButtonNameStep_3Component = ( props ) => {
+const MessageAfterStep_3Component = ( props ) => {
 
     let {
-        buttonNameStep_3,
+        messageAfterStep_3,
         setSettingsIsChanged,
-        setButtonNameStep_3,
+        setMessageAfterStep_3,
+
 
     } = props;
 
     let [ value, setValue ] = useState( '' );
 
+
     useEffect( () => {
-        setValue( buttonNameStep_3 );
-    }, [ buttonNameStep_3 ] );
+        setValue( messageAfterStep_3 );
+    }, [ messageAfterStep_3 ] );
 
     const blurHandler = ( e ) => {
         let val = e.target.value.trim();
-        if( val !== buttonNameStep_3 ){
-            setButtonNameStep_3( val );
+        if( val !== messageAfterStep_3 ){
+            setMessageAfterStep_3( val );
             setSettingsIsChanged( true );
         };
 
@@ -35,12 +37,13 @@ const ButtonNameStep_3Component = ( props ) => {
 
 
     return (
-        <div className = 'APS_ButtonNameStep_3'>
+        <div className = 'APS_MessageAfterStep_3'>
             <OC_Input
-                title =         'Шаг 3. Название кнопки'
+                title =         'Шаг 3. Сообщение после прохождения'
                 value =         { value }
                 setValue =      { setValue }
-                max =           { 40 }
+                max =           { 200 }
+                asTextArea =    { true }
                 blure =         { blurHandler }
             />
 
@@ -50,7 +53,7 @@ const ButtonNameStep_3Component = ( props ) => {
 };
 
 
-export function ButtonNameStep_3( props ){
+export function MessageAfterStep_3( props ){
 
     const settings = useSelector( settingsSlice );
 
@@ -59,12 +62,12 @@ export function ButtonNameStep_3( props ){
     const dispatch = useDispatch();
 
     return (
-        <ButtonNameStep_3Component
+        <MessageAfterStep_3Component
             { ...props }
-            buttonNameStep_3 =    { settings.buttonNameStep_3 }
+            messageAfterStep_3 =    { settings.messageAfterStep_3 }
 
             setSettingsIsChanged = { ( val ) => { dispatch( setSettingsIsChanged( val ) ) } }
-            setButtonNameStep_3 = { ( val ) => { dispatch( setButtonNameStep_3( val ) ) } }
+            setMessageAfterStep_3 = { ( val ) => { dispatch( setMessageAfterStep_3( val ) ) } }
 
 
 

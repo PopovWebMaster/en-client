@@ -40,7 +40,7 @@ const ButtonNameStep_2Component = ( props ) => {
                 title =         'Шаг 2. Название кнопки'
                 value =         { value }
                 setValue =      { setValue }
-                max =           { 255 }
+                max =           { 40 }
                 blure =         { blurHandler }
             />
 

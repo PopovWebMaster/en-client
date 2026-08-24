@@ -19,6 +19,10 @@ export const save_settings_data_on_server = ( callback = () => {} ) => {
         buttonNameStep_2,
         buttonNameStep_3,
 
+        messageAfterStep_1,
+        messageAfterStep_2,
+        messageAfterStep_3,
+
         repeatCircleLength,
         correctAnswersLength,
 
@@ -34,6 +38,10 @@ export const save_settings_data_on_server = ( callback = () => {} ) => {
             buttonNameStep_1,
             buttonNameStep_2,
             buttonNameStep_3,
+
+            messageAfterStep_1,
+            messageAfterStep_2,
+            messageAfterStep_3,
 
             repeatCircleLength,
             correctAnswersLength,

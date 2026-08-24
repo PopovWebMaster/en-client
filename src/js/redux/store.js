@@ -6,6 +6,7 @@ import languageSlice from './languageSlice.js';
 import appControlSlise from './appControlSlise.js';
 import appWordsSlice from './appWordsSlice.js';
 import appDataSlice from './appDataSlice.js';
+import settingsSlice from './settingsSlice.js';
 
 
 
@@ -19,6 +20,7 @@ export default configureStore({
         appControl: appControlSlise,
         appWords: appWordsSlice,
         appData: appDataSlice,
+        settings: settingsSlice,
 
 
 

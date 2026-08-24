@@ -1,0 +1,63 @@
+.AL_AppMessage{
+    font-size: 1em;
+    background-color: #ffffff;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.1em;
+
+    max-width: 45em;
+    width: 90%;
+    padding: 1em 0;
+    
+    .AL_AppMessage_text{
+        font-size: 0.8em;
+        padding: 0.5em 1.2em;
+        color: #343434;
+        line-height: 1.8em;
+        text-indent: 1em;
+    }
+
+    .AL_AppMessage_btn{
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding: 1em 0;
+
+
+        >span{
+            font-size: 0.8em;
+            padding: 0.4em 1.2em;
+            background-color: #67983e;
+            color: #ffffff;
+            border-radius: 0.1em;
+            cursor: pointer;
+            user-select: none;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+        >span:hover{
+            background-color: #55832f;
+        }
+        >span:active{
+            background-color: rgb(104, 153, 65);
+        }
+    }
+
+}
+
+@media screen and (min-width: 10px) and (max-width: 740px){
+    .AL_AppMessage{
+        padding: .8em 0;
+        max-width: 60em;
+        width: 95%;
+        .AL_AppMessage_text{
+            padding: 0.3em 0.8em;
+            line-height: 1.4em;
+        }
+
+        .AL_AppMessage_btn{
+            padding: 0.3em 0;
+        }
+    }
+}
+

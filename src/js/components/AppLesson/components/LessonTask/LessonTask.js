@@ -1,9 +1,9 @@
 
 import React, { useRef }   from "react";
 
-// import { selectorData as appControlSlise, setShowStatus } from './../../redux/appControlSlise.js';
+import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.js';
 
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
 import './LessonTask.scss';
@@ -14,6 +14,7 @@ const LessonTaskComponent = ( props ) => {
     let {
         // showStatus,
         // setShowStatus,
+        currentStepTask,
     } = props;
 
     // let [ isOpen, setIsOpen ] = useState( false );
@@ -84,8 +85,7 @@ const LessonTaskComponent = ( props ) => {
             <div className = 'AL_lessonTask' ref = { taskRef } >
                 
                 <span className = 'AL_lessonTask_text'>
-                    <span className = 'AL_lessonTask_title'>Задание!</span>
-                    Вычитеть каждое слово вслух. Ваша цель - научиться без подсказок правильно произнести вслух каждое из слов урока. Оценивайте себя строго, тогда результат будет самым лучшим!!!</span>
+                    <span className = 'AL_lessonTask_title'>Задание!</span>{currentStepTask}</span>
 
                 <div className = 'AL_lessonTask_btn'>
                     <span className = 'text'>Открыть</span>
@@ -106,13 +106,13 @@ const LessonTaskComponent = ( props ) => {
 
 export function LessonTask( props ){
 
-    // const appControl = useSelector( appControlSlise );
+    const appData = useSelector( appDataSlice );
     // const dispatch = useDispatch();
 
     return (
         <LessonTaskComponent
             { ...props }
-            // showStatus = { appControl.showStatus }
+            currentStepTask = { appData.currentStepTask }
             // setShowStatus = { ( val ) => { dispatch( setShowStatus( val ) ) } }
 
         />

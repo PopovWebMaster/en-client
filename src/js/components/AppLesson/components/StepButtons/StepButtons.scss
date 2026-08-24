@@ -1,0 +1,57 @@
+.AL_StepButtons_wrap{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    padding: 0 0 0.5em 0;
+
+    .AL_StepButtons_btn{
+        font-size: 1em;
+        padding: 0.3em 0.8em;
+        border: 1px solid #d4985c;
+        border-radius: 0.1em;
+        // flex-grow: 1;
+        // width: 33%;
+
+        
+        margin: 0.5em 0  0em 1em;
+
+        font-family: Verdana, Geneva, sans-serif;
+        white-space: nowrap;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        cursor: pointer;
+        user-select: none;
+
+        span{
+            font-size: 0.8em;
+            color: #bf6000;
+        }
+    }
+
+    .AL_StepButtons_btn:not( .isActive ):hover{
+        background-color: #ede7df;
+        border: 1px solid #b06c27;
+        span{
+            color: #925211;
+        }
+
+    }
+
+    .AL_StepButtons_btn.isActive{
+        background-color: #c27120;
+        border: 1px solid #c27120;
+        span{
+            color: #ffffff;
+        }
+
+    }
+}

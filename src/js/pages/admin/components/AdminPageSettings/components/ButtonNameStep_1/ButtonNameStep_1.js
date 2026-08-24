@@ -40,7 +40,7 @@ const ButtonNameStep_1Component = ( props ) => {
                 title =         'Шаг 1. Название кнопки'
                 value =         { value }
                 setValue =      { setValue }
-                max =           { 255 }
+                max =           { 40 }
                 blure =         { blurHandler }
             />
 
@@ -48,7 +48,6 @@ const ButtonNameStep_1Component = ( props ) => {
     )
 
 };
-
 
 export function ButtonNameStep_1( props ){
 
