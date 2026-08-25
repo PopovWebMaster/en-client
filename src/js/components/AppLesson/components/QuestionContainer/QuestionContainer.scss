@@ -1,0 +1,23 @@
+.AL_QuestionContainer{
+    font-size: 1em;
+    background-color: #ffffff;
+    border: 1px solid #c1d2d1;
+    border-radius: 0.1em;
+    // height: 4.8em;
+    height: 8em;
+
+    width: 70vw;
+    max-width: 40em;
+    position: relative;
+
+}
+
+@media (max-height: 400px) {
+    .AL_QuestionContainer{
+
+        width: calc( 80vw - 19em );
+        max-width: auto;
+        height: 4.8em;
+
+    }
+}

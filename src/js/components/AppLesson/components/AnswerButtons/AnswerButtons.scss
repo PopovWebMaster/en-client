@@ -1,0 +1,138 @@
+.AL_AnswerButtons{
+    font-size: 1em;
+    height: 4.8em;
+    width: 70vw;
+    max-width: 40em;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .AL_AB_wrap{
+        font-size: 1em;
+        width: 18em;
+        height: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .AL_AB_wrap_left{
+            font-size: 1em;
+
+
+        }
+        .AL_AB_wrap_right{
+            font-size: 1em;
+
+
+        }
+
+        .AL_AB_btn{
+            font-size: 1em;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            color: #ffffff;
+            padding: 0.42em 1.4em;
+            border-radius: 0.1em;
+            border: 1px solid #34343400;
+            position: relative;
+            margin: 0.2em 0.3em;
+
+            cursor: pointer;
+            user-select: none;
+
+            >.AL_AB_btn_icon{
+                font-size: 0.8em;
+            }
+            >.AL_AB_btn_icon.icon-volume-down{
+                font-size: 0.9em;
+                color: #c1ffcf;
+            }
+            >.AL_AB_btn_text{
+                font-size: 0.76em;
+                margin-left: 0.2em;
+            }
+            >.AL_AB_btn_icon_key{
+                font-size: 0.78em;
+                position: absolute;
+                bottom: 0.2em;
+                right: 0.1em;
+                color: #464646;
+            }
+        }
+
+        .AL_AB_btn:active{
+            >.AL_AB_btn_icon{
+                color: #ffdcdc;
+            }
+            >.AL_AB_btn_text{
+                color: #ffdcdc;
+            }
+        }
+
+        .AL_AB_btn.AL_AB_btn_blue{
+            background-color: #6688bc;
+            border: 1px solid #6688bc;
+        }
+        .AL_AB_btn.AL_AB_btn_blue:hover{
+            background-color: #7eaaef;
+        }
+        .AL_AB_btn.AL_AB_btn_blue_hover{
+            background-color: #7eaaef;
+        }
+        .AL_AB_btn.AL_AB_btn_blue:active{
+            border: 1px solid #5275a9;
+            // color: #ffdcdc;
+        }
+
+        .AL_AB_btn.AL_AB_btn_grey{
+            background-color: #abaead;
+            border: 1px solid #abaead;
+        }
+        .AL_AB_btn.AL_AB_btn_grey:hover{
+            background-color: #c5cbc9;
+        }
+        .AL_AB_btn.AL_AB_btn_grey:active{
+            border: 1px solid #919594;
+            // color: #ffdcdc;
+        }
+        .AL_AB_btn.AL_AB_btn_grey_hover{
+            background-color: #c5cbc9;
+        }
+
+
+
+        .AL_AB_btn.AL_AB_btn_green{
+            background-color: #45b748;
+            border: 1px solid #45b748;
+        }
+        .AL_AB_btn.AL_AB_btn_green:hover{
+            background-color: #51cf54;
+        }
+        .AL_AB_btn.AL_AB_btn_green:active{
+            border: 1px solid #36a339;
+            // color: #ffdcdc;
+        }
+        .AL_AB_btn.AL_AB_btn_green_hover{
+            background-color: #51cf54;
+        }
+    }
+
+}
+
+@media (max-height: 400px) {
+    .AL_AnswerButtons{
+        width: 19em;
+
+
+    }
+}
+
