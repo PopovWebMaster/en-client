@@ -25,6 +25,7 @@ const AppDisplayComponent = ( props ) => {
 
     } = props;
 
+
     const create = ( message, step ) => {
         let result = '';
         if( message === '' ){

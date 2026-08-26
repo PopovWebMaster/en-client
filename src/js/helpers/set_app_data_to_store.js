@@ -38,8 +38,8 @@ export const set_app_data_to_store = ( appData ) => {
         repeatCircleLength,
         correctAnswersLength,
     } = appData;
-    console.dir( 'appData' );
-    console.dir( appData );
+    // console.dir( 'appData' );
+    // console.dir( appData );
 
     let { userInfo } = store.getState();
     let { user_position } = userInfo;
@@ -58,8 +58,8 @@ export const set_app_data_to_store = ( appData ) => {
         store.dispatch( setMessageAfterStep_1( messageAfterStep_1 ) );
         store.dispatch( setMessageAfterStep_2( messageAfterStep_2 ) );
         store.dispatch( setMessageAfterStep_3( messageAfterStep_3 ) );
-        store.dispatch( setRepeatCircleLength( repeatCircleLength ) );
-        store.dispatch( setCorrectAnswersLength( correctAnswersLength ) );
+        store.dispatch( setRepeatCircleLength( Number( repeatCircleLength ) ) );
+        store.dispatch( setCorrectAnswersLength( Number( correctAnswersLength ) ) );
 
     }else{
 
@@ -76,8 +76,8 @@ export const set_app_data_to_store = ( appData ) => {
         storeApp.dispatch( setMessageAfterStep_3( messageAfterStep_3 ) );
 
 
-        storeApp.dispatch( setRepeatCircleLength( repeatCircleLength ) );
-        storeApp.dispatch( setCorrectAnswersLength( correctAnswersLength ) );
+        storeApp.dispatch( setRepeatCircleLength( Number( repeatCircleLength ) ) );
+        storeApp.dispatch( setCorrectAnswersLength( Number( correctAnswersLength ) ) );
 
     };
     

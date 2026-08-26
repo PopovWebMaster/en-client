@@ -10,7 +10,7 @@ import './SetAppDataToStore.scss';
 
 import { set_app_data_to_store } from './../../helpers/set_app_data_to_store.js';
 import { send_request_to_server } from './../../helpers/send_request_to_server.js';
-import { set_current_step_to_store } from './../../helpers/set_current_step_to_store.js';
+// import { set_current_step_to_store } from './../../helpers/set_current_step_to_store.js';
 
 
 const SetAppDataToStoreComponent = ( props ) => {
@@ -28,7 +28,7 @@ const SetAppDataToStoreComponent = ( props ) => {
         if( typeof app_data_json_from_DOM !== 'undefined'){
             
             set_app_data_to_store( app_data_json_from_DOM );
-            set_current_step_to_store( 1 );
+            // set_current_step_to_store( 1 );
             setIsReady( true );
         }else{
             console.error('Тревога! пременная "app_data_json_from_DOM" отсутствует');
@@ -47,7 +47,7 @@ const SetAppDataToStoreComponent = ( props ) => {
                     if( resp.ok === true ){
                         if( resp.appData ){
                             set_app_data_to_store( resp.appData );
-                            set_current_step_to_store( 1 );
+                            // set_current_step_to_store( 1 );
                             setIsReady( true );
                         };
                     }else{
