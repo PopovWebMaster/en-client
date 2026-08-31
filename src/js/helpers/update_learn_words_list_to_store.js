@@ -5,6 +5,13 @@ import { get_shuffle_array_from_array } from './get_shuffle_array_from_array.js'
 
 export const update_learn_words_list_to_store = () => {
 
+    
+    /*
+    
+    Устарела не брать
+    
+    */
+
     let { appWords } = store.getState();
     let { appWordsList } = appWords;
 

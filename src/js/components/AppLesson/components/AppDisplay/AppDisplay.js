@@ -15,6 +15,8 @@ import { AppStep_1 } from './../AppStep_1/AppStep_1.js';
 import { AppStep_2 } from './../AppStep_2/AppStep_2.js';
 import { AppStep_3 } from './../AppStep_3/AppStep_3.js';
 
+// import { LessonTask } from './../LessonTask/LessonTask.js';
+
 
 
 const AppDisplayComponent = ( props ) => {
@@ -49,7 +51,7 @@ const AppDisplayComponent = ( props ) => {
     return (
 
         <div className = 'AL_AppDisplay' >
-            <div className = 'AL_AppDisplay_hidden'></div>
+            
             <div className = 'AL_AppDisplay_wrap'>
                 { create( appMessage, currentStepNomber ) }
 

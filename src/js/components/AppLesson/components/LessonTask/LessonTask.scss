@@ -2,13 +2,20 @@
     font-size: 1em;
     position: relative;
     cursor: pointer;
+    width: 100%;
+    // background-color: rgba(255, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     
 
     .AL_lessonTask{
         font-size: 0.78em;
         flex-grow: 0;
         background-color: #ffffff;
-        margin: 0.4em 1em;
+        margin: 0.4em 0;
         padding: 0.4em 0.9em;
         border: 1px solid #84d5b3;
         border-radius: 0.1em;
@@ -16,19 +23,22 @@
 
         position: relative;
         height: fit-content;
+        // max-width: 100%;
 
         display: flex;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
         justify-content: flex-start;
         align-items: center;
         align-content: center;
 
-        
+        // width: 70vw;
+        // max-width: 40em;
+
+        width: calc( 100% - 2em );
 
         >span{
             line-height: 1.2em;
         }
-
 
 
         .AL_lessonTask_text{
@@ -40,7 +50,9 @@
             white-space: nowrap;
             overflow: hidden;
 
-            width: 45vw;
+            // width: 45vw;
+            max-width: 100%;
+            flex-grow: 1;
 
             .AL_lessonTask_title{
                 font-size: 1.1em;
@@ -89,6 +101,10 @@
 
     }
 
+    .AL_lessonTask:hover{
+        background-color: #e3f3f9;
+    }
+
     .AL_lessonTask.AL_lessonTask_isOpen{
         font-size: 1em;
 
@@ -100,6 +116,12 @@
         // white-space: normal;
         // overflow: hidden;
         // width: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;;
+        align-content: center;
 
         padding: 1em 1.6em;
 
@@ -126,6 +148,9 @@
         }
         
     }
+    .AL_lessonTask.AL_lessonTask_isOpen:hover{
+        background-color: #ffffff;
+    }
 
     .AL_LT_curtain{
         position: fixed;
@@ -139,6 +164,8 @@
 
 
 }
+
+
 
 #AL_lessonTask{
     // font-size: 1em;
@@ -167,150 +194,4 @@
         font-size: 0.8em;
     }
 }
-
-
-
-
-
-// #AL_lessonTask{
-//     font-size: 1em;
-//     position: relative;
-//     cursor: pointer;
-
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     width: 100vw;
-//     height: 100vh;
-
-//     z-index: 2000;
-
-//     background-color: #00000082;
-    
-
-//     .AL_lessonTask{
-//         font-size: 0.78em;
-//         flex-grow: 0;
-//         background-color: #ffffff;
-//         margin: 0.4em 1em;
-//         padding: 0.4em 0.9em;
-//         border: 1px solid #84d5b3;
-//         border-radius: 0.1em;
-//         z-index: 2000;
-
-//         position: relative;
-//         height: fit-content;
-
-//         display: flex;
-//         flex-wrap: wrap;
-//         justify-content: flex-start;
-//         align-items: center;
-//         align-content: center;
-
-        
-
-//         >span{
-//             line-height: 1.2em;
-//         }
-
-
-
-//         .AL_lessonTask_text{
-//             font-size: 0.9em;
-//             color: #494949;
-//             display: inline-block;
-
-//             text-overflow: ellipsis;
-//             white-space: nowrap;
-//             overflow: hidden;
-
-//             width: 45vw;
-
-//             .AL_lessonTask_title{
-//                 font-size: 1.1em;
-//                 padding: 0 0.5em;
-//                 color: #ff0000;
-//                 // text-indent: 1em;
-                
-//             }
-
-//         }
-
-//         .AL_lessonTask_btn{
-//             font-size: 0.8em;
-//             flex-grow: 0;
-            
-
-//             display: flex;
-//             justify-content: flex-end;
-//             align-items: center;
-//             align-content: center;
-
-//             >.icon{
-//                 font-size: 1em;
-//                 color: #1059b8;
-//             }
-//             >.text{
-//                 font-size: 1em;
-//                 color: #1059b8;
-//                 margin-left: 0.5em;
-//             }
-
-//         }
-
-
-        
-
-//     }
-
-//     .AL_lessonTask.AL_lessonTask_isOpen{
-//         font-size: 1em;
-
-//         position: absolute;
-//         top: 1em;
-//         left: 1em;
-
-//         // text-overflow: inherit;
-//         // white-space: normal;
-//         // overflow: hidden;
-//         // width: auto;
-
-//         padding: 1em 1.6em;
-
-//         height: fit-content;
-        
-
-//         >span{
-//             line-height: 2.2em;
-//         }
-
-//         .AL_lessonTask_text{
-//             text-overflow: inherit;
-//             white-space: normal;
-//             overflow: hidden;
-//             width: auto;
-//             text-indent: 1em;
-//         }
-
-//         .AL_lessonTask_btn{
-//             // font-size: 1em;
-//             flex-grow: 1;
-//             width: 100%;
-
-//         }
-        
-//     }
-
-//     .AL_LT_curtain{
-//         position: fixed;
-//         top: -7.41em;
-//         left: -1.5em;
-//         width: 100vw;
-//         height: 100vh;
-//         background-color: #00000082;
-//         z-index: 100;
-//     }
-
-
-// }
 

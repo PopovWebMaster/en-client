@@ -33,15 +33,25 @@ const LessonTaskComponent = ( props ) => {
         const absX = x + window.scrollX;
         const absY = y + window.scrollY;
 
-        let appLesson = document.querySelector( '.appLesson' );
-        let appLesson_style = window.getComputedStyle( appLesson );
-        let appLesson_width_px = parseFloat( appLesson_style.width );
+        // let AL_lessonTask_style = window.getComputedStyle( AL_lessonTask );
+
+
+        // let lessonTask_style_width_px = parseFloat( AL_lessonTask_style.width );
+
+
+        // let contentArea = document.getElementById( '.contentArea' );
+        // let contentArea_style = window.getComputedStyle( contentArea );
+        // let contentArea_width_px = parseFloat( contentArea_style.width );
         // let appLesson_font_size_px = parseFloat( appLesson_style.fontSize );
 
-        task.style.top = absY + 'px';
+        // task.style.top = absY + 'px';
+        task.style.top = `calc( ${absY}px - 1em )`;
+
         task.style.left = absX + 'px';
         task.style.margin = '0';
-        task.style.width = `calc(${appLesson_width_px}px - 5.2em)`;
+        // task.style.width = `calc(${appLesson_width_px}px - 5.2em)`;
+        task.style.width = `calc( ${window.innerWidth - absX - absX}px - 3.4em )`;
+
 
     }
 

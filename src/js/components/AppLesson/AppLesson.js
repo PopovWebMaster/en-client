@@ -12,7 +12,7 @@ import { AppShowAnimationContainer } from './../AppShowAnimationContainer/AppSho
 import { SetAppWordsListToStore } from './../SetAppWordsListToStore/SetAppWordsListToStore.js';
 import { SetDataFromMetaToStore } from './../SetDataFromMetaToStore/SetDataFromMetaToStore.js';
 import { add_WordsListAsText_to_DOM } from './../../helpers/add_WordsListAsText_to_DOM.js';
-import { LessonTask } from './components/LessonTask/LessonTask.js';
+// import { LessonTask } from './components/LessonTask/LessonTask.js';
 import { StepButtons } from './components/StepButtons/StepButtons.js';
 import { ProgressScale } from './components/ProgressScale/ProgressScale.js';
 
@@ -44,10 +44,9 @@ const AppLessonComponent = ( props ) => {
                         <SetCurrentStepDataToStore>
                             <div className = 'appLesson'>
 
-                                <LessonTask />
+                                
                                 <StepButtons />
                                 <ProgressScale />
-
                                 <AppDisplay />
 
 

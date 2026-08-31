@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.js';
 
@@ -13,42 +13,52 @@ import { AnswerButtons } from './../AnswerButtons/AnswerButtons.js';
 import { app_audio_play_random } from './../../../../helpers/app_audio_play_random.js';
 import { set_next_current_group_index } from './../../../../helpers/set_next_current_group_index.js';
 
+import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
+
 
 const AppStep_1Component = ( props ) => {
 
     let {
         // appMessage,
-        // currentStepNomber,
+        currentStepNomber,
 
-        appData,
 
 
         currentLearnForeign,
         currentLearnRu,
         currentLearnTranscription,
-        currentLearnWordId,
+        // currentLearnWordId,
 
     } = props;
 
-    // console.dir( 'appData' );
-    // console.dir( appData );
+    let AppLearn = useMemo( () => {
+        let AppLearnMode = new AppLearnModeClass;
+        return AppLearnMode; 
+    }, [] );
+
+    useEffect( () => {
+        AppLearn.StartForStep( currentStepNomber );
+    }, [] );
 
     const response = () => {
-        app_audio_play_random( currentLearnWordId );
+
+        app_audio_play_random( AppLearn.GetCurrentWordId() );
     }
 
     const success = () => {
-        set_next_current_group_index( true );
+        AppLearn.Next( true );
     }
 
     const next = () => {
-        set_next_current_group_index( false );
+        AppLearn.Next( false );
+        
     }
 
 
     return (
 
         <div className = 'AL_AppStep_1' >
+
             <QuestionContainer>
                 <div className = 'AL_AppStep_1_wrap'>
                     <div className = 'AL_AppStep_1_transcr'>
@@ -95,7 +105,7 @@ export function AppStep_1( props ){
 
 
 
-            // currentStepNomber = { appData.currentStepNomber }
+            currentStepNomber = { appData.currentStepNomber }
 
 
         />

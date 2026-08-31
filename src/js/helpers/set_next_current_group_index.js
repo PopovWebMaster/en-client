@@ -11,6 +11,17 @@ import {
 
 export const set_next_current_group_index = ( isAccess = false ) => {
 
+
+    /*
+    
+    Устарела не брать
+    
+    */
+
+
+
+
+
     let { appData, settings } = store.getState();
     let { 
         // learnIsStarted,

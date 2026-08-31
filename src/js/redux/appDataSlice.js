@@ -18,16 +18,16 @@ export const appDataSlice = createSlice({
         appMessage: '',
 
         learnWordsList: [],
-        learnWordsGroupe: [],
-        currentGroupIndex: null,
-        nextLearnWordsIndex: 0,
+        learnWordsGroupe: [],// !!!!!!!!!
+        currentGroupIndex: null, // !!!!!!!!!
+        nextLearnWordsIndex: 0,// !!!!!!!!!
 
         currentLearnWordId: null,
         currentLearnForeign: '',
         currentLearnRu: '',
         currentLearnTranscription: '',
 
-        learnIsStarted: false,
+        learnIsStarted: false,// !!!!!!!!!
 
 
     },

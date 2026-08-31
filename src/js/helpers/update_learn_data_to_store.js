@@ -5,6 +5,13 @@ import { update_learn_words_list_to_store } from './update_learn_words_list_to_s
 
 export const update_learn_data_to_store = () => {
 
+    
+    /*
+    
+    Устарела не брать
+    
+    */
+
     let { settings } = store.getState();
     let { repeatCircleLength } = settings;
 

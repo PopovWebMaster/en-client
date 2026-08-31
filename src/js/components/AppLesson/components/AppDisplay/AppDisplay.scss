@@ -7,12 +7,17 @@
     // display: flex;
     // justify-content: center;
     // align-items: center;
+    position: relative;
 
-    .AL_AppDisplay_hidden{
-        font-size: 1em;
-        height: 5vh;
-        width: 100%;
-    }
+    margin-top: 5em;
+
+
+
+    // .AL_AppDisplay_hidden{
+    //     font-size: 1em;
+    //     height: 5vh;
+    //     width: 100%;
+    // }
 
     .AL_AppDisplay_wrap{
         font-size: 1em;
@@ -29,9 +34,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-       .AL_AppDisplay_hidden{
-            display: none;
-       }
+        margin-top: 0;
+    //    .AL_AppDisplay_hidden{
+    //         display: none;
+    //    }
     }
 }
 

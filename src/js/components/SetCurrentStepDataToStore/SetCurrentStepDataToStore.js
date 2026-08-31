@@ -23,7 +23,9 @@ import { useDispatch } from 'react-redux';
 
 import './SetCurrentStepDataToStore.scss';
 
-import { update_learn_data_to_store } from './../../helpers/update_learn_data_to_store.js';
+// import { update_learn_data_to_store } from './../../helpers/update_learn_data_to_store.js';
+
+import { AppLearnModeClass } from './../../classes/AppLearnModeClass.js';
 
 
 const SetCurrentStepDataToStoreComponent = ( props ) => {
@@ -58,35 +60,38 @@ const SetCurrentStepDataToStoreComponent = ( props ) => {
 
     useEffect( () => {
 
-        setCurrentGroupIndex( null );
-        setCurrentLearnWordId( null );
-        setCurrentLearnForeign( '' );
-        setCurrentLearnRu( '' );
-        setCurrentLearnTranscription( '' );
-        setLearnIsStarted( false );
+        // setCurrentGroupIndex( null );
+        // setCurrentLearnWordId( null );
+        // setCurrentLearnForeign( '' );
+        // setCurrentLearnRu( '' );
+        // setCurrentLearnTranscription( '' );
+        // setLearnIsStarted( false );
 
-        if( currentStepNomber === null ){
+        // if( currentStepNomber === null ){
             
-        }else{
-            let currentTask = '';
+        // }else{
+        //     let currentTask = '';
+
+        //     if( currentStepNomber === 1 ){
+        //         currentTask = taskForStep_1;
+        //     }else if( currentStepNomber === 2 ){
+        //         currentTask = taskForStep_2;
+        //     }else if( currentStepNomber === 3 ){
+        //         currentTask = taskForStep_3;
+        //     };
+
+        //     setCurrentStepTask( currentTask );
+        //     // setCurrentProgress( 0 );
+        //     // setAppMessage( '' );
+        //     // update_learn_data_to_store();
 
 
+        // };
 
-            if( currentStepNomber === 1 ){
-                currentTask = taskForStep_1;
-            }else if( currentStepNomber === 2 ){
-                currentTask = taskForStep_2;
-            }else if( currentStepNomber === 3 ){
-                currentTask = taskForStep_3;
-            };
+        // let AppLearnMode = new AppLearnModeClass;
+        // AppLearnMode.StartForStep( currentStepNomber );
 
-            setCurrentStepTask( currentTask );
-            setCurrentProgress( 0 );
-            setAppMessage( '' );
-            update_learn_data_to_store();
-
-
-        };
+        // console.dir( AppLearnMode );
 
         
 
@@ -95,24 +100,24 @@ const SetCurrentStepDataToStoreComponent = ( props ) => {
 
     }, [ currentStepNomber ] );
 
-    useEffect( () => {
-        if( currentGroupIndex !== null ){
-            if( learnWordsGroupe[ currentGroupIndex ] ){
-                let { wordId } = learnWordsGroupe[ currentGroupIndex ];
-                if( appWordsListById[ wordId ] ){
-                    let { foreign, ru, transcription } = appWordsListById[ wordId ];
+    // useEffect( () => {
+    //     if( currentGroupIndex !== null ){
+    //         if( learnWordsGroupe[ currentGroupIndex ] ){
+    //             let { wordId } = learnWordsGroupe[ currentGroupIndex ];
+    //             if( appWordsListById[ wordId ] ){
+    //                 let { foreign, ru, transcription } = appWordsListById[ wordId ];
 
-                    setCurrentLearnWordId( wordId );
-                    setCurrentLearnForeign( foreign );
-                    setCurrentLearnRu( ru );
-                    setCurrentLearnTranscription( transcription );
-                };
+    //                 setCurrentLearnWordId( wordId );
+    //                 setCurrentLearnForeign( foreign );
+    //                 setCurrentLearnRu( ru );
+    //                 setCurrentLearnTranscription( transcription );
+    //             };
 
 
-            };
-        };
+    //         };
+    //     };
 
-    }, [ currentGroupIndex ] );
+    // }, [ currentGroupIndex ] );
 
     
     return (

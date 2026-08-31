@@ -11,6 +11,9 @@ import './AppShowAnimationContainer.scss';
 import { add_event_click_into_buttonStart } from './vendors/add_event_click_into_buttonStart.js';
 import { appPlace_DOM_controller } from './vendors/appPlace_DOM_controller.js';
 import { textPlace_DOM_controller } from './vendors/textPlace_DOM_controller.js';
+// import { set_current_step_to_store } from './../../../helpers/set_current_step_to_store.js';
+import { set_current_step_to_store } from './../../helpers/set_current_step_to_store.js';
+
 
 const AppShowAnimationContainerComponent = ( props ) => {
 
@@ -38,6 +41,7 @@ const AppShowAnimationContainerComponent = ( props ) => {
     const cancelClick = () => {
         textPlace_DOM_controller.show();
         setShowStatus( false );
+        set_current_step_to_store( null );
     }
 
 

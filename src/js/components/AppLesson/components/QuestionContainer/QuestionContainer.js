@@ -8,6 +8,9 @@ import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.j
 
 import './QuestionContainer.scss';
 
+// import { LessonTask } from './../LessonTask/LessonTask.js';
+import { LessonTask } from './../LessonTask/LessonTask.js';
+
 
 const QuestionContainerComponent = ( props ) => {
 
@@ -23,6 +26,10 @@ const QuestionContainerComponent = ( props ) => {
     return (
 
         <div className = 'AL_QuestionContainer' >
+            <div className = 'taskWrap'>
+                <LessonTask />
+            </div>
+
             { children }
         </div>
 
