@@ -42,6 +42,9 @@
                 left: 0;
                 height: 100%;
                 background-color: #43c432;
+                // transition: width 0.5s linear;
+                transition: width 0.5s ease-in-out;
+
             }
 
         }

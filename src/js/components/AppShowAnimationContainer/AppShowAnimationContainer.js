@@ -44,7 +44,7 @@ const AppShowAnimationContainerComponent = ( props ) => {
         set_current_step_to_store( null );
     }
 
-
+// icon-spin6 animate-spin
 
     return (
         <div id = 'appShowAnimation' className = { showStatus? 'appShow': 'appHide' }>

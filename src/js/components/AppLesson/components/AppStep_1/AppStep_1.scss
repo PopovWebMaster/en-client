@@ -1,74 +1,52 @@
 .AL_AppStep_1{
-    font-size: 1em;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
 
-    .AL_AppStep_1_wrap{
+    .AL_AppStep_1_transcr{
         font-size: 1em;
         width: 100%;
-        height: 100%;
-        position: relative;
+        height: 1.5em;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+
+        >span{
+            font-size: 0.78em;
+            color: #878787;
+            margin-right: 0.5em;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    }
+    .AL_AppStep_1_foreign{
+        font-size: 1em;
+        width: 100%;
+        flex-grow: 1;
+        max-height: 100%;
 
         display: flex;
-        // flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
 
-        flex-direction: column;
-        justify-content: flex-start;
-
-        .AL_AppStep_1_transcr{
-            font-size: 1em;
-            width: 100%;
-            // background-color: rgb(78, 216, 65);
-            height: 1.5em;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            align-content: center;
-
-            >span{
-                font-size: 0.78em;
-                color: #878787;
-                margin-right: 0.5em;
-                font-family: Verdana, Geneva, sans-serif;
-            }
+        >span{
+            font-size: 1.4em;
+            line-height: 1em;
+            color: #424242;
+            text-align: center;
+            font-family: Verdana, Geneva, sans-serif;
         }
-        .AL_AppStep_1_foreign{
-            font-size: 1em;
-            width: 100%;
-            flex-grow: 1;
-            // background-color: rgb(61, 172, 144);
-            max-height: 100%;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-
-            >span{
-                font-size: 1.4em;
-                line-height: 1em;
-                color: #424242;
-                // margin-right: 0.5em;
-                text-align: center;
-                font-family: Verdana, Geneva, sans-serif;
-            }
-        }
-        .AL_AppStep_1_ru{
-            font-size: 1em;
-            width: 100%;
-            // background-color: rgb(255, 0, 98);
-            height: 2em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-            >span{
-                font-size: 0.78em;
-                color: #45851a;
-                font-family: Verdana, Geneva, sans-serif;
-            }
+    }
+    .AL_AppStep_1_ru{
+        font-size: 1em;
+        width: 100%;
+        height: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        >span{
+            font-size: 0.78em;
+            color: #45851a;
+            font-family: Verdana, Geneva, sans-serif;
         }
     }
 
@@ -77,42 +55,22 @@
 
 @media (max-height: 400px) {
     .AL_AppStep_1{
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+
     }
 }
 
 @media screen and (min-width: 480px) and (max-width: 740px){
-    .AL_AppStep_1{
-        .AL_AppStep_1_wrap{
-            .AL_AppStep_1_transcr{
-            }
-            .AL_AppStep_1_foreign{
-                >span{
-                    font-size: 1.2em;
-                }
-            }
-            .AL_AppStep_1_ru{
-                
-            }
+    .AL_AppStep_1_foreign{
+        >span{
+            font-size: 1.2em;
         }
     }
-
 }
 
 @media screen and (min-width: 10px) and (max-width: 480px){
-    .AL_AppStep_1{
-        .AL_AppStep_1_wrap{
-            .AL_AppStep_1_transcr{
-            }
-            .AL_AppStep_1_foreign{
-                >span{
-                    font-size: 1.2em;
-                }
-            }
-            .AL_AppStep_1_ru{
-            }
+    .AL_AppStep_1_foreign{
+        >span{
+            font-size: 1.2em;
         }
     }
 }

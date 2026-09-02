@@ -1,4 +1,5 @@
 
+import store from './../../redux/store.js';
 
 export class OneWordClass {
     constructor( props ){
@@ -11,11 +12,17 @@ export class OneWordClass {
         this.wordId =   wordId;
         this.mistakes = mistakes;
         this.answers =  answers;
+        this.maxAnswers = 0;
+
 
         this.GetData = this.GetData.bind( this );
 
         this.AddAnswer = this.AddAnswer.bind( this );
         this.AddMistake = this.AddMistake.bind( this );
+
+        let { settings } = store.getState();
+        let { correctAnswersLength } = settings;
+        this.maxAnswers = correctAnswersLength;
 
 
 
@@ -39,6 +46,8 @@ export class OneWordClass {
     }
 
     AddAnswer(){
-        this.answers = this.answers + 1;
+        if( this.answers < this.maxAnswers ){
+            this.answers = this.answers + 1;
+        };
     }
 }

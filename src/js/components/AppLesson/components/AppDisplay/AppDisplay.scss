@@ -1,29 +1,17 @@
 .AL_AppDisplay{
     font-size: 1em;
     width: 100%;
-    // flex-grow: 1;
-    // max-height: 100%;
-    // background-color: red;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+
     position: relative;
 
     margin-top: 5em;
-
-
-
-    // .AL_AppDisplay_hidden{
-    //     font-size: 1em;
-    //     height: 5vh;
-    //     width: 100%;
-    // }
 
     .AL_AppDisplay_wrap{
         font-size: 1em;
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 100%;
     }
 }
 
@@ -35,21 +23,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 0;
-    //    .AL_AppDisplay_hidden{
-    //         display: none;
-    //    }
+
     }
 }
 
-// @media screen and (min-width: 10px) and (max-width: 480px){
-//     .AL_AppDisplay{
-//         flex-grow: 1;
-//         max-height: 100%;
-//             display: flex;
-//     justify-content: center;
-//     align-items: center;
-//         .AL_AppDisplay_hidden{
-//             display: none;
-//        }
-//     }
-// }

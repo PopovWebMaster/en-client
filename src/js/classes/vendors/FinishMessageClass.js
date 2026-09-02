@@ -6,29 +6,38 @@ export class FinishMessageClass {
 
     constructor(){
 
+        this.stepNumber = null;
+        this.message = '';
+
+
         this.Clear = this.Clear.bind( this );
-        this.SetForStep = this.SetForStep.bind( this );
+        this.Create = this.Create.bind( this );
+        this.SetMessageToStore = this.SetMessageToStore.bind( this );
+
 
 
     }
 
     Clear(){
         store.dispatch( setAppMessage( '' ) );
-
+        this.stepNumber = null;
+        this.message = '';
     }
 
-    SetForStep( stepNumber ){
+    Create( stepNumber ){
         let { settings } = store.getState();
-        let message = '';
         if( stepNumber === 1 ){
-            message = settings.messageAfterStep_1;
+            this.message = settings.messageAfterStep_1;
         }else if( stepNumber === 2 ){
-            message = settings.messageAfterStep_2;
+            this.message = settings.messageAfterStep_2;
         }else if( stepNumber === 3 ){
-            message = settings.messageAfterStep_3;
+            this.message = settings.messageAfterStep_3;
         };
-        store.dispatch( setAppMessage( message ) );
+        this.stepNumber = stepNumber;
+    }
 
+    SetMessageToStore(){
+        store.dispatch( setAppMessage( this.message ) );
     }
 
 }

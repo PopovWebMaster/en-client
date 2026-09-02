@@ -6,6 +6,8 @@ import { TaskClass } from './vendors/TaskClass.js';
 import { WordsListClass } from './vendors/WordsListClass.js';
 import { GroupClass } from './vendors/GroupClass.js';
 import { CurrentWordClass } from './vendors/CurrentWordClass.js';
+import { ProgressClass } from './vendors/ProgressClass.js';
+// import { FinishMesageClass } from './vendors/FinishMessageClass.js';
 
 
 export class AppLearnModeClass extends AppMetodsClass {
@@ -18,6 +20,10 @@ export class AppLearnModeClass extends AppMetodsClass {
         this.WordsList = new WordsListClass;
         this.Group = new GroupClass;
         this.CurrentWord = new CurrentWordClass;
+        this.Progress = new ProgressClass;
+        // this.FinishMesage = new FinishMesageClass;
+
+
 
 
 
@@ -34,15 +40,18 @@ export class AppLearnModeClass extends AppMetodsClass {
 
     StartForStep( stepNumber ){
 
-        console.dir( 'stepNumber' );
-        console.dir( stepNumber );
-
         if( stepNumber === null ){
             this.Task.Clear();
             this.FinishMessage.Clear();
             this.WordsList.Clear();
+
+            this.CurrentWord.SetToStore();
+            // this.FinishMesage.Clear();
         }else{
             this.Task.SetForStep( stepNumber );
+
+            this.FinishMessage.Create( stepNumber );
+
             this.WordsList.Create();
             this.WordsList.SetToStore();
 
@@ -59,6 +68,12 @@ export class AppLearnModeClass extends AppMetodsClass {
             });
             this.CurrentWord.SetToStore();
 
+            this.Progress.Bind({
+                WordsList: this.WordsList
+            });
+            this.Progress.SetStartData();
+            this.Progress.SetToStore();
+
         };
 
     }
@@ -67,7 +82,13 @@ export class AppLearnModeClass extends AppMetodsClass {
 
         this.Group.AcceptResponse( isAccess );
         this.CurrentWord.SetToStore();
-        console.dir( this );
+        this.Progress.Update();
+        this.Progress.SetToStore();
+
+        let isFinish = this.Progress.GetFinishStatus();
+        if( isFinish ){
+            this.FinishMessage.SetMessageToStore();
+        };
 
     }
 

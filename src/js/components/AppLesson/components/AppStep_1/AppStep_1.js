@@ -11,9 +11,10 @@ import './AppStep_1.scss';
 import { QuestionContainer } from './../QuestionContainer/QuestionContainer.js';
 import { AnswerButtons } from './../AnswerButtons/AnswerButtons.js';
 import { app_audio_play_random } from './../../../../helpers/app_audio_play_random.js';
-import { set_next_current_group_index } from './../../../../helpers/set_next_current_group_index.js';
+// import { set_next_current_group_index } from './../../../../helpers/set_next_current_group_index.js';
 
 import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
+import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
 
 const AppStep_1Component = ( props ) => {
@@ -21,8 +22,6 @@ const AppStep_1Component = ( props ) => {
     let {
         // appMessage,
         currentStepNomber,
-
-
 
         currentLearnForeign,
         currentLearnRu,
@@ -37,11 +36,15 @@ const AppStep_1Component = ( props ) => {
     }, [] );
 
     useEffect( () => {
-        AppLearn.StartForStep( currentStepNomber );
-    }, [] );
+        if( currentStepNomber === 1 ){
+            AppLearn.StartForStep( currentStepNomber );
+        }else{
+            
+        };
+        
+    }, [ currentStepNomber ] );
 
     const response = () => {
-
         app_audio_play_random( AppLearn.GetCurrentWordId() );
     }
 
@@ -57,19 +60,16 @@ const AppStep_1Component = ( props ) => {
 
     return (
 
-        <div className = 'AL_AppStep_1' >
-
+        <AppStepContainer className = 'AL_AppStep_1'>
             <QuestionContainer>
-                <div className = 'AL_AppStep_1_wrap'>
-                    <div className = 'AL_AppStep_1_transcr'>
-                        <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
-                    </div>
-                    <div className = 'AL_AppStep_1_foreign'>
-                        <span>{ currentLearnForeign }</span>
-                    </div>
-                    <div className = 'AL_AppStep_1_ru'>
-                        <span>{ currentLearnRu }</span>
-                    </div>
+                <div className = 'AL_AppStep_1_transcr'>
+                    <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
+                </div>
+                <div className = 'AL_AppStep_1_foreign'>
+                    <span>{ currentLearnForeign }</span>
+                </div>
+                <div className = 'AL_AppStep_1_ru'>
+                    <span>{ currentLearnRu }</span>
                 </div>
             </QuestionContainer>
 
@@ -78,7 +78,9 @@ const AppStep_1Component = ( props ) => {
                 clickSuccess =  { success }
                 clickNext =     { next }
            />
-        </div>
+        </AppStepContainer>
+
+
 
     )
 
@@ -95,15 +97,11 @@ export function AppStep_1( props ){
     return (
         <AppStep_1Component
             { ...props }
-            appData = { appData }
 
             currentLearnForeign =       { appData.currentLearnForeign }
             currentLearnRu =            { appData.currentLearnRu }
             currentLearnTranscription = { appData.currentLearnTranscription }
             currentLearnWordId =        { appData.currentLearnWordId }
-
-
-
 
             currentStepNomber = { appData.currentStepNomber }
 

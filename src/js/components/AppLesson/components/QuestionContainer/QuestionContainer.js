@@ -30,7 +30,11 @@ const QuestionContainerComponent = ( props ) => {
                 <LessonTask />
             </div>
 
-            { children }
+            <div className = 'AL_AppStep_body_wrap'>
+                { children }
+            </div>
+
+            
         </div>
 
     )

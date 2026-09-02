@@ -49,7 +49,7 @@ const AnswerButtonsComponent = ( props ) => {
 
                     <div className = 'AL_AB_btn AL_AB_btn_grey' onClick = { clickNext }>
                         <span className = 'AL_AB_btn_icon'></span>
-                        <span className = 'AL_AB_btn_text'>Далее</span>
+                        <span className = 'AL_AB_btn_text'>Не помню</span>
                         <span className = 'AL_AB_btn_icon_key icon-right'></span>
                     </div>
 
