@@ -14,6 +14,8 @@ import { app_audio_play_random } from './../../../../helpers/app_audio_play_rand
 import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
 import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
+import { SoundAnimation } from './../../../SoundAnimation/SoundAnimation.js';
+
 
 const AppStep_2Component = ( props ) => {
 
@@ -26,6 +28,14 @@ const AppStep_2Component = ( props ) => {
         currentLearnWordId,
 
     } = props;
+
+    let [ isOpen, setIsOpen ] = useState( false );
+    let [ runAnimation, setRunAnimation ] = useState( false );
+
+
+
+
+
     let AppLearn = useMemo( () => {
         let AppLearnMode = new AppLearnModeClass;
         return AppLearnMode; 
@@ -37,23 +47,29 @@ const AppStep_2Component = ( props ) => {
         }else{
             
         };
+
+        
         
     }, [ currentStepNomber ] );
 
     useEffect( () => {
-        app_audio_play_random( AppLearn.GetCurrentWordId() );
+        // app_audio_play_random( AppLearn.GetCurrentWordId() );
+        setIsOpen( false );
     }, [ currentLearnWordId ] );
 
     const response = () => {
         // app_audio_play_random( AppLearn.GetCurrentWordId() );
+        setIsOpen( true );
     }
 
     const success = () => {
         AppLearn.Next( true );
+        setIsOpen( false );
     }
 
     const next = () => {
         AppLearn.Next( false );
+        setIsOpen( false );
         
     }
     
@@ -62,16 +78,14 @@ const AppStep_2Component = ( props ) => {
 
         <AppStepContainer className = 'AL_AppStep_2'>
             <QuestionContainer>
-                <span>{ currentLearnForeign }</span>
-                {/* <div className = 'AL_AppStep_1_transcr'>
-                    <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
-                </div>
-                <div className = 'AL_AppStep_1_foreign'>
-                    <span>{ currentLearnForeign }</span>
-                </div>
-                <div className = 'AL_AppStep_1_ru'>
-                    <span>{ currentLearnRu }</span>
-                </div> */}
+                <SoundAnimation
+                    runAnimation =      { runAnimation }
+                    setRunAnimation =   { setRunAnimation }
+                >
+                    {/* <span>{ currentLearnForeign }</span> */}
+                </SoundAnimation>
+                
+
             </QuestionContainer>
 
             <AnswerButtons

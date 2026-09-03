@@ -1,0 +1,116 @@
+.soundAnimation{
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+
+    
+
+    position: relative;
+
+    .SA_soundWrap{
+        font-size: 1em;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        // background-color: #e7ffe2;
+
+        .SA_soundVol{
+            font-size: 1em;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            .SA_soundVol_img_group{
+                font-size: 1em;
+                width: 2em;
+                height: 2em;
+                position: relative;
+
+                .SA_soundVol_img{
+                    font-size: 1em;
+                    // background-image: url( /assets/img/sound/volume-sound-1.png );
+                    width: 2em;
+                    height: 2em;
+                    position: absolute;
+                    top: 0;
+                    left: 0;                
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: top center;
+                    overflow: hidden;
+
+                }
+
+                .SA_soundVol_img_1{
+                    background-image: url( /assets/img/sound/volume-sound-1.png );
+                }
+                .SA_soundVol_img_2{
+                    background-image: url( /assets/img/sound/volume-sound-2.png );
+                }
+                .SA_soundVol_img_3{
+                    background-image: url( /assets/img/sound/volume-sound-3.png );
+                }
+                .SA_soundVol_img_4{
+                    background-image: url( /assets/img/sound/volume-sound-4.png );
+                }
+
+
+            }
+
+            // color: #3cca59;
+
+        //     .icon{
+        //         font-size: 2em;
+        //         color: #3cca59;
+        //         transform: scale(1);
+        //     }
+
+        //     .SA_sound_amin.icon{
+        //         animation-name: anum_vol;
+        //         animation-duration: 2s;
+        //         animation-timing-function: ease;
+        //         animation-iteration-count: 1;
+        //     }
+
+        //    @keyframes anum_vol {
+        //         from {
+        //             transform: scale(1.2);
+        //             color: #36bd51;
+        //         }
+
+        //         to {
+        //             transform: scale(1);
+        //             color: #3cca59;
+        //         }
+        //     }
+            
+        }
+
+
+
+
+
+
+
+
+    }
+
+    .SA_childrenWrap{
+        font-size: 1em;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
