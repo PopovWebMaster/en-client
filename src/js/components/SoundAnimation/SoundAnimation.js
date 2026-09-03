@@ -12,6 +12,8 @@ import './SoundAnimation.scss';
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import { useNavigate } from "react-router-dom";
 
+import { SpeakerAnimation } from './SpeakerAnimation/SpeakerAnimation.js';
+
 
 const SoundAnimationComponent = ( props ) => {
 
@@ -42,16 +44,7 @@ const SoundAnimationComponent = ( props ) => {
 
             <div className = 'SA_soundWrap'>
                 <div className = 'SA_soundVol'>
-                    {/* <span className = { `icon-volume icon ${runAnimation? 'SA_sound_amin': ''}`}></span> */}
-                    <div className = 'SA_soundVol_img_group'>
-                        <div className = ' SA_soundVol_img SA_soundVol_img_1'></div>
-                        <div className = ' SA_soundVol_img SA_soundVol_img_2'></div>
-                        <div className = ' SA_soundVol_img SA_soundVol_img_3'></div>
-                        <div className = ' SA_soundVol_img SA_soundVol_img_4'></div>
-
-
-
-                    </div>
+                    <SpeakerAnimation runAnimation = { runAnimation }/>
                 </div>
             </div>
 
