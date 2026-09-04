@@ -13,8 +13,6 @@ $duration: 1s;
     align-items: center;
     align-content: center;
 
-
-
     .SA_SpeakerAnimation_grop{
         font-size: 1em;
         width: 2em;
@@ -36,19 +34,19 @@ $duration: 1s;
 
 
         .SA_SA_img_1{
-            background-image: url( /assets/img/sound/volume-sound-1.png );
+            // background-image: url( /assets/img/sound/volume-sound-1.png );
             opacity: 0.5;
         }
         .SA_SA_img_2{
-            background-image: url( /assets/img/sound/volume-sound-2.png );
+            // background-image: url( /assets/img/sound/volume-sound-2.png );
             opacity: 0;
         }
         .SA_SA_img_3{
-            background-image: url( /assets/img/sound/volume-sound-3.png );
+            // background-image: url( /assets/img/sound/volume-sound-3.png );
             opacity: 0;
         }
         .SA_SA_img_4{
-            background-image: url( /assets/img/sound/volume-sound-4_1.png );
+            // background-image: url( /assets/img/sound/volume-sound-4_1.png );
             opacity: 0;
         }
 
@@ -67,16 +65,13 @@ $duration: 1s;
             20%{
                 opacity: 1;
             }
-
             80%{
                 opacity: 1;
             }
-
             100% {
                 opacity: 0.5;
             }
         }
-
 
         .SA_SA_img_2_anim{
             animation-name: SA_SA_img_2_animation;
@@ -95,14 +90,6 @@ $duration: 1s;
             40%{
                 opacity: 1;
             }
-
-            // 40%{
-            //     opacity: 1;
-            // }
-            // 50%{
-            //     opacity: 1;
-            // }
-
             80%{
                 opacity: 0;
             }
@@ -124,23 +111,12 @@ $duration: 1s;
             0% {
                 opacity: 0;
             }
-            8%{
-                opacity: 0;
-            }
-
             40%{
                 opacity: 0;
             }
             60%{
                 opacity: 1;
             }
-
-            // 60%{
-            //     opacity: 1;
-            // }
-            // 70%{
-            //     opacity: 1;
-            // }
             90%{
                 opacity: 0;
             }
@@ -161,41 +137,16 @@ $duration: 1s;
             0% {
                 opacity: 0;
             }
-            8%{
-                opacity: 0;
-            }
-
-            40%{
-                opacity: 0;
-            }
             60%{
                 opacity: 0;
             }
             80%{
                 opacity: 1;
             }
-
-            // 80%{
-            //     opacity: 1;
-            // }
-            // 90%{
-            //     opacity: 1;
-            // }
-
-            // 96%{
-            //     opacity: 0;
-            // }
-
             100% {
                 opacity: 0;
             }
         }
-
-
-
-
-
-
 
 
         .SA_SA_filter{
@@ -226,37 +177,17 @@ $duration: 1s;
             80% {
                 backdrop-filter: grayscale(0);
             }
-
             100% {
                 backdrop-filter: grayscale(1);
             }
         }
 
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
         .SA_SA_circle_1{        
             font-size: 1em;
             width: 3em;
             height: 3em;
-            // border: 1px solid #52cf3a;
             border: 1px solid #70ee56;
-
             border-radius: 50%;
-
             position: absolute;
             top: -0.5em;
             left: -0.5em;
@@ -282,23 +213,16 @@ $duration: 1s;
             }
             40%{
                 opacity: 1;
-                // width: 6em;
-                // height: 6em;
-                // top: -2em;
-                // left: -2em;
             }
             80% {
                 opacity: 0;
-                
             }
-
             100% {
                 opacity: 0;
                 width: 5em;
                 height: 5em;
                 top: -1.5em;
                 left: -1.5em;
-                // border-width: 1px;
             }
         }
 
@@ -350,7 +274,6 @@ $duration: 1s;
                 height: 6em;
                 top: -2em;
                 left: -2em;
-                // border-width: 1px;
             }
         }
 

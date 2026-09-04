@@ -62,6 +62,7 @@ const AppStep_1Component = ( props ) => {
 
         <AppStepContainer className = 'AL_AppStep_1'>
             <QuestionContainer>
+                
                 <div className = 'AL_AppStep_1_transcr'>
                     <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
                 </div>
@@ -71,6 +72,7 @@ const AppStep_1Component = ( props ) => {
                 <div className = 'AL_AppStep_1_ru'>
                     <span>{ currentLearnRu }</span>
                 </div>
+
             </QuestionContainer>
 
             <AnswerButtons

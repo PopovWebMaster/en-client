@@ -31,6 +31,13 @@ const AppStep_2Component = ( props ) => {
 
     let [ isOpen, setIsOpen ] = useState( false );
     let [ runAnimation, setRunAnimation ] = useState( false );
+    let [ isPlaying, setIsPlaying ] = useState( false );
+    let [ buttonsIsActive, setButtonsIsActive ] = useState( true );
+
+
+
+    
+
 
 
 
@@ -54,6 +61,7 @@ const AppStep_2Component = ( props ) => {
 
     useEffect( () => {
         // app_audio_play_random( AppLearn.GetCurrentWordId() );
+        play_audio( AppLearn.GetCurrentWordId() )
         setIsOpen( false );
     }, [ currentLearnWordId ] );
 
@@ -72,23 +80,62 @@ const AppStep_2Component = ( props ) => {
         setIsOpen( false );
         
     }
+
+    const play_audio = ( wordId ) => {
+        if( isPlaying === false ){
+            setRunAnimation( true );
+            setIsPlaying( true );
+            setButtonsIsActive( false );
+
+            let timerAudio = setTimeout( () => {
+                app_audio_play_random( wordId );
+                clearTimeout( timerAudio );
+            }, 500 );
+            
+
+
+            let timerId = setTimeout( () => {
+                setRunAnimation( false );
+                setIsPlaying( false );
+                clearTimeout( timerId );
+                setButtonsIsActive( true );
+            }, 2000 );
+
+        };
+        
+    }
     
 
     return (
 
         <AppStepContainer className = 'AL_AppStep_2'>
             <QuestionContainer>
-                <SoundAnimation
-                    runAnimation =      { runAnimation }
-                    setRunAnimation =   { setRunAnimation }
-                >
-                    {/* <span>{ currentLearnForeign }</span> */}
-                </SoundAnimation>
-                
 
+                <>{ isOpen? (
+                    <div className = 'AL_AppStep_2_response'>
+                        <div className = 'AL_AppStep_2_response_transcr'>
+                            <span>{ currentLearnTranscription }</span>
+                        </div>
+                        <div className = 'AL_AppStep_2_response_foreign'>
+                            <span>{ currentLearnForeign }</span>
+                        </div>
+                        <div className = 'AL_AppStep_2_response_ru'>
+                            <span>{ currentLearnRu }</span>
+                        </div>
+
+                    </div>
+                ): (
+                    <SoundAnimation
+                        runAnimation =      { runAnimation }
+                        clickHandler = { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
+                    />
+                ) }</>
+                
+            
             </QuestionContainer>
 
             <AnswerButtons
+                isActive = { buttonsIsActive }
                 clickResponse = { response }
                 clickSuccess =  { success }
                 clickNext =     { next }

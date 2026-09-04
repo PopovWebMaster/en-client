@@ -1,54 +1,63 @@
 .AL_AppStep_2{
+    .AL_AppStep_2_response{
+        font-size: 1em;
+        width: 100%;
+        height: 100%;
 
-    // .AL_AppStep_1_transcr{
-    //     font-size: 1em;
-    //     width: 100%;
-    //     height: 1.5em;
-    //     display: flex;
-    //     justify-content: flex-end;
-    //     align-items: center;
-    //     align-content: center;
+        .AL_AppStep_2_response_transcr{
+            font-size: 1em;
+            width: 100%;
+            height: 1.5em;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: center;
 
-    //     >span{
-    //         font-size: 0.78em;
-    //         color: #878787;
-    //         margin-right: 0.5em;
-    //         font-family: Verdana, Geneva, sans-serif;
-    //     }
-    // }
-    // .AL_AppStep_1_foreign{
-    //     font-size: 1em;
-    //     width: 100%;
-    //     flex-grow: 1;
-    //     max-height: 100%;
+            >span{
+                font-size: 0.78em;
+                color: #878787;
+                margin-right: 0.5em;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+        }
+        .AL_AppStep_2_response_foreign{
+            font-size: 1em;
+            width: 100%;
+            flex-grow: 1;
+            max-height: 100%;
 
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     align-content: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
 
-    //     >span{
-    //         font-size: 1.4em;
-    //         line-height: 1em;
-    //         color: #424242;
-    //         text-align: center;
-    //         font-family: Verdana, Geneva, sans-serif;
-    //     }
-    // }
-    // .AL_AppStep_1_ru{
-    //     font-size: 1em;
-    //     width: 100%;
-    //     height: 2em;
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     align-content: center;
-    //     >span{
-    //         font-size: 0.78em;
-    //         color: #45851a;
-    //         font-family: Verdana, Geneva, sans-serif;
-    //     }
-    // }
+            >span{
+                font-size: 1.2em;
+                line-height: 1em;
+                color: #424242;
+                text-align: center;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+        }
+        .AL_AppStep_2_response_ru{
+            font-size: 1em;
+            width: 100%;
+            height: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            >span{
+                font-size: 0.78em;
+                color: #45851a;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+        }
+
+
+    }
+
+
 
 
 }

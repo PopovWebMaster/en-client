@@ -1,9 +1,5 @@
-// SpeakerAnimation
 
-// SoundAnimation
-
-
-import React, { useRef, useState, useEffect }   from "react";
+import React from "react";
 // import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
@@ -11,8 +7,11 @@ import './SpeakerAnimation.scss';
 
 // import { selectorData as languageSlice } from './../../redux/languageSlice.js';
 
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import { useNavigate } from "react-router-dom";
+if( IS_DEVELOPMENT ){
+    require( './sound_speakers_dev.scss' );
+}else{
+    require( './sound_speakers_prod.scss' );
+};
 
 
 const SpeakerAnimationComponent = ( props ) => {

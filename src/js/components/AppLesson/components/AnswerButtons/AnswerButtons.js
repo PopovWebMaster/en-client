@@ -12,6 +12,7 @@ import './AnswerButtons.scss';
 const AnswerButtonsComponent = ( props ) => {
 
     let {
+        isActive = true,
         clickResponse = () => {},
         clickSuccess = () => {},
         clickNext = () => {},
@@ -55,6 +56,8 @@ const AnswerButtonsComponent = ( props ) => {
 
                     
                 </div>
+
+                <div className = { `AL_AB_curtain ${isActive? '': 'AL_AB_curtain_hide'}` }></div>
             </div>
 
         </div>

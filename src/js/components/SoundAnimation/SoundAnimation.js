@@ -1,5 +1,3 @@
-// SoundAnimation
-
 
 import React, { useRef, useState, useEffect }   from "react";
 // import { useSelector } from 'react-redux';
@@ -20,31 +18,27 @@ const SoundAnimationComponent = ( props ) => {
     let {
         children,
         runAnimation,
-        setRunAnimation,
+        clickHandler,
 
     } = props;
 
 
-    const click = () => {
-        setRunAnimation( true );
-        let temerId = setTimeout( () => {
-            setRunAnimation( false );
-            clearTimeout( temerId );
-        }, 2000 );
-        
-
-    };
-// icon-volume
     return (
 
         <div
-            className = 'soundAnimation'
-            onClick = { click }
+            className = { `soundAnimation ${runAnimation? 'soundAnimation_anim': ''}` }
+            onClick = { clickHandler }
         >
 
             <div className = 'SA_soundWrap'>
                 <div className = 'SA_soundVol'>
                     <SpeakerAnimation runAnimation = { runAnimation }/>
+                </div>
+                <div className = 'SA_soundReplay'>
+                    <span className = 'icon icon-arrows-cw'></span>
+                    <span className = 'text'>Повторить</span>
+
+
                 </div>
             </div>
 

@@ -23,6 +23,8 @@
         align-items: center;
         align-content: center;
 
+        position: relative;
+
         .AL_AB_wrap_left{
             font-size: 1em;
 
@@ -127,6 +129,23 @@
         }
         .AL_AB_btn.AL_AB_btn_green_hover{
             background-color: #51cf54;
+        }
+
+        .AL_AB_curtain{
+            font-family: 1em;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            backdrop-filter: none;
+            z-index: 2000;
+            transition: backdrop-filter 0.8s ease;
+        }
+        .AL_AB_curtain.AL_AB_curtain_hide{
+            width: 100%;
+            height: 100%;
+            backdrop-filter: grayscale(1) opacity(0.6);
         }
     }
 

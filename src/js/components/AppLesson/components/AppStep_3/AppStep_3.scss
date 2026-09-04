@@ -1,0 +1,50 @@
+.AL_AppStep_3{
+    .AL_AppStep_3_area{
+
+        font-size: 1em;
+        width: calc( 100% - 1px );
+        height: calc( 100% - 1px );
+        border: 1px solid #34344300;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+
+        .AL_AppStep_3_question{
+            font-size: 1em;
+            width: 100%;
+            height: 60%;
+            // background-color: red;
+            flex-grow: 1;
+            max-height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+
+            >span{
+                font-size: 1.2em;
+                line-height: 1em;
+                color: #424242;
+                text-align: center;
+                font-family: Verdana, Geneva, sans-serif;
+            }
+        }
+
+        .AL_AppStep_3_answer{
+            font-size: 1em;
+            width: 100%;
+            height: 40%;
+            // background-color: rgb(64, 165, 24);
+            flex-grow: 1;
+            max-height: 4em;
+        }
+
+
+
+
+    }
+}
