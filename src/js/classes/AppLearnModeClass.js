@@ -40,6 +40,10 @@ export class AppLearnModeClass extends AppMetodsClass {
 
     StartForStep( stepNumber ){
 
+        console.dir( 'stepNumber' );
+        console.dir( stepNumber );
+
+
         if( stepNumber === null ){
             this.Task.Clear();
             this.FinishMessage.Clear();

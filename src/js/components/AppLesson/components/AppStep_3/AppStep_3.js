@@ -19,14 +19,31 @@ import { AppStep3ResultFeed } from './AppStep3ResultFeed/AppStep3ResultFeed.js';
 const AppStep_3Component = ( props ) => {
 
     let {
-         currentStepNomber,
+        currentStepNomber,
 
         currentLearnForeign,
         currentLearnRu,
-        currentLearnTranscription,
+        // currentLearnTranscription,
         currentLearnWordId,
 
     } = props;
+
+    let [ response, setResponse ] = useState( '' );
+    let [ answer, setAnswer ] = useState( null );
+    let [ answerIsCorrect, setAnswerIsCorrect] = useState( false );
+    let [ answerCorrect, setAnswerCorrect ] = useState( '' );
+
+
+
+    
+
+
+    useEffect( () => {
+
+        setResponse( '' );
+        setAnswerCorrect( currentLearnForeign );
+
+    }, [ currentLearnWordId ] );
 
 
     let AppLearn = useMemo( () => {
@@ -37,10 +54,30 @@ const AppStep_3Component = ( props ) => {
     useEffect( () => {
         if( currentStepNomber === 3 ){
             AppLearn.StartForStep( currentStepNomber );
+            setAnswer( null );
         }else{
-            
+            AppLearn = null;
         };
     }, [ currentStepNomber ] );
+
+    const acceptResponse = () => {
+        let resp = response.trim();
+        if( resp === '' ){
+            setAnswer( '' );
+            setAnswerIsCorrect( false );
+        }else{
+            if( resp === currentLearnForeign ){
+                setAnswerIsCorrect( true );
+            }else{
+                setAnswerIsCorrect( false );
+            };
+            setAnswer( resp );
+        };
+
+        AppLearn.Next( resp === currentLearnForeign );
+        
+
+    }
 
     
 
@@ -53,8 +90,18 @@ const AppStep_3Component = ( props ) => {
                         <span>{ currentLearnRu }</span>
                     </div>
                     <div className = 'AL_AppStep_3_answer'>
-                        <AppStep3ResultFeed />
-                        <AppStep3Input />
+                        <AppStep3ResultFeed
+                            answer = { answer }
+                            answerIsCorrect = { answerIsCorrect }
+                            answerCorrect = { answerCorrect }
+
+                        />
+
+                        <AppStep3Input
+                            response =      { response }
+                            setResponse =   { setResponse }
+                            acceptResponse = { acceptResponse }
+                        />
                     </div>
                 </div>
             </QuestionContainer>

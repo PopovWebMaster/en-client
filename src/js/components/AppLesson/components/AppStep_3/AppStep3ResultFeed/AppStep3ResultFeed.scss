@@ -1,4 +1,101 @@
 .appStep3ResultFeed{
     font-size: 1em;
-    background-color: #2cd30b;
+    // background-color: #2cd30b9f;
+    width: calc( 100% - 1px );
+    flex-grow: 1;
+    max-height: 100%;
+
+    position: relative;
+
+    span.answerIsCorrect{
+        color: #3cbd00;
+    }
+    span.answerIsUncorrect{
+        color: #bd0000;
+    }
+
+    .ASRF_new_answer{
+        font-size: 1em;
+        color: rgb(31, 31, 31);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        // background-color: #0b94d39f;
+        >span{
+            font-size: 0.76em;
+            padding: 0.2em 0.4em;
+        }
+
+    }
+
+    
+    .ASRF_answers_list{
+        font-size: 1em;
+        color: rgb(128, 79, 79);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        // background-color: #9a0bd39f;
+
+        .ASRF_answer_last{
+            font-size: 1em;
+            // background-color: #995f29a6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            >span{
+                font-size: 0.76em;
+                padding: 0.2em 0.4em;
+            }
+
+        }
+        .ASRF_answer_fading{
+            font-size: 1em;
+            // background-color: #d86f18a6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            >span{
+                font-size: 0.76em;
+                padding: 0.2em 0.4em;
+            }
+        }
+        // .ASRF_answer_hiden{
+        //     font-size: 1em;
+        //     // background-color: #5218d8a6;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     align-content: center;
+        //     >span{
+        //         font-size: 0.76em;
+        //         padding: 0.2em 0.4em;
+        //     }
+        // }
+
+        .ASRF_answer_showing{
+            font-size: 1em;
+            // background-color: #5218d8a6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            overflow: hidden;
+            // transition: height 0.3s ease;
+            >span{
+                font-size: 0.76em;
+                padding: 0.2em 0.4em;
+            }
+        }
+
+    }
 }

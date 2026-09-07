@@ -1,6 +1,6 @@
 
 
-import React, { useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 // import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.js';
 
@@ -14,15 +14,47 @@ import './AppStep3Input.scss';
 const AppStep3InputComponent = ( props ) => {
 
     let {
+        response,
+        setResponse,
 
+        acceptResponse = () => {},
 
     } = props;
+    let refInp = useRef();
+
+    useEffect( () => {
+        refInp.current.focus();
+    }, [] );
+
+    const change = ( e ) => {
+        let val = e.target.value;
+        setResponse( val );
+    }
+    const enter = ( e ) => {
+        if( e.which === 13 ){
+            acceptResponse();
+        };
+    }
 
 
     return (
 
         <div className = 'AppStep3Input'>
-            AppStep3Input
+            <input
+                type = 'text'
+                value  = { response }
+                onChange = { change }
+                onKeyDown = { enter }
+                className = 'AppStep3Input_inp'
+                placeholder = 'место для ответа'
+                ref = { refInp }
+            />
+            <div className = 'AppStep3Input_btn'>
+                <span
+                    onClick = { acceptResponse }
+                >Enter</span>
+
+            </div>
         </div>
     )
 

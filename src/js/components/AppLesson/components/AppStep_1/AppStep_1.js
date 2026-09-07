@@ -39,7 +39,7 @@ const AppStep_1Component = ( props ) => {
         if( currentStepNomber === 1 ){
             AppLearn.StartForStep( currentStepNomber );
         }else{
-            
+            AppLearn = null;
         };
         
     }, [ currentStepNomber ] );

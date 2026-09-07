@@ -49,14 +49,16 @@ const AppStep_2Component = ( props ) => {
     }, [] );
 
     useEffect( () => {
+        console.dir({
+            currentStepNomber,
+            AppLearn
+        });
         if( currentStepNomber === 2 ){
             AppLearn.StartForStep( currentStepNomber );
         }else{
-            
+            AppLearn = null;
         };
 
-        
-        
     }, [ currentStepNomber ] );
 
     useEffect( () => {

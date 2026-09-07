@@ -1,7 +1,7 @@
 
 import React from "react";
 
-import { selectorData as appDataSlice, setCurrentStepNomber } from './../../../../redux/appDataSlice.js';
+import { selectorData as appDataSlice, setCurrentStepNomber, setAppMessage } from './../../../../redux/appDataSlice.js';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -15,16 +15,17 @@ const AppMessageComponent = ( props ) => {
         appMessage,
         currentStepNomber,
         setCurrentStepNomber,
+        setAppMessage,
 
     } = props;
 
     const click = () => {
-        if( currentStepNomber < 3 ){
-            setCurrentStepNomber( currentStepNomber+1 );
-        }else{
+        if( currentStepNomber === 3 ){
             setCurrentStepNomber( 1 );
-        }
-
+        }else{
+            setCurrentStepNomber( currentStepNomber + 1 );
+        };
+        setAppMessage( '' );
     };
 
 
@@ -40,7 +41,7 @@ const AppMessageComponent = ( props ) => {
             >
                 <span
                     onClick = { click }
-                >{ currentStepNomber < 3? 'Продолжить': 'Начать сначала' }</span>
+                >{ currentStepNomber === 3? 'Начать сначала': 'Продолжить' }</span>
            </div>
 
         </div>
@@ -64,6 +65,10 @@ export function AppMessage( props ){
             currentStepNomber = { appData.currentStepNomber }
 
             setCurrentStepNomber = { ( val ) => { dispatch( setCurrentStepNomber( val ) ) } }
+            setAppMessage = { ( val ) => { dispatch( setAppMessage( val ) ) } }
+
+
+            
 
 
         />
