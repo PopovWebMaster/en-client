@@ -10,6 +10,10 @@ import lessonsSlice from './lessonsSlice.js';
 import mainPageSlise from './mainPageSlise.js';
 import testsSlice from './testsSlice.js';
 import settingsSlice from './../settingsSlice.js';
+import appWordsSlice from './../appWordsSlice.js';
+
+
+
 
 
 export default configureStore({
@@ -23,6 +27,7 @@ export default configureStore({
         mainPage: mainPageSlise,
         tests: testsSlice,
         settings: settingsSlice,
+        appWords: appWordsSlice,
 
 
 

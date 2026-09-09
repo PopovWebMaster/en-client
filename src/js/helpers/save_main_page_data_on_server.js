@@ -8,7 +8,7 @@ import { setMainPageDataIsChanged } from './../redux/admin//mainPageSlise.js';
 
 export const save_main_page_data_on_server = ( callback = () => {} ) => {
 
-    let { mainPage } = store.getState();
+    let { mainPage, appWords } = store.getState();
     let { 
         siteTitle,
         siteHeader,
@@ -40,6 +40,8 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
 
     } = mainPage;
 
+    let { partOfSpeechList } = appWords
+
     send_request_to_server({
         route: 'admin/save-main-page-changes',
         data: {
@@ -68,6 +70,8 @@ export const save_main_page_data_on_server = ( callback = () => {} ) => {
             testsListPageKeywords,
 
             languageActiveList,
+
+            partOfSpeechList,
         },
         addKeyName: true,
         

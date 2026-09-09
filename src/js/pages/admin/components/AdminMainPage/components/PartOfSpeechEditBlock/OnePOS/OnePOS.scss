@@ -1,0 +1,73 @@
+.MP_OnePOS{
+    font-size: 1em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+
+    padding: 0.5em 1em;
+
+    border-radius: 0.1em;
+    margin: 0.2em 0;
+
+    position: relative;
+
+
+
+    .MP_OnePOS_id{
+        font-size: 1em;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        align-content: center;
+        width: 2em;
+        margin-top: 1em;
+        >span{
+            font-size: 0.8em;
+            color: #7a7a7a;
+
+        }
+
+    }
+
+    .MP_OnePOS_name{
+        font-size: 1em;
+        flex-grow: 1;
+        max-width: 100%;
+    }
+
+    .MP_OnePOS_remove{
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        width: 6em;
+        margin-top: 0.75em;
+
+        
+
+        >span{
+            font-size: 0.76em;
+            color: #d15c5c;
+            padding: 0.3em 0.8em;
+            border-radius: 0.1em;
+            cursor: pointer;
+            user-select: none;
+
+            .icon{
+                font-size: 1em;
+                padding-right: 0.1em;
+            }
+        }
+        >span:hover{
+            background-color: #d15c5c;
+            color: #ffffff;
+        }
+        >span:active{
+            background-color: #b92121;
+            color: #ffffff;
+        }
+    }
+}

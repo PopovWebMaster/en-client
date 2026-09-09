@@ -10,6 +10,8 @@ import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButto
 
 import { save_main_page_data_on_server } from './../../../../../../helpers/save_main_page_data_on_server.js';
 import { set_main_page_data_to_store } from './../../../../../../helpers/set_main_page_data_to_store.js';
+import { set_part_of_speech_list_to_store } from './../../../../../../helpers/set_part_of_speech_list_to_store.js';
+
 
 const SaveMainChangesComponent = ( props ) => {
 
@@ -56,6 +58,10 @@ const SaveMainChangesComponent = ( props ) => {
                         set_main_page_data_to_store( resp.mainPage );
                         setMainPageDataIsChanged( false );
                     };
+
+                    if( resp.partOfSpeechList ){
+                        set_part_of_speech_list_to_store( resp.partOfSpeechList );
+                    }
                 };
             });
 

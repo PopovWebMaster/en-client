@@ -17,6 +17,8 @@ const QuestionContainerComponent = ( props ) => {
     let {
         // appMessage,
         // currentStepNomber,
+        isHovered = false,
+        clickHandler = () => {},
         children,
 
     } = props;
@@ -25,7 +27,7 @@ const QuestionContainerComponent = ( props ) => {
 
     return (
 
-        <div className = 'AL_QuestionContainer' >
+        <div className = { `AL_QuestionContainer ${isHovered? 'isHovered': ''}` } onClick = { clickHandler }>
             <div className = 'taskWrap'>
                 <LessonTask />
             </div>

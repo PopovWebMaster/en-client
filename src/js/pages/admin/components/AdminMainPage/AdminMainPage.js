@@ -21,6 +21,7 @@ import { LanguageActiveListBlock } from './components/LanguageActiveListBlock/La
 import { LessonsListAllLanguagesBlock } from './components/LessonsListAllLanguagesBlock/LessonsListAllLanguagesBlock.js';
 import { LessonsListOneLessonBlock } from './components/LessonsListOneLessonBlock/LessonsListOneLessonBlock.js';
 import { TestsListAllLanguagesBlock } from './components/TestsListAllLanguagesBlock/TestsListAllLanguagesBlock.js';
+import { PartOfSpeechEditBlock } from './components/PartOfSpeechEditBlock/PartOfSpeechEditBlock.js';
 
 
 
@@ -31,7 +32,7 @@ const AdminMainPageComponent = ( props ) => {
     } = props;
 
     let what_to_take = [
-        'mainPage',
+        'mainPage', 'partOfSpeechList',
     ];
 
 
@@ -55,6 +56,7 @@ const AdminMainPageComponent = ( props ) => {
                     <LessonsListOneLessonBlock />
                     <TestsListAllLanguagesBlock />
                     <LanguageActiveListBlock />
+                    <PartOfSpeechEditBlock />
 
                 </div>
 

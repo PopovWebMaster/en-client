@@ -16,6 +16,8 @@ import { app_audio_play_random } from './../../../../helpers/app_audio_play_rand
 import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
 import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
+import { SoundAnimation } from './../../../SoundAnimation/SoundAnimation.js';
+
 
 const AppStep_1Component = ( props ) => {
 
@@ -29,6 +31,8 @@ const AppStep_1Component = ( props ) => {
         // currentLearnWordId,
 
     } = props;
+    let [ runAnimation, setRunAnimation ] = useState( false );
+    let [ isPlaying, setIsPlaying ] = useState( false );
 
     let AppLearn = useMemo( () => {
         let AppLearnMode = new AppLearnModeClass;
@@ -44,9 +48,14 @@ const AppStep_1Component = ( props ) => {
         
     }, [ currentStepNomber ] );
 
-    const response = () => {
-        app_audio_play_random( AppLearn.GetCurrentWordId() );
+    const sound = ( e ) => {
+        play_audio( e, AppLearn.GetCurrentWordId() );
     }
+
+    // const response = ( e ) => {
+    //     play_audio( e, AppLearn.GetCurrentWordId() );
+    //     // app_audio_play_random( AppLearn.GetCurrentWordId() );
+    // }
 
     const success = () => {
         AppLearn.Next( true );
@@ -58,10 +67,35 @@ const AppStep_1Component = ( props ) => {
     }
 
 
+    const play_audio = ( e, wordId ) => {
+        
+        if( isPlaying === false ){
+            setRunAnimation( true );
+            setIsPlaying( true );
+
+            let timerAudio = setTimeout( () => {
+                app_audio_play_random( wordId );
+                clearTimeout( timerAudio );
+            }, 500 );
+            
+            let timerId = setTimeout( () => {
+                setRunAnimation( false );
+                setIsPlaying( false );
+                clearTimeout( timerId );
+            }, 2000 );
+
+        };
+        
+    }
+
+
     return (
 
         <AppStepContainer className = 'AL_AppStep_1'>
-            <QuestionContainer>
+            <QuestionContainer
+                isHovered = { true }
+                clickHandler = { (e) => { play_audio( e, AppLearn.GetCurrentWordId() ) } }
+            >
                 
                 <div className = 'AL_AppStep_1_transcr'>
                     <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
@@ -73,10 +107,19 @@ const AppStep_1Component = ( props ) => {
                     <span>{ currentLearnRu }</span>
                 </div>
 
+                <div className = 'AL_AppStep_1_speaker'>
+                    <SoundAnimation
+                        runAnimation =      { runAnimation }
+                        asButton = { true }
+                        clickHandler = { () => {} }
+                    />
+                </div>
+
             </QuestionContainer>
 
             <AnswerButtons
-                clickResponse = { response }
+                clickSound = { sound }
+                // clickResponse = { response }
                 clickSuccess =  { success }
                 clickNext =     { next }
            />

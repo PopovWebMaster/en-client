@@ -18,6 +18,7 @@ const SoundAnimationComponent = ( props ) => {
     let {
         children,
         runAnimation,
+        asButton = false,
         clickHandler,
 
     } = props;
@@ -26,7 +27,7 @@ const SoundAnimationComponent = ( props ) => {
     return (
 
         <div
-            className = { `soundAnimation ${runAnimation? 'soundAnimation_anim': ''}` }
+            className = { `soundAnimation ${runAnimation && asButton === false? 'soundAnimation_anim': ''} ${asButton === true? 'asButton': ''}` }
             onClick = { clickHandler }
         >
 
@@ -34,12 +35,13 @@ const SoundAnimationComponent = ( props ) => {
                 <div className = 'SA_soundVol'>
                     <SpeakerAnimation runAnimation = { runAnimation }/>
                 </div>
-                <div className = 'SA_soundReplay'>
-                    <span className = 'icon icon-arrows-cw'></span>
-                    <span className = 'text'>Повторить</span>
-
-
-                </div>
+                { asButton === false? (
+                    <div className = 'SA_soundReplay'>
+                        <span className = 'icon icon-arrows-cw'></span>
+                        <span className = 'text'>Повторить</span>
+                    </div>
+                ): '' }
+                
             </div>
 
             <div className = 'SA_childrenWrap'>

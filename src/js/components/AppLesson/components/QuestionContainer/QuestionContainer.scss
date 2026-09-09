@@ -3,7 +3,7 @@
     background-color: #ffffff;
     border: 1px solid #c1d2d1;
     border-radius: 0.1em;
-    height: 8em;
+    height: 10em;
 
     width: 100%;
     // width: 70vw;
@@ -11,6 +11,8 @@
     // max-width: 40em;
     max-width: 50em;
     position: relative;
+
+    transition: border-color 0.5s ease;
 
     .taskWrap{
         font-size: 1em;
@@ -34,6 +36,23 @@
 
 }
 
+.AL_QuestionContainer.isHovered:hover{
+    cursor: pointer;
+    border: 1px solid #01cb8b;
+}
+
+
+
+@media (max-height: 600px){
+    .AL_QuestionContainer{
+        height: 9em;
+    }
+}
+@media (max-height: 520px){
+    .AL_QuestionContainer{
+        height: 8em;
+    }
+}
 
 @media (max-height: 480px){
     .AL_QuestionContainer{
@@ -60,8 +79,13 @@
         height: 7em;
     }
 }
-@media (max-height: 390px){
+@media (max-height: 370px){
     .AL_QuestionContainer{
-        height: 6.4em;
+        height: 6.2em;
+    }
+}
+@media (max-height: 360px){
+    .AL_QuestionContainer{
+        height: 5.8em;
     }
 }

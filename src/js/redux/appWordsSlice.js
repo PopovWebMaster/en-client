@@ -11,6 +11,8 @@ export const appWordsSlice = createSlice({
         appWordsList:       [], 
         appWordsListById:   {}, 
 
+        partOfSpeechList: [],
+        partOfSpeechListById: {},
 
 
     },
@@ -25,6 +27,16 @@ export const appWordsSlice = createSlice({
             state.appWordsListById =  action.payload;
         },
 
+        setPartOfSpeechList: ( state, action ) => { 
+            state.partOfSpeechList =  action.payload;
+        },
+        setPartOfSpeechListById: ( state, action ) => { 
+            state.partOfSpeechListById =  action.payload;
+        },
+
+
+
+
 
 
         
@@ -35,7 +47,8 @@ export const appWordsSlice = createSlice({
 export const {  
     setAppWordsList,
     setAppWordsListById,
-
+    setPartOfSpeechList,
+    setPartOfSpeechListById,
 
    
 
@@ -46,6 +59,12 @@ export const selectorData = ( state ) => {
     return {
         appWordsList:       state.appWords.appWordsList,
         appWordsListById:   state.appWords.appWordsListById,
+
+        partOfSpeechList:   state.appWords.partOfSpeechList,
+        partOfSpeechListById:   state.appWords.partOfSpeechListById,
+
+
+
 
 
     };

@@ -15,8 +15,10 @@ const OC_InputTitleComponent = ( props ) => {
 
 
 
-    return (
+    return (<>{ title === ''? '': (
         <h4 className = 'OC_Input_title'>{ title }{ isRequired? (<span className = 'isReq'>required</span>): '' }</h4>
+    ) }</>
+        
 
     )
 

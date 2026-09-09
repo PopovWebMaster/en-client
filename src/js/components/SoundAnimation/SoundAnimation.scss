@@ -56,8 +56,8 @@
     // background-color: red;
     border: 1px solid #aae3d1;
 }
-
-.soundAnimation:hover{
+// .asButton
+.soundAnimation:not( .asButton ):hover{
     border: 1px solid #aae3d1;
     .SA_soundWrap{
         .SA_soundReplay{

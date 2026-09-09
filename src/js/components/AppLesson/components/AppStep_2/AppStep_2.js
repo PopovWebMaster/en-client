@@ -138,10 +138,12 @@ const AppStep_2Component = ( props ) => {
 
             <AnswerButtons
                 isActive = { buttonsIsActive }
+                clickSound =    { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
                 clickResponse = { response }
+                clickResponseUp = { () => { setIsOpen( false ) } }
                 clickSuccess =  { success }
                 clickNext =     { next }
-                responseContent = 'Ответ' 
+                response =      { true }
             />
         </AppStepContainer>
 
