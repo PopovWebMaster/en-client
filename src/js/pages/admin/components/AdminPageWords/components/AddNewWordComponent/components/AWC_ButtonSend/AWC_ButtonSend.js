@@ -1,5 +1,5 @@
 
-import React, { useRef, useState, useEffect }   from "react";
+import React, { useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
@@ -7,10 +7,7 @@ import './AWC_ButtonSend.scss';
 
 import { selectorData as wordEditSlice, clearWordEdit } from './../../../../../../../../redux/admin/wordEditSlice.js';
 
-
 import { OC_ButtonSend } from './../../../../../../../../components/OpeningContainer/OC_ButtonSend/OC_ButtonSend.js';
-
-import { MAX_LENGTH } from './../../../../../../../../config/words.js';
 
 import { get_is_ready_status } from './vendors/get_is_ready_status.js';
 import { get_prepared_data } from './vendors/get_prepared_data.js';
@@ -27,6 +24,7 @@ const AWC_ButtonSendComponent = ( props ) => {
         // word_en,
         word_ru,
         transcription,
+        pos_id,
         clearWordEdit,
 
     } = props;
@@ -52,6 +50,7 @@ const AWC_ButtonSendComponent = ( props ) => {
                 word_foreign,
                 word_ru,
                 transcription,
+                pos_id,
             });
 
             setData( prepared_data );
@@ -67,6 +66,7 @@ const AWC_ButtonSendComponent = ( props ) => {
         word_foreign,
         word_ru,
         transcription,
+        pos_id,
     ] );
 
 
@@ -128,6 +128,8 @@ export function AWC_ButtonSend ( props ){
             word_ru = { wordEdit.word_ru }
             transcription = { wordEdit.transcription }
             files = { wordEdit.files }
+            pos_id = { wordEdit.pos_id }
+
 
 
             clearWordEdit = { ( val ) => { dispatch( clearWordEdit( val ) ) } }

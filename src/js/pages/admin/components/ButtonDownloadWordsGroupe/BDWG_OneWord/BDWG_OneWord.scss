@@ -1,0 +1,117 @@
+.BDWG_OneWord{
+    font-size: 1em;
+    margin: 0.2em 0.3em;
+    border: 1px solid #ddd;
+    border-radius: 0.1em;
+    background-color: #f9f9f9;
+    padding: 0.2em 0.5em;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    opacity: 0.3;
+
+    cursor: pointer;
+    user-select: none;
+
+    .BDWG_OneWord_selected{
+        font-size: 1em;
+        margin: 0 0.2em;
+        width: 1.2em;
+        height: 1.2em;
+        border: 1px solid #b7b7b7;
+        border-radius: 0.1em;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        .icon{
+            font-size: 0.9em;
+            color: #039403;
+            padding: 0.1em 0.2em;
+        }
+    }
+
+    .BDWG_OneWord_selected:hover{
+        border: 1px solid #343434;
+    }
+
+    .BDWG_OneWord_POS{
+        font-size: 1em;
+        margin: 0 0.3em;
+        min-width: 5em;
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        >span{
+            font-size: .72em;
+            padding: 0.3em 0.5em;
+            border-radius: .2em;
+            background-color: #5ebc66;
+            border: 1px solid #35a83f;
+            color: #ffffff;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    }
+
+    .BDWG_OneWord_word{
+        font-size: 1em;
+        // margin: 0 0.3em;
+        max-width: 100%;
+        flex-grow: 1;
+       
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        >span{
+            font-size: .8em;
+            padding: 0em 0.5em;
+            color: #293d5d;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+    }
+
+    .BDWG_OneWord_audio{
+        font-size: 1em;
+        margin: 0 0.3em;
+        min-width: 5em;
+       
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        align-content: center;
+        >span{
+            font-size: .8em;
+            color: #a4a4a4;
+            // margin: .2em .5em;
+        }
+    }
+
+    .BDWG_OneWord_audio.audioRed{
+        >span{
+            color: #f39292;
+        }
+    }
+
+
+}
+
+.BDWG_OneWord:hover{
+    opacity: 1;
+    background-color: #e9e9e9;
+}
+
+.BDWG_OneWord.isSelected{
+    opacity: 1;
+}

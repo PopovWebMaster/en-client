@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.js';
+import { selectorData as appWordsSlice } from './../../../../redux/appWordsSlice.js';
+
 
 import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
@@ -28,7 +30,10 @@ const AppStep_1Component = ( props ) => {
         currentLearnForeign,
         currentLearnRu,
         currentLearnTranscription,
+        currentPOSId,
         // currentLearnWordId,
+
+        partOfSpeechListById,
 
     } = props;
     let [ runAnimation, setRunAnimation ] = useState( false );
@@ -85,7 +90,22 @@ const AppStep_1Component = ( props ) => {
             }, 2000 );
 
         };
+
+
         
+    }
+
+    const getPOSName = ( pos_id ) => {
+        let result = ''
+        if( pos_id !== null ){
+            if( partOfSpeechListById[ pos_id ] ){
+                let { name } = partOfSpeechListById[ pos_id ];
+                result = (<span className = 'AL_AppStep_1_pos'>{ name }</span>);
+            };
+        }
+
+        return result;
+
     }
 
 
@@ -101,7 +121,7 @@ const AppStep_1Component = ( props ) => {
                     <span>{ currentLearnTranscription === ''? '': `[${currentLearnTranscription}]` }</span>
                 </div>
                 <div className = 'AL_AppStep_1_foreign'>
-                    <span>{ currentLearnForeign }</span>
+                    <span>{ currentLearnForeign } { getPOSName( currentPOSId ) }</span>
                 </div>
                 <div className = 'AL_AppStep_1_ru'>
                     <span>{ currentLearnRu }</span>
@@ -135,6 +155,10 @@ const AppStep_1Component = ( props ) => {
 export function AppStep_1( props ){
 
     const appData = useSelector( appDataSlice );
+    const appWords = useSelector( appWordsSlice );
+
+
+    
     // const settings = useSelector( settingsSlice );
 
     // const dispatch = useDispatch();
@@ -147,8 +171,12 @@ export function AppStep_1( props ){
             currentLearnRu =            { appData.currentLearnRu }
             currentLearnTranscription = { appData.currentLearnTranscription }
             currentLearnWordId =        { appData.currentLearnWordId }
+            currentPOSId =        { appData.currentPOSId }
 
-            currentStepNomber = { appData.currentStepNomber }
+
+            currentStepNomber =         { appData.currentStepNomber }
+
+            partOfSpeechListById = { appWords.partOfSpeechListById }
 
 
         />

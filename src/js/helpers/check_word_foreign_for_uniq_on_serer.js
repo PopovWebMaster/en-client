@@ -20,14 +20,14 @@ export const check_word_foreign_for_uniq_on_serer = ( params ) => {
 
         },
         successCallback: ( response ) => {
-            if( response.ok ){
-                console.dir( 'response' );
-                console.dir( response );
+            // if( response.ok ){
+            //     console.dir( 'response' );
+            //     console.dir( response );
  
-            }else{
-                console.dir('admin/chack-word-foreign-for-uniq');
-                console.dir( response );
-            };
+            // }else{
+            //     console.dir('admin/chack-word-foreign-for-uniq');
+            //     console.dir( response );
+            // };
 
             callback( response );
             

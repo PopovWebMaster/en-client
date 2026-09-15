@@ -9,10 +9,10 @@ import store from './../../../../../../../../../redux/admin/store.js';
 export const get_prepared_data = ( data ) => {
     let {
         files,
-        word_en,
         word_foreign,
         word_ru,
         transcription,
+        pos_id,
     } = data;
 
     let { language, lessons } = store.getState();
@@ -25,7 +25,8 @@ export const get_prepared_data = ( data ) => {
         word_ru: make_fit_format_word_ru( word_ru ),
         transcription: make_fit_format_transcription( transcription ),
         keyName: languageKeyName,
-        lessonId: currentLessonId
+        lessonId: currentLessonId,
+        partOfSpeechId: pos_id,
     };
 
     // if( languageKeyName === 'EN' ){

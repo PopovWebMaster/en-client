@@ -21,6 +21,7 @@ import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges
 import { WordsCount } from './../WordsCount/WordsCount.js';
 import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
 import { ButtonAddWordsGroup } from './../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
+import { ButtonDownloadWordsGroupe } from './../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
 
 
 const AdminPageWordsComponent = ( props ) => {
@@ -30,7 +31,7 @@ const AdminPageWordsComponent = ( props ) => {
 
     } = props;
     let what_to_take = [
-        'wordList',
+        'wordList', 'partOfSpeechList'
     ];
 
 
@@ -46,6 +47,8 @@ const AdminPageWordsComponent = ( props ) => {
                         <WordsCount />
                         <WordsSortingButtons />
                     </div>
+
+                    <ButtonDownloadWordsGroupe />
 
                     <ButtonAddWordsGroup />
 

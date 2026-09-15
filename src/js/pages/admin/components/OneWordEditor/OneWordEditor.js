@@ -12,6 +12,7 @@ import { WordRu } from './components/WordRu/WordRu.js';
 import { WordTranscription } from './components/WordTranscription/WordTranscription.js';
 import { AudioList } from './components/AudioList/AudioList.js';
 import { ControlButtons } from './components/ControlButtons/ControlButtons.js';
+import { POSEdit } from './components/POSEdit/POSEdit.js';
 
 
 
@@ -44,7 +45,12 @@ const OneWordEditorComponent = ( props ) => {
                 <WordTranscription
                     wordId = { wordId }
                 />
+
+                
             </div>
+
+
+            <POSEdit wordId = { wordId } />
 
             <div className = 'OWE_line_2'>
                 <AudioList

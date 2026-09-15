@@ -105,17 +105,24 @@ const AWC_ForeignWordComponent = ( props ) => {
                     isUniq
                 } = resp;
 
+                console.dir( 'resp' );
+                console.dir( resp );
+
+
                 if( resp.ok ){
                     if( isUniq ){
                         setChackStatuse( true );
+                        setErrorText( '' );
                     }else{
                         setChackStatuse( null );
-                        setErrorText( 'Это слово уже существует!' );
+                        // setErrorText( resp.message );
                     };
+                    setErrorText( resp.message );
                 }else{
                     setErrorText( resp.message );
+                    // setErrorText( 'что-то не так с проверкой слова' );
                     setChackStatuse( null );
-                }
+                };
             }
         });
 

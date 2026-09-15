@@ -5,6 +5,7 @@ import {
     setCurrentLearnForeign,
     setCurrentLearnRu,
     setCurrentLearnTranscription,
+    setCurrentPOSId,
 } from './../../redux/appDataSlice.js';
 
 export class CurrentWordClass {
@@ -37,11 +38,16 @@ export class CurrentWordClass {
             foreign,
             ru,
             transcription,
+            part_of_speech_id,
         } = appWordsListById[ wordId ];
 
         store.dispatch( setCurrentLearnWordId( wordId ) );
         store.dispatch( setCurrentLearnForeign( foreign ) );
         store.dispatch( setCurrentLearnRu( ru ) );
+        store.dispatch( setCurrentPOSId( part_of_speech_id ) );
+
+
+        
         store.dispatch( setCurrentLearnTranscription( transcription ) );
 
     }

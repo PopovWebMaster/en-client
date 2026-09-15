@@ -1,6 +1,7 @@
 .oneWordEditor{
     font-size: 1em;
-    margin: 0.3em 0;
+    margin: 0.4em 0;
+    padding: 0.3em 0;
     border-radius: 0.1em;
     border: 1px solid #e0e9f5;
     background-color: #f1f1f1;
@@ -25,4 +26,12 @@
 .oneWordEditor:has( .OWE_ReadyStatus.readyStatus ){
     border: 1px solid #c3d4ec;
     background-color: #f1f5fa;
+}
+
+.oneWordEditor:hover{
+    background-color: #cddce1;
+}
+
+.oneWordEditor:has( .OFW_RemoveWordBtn:hover ){
+    background-color: #f2baba;
 }

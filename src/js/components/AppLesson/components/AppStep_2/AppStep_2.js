@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useMemo } from "react";
 
 import { selectorData as appDataSlice } from './../../../../redux/appDataSlice.js';
+import { selectorData as appWordsSlice } from './../../../../redux/appWordsSlice.js';
 
 import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
@@ -26,6 +27,8 @@ const AppStep_2Component = ( props ) => {
         currentLearnRu,
         currentLearnTranscription,
         currentLearnWordId,
+        currentPOSId,
+        partOfSpeechListById,
 
     } = props;
 
@@ -106,6 +109,19 @@ const AppStep_2Component = ( props ) => {
         };
         
     }
+
+    const getPOSName = ( pos_id ) => {
+        let result = ''
+        if( pos_id !== null ){
+            if( partOfSpeechListById[ pos_id ] ){
+                let { name } = partOfSpeechListById[ pos_id ];
+                result = (<span className = 'AL_AppStep_2_pos'>{ name }</span>);
+            };
+        }
+
+        return result;
+
+    }
     
 
     return (
@@ -119,7 +135,7 @@ const AppStep_2Component = ( props ) => {
                             <span>{ currentLearnTranscription }</span>
                         </div>
                         <div className = 'AL_AppStep_2_response_foreign'>
-                            <span>{ currentLearnForeign }</span>
+                            <span>{ currentLearnForeign } { getPOSName( currentPOSId ) }</span>
                         </div>
                         <div className = 'AL_AppStep_2_response_ru'>
                             <span>{ currentLearnRu }</span>
@@ -157,6 +173,7 @@ const AppStep_2Component = ( props ) => {
 export function AppStep_2( props ){
 
     const appData = useSelector( appDataSlice );
+    const appWords = useSelector( appWordsSlice );
 
     // const dispatch = useDispatch();
 
@@ -167,8 +184,10 @@ export function AppStep_2( props ){
             currentLearnRu =            { appData.currentLearnRu }
             currentLearnTranscription = { appData.currentLearnTranscription }
             currentLearnWordId =        { appData.currentLearnWordId }
+            currentPOSId =        { appData.currentPOSId }
 
             currentStepNomber = { appData.currentStepNomber }
+            partOfSpeechListById = { appWords.partOfSpeechListById }
 
 
         />

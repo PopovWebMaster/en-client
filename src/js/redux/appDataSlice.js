@@ -1,5 +1,5 @@
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 export const appDataSlice = createSlice({
 
@@ -26,6 +26,7 @@ export const appDataSlice = createSlice({
         currentLearnForeign: '',
         currentLearnRu: '',
         currentLearnTranscription: '',
+        currentPOSId: null,
 
         learnIsStarted: false,// !!!!!!!!!
 
@@ -96,6 +97,10 @@ export const appDataSlice = createSlice({
             state.learnIsStarted =  action.payload;
         },
 
+        setCurrentPOSId: ( state, action ) => { 
+            state.currentPOSId =  action.payload;
+        },
+
 
         
 
@@ -124,6 +129,7 @@ export const {
     setCurrentLearnRu,
     setCurrentLearnTranscription,
     setLearnIsStarted,
+    setCurrentPOSId,
 
 
    
@@ -152,6 +158,7 @@ export const selectorData = ( state ) => {
         currentLearnWordId: state.appData.currentLearnWordId,
         currentLearnForeign: state.appData.currentLearnForeign,
         currentLearnRu: state.appData.currentLearnRu,
+        currentPOSId: state.appData.currentPOSId,
         currentLearnTranscription: state.appData.currentLearnTranscription,
         learnIsStarted: state.appData.learnIsStarted,
 

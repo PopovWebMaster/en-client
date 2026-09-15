@@ -8,7 +8,7 @@ import { selectorData as wordEditSlice, setNewWordContainerIsOpen } from './../.
 
 import { ButtonAdd } from './../../../../../../components/ButtonAdd/ButtonAdd.js';
 
-import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponent.js';
+// import { AddNewWordComponent } from './../AddNewWordComponent/AddNewWordComponent.js';
 
 
 
@@ -38,7 +38,7 @@ const AddNewWordComponent_ = ( props ) => {
                         fontSize: '0.75em'
                     }}
                     click = { click }
-                    title = 'Добавить слова'
+                    title = 'Добавить'
                 />
             </div>
 

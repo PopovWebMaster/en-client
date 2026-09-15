@@ -22,6 +22,7 @@ import { AWC_Transcription } from './components/AWC_Transcription/AWC_Transcript
 import { AWC_AddFile } from './components/AWC_AddFile/AWC_AddFile.js';
 import { AWC_ButtonSend } from './components/AWC_ButtonSend/AWC_ButtonSend.js';
 import { AWC_ForeignWord } from './components/AWC_ForeignWord/AWC_ForeignWord.js';
+import { AWC_POS } from './components/AWC_POS/AWC_POS.js';
  
 
 
@@ -82,15 +83,16 @@ const AddNewWordComponentComponent = ( props ) => {
                 <AWC_Transcription 
                     isOpen =        { newWordContainerIsOpen }
                 />
+                <AWC_POS
+                    isOpen =        { newWordContainerIsOpen }
+                />
 
                 <AWC_AddFile
                     isOpen =        { newWordContainerIsOpen }
-                    // setFiles =      { setFiles }
                 />
 
                 <AWC_ButtonSend
                     isOpen =        { newWordContainerIsOpen }
-                    // files =         { files }
                 />
 
             </OpeningContainer>

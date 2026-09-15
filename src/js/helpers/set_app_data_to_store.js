@@ -2,7 +2,7 @@
 
 import store from './../redux/admin/store.js';
 import storeApp from './../redux/store.js';
-
+import { set_part_of_speech_list_to_store } from './set_part_of_speech_list_to_store.js';
 import { 
     setTaskForStep_1,
     setTaskForStep_2,
@@ -37,6 +37,8 @@ export const set_app_data_to_store = ( appData ) => {
 
         repeatCircleLength,
         correctAnswersLength,
+        partOfSpeechList,
+
     } = appData;
     // console.dir( 'appData' );
     // console.dir( appData );
@@ -80,6 +82,8 @@ export const set_app_data_to_store = ( appData ) => {
         storeApp.dispatch( setCorrectAnswersLength( Number( correctAnswersLength ) ) );
 
     };
+
+    set_part_of_speech_list_to_store( partOfSpeechList );
     
 
 

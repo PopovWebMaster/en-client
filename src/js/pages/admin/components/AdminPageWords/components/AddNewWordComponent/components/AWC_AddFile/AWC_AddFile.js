@@ -98,7 +98,7 @@ const AWC_AddFileComponent = ( props ) => {
 
 
     return (
-        <div className = 'AWC_WordRu'>
+        <div className = 'AWC_AddFile'>
 
             <OC_InputFiles
                 change = { change }

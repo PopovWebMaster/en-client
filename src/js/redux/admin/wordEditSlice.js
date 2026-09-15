@@ -13,6 +13,8 @@ export const wordEditSlice = createSlice({
         transcription: '',
         files: [],
 
+        pos_id: null,
+
         newWordContainerIsOpen: false,
 
         // wordListIsChanged: false,
@@ -35,6 +37,7 @@ export const wordEditSlice = createSlice({
             state.word_ru =  '';
             state.transcription =  '';
             state.files = [];
+            state.pos_id = null;
             // state.FileList = [];
 
 
@@ -70,6 +73,10 @@ export const wordEditSlice = createSlice({
         },
 
 
+        setPosId: ( state, action ) => {
+            state.pos_id =  action.payload;
+        }
+
 
 
 
@@ -87,6 +94,7 @@ export const {
     setFiles,
     setNewWordContainerIsOpen,
     setWordsGroupe,
+    setPosId,
     // setWordListIsChanged,
     // setFileList,
 
@@ -106,6 +114,8 @@ export const selectorData = ( state ) => {
         newWordContainerIsOpen:     state.wordEdit.newWordContainerIsOpen,
         // wordListIsChanged:          state.wordEdit.wordListIsChanged,
         wordsGroupe:                state.wordEdit.wordsGroupe,
+        pos_id:                state.wordEdit.pos_id,
+
 
 
 

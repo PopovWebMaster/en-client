@@ -1,0 +1,50 @@
+.POSButtonsAsRow{
+    font-size: 1em;
+    padding: 0em 1em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    margin: 0.3em 0;
+    
+    >h2{
+        font-size: .8em;
+        color: #343434;
+        text-indent: 1.6em;
+        font-family: Verdana, Geneva, sans-serif;
+        flex-grow: 1;
+        width: 100%;
+        padding: 0.3em 0;
+        
+    }
+
+    .POS_btn{
+        font-size: 0.72em;
+        padding: 0.3em 0.5em;
+        border: 1px solid #90b793;
+        border-radius: 0.2em;
+        background-color: #fdfefd;
+        color: #404040;
+        margin: 0.3em 0.3em;
+
+        cursor: pointer;
+        user-select: none;
+        font-family: Verdana, Geneva, sans-serif;
+
+
+    }
+
+    .POS_btn:not( .isActive ):hover{
+        background-color: #71cc79;
+        border: 1px solid #35a83f;
+        color: #ffffff;
+    }
+
+    .POS_btn.isActive{
+        background-color: #5ebc66;
+        border: 1px solid #35a83f;
+        color: #ffffff;
+    }
+}
