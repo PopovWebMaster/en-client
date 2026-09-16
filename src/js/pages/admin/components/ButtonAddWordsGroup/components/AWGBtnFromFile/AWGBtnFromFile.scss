@@ -1,0 +1,29 @@
+.AWGBtnFromFile{
+    font-size: 1em;
+    padding: 1em;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+
+    .AWGBtnFromFile_btn{
+        font-size: 0.8em;
+        color: #1517bb;
+        cursor: pointer;
+        user-select: none;
+        font-family: Trebuchet MS, Helvetica, sans-serif;
+    }
+    .AWGBtnFromFile_btn:hover{
+        text-decoration: underline;
+        color: #1416a1;
+    }
+    .AWGBtnFromFile_btn:active{
+        text-decoration: none;
+        color: #1d20d1;
+    }
+
+    >.hiddenInput{
+        display: none;
+    }
+}

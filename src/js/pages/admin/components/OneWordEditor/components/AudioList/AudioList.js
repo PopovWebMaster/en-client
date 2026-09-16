@@ -50,6 +50,7 @@ const AudioListComponent = ( props ) => {
     }, [ wordListById, wordId ] );
 
     const click = ( base64 ) => {
+        
         if( base64 ){
             const audio = new Audio();
             audio.src = base64;

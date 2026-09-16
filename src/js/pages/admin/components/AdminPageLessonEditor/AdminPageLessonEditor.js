@@ -19,6 +19,10 @@ import { GetStartingAdminDataFromServer } from './../GetStartingAdminDataFromSer
 // import { LessonsList } from './components/LessonsList/LessonsList.js';
 // import { SaveLessonsChanges } from './components/SaveLessonsChanges/SaveLessonsChanges.js';
 
+// import { ButtonDownloadWordsGroupe } from './../../../../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
+import { ButtonDownloadWordsGroupe } from './../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
+
+
 import { SaveLessonDataChanges } from './components/SaveLessonDataChanges/SaveLessonDataChanges.js';
 import { OneLessonEditor } from './components/OneLessonEditor/OneLessonEditor.js';
 
@@ -45,6 +49,7 @@ const AdminPageLessonEditorComponent = ( props ) => {
             >
 
                 <A_TopButtonsContainer>
+                    <ButtonDownloadWordsGroupe />
                     <SaveLessonDataChanges />
 
                 </A_TopButtonsContainer>

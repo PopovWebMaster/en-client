@@ -9,6 +9,8 @@ import { selectorData as wordEditSlice } from './../../../../../../redux/admin/w
 
 import { AWGBtnFromFile } from './../AWGBtnFromFile/AWGBtnFromFile.js';
 
+import { get_valid_list } from './../../vendors/get_valid_list.js';
+
 
 
 
@@ -18,6 +20,15 @@ const AWGComponentComponent = ( props ) => {
         isOpen,
 
     } = props;
+    let [ list, setList ] = useState( [] );
+
+    useEffect( () => {
+        setList( [] );
+    }, [ isOpen ] );
+
+    const setListHandler = ( arr ) => {
+        setList( get_valid_list( arr ) );
+    }
 
 
 
@@ -25,7 +36,9 @@ const AWGComponentComponent = ( props ) => {
         <div className = 'AWGComponent'>
 
             <div className = 'AWGC_topButtons'>
-                <AWGBtnFromFile />
+                <AWGBtnFromFile
+                    setListHandler = { setListHandler }
+                />
             </div>
 
             <div className = 'AWGC_list'>

@@ -51,7 +51,7 @@ const ButtonAddWordsGroupComponent = ( props ) => {
                     fontSize: '0.75em'
                 }}
                 click = { click }
-                title = 'Добавить группу слов'
+                title = 'Добавить слова из проекта'
             />
         </div>
     )

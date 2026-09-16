@@ -60,35 +60,47 @@ const AudioButtonAddComponent = ( props ) => {
         for( let i = 0; i < files.length; i++ ){
             
             audioToBase64( files[i] ).then( ( result ) => {
-                let name = files[ i ].name;
-                base64List.push( {
-                    name: name,
-                    base64: result
-                } );
 
-                if( i + 1 === files.length  ){
+                const [ prefix, base64 ] = result.split(',');
+
+                if( base64[0] !== '/' ){
+                    alert( 'Этот аудио файл нельзя добавить, что-то с ним не так' );
+                }else{
+                    let name = files[ i ].name;
+                    base64List.push( {
+                        name: name,
+                        base64: result,
+
+                    } );
+
+                    if( i + 1 === files.length  ){
+
+                        send_request_to_server({
+                            route: 'admin/add-audio-files-to-word',
+                            data: {
+                                keyName: languageKeyName,
+                                // lessonId: currentLessonId,
+                                foreignWordId: wordId,
+                                files: base64List,
+                            },
+                            addLessonId: true,
+                            successCallback: ( resp ) => {
+                                console.dir( 'resp' );
+                                console.dir( resp );
+
+                                if( resp.ok ){
+                                    set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                };
+                            },
+                        });
+
+                    }
+                };
 
 
-                    send_request_to_server({
-                        route: 'admin/add-audio-files-to-word',
-                        data: {
-                            keyName: languageKeyName,
-                            // lessonId: currentLessonId,
-                            foreignWordId: wordId,
-                            files: base64List,
-                        },
-                        addLessonId: true,
-                        successCallback: ( resp ) => {
-                            console.dir( 'resp' );
-                            console.dir( resp );
 
-                            if( resp.ok ){
-                                set_word_list_to_store( resp.wordList, [ 'audio' ] );
-                            };
-                        },
-                    });
 
-                }
+                
             })
 
         }

@@ -18,7 +18,7 @@ import { AddNewWordComponent } from './../../../../AdminPageWords/components/Add
 import { FreeWordsList } from './../../../../AdminPageWords/components/FreeWordsList/FreeWordsList.js';
 import { AddWordsFromBufferButton } from './AddWordsFromBufferButton/AddWordsFromBufferButton.js';
 
-import { ButtonDownloadWordsGroupe } from './../../../../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
+// import { ButtonDownloadWordsGroupe } from './../../../../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
 import { ButtonAddWordsGroup } from './../../../../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
 
 // import { WordsCount } from './../WordsCount/WordsCount.js';
@@ -63,7 +63,7 @@ const LessonBlockForWordsComponent = ( props ) => {
 
 
                 </div>
-                <ButtonDownloadWordsGroupe />
+                {/* <ButtonDownloadWordsGroupe /> */}
                 <ButtonAddWordsGroup />
                 <AddNewWord />
                 <AddWordsFromBufferButton />

@@ -1,13 +1,12 @@
-// ButtonDownloadWordsGroupe
 
 
-import React, { useState, useEffect }   from "react";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import React, { useState }   from "react";
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './ButtonDownloadWordsGroupe.scss';
 
-import { selectorData as wordEditSlice } from './../../../../redux/admin/wordEditSlice.js';
+// import { selectorData as wordEditSlice } from './../../../../redux/admin/wordEditSlice.js';
 
 
 import { ButtonAdd } from './../../../../components/ButtonAdd/ButtonAdd.js';
@@ -15,7 +14,6 @@ import { ButtonAdd } from './../../../../components/ButtonAdd/ButtonAdd.js';
 import { AlertWindowContainer } from './../../../../components/AlertWindowContainer/AlertWindowContainer.js';
 
 import { BDWGComponent } from './BDWGComponent/BDWGComponent.js';
-
 
 
 const ButtonDownloadWordsGroupeComponent = ( props ) => {
@@ -51,9 +49,11 @@ const ButtonDownloadWordsGroupeComponent = ( props ) => {
                 style = {{
                     fontSize: '0.75em'
                 }}
-                icon = { 'icon-doc' }
+                // icon = { 'icon-floppy' }
+                icon = { '' }
+
                 click = { click }
-                title = 'Скачать .json'
+                title = 'Скачать проект'
             />
         </div>
     )

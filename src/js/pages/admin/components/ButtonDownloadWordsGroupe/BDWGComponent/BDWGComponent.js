@@ -9,16 +9,15 @@ import { selectorData as wordsSlice } from './../../../../../redux/admin/wordsSl
 import { selectorData as lessonsSlice } from './../../../../../redux/admin/lessonsSlice.js';
 import { selectorData as languageSlice } from './../../../../../redux/languageSlice.js';
 
-
 import { ScrollContainer } from './../../../../../components/ScrollContainer/ScrollContainer.js';
-import { AWButtonAdd } from './../../../../../components/AlertWindowContainer/AWButtonAdd/AWButtonAdd.js';
-import { AWInputText } from './../../../../../components/AlertWindowContainer/AWInputText/AWInputText.js';
 
 import { BDWG_SelectAll } from './../BDWG_SelectAll/BDWG_SelectAll.js';
 import { BDWG_OneWord } from './../BDWG_OneWord/BDWG_OneWord.js';
+import { BDWG_ProjectName } from './../BDWG_ProjectName/BDWG_ProjectName.js';
+import { BDWG_Download } from './../BDWG_Download/BDWG_Download.js';
 
-
-
+import { get_project_name } from './../vendors/get_project_name.js';
+import { create_list_from_wordsList } from './../vendors/create_list_from_wordsList.js';
 
 
 const BDWGComponentComponent = ( props ) => {
@@ -27,56 +26,38 @@ const BDWGComponentComponent = ( props ) => {
         isOpen,
 
         wordList,
-
-        currentLessonId,
-        currentLessonLevelName,
-        languageName,
+        wordListById,
 
     } = props;
 
     let [ list, setList ] = useState( [] );
-    let [ fileName, setFileName ] = useState( '' );
-    let [ isReady, setIsReady ] = useState( false );
+    let [ projectName, setProjectName ] = useState( '' );
     let [ selectedCount, setSelectedCount ] = useState( 0 );
-
-
 
     useEffect( () => {
         if( isOpen ){
-            setList( getList() );
+            setList( create_list_from_wordsList() );
         }else{
             setList( [] );
         };
     }, [ isOpen, wordList ] );
 
 
+
     useEffect( () => {
         let count = 0;
-        let res = false;
-        if( fileName.trim() !== '' ){
-            for( let i = 0; i < list.length; i++ ){
-                let { isSelected } = list[ i ];
-                if( isSelected ){
-                    count = count + 1;
-                };
+        for( let i = 0; i < list.length; i++ ){
+            let { isSelected } = list[ i ];
+            if( isSelected ){
+                count = count + 1;
             };
-            res = count > 0;
         };
         setSelectedCount( count );
-        setIsReady( res );
 
-    }, [ list, fileName ] );
-
-    const getNewFileName = () => {
-        let res = `${languageName}. Cвободные слова. (${selectedCount} слов)`;
-        if( currentLessonId !== null ){
-            res = `${languageName}. ${currentLessonLevelName}. (${selectedCount} слов)`
-        };
-        return res;
-    }
+    }, [ list ] );
 
     useEffect( () => {
-        setFileName( getNewFileName() );
+        setProjectName( get_project_name( selectedCount ) );
     }, [ selectedCount ] );
 
     
@@ -118,66 +99,12 @@ const BDWGComponentComponent = ( props ) => {
 
     }
 
-    const getList = () => {
-        let result = [];
-
-        for( let i = 0; i < wordList.length; i++ ){
-            let {
-                audio,
-                foreign,
-                id,
-                part_of_speech_id,
-                ru,
-                transcription,
-            } = wordList[ i ];
-
-            result.push({
-                isSelected: true,
-                audioLength: audio.length,
-                foreign,
-                id,
-                part_of_speech_id,
-                ru,
-                transcription,
-            });
-        };
-
-        return result;
-
-    };
-
-    const click = () => {
-        if( isReady ){
-            let arr = [];
-            for( let i = 0; i < list.length; i++ ){
-                let { isSelected, id } = list[ i ];
-                if( isSelected ){
-                    console.dir( list[ i ] );
-                };
-            };
-        };
-    }
-
-
-    const fileNameChange = ( e ) => {
-        let val = e.target.value;
-        setFileName( val );
-
-    }
-
-
 
     return (
         <div className = 'BDWGComponent'>
-
-            <AWInputText
-                title = { 'Имя файла' }
-                value = { fileName }
-                onChange = { fileNameChange }
-
-                max = { 100 }
-                placeholder = 'это поле нельзя оставлять пустым!!!!!'
-                enterHandler = { () => {} }
+            <BDWG_ProjectName
+                projectName = { projectName }
+                setProjectName = { setProjectName }
             />
 
             <BDWG_SelectAll
@@ -192,17 +119,14 @@ const BDWGComponentComponent = ( props ) => {
             </ScrollContainer>
 
             <div className = 'BDWG_btnWrap'>
-                <AWButtonAdd
-                    title = 'Скачать'
-                    isReady = { isReady }
-                    clickHandler = { click }
-                    icon = 'icon-doc'
+
+                <BDWG_Download
+                    projectName =   { projectName }
+                    list =          { list }
                 />
+
             </div>
 
-            
-
-            
         </div>
     )
 
@@ -223,10 +147,30 @@ export function BDWGComponent( props ){
         <BDWGComponentComponent
             { ...props }
             wordList = { words.wordList }
-            lessons = { lessons }
+            wordListById = { words.wordListById }
+
+            // lessons = { lessons }
 
             currentLessonId = { lessons.currentLessonId }
             currentLessonLevelName = { lessons.currentLessonLevelName }
+
+            // currentLessonDescription = { lessons.currentLessonDescription }
+            // currentLessonLevelName = { lessons.currentLessonLevelName }
+            // currentLessonPhrasesList = { lessons.currentLessonPhrasesList }
+            // currentLessonTitle = { lessons.currentLessonTitle }
+            // currentPageDescription = { lessons.currentPageDescription }
+            // currentPageKeyWords = { lessons.currentPageKeyWords }
+            // currentPageText = { lessons.currentPageText }
+            // currentPageTitle = { lessons.currentPageTitle }
+
+
+
+
+
+
+
+
+
             languageName = { language.languageName }
 
 
