@@ -16,6 +16,8 @@ import { AdminPageLessonEditor }    from './../AdminPageLessonEditor/AdminPageLe
 import { AdminPageTests }           from './../AdminPageTests/AdminPageTests.js';
 import { AdminPageOneTestEdit }     from './../AdminPageOneTestEdit/AdminPageOneTestEdit.js';
 import { AdminPageSettings }        from './../AdminPageSettings/AdminPageSettings.js';
+import { AdminPageTopic }        from './../AdminPageTopic/AdminPageTopic.js';
+
 
 
 
@@ -46,7 +48,7 @@ const AdminPageAppComponent = ( props ) => {
             // navigate( ADMIN_ROUTES.SETTINGS.ROUTE );
 
 
-
+            // navigate( ADMIN_ROUTES.TOPIC.ROUTE );
 
 
 
@@ -66,7 +68,7 @@ const AdminPageAppComponent = ( props ) => {
                 <Route path = { ADMIN_ROUTES.WORDS.ROUTE }                  element = { <AdminPageWords /> } />
                 <Route path = { ADMIN_ROUTES.LESSONS.ROUTE }                element = { <AdminPageLessons /> } />
                 <Route path = { ADMIN_ROUTES.LESSONS.ROUTE + '/:id' }       element = { <AdminPageLessonEditor /> } />
-
+                <Route path = { ADMIN_ROUTES.TOPIC.ROUTE }                  element = { <AdminPageTopic /> } />
                 <Route path = { ADMIN_ROUTES.TESTS.ROUTE }                  element = { <AdminPageTests /> } />
                 <Route path = { ADMIN_ROUTES.TESTS.ROUTE + '/:id' }         element = { <AdminPageOneTestEdit /> } />
                 <Route path = { ADMIN_ROUTES.SETTINGS.ROUTE }               element = { <AdminPageSettings /> } />

@@ -15,6 +15,7 @@ export const create_list_from_wordsList = ( alIsSelected = true ) => {
             part_of_speech_id,
             ru,
             transcription,
+            topic_id,
         } = wordList[ i ];
 
         result.push({
@@ -25,6 +26,7 @@ export const create_list_from_wordsList = ( alIsSelected = true ) => {
             part_of_speech_id,
             ru,
             transcription,
+            topic_id,
         });
     };
 

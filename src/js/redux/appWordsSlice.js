@@ -14,6 +14,11 @@ export const appWordsSlice = createSlice({
         partOfSpeechList: [],
         partOfSpeechListById: {},
 
+        topicsList: [],
+        topicsListById: {},
+        topicsLiscIsChanges: false,
+
+
 
     },
 
@@ -34,7 +39,17 @@ export const appWordsSlice = createSlice({
             state.partOfSpeechListById =  action.payload;
         },
 
+        setTopicsList: ( state, action ) => { 
+            state.topicsList =  action.payload;
+        },
 
+        setTopicsListById: ( state, action ) => { 
+            state.topicsListById =  action.payload;
+        },
+
+        setTopicsLiscIsChanges: ( state, action ) => { 
+            state.topicsLiscIsChanges =  action.payload;
+        },
 
 
 
@@ -50,6 +65,10 @@ export const {
     setPartOfSpeechList,
     setPartOfSpeechListById,
 
+    setTopicsList,
+    setTopicsListById,
+    setTopicsLiscIsChanges,
+
    
 
 } = appWordsSlice.actions;
@@ -62,6 +81,10 @@ export const selectorData = ( state ) => {
 
         partOfSpeechList:   state.appWords.partOfSpeechList,
         partOfSpeechListById:   state.appWords.partOfSpeechListById,
+
+        topicsList:   state.appWords.topicsList,
+        topicsListById:   state.appWords.topicsListById,
+        topicsLiscIsChanges:   state.appWords.topicsLiscIsChanges,
 
 
 

@@ -64,7 +64,7 @@ const AWGBtnFromFileComponent = ( props ) => {
             <span
                 className = 'AWGBtnFromFile_btn'
                 onClick = { clickAdd }
-            >Загрузить words.json</span>
+            >Загрузить words.json / words_without_audio.json</span>
 
             <input 
                 type =          'file' 

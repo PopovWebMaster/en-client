@@ -1,5 +1,3 @@
-// AWShowErrors
-
 
 import React from "react";
 

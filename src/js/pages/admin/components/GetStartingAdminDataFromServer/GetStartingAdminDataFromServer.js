@@ -21,6 +21,8 @@ import { set_tests_list_to_store } from './../../../../helpers/set_tests_list_to
 import { set_one_test_data_to_store } from './../../../../helpers/set_one_test_data_to_store.js';
 import { set_app_data_to_store } from './../../../../helpers/set_app_data_to_store.js';
 import { set_part_of_speech_list_to_store } from './../../../../helpers/set_part_of_speech_list_to_store.js';
+import { set_topics_list_to_store } from './../../../../helpers/set_topics_list_to_store.js';
+
 
 
 const GetStartingAdminDataFromServerComponent = ( props ) => {
@@ -71,8 +73,7 @@ const GetStartingAdminDataFromServerComponent = ( props ) => {
                 if( resp.oneTestData ){ set_one_test_data_to_store( resp.oneTestData ) };
                 if( resp.appData ){ set_app_data_to_store( resp.appData ) };
                 if( resp.partOfSpeechList ){ set_part_of_speech_list_to_store( resp.partOfSpeechList ) };
-
-
+                if( resp.topicsList ){ set_topics_list_to_store( resp.topicsList ) };
 
 
 

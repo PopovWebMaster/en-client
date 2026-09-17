@@ -8,7 +8,7 @@ export const get_valid_list = ( arr ) => {
     if( Array.isArray( arr ) ){
 
         let { appWords } = store.getState();
-        let { partOfSpeechListById } = appWords;
+        let { partOfSpeechListById, topicsListById } = appWords;
 
         for( let i = 0; i < arr.length; i++ ){
             let transcription = '';
@@ -16,6 +16,8 @@ export const get_valid_list = ( arr ) => {
             let foreign = '';
             let audio = [];
             let part_of_speech_id = null;
+            let topic_id = null;
+
 
             if( arr[ i ].transcription ){
                 transcription = arr[ i ].transcription;
@@ -43,11 +45,19 @@ export const get_valid_list = ( arr ) => {
                     };
                 };
             };
-            if( arr[ i ].part_of_speech_id ){
+            if( arr[ i ].part_of_speech_id !== null ){
                 if( partOfSpeechListById[ arr[ i ].part_of_speech_id ]){
                     part_of_speech_id = arr[ i ].part_of_speech_id;
                 }
             };
+
+            if( arr[ i ].topic_id !== null ){
+                if( topicsListById[ arr[ i ].topic_id ]){
+                    topic_id = arr[ i ].topic_id;
+                }
+            };
+
+
 
             result.push({
                 transcription,
