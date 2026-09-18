@@ -65,6 +65,7 @@ export const get_valid_list = ( arr ) => {
                 foreign,
                 audio,
                 part_of_speech_id,
+                topic_id,
             });
         };
 

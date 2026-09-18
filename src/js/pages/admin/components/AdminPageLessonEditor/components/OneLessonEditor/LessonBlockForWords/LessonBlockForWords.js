@@ -51,6 +51,7 @@ const LessonBlockForWordsComponent = ( props ) => {
             blockTitle =            'Слова'
             blockSecondTitle =      { `Всего слов: ${wordList.length}` }
             openingContainerTitle = 'Слова'
+            makeStiking = { true }
         >
             <div className = 'OLE_topButtonsWrap'>
 
@@ -73,7 +74,7 @@ const LessonBlockForWordsComponent = ( props ) => {
 
             <AddNewWordComponent />
 
-            <FreeWordsList />
+            <FreeWordsList height = { '75vh' }/>
             
 
         </LessonBlockContainer>

@@ -1,0 +1,52 @@
+.OFW_TopicEdit{
+    font-size: 1em;
+    position: relative;
+
+    .OFW_TopicEdit_btn{
+        font-size: 1em;
+        cursor: pointer;
+
+        .OFW_TE_btn_title{
+            font-size: 0.76em;
+            color: rgb(37, 119, 119);
+            margin: 0 0.4em 0 0;
+            font-family: Trebuchet MS, Helvetica, sans-serif;
+        }
+
+        .OFW_TE_btn_name{
+            font-size: 0.76em;
+            padding: 0.2em 1em;
+            border: 1px solid #99bccf;
+            border-radius: .1em;
+            background-color: #b1d4e7;
+            font-family: Trebuchet MS, Helvetica, sans-serif;
+            color: #4b4b4b;
+        }
+    }
+
+    .OFW_TopicEdit_btn.OFW_TopicEdit_btn_CTRL{
+        .OFW_TE_btn_name{
+            border: 1px solid #5eabd4;
+            background-color: #b1eee4;
+            
+        }
+    }
+
+    .OFW_TopicEdit_btn:not( .OFW_TopicEdit_btn_CTRL ):hover{
+        .OFW_TE_btn_name{
+            border: 1px solid #287dab;
+            background-color: #287dab;
+            color: #ffffff;
+        }
+    }
+
+    .OFW_TopicEdit_btn:not( .OFW_TopicEdit_btn_CTRL ):active{
+        .OFW_TE_btn_name{
+            border: 1px solid #21729e;
+            background-color: #4aa3d3;
+            // color: #ffffff;
+        }
+    }
+
+
+}

@@ -8,10 +8,25 @@
 
     .OWE_line_1{
         font-size: 1em;
-        padding: 0.2em 0.5em 0.1em;
+        padding: 0.1em 0.5em 0.1em;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+        flex-wrap: wrap;
+
+        .OWE_line_topic{
+            font-size: 1em;
+            width: 100%;
+            flex-grow: 1;
+            padding: 0em 0.5em 0.4em 0;
+
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            align-content: center;
+
+
+        }
     }
 
     .OWE_line_2{

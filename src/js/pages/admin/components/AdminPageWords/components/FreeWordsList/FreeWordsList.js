@@ -10,6 +10,7 @@ import { OneWordEditor } from './../../../OneWordEditor/OneWordEditor.js';
 
 import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
 import { ScrollContainer } from './../../../../../../components/ScrollContainer/ScrollContainer.js';
+import { SetTopicAlertForGroup } from './SetTopicAlertForGroup/SetTopicAlertForGroup.js';
 
 
 
@@ -17,6 +18,7 @@ const FreeWordsListComponent = ( props ) => {
 
     let {
         wordList,
+        height = 'auto',
     } = props;
 
     const create = ( arr ) => {
@@ -38,8 +40,11 @@ const FreeWordsListComponent = ( props ) => {
 
 
     return (
-        <ScrollContainer height = '75vh' >
+        <ScrollContainer height = { height } >
             <div className = 'freeWordsList'>
+
+                <SetTopicAlertForGroup />
+
                 { create( wordList ) }
             </div>
         </ScrollContainer>

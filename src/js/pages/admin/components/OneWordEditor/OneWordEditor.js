@@ -1,8 +1,8 @@
 
 
-import React, { useRef, useState, useEffect }   from "react";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import React  from "react";
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './OneWordEditor.scss';
 
@@ -13,7 +13,7 @@ import { WordTranscription } from './components/WordTranscription/WordTranscript
 import { AudioList } from './components/AudioList/AudioList.js';
 import { ControlButtons } from './components/ControlButtons/ControlButtons.js';
 import { POSEdit } from './components/POSEdit/POSEdit.js';
-
+import { TopicEdit } from './components/TopicEdit/TopicEdit.js';
 
 
 
@@ -30,6 +30,11 @@ const OneWordEditorComponent = ( props ) => {
 
             
             <div className = 'OWE_line_1'>
+
+                <div className = 'OWE_line_topic'>
+                    <TopicEdit wordId = { wordId } />
+                </div>
+
                 <ReadyStatus
                     wordId = { wordId }
                 />

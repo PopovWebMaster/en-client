@@ -35,7 +35,7 @@ const AdminPageLessonEditorComponent = ( props ) => {
     } = props;
 
     let what_to_take = [
-        'oneLessonData',
+        'oneLessonData', 'topicsList', 'partOfSpeechList',
     ];
 
 

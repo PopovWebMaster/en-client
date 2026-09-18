@@ -11,6 +11,8 @@ export const wordsSlice = createSlice({
 
 
         wordListIsChanged: false,
+        CTRL_wordsIdList: [],
+        isOpenTopicAddAlert: false,
 
         
 
@@ -33,6 +35,17 @@ export const wordsSlice = createSlice({
             state.wordListIsChanged =  action.payload;
         },
 
+        setCTRL_wordsIdList: ( state, action ) => {
+            state.CTRL_wordsIdList =  action.payload;
+        },
+
+        setIsOpenTopicAddAlert: ( state, action ) => {
+            state.isOpenTopicAddAlert =  action.payload;
+        },
+
+
+        
+
         
     },
 
@@ -42,6 +55,8 @@ export const {
     setWordList,
     setWordListById,
     setWordListIsChanged,
+    setCTRL_wordsIdList,
+    setIsOpenTopicAddAlert,
 
 
    
@@ -54,6 +69,10 @@ export const selectorData = ( state ) => {
         wordList:                  state.words.wordList,
         wordListById:                  state.words.wordListById,
         wordListIsChanged:          state.words.wordListIsChanged,
+        CTRL_wordsIdList:          state.words.CTRL_wordsIdList,
+
+        isOpenTopicAddAlert: state.words.isOpenTopicAddAlert,
+
 
 
 

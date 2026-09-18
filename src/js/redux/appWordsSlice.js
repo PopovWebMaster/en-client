@@ -20,6 +20,7 @@ export const appWordsSlice = createSlice({
 
 
 
+
     },
 
     reducers: {
@@ -50,6 +51,8 @@ export const appWordsSlice = createSlice({
         setTopicsLiscIsChanges: ( state, action ) => { 
             state.topicsLiscIsChanges =  action.payload;
         },
+
+
 
 
 
@@ -85,6 +88,7 @@ export const selectorData = ( state ) => {
         topicsList:   state.appWords.topicsList,
         topicsListById:   state.appWords.topicsListById,
         topicsLiscIsChanges:   state.appWords.topicsLiscIsChanges,
+
 
 
 
