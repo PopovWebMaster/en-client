@@ -11,6 +11,8 @@ import mainPageSlise from './mainPageSlise.js';
 import testsSlice from './testsSlice.js';
 import settingsSlice from './../settingsSlice.js';
 import appWordsSlice from './../appWordsSlice.js';
+import wordsSelectedListSlice from './wordsSelectedListSlice.js';
+
 
 
 
@@ -28,6 +30,7 @@ export default configureStore({
         tests: testsSlice,
         settings: settingsSlice,
         appWords: appWordsSlice,
+        wordsSelectedList: wordsSelectedListSlice,
 
 
 

@@ -1,0 +1,46 @@
+.AWG_TabsButtons{
+    font-size: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding: 0.3em;
+
+    .AWG_OnTabBtn{
+        font-size: 0.8em;
+        padding: 0.3em 1em;
+        border-radius: 0.1em;
+        border: 1px solid #4378e6;
+        color: #4378e6;
+        flex-grow: 1;
+        max-width: 100%;
+        margin: 0.3em 1em;
+        text-align: center;
+        font-family: Trebuchet MS, Helvetica, sans-serif;
+        cursor: pointer;
+        user-select: none;
+    }
+    .AWG_OnTabBtn.isActive:hover{
+        background-color: #6c97ec;
+        color: #ececec;
+    }
+    .AWG_OnTabBtn:hover{
+        background-color: #6c97ec;
+        color: #ececec;
+    }
+
+    .AWG_OnTabBtn.isActive:active{
+        // background-color: #6c97ec;
+        color: #f7a3a3;
+    }
+    .AWG_OnTabBtn:active{
+        // background-color: #6c97ec;
+        color: #f7a3a3;
+    }
+
+    .AWG_OnTabBtn.isActive{
+        background-color: #4378e6;
+        color: #ececec;
+    }
+}

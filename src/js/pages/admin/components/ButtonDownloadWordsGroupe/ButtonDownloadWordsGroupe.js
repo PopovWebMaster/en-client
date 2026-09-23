@@ -37,7 +37,7 @@ const ButtonDownloadWordsGroupeComponent = ( props ) => {
             <AlertWindowContainer
                 isOpen = { isOpen }
                 setIsOpen = { setIsOpen }
-                title = 'Добавить группу слов'
+                title = 'Скачать проект'
                 width = '80vw'
                 height = '92vh'
             >

@@ -4,6 +4,7 @@ import FileSaver from 'file-saver';
 
 export const download_zip = ( params ) => {
     let { 
+        keyName,
         list,
         projectName,
         project,
@@ -78,8 +79,14 @@ export const download_zip = ( params ) => {
     };
 
 
-    folder.file( 'words.json', JSON.stringify( list_with_audio ) );
-    folder.file( 'words_without_audio.json', JSON.stringify( list_without_audio ) );
+    folder.file( 'words.json', JSON.stringify( {
+        keyName,
+        list: list_with_audio,
+    } ) );
+    folder.file( 'words_without_audio.json', JSON.stringify( {
+        keyName,
+        list: list_without_audio,
+    } ) );
 
     if( project !== null ){
         // project.words = list_with_audio;

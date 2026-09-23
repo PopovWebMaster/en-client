@@ -14,6 +14,7 @@ import { AudioList } from './components/AudioList/AudioList.js';
 import { ControlButtons } from './components/ControlButtons/ControlButtons.js';
 import { POSEdit } from './components/POSEdit/POSEdit.js';
 import { TopicEdit } from './components/TopicEdit/TopicEdit.js';
+import { Message } from './components/Message/Message.js';
 
 
 
@@ -32,6 +33,7 @@ const OneWordEditorComponent = ( props ) => {
             <div className = 'OWE_line_1'>
 
                 <div className = 'OWE_line_topic'>
+                    <Message wordId = { wordId } />
                     <TopicEdit wordId = { wordId } />
                 </div>
 

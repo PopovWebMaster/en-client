@@ -36,7 +36,7 @@ const LessonBlockForWordsComponent = ( props ) => {
 
     } = props;
 
-    let [ wordsIsOpen, setWordsIsOpen ] = useState( true );
+    let [ wordsIsOpen, setWordsIsOpen ] = useState( false );
 
    
 

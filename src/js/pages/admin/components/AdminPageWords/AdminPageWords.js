@@ -38,7 +38,7 @@ const AdminPageWordsComponent = ( props ) => {
     return (
         <AdminPageContainer>
             <GetStartingAdminDataFromServer 
-                what_to_take =      { what_to_take}
+                what_to_take =      { what_to_take }
                 currentLessonId =   { null }
             >
                 <A_TopButtonsContainer>

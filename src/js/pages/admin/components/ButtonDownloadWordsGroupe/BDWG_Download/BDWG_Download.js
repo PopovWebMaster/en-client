@@ -60,6 +60,7 @@ const BDWG_DownloadComponent = ( props ) => {
     const click = () => {
         if( isReady ){
             download_zip({ 
+                keyName: languageKeyName,
                 list: list_selected_with_audio(), 
                 projectName,
                 project: get_project_data(),

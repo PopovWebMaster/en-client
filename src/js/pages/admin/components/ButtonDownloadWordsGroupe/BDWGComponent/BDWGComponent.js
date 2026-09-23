@@ -8,16 +8,21 @@ import './BDWGComponent.scss';
 import { selectorData as wordsSlice } from './../../../../../redux/admin/wordsSlice.js';
 import { selectorData as lessonsSlice } from './../../../../../redux/admin/lessonsSlice.js';
 import { selectorData as languageSlice } from './../../../../../redux/languageSlice.js';
+import { selectorData as wordsSelectedListSlice } from './../../../../../redux/admin/wordsSelectedListSlice.js';
 
-import { ScrollContainer } from './../../../../../components/ScrollContainer/ScrollContainer.js';
 
-import { BDWG_SelectAll } from './../BDWG_SelectAll/BDWG_SelectAll.js';
+// import { ScrollContainer } from './../../../../../components/ScrollContainer/ScrollContainer.js';
+
+// import { BDWG_SelectAll } from './../BDWG_SelectAll/BDWG_SelectAll.js';
 import { BDWG_OneWord } from './../BDWG_OneWord/BDWG_OneWord.js';
 import { BDWG_ProjectName } from './../BDWG_ProjectName/BDWG_ProjectName.js';
 import { BDWG_Download } from './../BDWG_Download/BDWG_Download.js';
 
 import { get_project_name } from './../vendors/get_project_name.js';
-import { create_list_from_wordsList } from './../vendors/create_list_from_wordsList.js';
+// import { create_list_from_wordsList } from './../vendors/create_list_from_wordsList.js';
+
+import { AWGWordsSelectedList } from './../../../../../components/AlertWindowContainer/AWGWordsSelectedList/AWGWordsSelectedList.js';
+import { create_words_selected_list_from } from './../../../../../components/AlertWindowContainer/AWGWordsSelectedList/create_words_selected_list_from.js';
 
 
 const BDWGComponentComponent = ( props ) => {
@@ -26,20 +31,17 @@ const BDWGComponentComponent = ( props ) => {
         isOpen,
 
         wordList,
-        wordListById,
+        list,
 
     } = props;
 
-    let [ list, setList ] = useState( [] );
     let [ projectName, setProjectName ] = useState( '' );
     let [ selectedCount, setSelectedCount ] = useState( 0 );
 
     useEffect( () => {
         if( isOpen ){
-            setList( create_list_from_wordsList() );
-        }else{
-            setList( [] );
-        };
+            create_words_selected_list_from.wordsList( true );
+        }
     }, [ isOpen, wordList ] );
 
 
@@ -60,45 +62,6 @@ const BDWGComponentComponent = ( props ) => {
         setProjectName( get_project_name( selectedCount ) );
     }, [ selectedCount ] );
 
-    
-    const create = ( arr ) => {
-
-        let div = arr.map( ( item, index ) => {
-            let {
-                isSelected,
-                audioLength,
-                foreign,
-                id,
-                part_of_speech_id,
-                ru,
-                transcription,
-            } = item;
-
-            return (
-                <BDWG_OneWord
-                    key =               { index }
-                    isSelected =        { isSelected }
-                    audioLength =       { audioLength }
-                    foreign =           { foreign }
-                    id =                { id }
-                    part_of_speech_id = { part_of_speech_id }
-                    ru =                { ru }
-                    transcription =     { transcription }
-
-                    list =     { list }
-                    setList =     { setList }
-
-
-                    
-                />
-            )
-
-        });
-
-        return div;
-
-    }
-
 
     return (
         <div className = 'BDWGComponent'>
@@ -107,16 +70,11 @@ const BDWGComponentComponent = ( props ) => {
                 setProjectName = { setProjectName }
             />
 
-            <BDWG_SelectAll
-                list = { list }
-                setList = { setList }
+            <AWGWordsSelectedList
+                isOpen = { isOpen }
+            
+            
             />
-
-            <ScrollContainer height = '60vh'>
-                <div className = 'BDWG_List'>
-                    { create( list ) }
-                </div>
-            </ScrollContainer>
 
             <div className = 'BDWG_btnWrap'>
 
@@ -138,6 +96,10 @@ export function BDWGComponent( props ){
     const words = useSelector( wordsSlice );
     const lessons = useSelector( lessonsSlice );
     const language = useSelector( languageSlice );
+    const wordsSelectedList = useSelector( wordsSelectedListSlice );
+
+
+    
 
 
 
@@ -153,6 +115,9 @@ export function BDWGComponent( props ){
 
             currentLessonId = { lessons.currentLessonId }
             currentLessonLevelName = { lessons.currentLessonLevelName }
+
+            list = { wordsSelectedList.list }
+
 
             // currentLessonDescription = { lessons.currentLessonDescription }
             // currentLessonLevelName = { lessons.currentLessonLevelName }
