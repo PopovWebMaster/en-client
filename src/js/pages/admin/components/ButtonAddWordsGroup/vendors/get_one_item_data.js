@@ -11,6 +11,7 @@ export const get_one_item_data = ( item ) => {
         audio: [],
         part_of_speech_id: null,
         topic_id: null,
+        topic_name: '',
         isSelected: true,
         message: '',
     };
@@ -56,6 +57,10 @@ export const get_one_item_data = ( item ) => {
             result.topic_id = item.topic_id;
         }
     };
+
+    if( item.topic_name ){
+        result.topic_name = item.topic_name;
+    }
 
     if( item.message ){
         result.message = item.message;

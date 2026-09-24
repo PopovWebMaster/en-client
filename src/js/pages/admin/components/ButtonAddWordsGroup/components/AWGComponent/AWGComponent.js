@@ -28,67 +28,87 @@ const AWGComponentComponent = ( props ) => {
 
     let {
         isOpen,
+
+        list,
         setList,
         clearAll,
 
     } = props;
     
-    // let [ list, setList ] = useState( [] );
 
-    let [ activeTabName, setActiveTabName ] = useState( 'from_file' );
+    // let [ activeTabName, setActiveTabName ] = useState( 'from_file' ); Не удалять, рабочий код!!!!
 
     useEffect( () => {
         clearAll();
-    }, [ isOpen, activeTabName ] );
+    }, [ isOpen, /*activeTabName*/ ] );
 
 
-    const setListHandler = ( newList ) => {
+    const setListHandler = ( newList, makeResetList = true ) => {
 
         chack_list_for_uniq( newList, ( listWithUniqMessage ) => {
-            let list = get_valid_list( listWithUniqMessage );
-            setList( list );
+            let newList = get_valid_list( listWithUniqMessage );
+            if( makeResetList ){
+                setList( newList );
+            }else{
+                let arr = [ ...list, ...newList ];
+                let arr_sort = arr.sort( ( a, b ) => {
+                    if( a.foreign > b.foreign ){
+                        return 1;
+                    }else{
+                        return -1;
+                    };
+
+                } );
+                setList( arr_sort );
+            };
+            
         } );
     }
 
-    const switchLoadingMethod = ( tab ) => {
-        let result = '';
+    // const switchLoadingMethod = ( tab ) => {  Не удалять, рабочий код!!!!
+    //     let result = '';
 
-        switch( tab ){
-            case 'from_file':
-                result = (
-                    <AWGLoadingFromFile
-                        setListHandler = { setListHandler }
-                    />);
-                    break;
+    //     switch( tab ){
+    //         case 'from_file':
+    //             result = (
+    //                 <AWGLoadingFromFile
+    //                     setListHandler = { setListHandler }
+    //                 />);
+    //                 break;
 
-            case 'from_text':
-                result = (
-                    <AWGLoadingFromText
-                        setListHandler = { setListHandler }
-                    />);
-                    break;
-        };
-
-
-        return result;
-
-    }
+    //         case 'from_text':
+    //             result = (
+    //                 <AWGLoadingFromText
+    //                     setListHandler = { setListHandler }
+    //                 />);
+    //                 break;
+    //     };
 
 
+    //     return result;
+
+    // }
 
     return (
         <div className = 'AWGComponent'>
 
-            <div className = 'AWGC_topButtons'>
+            {/* <div className = 'AWGC_topButtons'>
+
+                Не удалять, рабочий код!!!!
 
                 <TabsButtons 
                     activeTabName = { activeTabName }
                     setActiveTabName = { setActiveTabName }
                 />
-            </div>
+            </div> */}
 
             <div className = 'AWGC_loadingMethod'>
-                { switchLoadingMethod( activeTabName ) }
+                {/* { switchLoadingMethod( activeTabName ) }   Не удалять, рабочий код!!!! */}
+
+                 <AWGLoadingFromFile
+                    isOpen = { isOpen }
+                    setListHandler = { setListHandler }
+                />
             </div>
 
             <AWGWordsSelectedList
@@ -108,13 +128,13 @@ const AWGComponentComponent = ( props ) => {
 
 export function AWGComponent( props ){
 
-    // const wordsSelectedList = useSelector( wordsSelectedListSlice );
+    const wordsSelectedList = useSelector( wordsSelectedListSlice );
     const dispatch = useDispatch();
 
     return (
         <AWGComponentComponent
             { ...props }
-            // newWordContainerIsOpen = { wordEdit.newWordContainerIsOpen }
+            list = { wordsSelectedList.list }
             setList = { ( val ) => { dispatch( setList( val ) ) } }
             clearAll = { ( val ) => { dispatch( clearAll( val ) ) } }
 

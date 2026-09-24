@@ -47,8 +47,11 @@ const AWGWordsSelectedListComponent = ( props ) => {
                 ru,
                 transcription,
                 topic_id,
+                topic_name,
                 message,
             } = item;
+
+            // console.dir( item );
 
 
             return (
@@ -63,6 +66,7 @@ const AWGWordsSelectedListComponent = ( props ) => {
                     transcription =     { transcription }
                     message = { message }
                     topic_id = { topic_id }
+                    topic_name = { topic_name }
 
                     // list =     { list }
                     // setList =     { setList }

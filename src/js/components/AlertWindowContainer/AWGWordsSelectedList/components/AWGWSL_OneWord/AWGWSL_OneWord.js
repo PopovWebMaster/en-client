@@ -23,6 +23,7 @@ const AWGWSL_OneWordComponent = ( props ) => {
         id,
         part_of_speech_id,
         topic_id,
+        topic_name,
         ru,
         transcription,
         message = '',
@@ -41,7 +42,11 @@ const AWGWSL_OneWordComponent = ( props ) => {
 
     useEffect( () => {
         let name = '(Пусто)'
-        if( topic_id !== null ){
+        if( topic_id === null ){
+            if( topic_name !== '' ){
+                name = topic_name;
+            };
+        }else{
             if( topicsListById[ topic_id ] ){
                 name = topicsListById[ topic_id ].name;
             };

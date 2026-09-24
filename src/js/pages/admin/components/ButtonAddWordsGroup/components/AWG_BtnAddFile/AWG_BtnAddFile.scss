@@ -1,0 +1,26 @@
+.AWGLoadingFromFile_btn{
+    font-size: 0.8em;
+    padding: 0.3em 1em;
+    border: 1px solid #cfc0c0;
+    border-radius: .1em;
+    background-color: #e9e9e9;
+    color: #323233;
+    cursor: pointer;
+    user-select: none;
+    font-family: Trebuchet MS, Helvetica, sans-serif;
+    margin: 0.3em 0.5em;
+}
+.AWGLoadingFromFile_btn:hover{
+    background-color: #ffffff;
+    border: 1px solid #818181;
+    color: #272727;
+}
+
+.AWGLoadingFromFile_btn:active{
+    background-color: #ffffff;
+    border: 1px solid #818181;
+    color: #be5757;
+}
+.AWG_hiddenInput{
+    display: none;
+}

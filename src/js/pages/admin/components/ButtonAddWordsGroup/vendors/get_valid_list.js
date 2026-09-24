@@ -27,6 +27,7 @@ export const get_valid_list = ( arr ) => {
                 audio,
                 part_of_speech_id,
                 topic_id,
+                topic_name = '',
                 isSelected,
                 message,
             } = get_one_item_data( arr_sort[ i ] );
@@ -38,6 +39,7 @@ export const get_valid_list = ( arr ) => {
                 ru,
                 transcription,
                 topic_id,
+                topic_name,
                 message,
             });
 

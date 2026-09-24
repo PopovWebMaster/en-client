@@ -11,6 +11,7 @@ export class OneWordClass {
             ru = '',
             transcription = '',
             topic_id = null,
+            topic_name = '',
             message = '',
 
 
@@ -26,6 +27,7 @@ export class OneWordClass {
         this.ru =                   ru;
         this.transcription =        transcription;
         this.topic_id =             topic_id;
+        this.topic_name =           topic_name,
         this.message =              message;
 
         this.GetData = this.GetData.bind( this );
@@ -63,6 +65,7 @@ export class OneWordClass {
             ru:                 this.ru,
             transcription:      this.transcription,
             topic_id:           this.topic_id,
+            topic_name:         this.topic_name,
             message:            this.message,
             audio:              this.audio,
         };
