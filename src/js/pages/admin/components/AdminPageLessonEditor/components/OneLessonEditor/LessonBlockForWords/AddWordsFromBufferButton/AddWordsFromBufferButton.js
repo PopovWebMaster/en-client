@@ -56,7 +56,7 @@ const AddWordsFromBufferButtonComponent = ( props ) => {
                 icon = { 'icon-shuffle' }
                 click = { click }
                 colorStyle = { 'blue' }
-                title = 'Пемеместить из буфера'
+                title = 'Взять из буфера'
             />
 
 

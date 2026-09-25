@@ -8,8 +8,8 @@ export const get_list_from_text = ( text ) => {
         remainder: '',
     };
 
-    console.dir( 'text' );
-    console.dir( text );
+    // console.dir( 'text' );
+    // console.dir( text );
 
 
     let arr = text.split( '\n' );
@@ -64,8 +64,8 @@ export const get_list_from_text = ( text ) => {
 
     }
 
-    console.dir( 'result' );
-    console.dir( result );
+    // console.dir( 'result' );
+    // console.dir( result );
 
     return result;
 

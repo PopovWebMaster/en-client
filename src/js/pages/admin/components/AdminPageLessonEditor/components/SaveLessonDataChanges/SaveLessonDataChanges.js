@@ -27,6 +27,8 @@ const SaveLessonDataChangesComponent = ( props ) => {
         setCurrentLessonIsChanged,
         setWordListIsChanged,
 
+        commandToSaveShanges,
+
     } = props;
 
   
@@ -48,12 +50,17 @@ const SaveLessonDataChangesComponent = ( props ) => {
         };
         
         return () => {
-            if( currentLessonIsChanged || wordListIsChanged ){
+            // if( currentLessonIsChanged || wordListIsChanged ){
                 set_one_lesson_changes_on_server();
-            };
-
+            // };
         }
-    }, [ currentLessonIsChanged, wordListIsChanged ]);
+    }, [ /*currentLessonIsChanged, wordListIsChanged*/ ]);
+
+    useEffect( () => {
+         if( commandToSaveShanges === true ){
+            set_one_lesson_changes_on_server();
+        };
+    }, [ commandToSaveShanges ] );
   
     const click = () => {
         if( currentLessonIsChanged || wordListIsChanged ){
@@ -100,6 +107,8 @@ export function SaveLessonDataChanges( props ){
             { ...props }
             currentLessonIsChanged =    { lessons.currentLessonIsChanged }
             wordListIsChanged =         { words.wordListIsChanged }
+            commandToSaveShanges =         { words.commandToSaveShanges }
+
 
             setCurrentLessonIsChanged = { ( val ) => { dispatch( setCurrentLessonIsChanged( val ) ) } }
             setWordListIsChanged = { ( val ) => { dispatch( setWordListIsChanged( val ) ) } }

@@ -4,25 +4,18 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './AWGComponent.scss';
-
-import { selectorData as wordEditSlice } from './../../../../../../redux/admin/wordEditSlice.js';
+// import { selectorData as wordEditSlice } from './../../../../../../redux/admin/wordEditSlice.js';
 import { selectorData as wordsSelectedListSlice, setList, clearAll } from './../../../../../../redux/admin/wordsSelectedListSlice.js';
+import { setCommandToSaveShanges } from './../../../../../../redux/admin/wordsSlice.js';
 
-
-import { AWGBtnFromFile } from './../AWGBtnFromFile/AWGBtnFromFile.js';
-
+// import { AWGBtnFromFile } from './../AWGBtnFromFile/AWGBtnFromFile.js';
 import { get_valid_list } from './../../vendors/get_valid_list.js';
-
-import { TabsButtons } from './../TabsButtons/TabsButtons.js';
-
-import { AWGLoadingFromText } from './../AWGLoadingFromText/AWGLoadingFromText.js';
+// import { TabsButtons } from './../TabsButtons/TabsButtons.js';
+// import { AWGLoadingFromText } from './../AWGLoadingFromText/AWGLoadingFromText.js';
 import { AWGLoadingFromFile } from './../AWGLoadingFromFile/AWGLoadingFromFile.js';
-
 import { chack_list_for_uniq } from './../../vendors/chack_list_for_uniq.js';
-
 import { AWGWordsSelectedList } from './../../../../../../components/AlertWindowContainer/AWGWordsSelectedList/AWGWordsSelectedList.js';
-
-
+import { AWG_BtnSend } from './../AWG_BtnSend/AWG_BtnSend.js';
 
 const AWGComponentComponent = ( props ) => {
 
@@ -32,6 +25,7 @@ const AWGComponentComponent = ( props ) => {
         list,
         setList,
         clearAll,
+        setCommandToSaveShanges,
 
     } = props;
     
@@ -40,6 +34,10 @@ const AWGComponentComponent = ( props ) => {
 
     useEffect( () => {
         clearAll();
+
+        if( isOpen ){
+            setCommandToSaveShanges( true );
+        }
     }, [ isOpen, /*activeTabName*/ ] );
 
 
@@ -116,6 +114,8 @@ const AWGComponentComponent = ( props ) => {
             />
 
             <div className = 'AWGC_btnSend'>
+
+                <AWG_BtnSend />
                 
             </div>
 
@@ -137,6 +137,9 @@ export function AWGComponent( props ){
             list = { wordsSelectedList.list }
             setList = { ( val ) => { dispatch( setList( val ) ) } }
             clearAll = { ( val ) => { dispatch( clearAll( val ) ) } }
+
+            setCommandToSaveShanges = { ( val ) => { dispatch( setCommandToSaveShanges( val ) ) } }
+
 
         />
     );

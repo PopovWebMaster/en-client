@@ -4,19 +4,20 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import './SaveWordsChanges.scss';
-import { selectorData as wordsSlice, setWordListIsChanged } from './../../../../../../redux/admin/wordsSlice.js';
+import { selectorData as wordsSlice, setWordListIsChanged, setCommandToSaveShanges } from './../../../../../../redux/admin/wordsSlice.js';
 import { SaveChangesButton } from './../../../SaveChangesButton/SaveChangesButton.js';
 
 import { save_word_list_changes_on_server } from './../../../../../../helpers/save_word_list_changes_on_server.js';
 import { set_word_list_to_store } from './../../../../../../helpers/set_word_list_to_store.js';
-
-
 
 const SaveWordsChangesComponent = ( props ) => {
 
     let {
         wordListIsChanged,
         setWordListIsChanged,
+
+        commandToSaveShanges,
+        // setCommandToSaveShanges,
 
     } = props;
     let [ isWaiting, setIsWaiting ] = useState( false );
@@ -36,12 +37,16 @@ const SaveWordsChangesComponent = ( props ) => {
         };
         
         return () => {
-            if( wordListIsChanged ){
-                save_word_list_changes_on_server();
-            };
-
+            save_word_list_changes_on_server();
         }
-    }, [ wordListIsChanged ]);
+    }, [ ]);
+
+
+    useEffect( () => {
+        if( commandToSaveShanges === true ){
+            save_word_list_changes_on_server();
+        };
+    }, [ commandToSaveShanges ]);
   
     const click = () => {
         if( wordListIsChanged ){
@@ -81,7 +86,13 @@ export function SaveWordsChanges( props ){
         <SaveWordsChangesComponent
             { ...props }
             wordListIsChanged = { words.wordListIsChanged }
+            commandToSaveShanges = { words.commandToSaveShanges }
+
             setWordListIsChanged = { ( val ) => { dispatch( setWordListIsChanged( val ) ) } }
+            setCommandToSaveShanges = { ( val ) => { dispatch( setCommandToSaveShanges( val ) ) } }
+
+
+            
 
         />
     );

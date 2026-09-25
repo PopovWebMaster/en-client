@@ -4,6 +4,8 @@ import store from './../redux/admin/store.js';
 import { send_request_to_server } from './send_request_to_server.js';
 
 import { setCurrentLessonIsChanged } from './../redux/admin/lessonsSlice.js';
+import { setCommandToSaveShanges } from './../redux/admin/wordsSlice.js';
+
 
 export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
 
@@ -21,42 +23,50 @@ export const set_one_lesson_changes_on_server = ( callback = () => {} ) => {
         currentPageTitle,
         currentLessonIsPaid,
     } = lessons;
-    let { wordList } = words;
+    let { wordList, wordListIsChanged } = words;
+    let { currentLessonIsChanged } = lessons
 
-    send_request_to_server({
-        route: 'admin/save-one-lesson-changes',
-        data: {
-            pageTitle:          currentPageTitle,
-            pageDescription:    currentPageDescription,
-            pageKeyWords:       currentPageKeyWords,
-            pageText:           currentPageText,
+    if( currentLessonIsChanged || wordListIsChanged ){
 
-            lessonPhrasesList:  currentLessonPhrasesList,
-            lessonTitle:        currentLessonTitle,
-            lessonDescription:  currentLessonDescription,
-            lessonLevelName:    currentLessonLevelName,
-            lessonIsActive:     currentLessonIsActive,
-            lessonOrder:        currentLessonOrder,
-            lessonIsPaid:       currentLessonIsPaid,
-            wordList: wordList,
+        store.dispatch( setCommandToSaveShanges( false ) );
 
+        send_request_to_server({
+            route: 'admin/save-one-lesson-changes',
+            data: {
+                pageTitle:          currentPageTitle,
+                pageDescription:    currentPageDescription,
+                pageKeyWords:       currentPageKeyWords,
+                pageText:           currentPageText,
+
+                lessonPhrasesList:  currentLessonPhrasesList,
+                lessonTitle:        currentLessonTitle,
+                lessonDescription:  currentLessonDescription,
+                lessonLevelName:    currentLessonLevelName,
+                lessonIsActive:     currentLessonIsActive,
+                lessonOrder:        currentLessonOrder,
+                lessonIsPaid:       currentLessonIsPaid,
+                wordList: wordList,
+
+                
+            },
+            addKeyName: true,
+            addLessonId: true,
             
-        },
-        addKeyName: true,
-        addLessonId: true,
-        
-        successCallback: ( resp ) => {
-            console.dir( 'resp <<<<' );
-            console.dir( resp );
+            successCallback: ( resp ) => {
+                console.dir( 'resp <<<<' );
+                console.dir( resp );
 
-            callback( resp );
+                callback( resp );
 
-            if( resp.ok ){
-                store.dispatch( setCurrentLessonIsChanged( false ) );
-            };
+                if( resp.ok ){
+                    store.dispatch( setCurrentLessonIsChanged( false ) );
+                };
 
 
-        },
-    }, true );
+            },
+        }, true );
+    }
+
+    
 
 };
