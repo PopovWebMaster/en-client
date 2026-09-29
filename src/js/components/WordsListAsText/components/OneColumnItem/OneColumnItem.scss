@@ -25,6 +25,7 @@
             border-width: 0.36em;
             border-style: solid;
             transition: opacity 0.3s linear 0.3s;
+            opacity: 0;
         }
     }
 
@@ -57,6 +58,8 @@
 
         transition: opacity 0.3s linear 0.3s;
 
+        opacity: 0;
+
 
     }
 
@@ -68,12 +71,12 @@
 .WLAT_OneRowItem:hover{
     >.WLAT_ORI_hiddenLang{
         display: inline-block;
-        opacity: 0;
+        // opacity: 0;
     }
     >.WLAT_ORI_visibleLang{
         >.WLAT_ORI_hiddenLang_triangle{
             display: inline-block;
-            opacity: 0;
+            // opacity: 0;
             
         }
     }

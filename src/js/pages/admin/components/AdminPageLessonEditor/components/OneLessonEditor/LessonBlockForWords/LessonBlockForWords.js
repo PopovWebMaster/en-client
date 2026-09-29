@@ -20,6 +20,7 @@ import { AddWordsFromBufferButton } from './AddWordsFromBufferButton/AddWordsFro
 
 // import { ButtonDownloadWordsGroupe } from './../../../../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
 import { ButtonAddWordsGroup } from './../../../../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
+import { ButtonWordsAsText } from './../../../../ButtonWordsAsText/ButtonWordsAsText.js';
 
 // import { WordsCount } from './../WordsCount/WordsCount.js';
 // import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
@@ -64,7 +65,8 @@ const LessonBlockForWordsComponent = ( props ) => {
 
 
                 </div>
-                {/* <ButtonDownloadWordsGroupe /> */}
+                
+                <ButtonWordsAsText />
                 <ButtonAddWordsGroup />
                 <AddNewWord />
                 <AddWordsFromBufferButton />

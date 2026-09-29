@@ -13,6 +13,7 @@ const AWInputTextComponent = ( props ) => {
         title,
         value,
         onChange,
+        style = {},
 
         max = 255,
         min = 0,
@@ -36,6 +37,7 @@ const AWInputTextComponent = ( props ) => {
 
             <div className = 'AW_input_text_wrap'>
                 <input 
+                    style = { style }
                     type =      'text'
                     className = 'AW_input_text'
                     maxLength = { max }

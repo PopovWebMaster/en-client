@@ -22,6 +22,7 @@ import { WordsCount } from './../WordsCount/WordsCount.js';
 import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
 import { ButtonAddWordsGroup } from './../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
 import { ButtonDownloadWordsGroupe } from './../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
+import { ButtonWordsAsText } from './../ButtonWordsAsText/ButtonWordsAsText.js';
 
 
 const AdminPageWordsComponent = ( props ) => {
@@ -48,10 +49,10 @@ const AdminPageWordsComponent = ( props ) => {
                         <WordsSortingButtons />
                     </div>
 
+                    <ButtonWordsAsText />
+
                     <ButtonDownloadWordsGroupe />
-
                     <ButtonAddWordsGroup />
-
                     <AddNewWord />
                     <SaveWordsChanges />
 

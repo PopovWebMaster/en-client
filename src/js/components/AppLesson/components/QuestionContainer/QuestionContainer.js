@@ -23,11 +23,23 @@ const QuestionContainerComponent = ( props ) => {
 
     } = props;
 
+
+    const click = ( e ) => {
+        let CN = e.target.className;
+
+        if( CN.indexOf( 'AL_lessonTask' ) === -1 ){
+            clickHandler();
+        };
+
+        // console.dir( e.target.className );
+        
+    }
+
     
 
     return (
 
-        <div className = { `AL_QuestionContainer ${isHovered? 'isHovered': ''}` } onClick = { clickHandler }>
+        <div className = { `AL_QuestionContainer ${isHovered? 'isHovered': ''}` } onClick = { click }>
             <div className = 'taskWrap'>
                 <LessonTask />
             </div>

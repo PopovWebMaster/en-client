@@ -15,6 +15,7 @@ const AWTextareaComponent = ( props ) => {
         title,
         value,
         onChange,
+        style = {},
 
         max = 255,
         min = 0,
@@ -36,6 +37,7 @@ const AWTextareaComponent = ( props ) => {
         >
             <h3>{ title }</h3>
             <textarea 
+                style = { style }
                 className = 'AW_textarea'
                 maxLength = { max }
                 minLength = { min }

@@ -21,6 +21,19 @@ export const BodyContainer = ( props ) => {
                 <header>
                     <nav>
                         <div className = 'header_left_wrap'>
+
+
+                            <a href = '#' className = 'siteLogo' >
+                                <span className = 'SL_cercle'></span>
+                                <span className = 'SL_leng'>Leng</span>
+                                <span className = 'SL_dash'>-</span>
+                                <span className = 'SL_learn'>Learn</span>
+                                <span className = 'SL_dom'>.ru</span>
+                            </a>
+
+
+
+
                             <a href = '#' className = 'isActive' >Главная</a>
                             <a href = '#' >Список уроков</a>
 
@@ -36,13 +49,15 @@ export const BodyContainer = ( props ) => {
                     <h1>Изучение английских слов самостоятельно</h1>
 
                     <div className = 'BC_CA_header_info'>
-                        <div className = 'BC_CA_header_info_levelName'>
-                            <span>A2 (Элементарный уровень)</span>
-                        </div>
+
                         <div className = 'BC_CA_header_info_wordsCount'>
                             <span>Cлов:</span>
                             <span>211</span>
                         </div>
+                        <div className = 'BC_CA_header_info_levelName'>
+                            <span>A2</span>
+                        </div>
+                        
                 
                     </div>
                     

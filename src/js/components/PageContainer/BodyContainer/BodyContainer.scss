@@ -37,6 +37,65 @@
 
                 >div{
                     padding: 0 1em;
+
+
+                    .siteLogo{
+                        font-size: 0.84em;
+                        text-decoration: none;
+                        padding: 0.3em 1em;
+                        // border: 1px solid #5cac8854;
+                        border-radius: 0.1em;
+                        margin: 0 0.5em 0 0;
+                        // color: #767070;
+
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        align-content: center;
+
+                        background-color: #fefefe;
+
+                        font-family: Verdana, Geneva, sans-serif;
+
+                        .SL_cercle{
+                            font-size: 1em;
+                            width: 0.9em;
+                            height: 0.9em;
+                            background-color: #f70303;
+                            display: inline-block;
+                            border-radius: 50%;
+                            margin: 0.1em 0.5em 0 0;
+                        }
+
+                        .SL_leng{
+                            font-size: 1em;
+                            color: #818183;
+                            // padding-bottom: 0.2em;
+                        }
+
+                        .SL_dash{
+                            font-size: 1em;
+                            color: #818183;
+                            // padding-bottom: 0.2em;
+                        }
+
+                        .SL_learn{
+                            font-size: 1em;
+                            color: #818183;
+                            // padding-bottom: 0.2em;
+                        }
+
+                        >.SL_dom{
+                            // color: #afafaf;
+                            color: #969595;
+                            // padding-bottom: 0.2em;
+                        }
+
+                        // text-shadow: -1px -1px 1px #5c9716,
+                        //     1px -1px 1px #5c9716,
+                        //     -1px 1px 1px #5c9716,
+                        //     1px 1px 1px #5c9716;
+                    }
                     >a{
                         font-size: 0.9em;
                         text-decoration: none;
@@ -50,11 +109,11 @@
                         background-color: #ffffff;
                         color: #4350ce;
                     }
-                    a:hover{
+                    a:hover:not( .siteLogo ){
                         background-color: #ffffff;
                         color: #4350ce;
                     }
-                    a:active{
+                    a:active:not( .siteLogo ){
                         // color: #4396ce;
                         color: #fa6464;
                         border-color: #dad6d6;
@@ -112,7 +171,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 align-content: center;
-                padding: 0.3em 1em;
+                padding: 0.3em 2em 0.3em 1em;
                 width: fit-content;
 
                 .BC_CA_header_info_wordsCount{
@@ -127,17 +186,15 @@
                     align-items: center;
 
                     >span{
-                        font-size: 0.8em;
+                        font-size: 0.84em;
                         font-family: Verdana, Geneva, sans-serif;
                         white-space: nowrap;
                     }
                     >span:first-child{
-                        // font-size: .84em;
                         color: #868686;
                         margin-right: 0.2em;
                     }
                     >span:last-child{
-                        // font-size: .84em;
                         color: #4e3939;
                         font-weight: bold;
                     }
@@ -150,14 +207,29 @@
                     justify-content: center;
                     align-items: center;
                     align-content: center;
-                    padding: 0 0.5em;
+                    padding: 0.3em 0.46em;
+
+                    border: 1px solid #5bb5b2;
+                    background-color: #4fd0cb;
+                    border-radius: 0.2em;
                     >span{
-                        font-size: 0.8em;
+                        font-size: 1.05em;
                         // color: #2c6ae0;
-                        color: #245cc8;
+                        color: #ffffff;
                         font-family: Verdana, Geneva, sans-serif;
                         
                         white-space: nowrap;
+                        // text-shadow: 1px 1px 0 #5bb5b2;
+
+                        text-shadow: -1px -1px 0 #5bb5b2,
+                            1px -1px 0 #5bb5b2,
+                            -1px 1px 0 #5bb5b2,
+                            1px 1px 0 #5bb5b2;
+
+
+                        // -webkit-text-stroke: 1px #0bb5ae;
+	                    // text-stroke: 1px #0bb5ae;
+                        
                     }
 
                 }
