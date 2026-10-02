@@ -32,6 +32,11 @@ export class WordsListClass {
 
         this.GetMostDifficultWord = this.GetMostDifficultWord.bind( this );
         this.AddExcept = this.AddExcept.bind( this );
+        this.GetUserLessonResult = this.GetUserLessonResult.bind( this );
+
+
+
+        
 
 
 
@@ -166,6 +171,22 @@ export class WordsListClass {
                 this.except.push( index );
             };
         };
+    }
+
+    GetUserLessonResult(){
+        let result = {
+            all: this.list.length,
+            good: 0,
+        };
+
+        for( let i = 0; i < this.list.length; i++ ){
+            let { mistakes } = this.list[ i ].GetData();
+            if( mistakes === 0 ){
+                result.good = result.good + 1;
+            };
+        };
+
+        return result;
     }
 
 

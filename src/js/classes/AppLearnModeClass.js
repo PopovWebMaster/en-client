@@ -9,11 +9,15 @@ import { CurrentWordClass } from './vendors/CurrentWordClass.js';
 import { ProgressClass } from './vendors/ProgressClass.js';
 // import { FinishMesageClass } from './vendors/FinishMessageClass.js';
 
+import { save_user_lesson_result_on_server } from './../helpers/save_user_lesson_result_on_server.js';
+
 
 export class AppLearnModeClass extends AppMetodsClass {
 
     constructor(){
         super();
+
+        this.stepNumber = null;
 
         this.FinishMessage = new FinishMessageClass;
         this.Task = new TaskClass;
@@ -24,21 +28,18 @@ export class AppLearnModeClass extends AppMetodsClass {
         // this.FinishMesage = new FinishMesageClass;
 
 
-
-
-
         this.StartForStep = this.StartForStep.bind( this );
         this.Next = this.Next.bind( this );
         this.GetCurrentWordId = this.GetCurrentWordId.bind( this );
 
-
-        
 
 
 
     }
 
     StartForStep( stepNumber ){
+
+        this.stepNumber = stepNumber;
 
         if( stepNumber === null ){
             this.Task.Clear();
@@ -86,7 +87,30 @@ export class AppLearnModeClass extends AppMetodsClass {
         this.Progress.SetToStore();
 
         let isFinish = this.Progress.GetFinishStatus();
+
+
+
+
+        let userLessonResult = this.WordsList.GetUserLessonResult();
+
+        save_user_lesson_result_on_server({
+            userResult: userLessonResult,
+            appStepName: 'foreign-ru', // ru-foreign
+        });
+
+
+
         if( isFinish ){
+
+            if( this.stepNumber === 3 ){
+                
+                console.dir( this );
+                console.dir( userLessonResult );
+            };
+
+
+
+
             this.FinishMessage.SetMessageToStore();
         };
 
