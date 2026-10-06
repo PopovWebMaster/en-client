@@ -1,0 +1,78 @@
+.AL_NextButton{
+    font-size: 1em;
+    // height: 4.8em;
+    padding: 0.5em 0;
+    width: 100%;
+    // width: 70vw;
+
+    // max-width: 40em;
+    max-width: 50em;
+
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+
+
+    .AL_NextButton_btn{
+        font-size: 0.82em;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        color: #ffffff;
+        padding: 0.42em 1em 0.42em 1.6em;
+        border-radius: 0.1em;
+        position: relative;
+        margin: 0.2em 0.3em;
+
+        cursor: pointer;
+        user-select: none;
+
+        background-color: #45b748;
+        border: 1px solid #45b748;
+
+        .AL_NextButton_btn_text{
+            font-size: 1em;
+            margin-right: 0.3em;
+        }
+        .AL_NextButton_btn_icon{
+            font-size: 1em;
+        }
+        
+    }
+
+    .AL_NextButton_btn:active{
+        >.AL_NextButton_btn_icon{
+            color: #ffdcdc;
+        }
+        >.AL_NextButton_btn_text{
+            color: #ffdcdc;
+        }
+    }
+
+    .AL_NextButton_btn:hover{
+        background-color: #51cf54;
+    }
+    .AL_NextButton_btn:active{
+        border: 1px solid #36a339;
+        // color: #ffdcdc;
+    }
+    .AL_NextButton_btn.AL_NextButton_btn_hover{
+        background-color: #51cf54;
+    }
+
+}
+
+@media (max-height: 430px) {
+    .AL_NextButton{
+        width: 9.4em;
+
+
+    }
+}
+

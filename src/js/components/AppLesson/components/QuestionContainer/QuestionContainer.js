@@ -27,11 +27,11 @@ const QuestionContainerComponent = ( props ) => {
     const click = ( e ) => {
         let CN = e.target.className;
 
-        if( CN.indexOf( 'AL_lessonTask' ) === -1 ){
-            clickHandler();
+        if( CN.indexOf( 'AL_lessonTask' ) === -1 ){ // тут костыли
+            if( CN !== 'text'){
+                clickHandler();
+            };
         };
-
-        // console.dir( e.target.className );
         
     }
 

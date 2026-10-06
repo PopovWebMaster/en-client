@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import './AppStep_1.scss';
 
 import { QuestionContainer } from './../QuestionContainer/QuestionContainer.js';
-import { AnswerButtons } from './../AnswerButtons/AnswerButtons.js';
+// import { AnswerButtons } from './../AnswerButtons/AnswerButtons.js';
 import { app_audio_play_random } from './../../../../helpers/app_audio_play_random.js';
 // import { set_next_current_group_index } from './../../../../helpers/set_next_current_group_index.js';
 
@@ -19,6 +19,8 @@ import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
 import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
 import { SoundAnimation } from './../../../SoundAnimation/SoundAnimation.js';
+
+import { NextButton } from './../NextButton/NextButton.js';
 
 
 const AppStep_1Component = ( props ) => {
@@ -53,9 +55,9 @@ const AppStep_1Component = ( props ) => {
         
     }, [ currentStepNomber ] );
 
-    const sound = ( e ) => {
-        play_audio( e, AppLearn.GetCurrentWordId() );
-    }
+    // const sound = ( e ) => {
+    //     play_audio( e, AppLearn.GetCurrentWordId() );
+    // }
 
     // const response = ( e ) => {
     //     play_audio( e, AppLearn.GetCurrentWordId() );
@@ -66,10 +68,10 @@ const AppStep_1Component = ( props ) => {
         AppLearn.Next( true );
     }
 
-    const next = () => {
-        AppLearn.Next( false );
+    // const next = () => {
+    //     AppLearn.Next( false );
         
-    }
+    // }
 
 
     const play_audio = ( e, wordId ) => {
@@ -137,12 +139,16 @@ const AppStep_1Component = ( props ) => {
 
             </QuestionContainer>
 
-            <AnswerButtons
+            {/* <AnswerButtons
                 clickSound = { sound }
                 // clickResponse = { response }
                 clickSuccess =  { success }
                 clickNext =     { next }
-           />
+           /> */}
+
+            <NextButton
+                clickNext =     { success }
+            />
         </AppStepContainer>
 
 

@@ -10,37 +10,32 @@ import { useSelector } from 'react-redux';
 import './AppStep_2.scss';
 
 import { QuestionContainer } from './../QuestionContainer/QuestionContainer.js';
-import { AnswerButtons } from './../AnswerButtons/AnswerButtons.js';
 import { app_audio_play_random } from './../../../../helpers/app_audio_play_random.js';
 import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
 import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
 import { SoundAnimation } from './../../../SoundAnimation/SoundAnimation.js';
 
+import { AppResponseInput } from './../AppResponseInput/AppResponseInput.js';
+
 
 const AppStep_2Component = ( props ) => {
 
     let {
         currentStepNomber,
-
-        currentLearnForeign,
         currentLearnRu,
-        currentLearnTranscription,
         currentLearnWordId,
-        currentPOSId,
-        partOfSpeechListById,
 
     } = props;
 
-    let [ isOpen, setIsOpen ] = useState( false );
     let [ runAnimation, setRunAnimation ] = useState( false );
     let [ isPlaying, setIsPlaying ] = useState( false );
-    let [ buttonsIsActive, setButtonsIsActive ] = useState( true );
 
-
-
+    let [ response, setResponse ] = useState( '' );
     
-
+    let [ answer, setAnswer ] = useState( null );
+    let [ answerIsCorrect, setAnswerIsCorrect] = useState( false );
+    let [ answerCorrect, setAnswerCorrect ] = useState( '' );
 
 
 
@@ -52,12 +47,13 @@ const AppStep_2Component = ( props ) => {
     }, [] );
 
     useEffect( () => {
-        console.dir({
-            currentStepNomber,
-            AppLearn
-        });
+
+        setResponse( '' );
+        setAnswerCorrect( currentLearnRu );
+
         if( currentStepNomber === 2 ){
             AppLearn.StartForStep( currentStepNomber );
+            setAnswer( null );
         }else{
             AppLearn = null;
         };
@@ -65,32 +61,17 @@ const AppStep_2Component = ( props ) => {
     }, [ currentStepNomber ] );
 
     useEffect( () => {
-        // app_audio_play_random( AppLearn.GetCurrentWordId() );
-        play_audio( AppLearn.GetCurrentWordId() )
-        setIsOpen( false );
+        setResponse( '' );
+        play_audio( AppLearn.GetCurrentWordId() );
+        setAnswerCorrect( currentLearnRu );
     }, [ currentLearnWordId ] );
 
-    const response = () => {
-        // app_audio_play_random( AppLearn.GetCurrentWordId() );
-        setIsOpen( true );
-    }
 
-    const success = () => {
-        AppLearn.Next( true );
-        setIsOpen( false );
-    }
-
-    const next = () => {
-        AppLearn.Next( false );
-        setIsOpen( false );
-        
-    }
 
     const play_audio = ( wordId ) => {
         if( isPlaying === false ){
             setRunAnimation( true );
             setIsPlaying( true );
-            setButtonsIsActive( false );
 
             let timerAudio = setTimeout( () => {
                 app_audio_play_random( wordId );
@@ -103,23 +84,31 @@ const AppStep_2Component = ( props ) => {
                 setRunAnimation( false );
                 setIsPlaying( false );
                 clearTimeout( timerId );
-                setButtonsIsActive( true );
             }, 2000 );
 
         };
         
     }
 
-    const getPOSName = ( pos_id ) => {
-        let result = ''
-        if( pos_id !== null ){
-            if( partOfSpeechListById[ pos_id ] ){
-                let { name } = partOfSpeechListById[ pos_id ];
-                result = (<span className = 'AL_AppStep_2_pos'>{ name }</span>);
-            };
-        }
 
-        return result;
+
+    const acceptResponse = () => {
+
+        let resp = response.trim();
+        if( resp === '' ){
+            setAnswer( '' );
+            setAnswerIsCorrect( false );
+        }else{
+            if( resp.toLowerCase() === currentLearnRu.toLowerCase() ){
+                setAnswerIsCorrect( true );
+            }else{
+                setAnswerIsCorrect( false );
+            };
+            setAnswer( resp );
+        };
+
+        AppLearn.Next( resp.toLowerCase() === answerCorrect.toLowerCase() );
+        
 
     }
     
@@ -129,38 +118,24 @@ const AppStep_2Component = ( props ) => {
         <AppStepContainer className = 'AL_AppStep_2'>
             <QuestionContainer>
 
-                <>{ isOpen? (
-                    <div className = 'AL_AppStep_2_response'>
-                        <div className = 'AL_AppStep_2_response_transcr'>
-                            <span>{ currentLearnTranscription }</span>
-                        </div>
-                        <div className = 'AL_AppStep_2_response_foreign'>
-                            <span>{ currentLearnForeign } { getPOSName( currentPOSId ) }</span>
-                        </div>
-                        <div className = 'AL_AppStep_2_response_ru'>
-                            <span>{ currentLearnRu }</span>
-                        </div>
+                <SoundAnimation
+                    runAnimation =      { runAnimation }
+                    clickHandler = { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
+                />
+                <AppResponseInput
+                    responseValue =     { response }
+                    setResponseValue =  { setResponse }
+                    placeholder =       'Ответ на русском'
+                    acceptResponse =    { acceptResponse }
+                    answer =            { answer }
+                    answerIsCorrect =   { answerIsCorrect }
+                    answerCorrect =     { answerCorrect }
 
-                    </div>
-                ): (
-                    <SoundAnimation
-                        runAnimation =      { runAnimation }
-                        clickHandler = { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
-                    />
-                ) }</>
-                
+                />
+
             
             </QuestionContainer>
 
-            <AnswerButtons
-                isActive = { buttonsIsActive }
-                clickSound =    { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
-                clickResponse = { response }
-                clickResponseUp = { () => { setIsOpen( false ) } }
-                clickSuccess =  { success }
-                clickNext =     { next }
-                response =      { true }
-            />
         </AppStepContainer>
 
 

@@ -98,7 +98,8 @@ export class AppLearnModeClass extends AppMetodsClass {
             appStepName: 'foreign-ru', // ru-foreign
         });
 
-
+        console.dir( this );
+        console.dir( userLessonResult );
 
         if( isFinish ){
 

@@ -12,8 +12,10 @@ import { QuestionContainer } from './../QuestionContainer/QuestionContainer.js';
 import { AppLearnModeClass } from './../../../../classes/AppLearnModeClass.js';
 import { AppStepContainer } from './../AppStepContainer/AppStepContainer.js';
 
-import { AppStep3Input } from './AppStep3Input/AppStep3Input.js';
-import { AppStep3ResultFeed } from './AppStep3ResultFeed/AppStep3ResultFeed.js';
+// import { AppStep3Input } from './AppStep3Input/AppStep3Input.js';
+// import { AppStep3ResultFeed } from './AppStep3ResultFeed/AppStep3ResultFeed.js';
+
+import { AppResponseInput } from './../AppResponseInput/AppResponseInput.js';
 
 
 const AppStep_3Component = ( props ) => {
@@ -66,7 +68,7 @@ const AppStep_3Component = ( props ) => {
             setAnswer( '' );
             setAnswerIsCorrect( false );
         }else{
-            if( resp === currentLearnForeign ){
+            if( resp.toLowerCase() === currentLearnForeign.toLowerCase() ){
                 setAnswerIsCorrect( true );
             }else{
                 setAnswerIsCorrect( false );
@@ -74,7 +76,7 @@ const AppStep_3Component = ( props ) => {
             setAnswer( resp );
         };
 
-        AppLearn.Next( resp === currentLearnForeign );
+        AppLearn.Next( resp.toLowerCase() === currentLearnForeign.toLowerCase() );
         
 
     }
@@ -89,7 +91,9 @@ const AppStep_3Component = ( props ) => {
                     <div className = 'AL_AppStep_3_question'>
                         <span>{ currentLearnRu }</span>
                     </div>
-                    <div className = 'AL_AppStep_3_answer'>
+
+
+                    {/* <div className = 'AL_AppStep_3_answer'>
                         <AppStep3ResultFeed
                             answer = { answer }
                             answerIsCorrect = { answerIsCorrect }
@@ -97,12 +101,23 @@ const AppStep_3Component = ( props ) => {
 
                         />
 
-                        <AppStep3Input
-                            response =      { response }
-                            setResponse =   { setResponse }
+
+
+                        <AppResponseInput
+                            responseValue = { response }
+                            setResponseValue = { setResponse }
                             acceptResponse = { acceptResponse }
                         />
-                    </div>
+                    </div> */}
+
+                    <AppResponseInput
+                        responseValue = { response }
+                        setResponseValue = { setResponse }
+                        acceptResponse = { acceptResponse }
+                        answer = { answer }
+                        answerIsCorrect = { answerIsCorrect }
+                        answerCorrect = { answerCorrect }
+                    />
                 </div>
             </QuestionContainer>
         </AppStepContainer>
