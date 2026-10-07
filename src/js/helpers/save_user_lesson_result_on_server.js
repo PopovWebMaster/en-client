@@ -1,8 +1,9 @@
 
-import store from './../redux/store.js';
+// import store from './../redux/store.js';
 
 // import { send_request_to_server } from './../helpers/send_request_to_server.js';
 import { send_request_to_server } from './send_request_to_server.js';
+import { set_user_result_to_store } from './set_user_result_to_store.js';
 
 
 export const save_user_lesson_result_on_server = ( params ) => {
@@ -13,31 +14,27 @@ export const save_user_lesson_result_on_server = ( params ) => {
 
     } = params;
 
-    if( IS_DEVELOPMENT ){
+    send_request_to_server( {
+        route: 'lessons/save-user-lesson-result',
+        data: {
+            userResult,
+        },
+        addKeyName: true,
+        addLessonId: true,
+        breakdownSending: true,
 
-        console.dir( 'params' );
-        console.dir( 'вниание, записи нет' );
-        console.dir( params );
+        successCallback: ( resp ) => {
+            // console.dir( 'resp' );
+            // console.dir( resp );
 
-    }else{
-        send_request_to_server( {
-            route: 'lessons/save-user-lesson-result',
-            data: {
-                userResult,
-                // appStepName,
-            },
-            addKeyName: true,
-            addLessonId: true,
-            breakdownSending: true,
-
-            successCallback: ( resp ) => {
-                console.dir( 'resp' );
-                console.dir( resp );
-
-                    
-            },
-        } );  
-    };
+            if( resp.ok ){
+                if( resp.userResult ){
+                    set_user_result_to_store( resp.userResult );
+                };
+            };
+                
+        },
+    } );  
 
 
 

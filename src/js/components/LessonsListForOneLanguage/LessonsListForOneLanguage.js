@@ -26,9 +26,9 @@ const LessonsListForOneLanguageComponent = ( props ) => {
 
     } = props;
 
-    // useEffect( () => {
-    //     add_event_click_to_all_lang_buttons();
-    // }, [] );
+    useEffect( () => {
+        add_event_click_to_all_lang_buttons();
+    }, [] );
 
 
     return (
@@ -53,21 +53,29 @@ const LessonsListForOneLanguageComponent = ( props ) => {
                     <div className = 'LLFOL_lesson'>
                         <h4>
                             <img src = { LANGUAGES[ language ].icon }/>
+                            <div className = 'LLFOL_lesson_name'>
+                                <span>Урок 1. Простые слова</span>
+                            </div>
+                            <div className = 'LLFOL_lesson_level_name'>
+                                <span>C2</span>
+                            </div>
+
                             <div className = 'LLFOL_lesson_word_len'>
                                 <span>слов:</span>
                                 <span>111</span>
                             </div>
-                            <div className = 'LLFOL_lesson_level_name'>
-                                <span>C2 (Профессиональный уровень)</span>
-                            </div>
-                            <div className = 'LLFOL_lesson_name'>
-                                <span>Урок 1. Простые слова</span>
-                            </div>
-
+                            
                         </h4>
-                        <p className = 'LLFOL_description'>
-                            Простые слова, дом, работа, сеья машины, поход в магазин, глаголы счастья
-                        </p>
+                        <div className = 'LLFOL_row_2'>
+                           <p className = 'LLFOL_description'>
+                                Простые слова, дом, работа, сеья машины, поход в магазин, глаголы счастья
+                            </p> 
+                            <div className = 'LLFOL_score'>
+                                <span className = 'LLFOL_score_text'>Балл за урок:</span>
+                                <span className = 'LLFOL_score_num' id = 'scoreNum'>4.2</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </a>
 
@@ -80,19 +88,23 @@ const LessonsListForOneLanguageComponent = ( props ) => {
                                 <span>Урок 1. Простые слова</span>
                             </div>
                             <div className = 'LLFOL_lesson_level_name'>
-                                <span>C2 (Профессиональный уровень)</span>
+                                <span>C2</span>
                             </div>
                             <div className = 'LLFOL_lesson_word_len'>
                                 <span>слов:</span>
                                 <span>111</span>
                             </div>
                             
-                            
-
                         </h4>
-                        <p className = 'LLFOL_description'>
-                            Простые слова, дом, работа, сеья машины, поход в магазин, глаголы счастья
-                        </p>
+                        <div className = 'LLFOL_row_2'>
+                           <p className = 'LLFOL_description'>
+                                Простые слова, дом, работа, сеья машины, поход в магазин, глаголы счастья
+                            </p> 
+                            <div className = 'LLFOL_score'>
+                                <span className = 'LLFOL_score_text'>Балл за урок:</span>
+                                <span className = 'LLFOL_score_num' id = 'scoreNum'>4.2</span>
+                            </div>
+                        </div>
                     </div>
                 </a>
 

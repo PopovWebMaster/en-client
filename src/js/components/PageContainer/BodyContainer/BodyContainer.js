@@ -49,7 +49,6 @@ export const BodyContainer = ( props ) => {
                     <h1>Изучение английских слов самостоятельно</h1>
 
                     <div className = 'BC_CA_header_info'>
-
                         <div className = 'BC_CA_header_info_wordsCount'>
                             <span>Cлов:</span>
                             <span>211</span>
@@ -57,8 +56,11 @@ export const BodyContainer = ( props ) => {
                         <div className = 'BC_CA_header_info_levelName'>
                             <span>A2</span>
                         </div>
-                        
-                
+                    </div>
+
+                    <div className = 'BC_CA_header_lesson_score'>
+                        <span className = 'BC_CA_header_lesson_score_text'>Балл за урок:</span>
+                        <span className = 'BC_CA_header_lesson_score_num' id = 'scoreNum'>4.2</span>
                     </div>
                     
                 </header>

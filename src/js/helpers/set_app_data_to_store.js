@@ -3,6 +3,8 @@
 import store from './../redux/admin/store.js';
 import storeApp from './../redux/store.js';
 import { set_part_of_speech_list_to_store } from './set_part_of_speech_list_to_store.js';
+import { set_user_result_to_store } from './set_user_result_to_store.js';
+
 import { 
     setTaskForStep_1,
     setTaskForStep_2,
@@ -19,6 +21,7 @@ import {
     setRepeatCircleLength,
     setCorrectAnswersLength,
 } from './../redux/settingsSlice.js';
+
 
 
 export const set_app_data_to_store = ( appData ) => {
@@ -38,10 +41,11 @@ export const set_app_data_to_store = ( appData ) => {
         repeatCircleLength,
         correctAnswersLength,
         partOfSpeechList,
+        userResult,
 
     } = appData;
-    // console.dir( 'appData' );
-    // console.dir( appData );
+    console.dir( 'appData' );
+    console.dir( appData );
 
     let { userInfo } = store.getState();
     let { user_position } = userInfo;
@@ -84,6 +88,7 @@ export const set_app_data_to_store = ( appData ) => {
     };
 
     set_part_of_speech_list_to_store( partOfSpeechList );
+    set_user_result_to_store( userResult );
     
 
 

@@ -87,30 +87,15 @@ export class AppLearnModeClass extends AppMetodsClass {
         this.Progress.SetToStore();
 
         let isFinish = this.Progress.GetFinishStatus();
-
-
-
-
-        let userLessonResult = this.WordsList.GetUserLessonResult();
-
-        save_user_lesson_result_on_server({
-            userResult: userLessonResult,
-            appStepName: 'foreign-ru', // ru-foreign
-        });
-
-        console.dir( this );
-        console.dir( userLessonResult );
-
         if( isFinish ){
+            this.WordsList.SetAppUserResultToStore( this.stepNumber );
 
+            this.WordsList.GetUserLessonResult();
             if( this.stepNumber === 3 ){
-                
-                console.dir( this );
-                console.dir( userLessonResult );
+                save_user_lesson_result_on_server({
+                    userResult: this.WordsList.GetUserLessonResult(),
+                });
             };
-
-
-
 
             this.FinishMessage.SetMessageToStore();
         };

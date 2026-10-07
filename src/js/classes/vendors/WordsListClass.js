@@ -1,6 +1,11 @@
 
 import store from './../../redux/store.js';
-import { setLearnWordsList, setNextLearnWordsIndex } from './../../redux/appDataSlice.js';
+import { 
+    setLearnWordsList,
+    setNextLearnWordsIndex,
+    setAppResultForeignRu,
+    setAppResultRuForeign,
+} from './../../redux/appDataSlice.js';
 import { get_shuffle_array_from_array } from './../../helpers/get_shuffle_array_from_array.js';
 import { OneWordClass } from './OneWordClass.js';
 
@@ -33,6 +38,12 @@ export class WordsListClass {
         this.GetMostDifficultWord = this.GetMostDifficultWord.bind( this );
         this.AddExcept = this.AddExcept.bind( this );
         this.GetUserLessonResult = this.GetUserLessonResult.bind( this );
+        this.SetAppUserResultToStore = this.SetAppUserResultToStore.bind( this );
+        this.GetAppUserResultForOneStep = this.GetAppUserResultForOneStep.bind( this );
+
+
+        
+
 
 
 
@@ -50,6 +61,8 @@ export class WordsListClass {
     Clear(){
         store.dispatch( setLearnWordsList( [] ) );
         store.dispatch( setNextLearnWordsIndex( 0 ) );
+        store.dispatch( setAppResultForeignRu( {} ) );
+        store.dispatch( setAppResultRuForeign( {} ) );
     }
 
     Create(){
@@ -178,14 +191,50 @@ export class WordsListClass {
             all: this.list.length,
             good: 0,
         };
+        let { appData } = store.getState();
+        let {
+            appResultForeignRu,
+            appResultRuForeign,
+        } = appData;
 
+        let idList = [];
+
+        console.dir({
+            appResultForeignRu,
+            appResultRuForeign,
+            idList,
+        });
+            
         for( let i = 0; i < this.list.length; i++ ){
-            let { mistakes } = this.list[ i ].GetData();
-            if( mistakes === 0 ){
-                result.good = result.good + 1;
+            let { wordId } = this.list[ i ].GetData();
+            idList.push( wordId );
+            if( appResultForeignRu[ wordId ] && appResultRuForeign[ wordId ] ){
+                if( appResultForeignRu[ wordId ] === true && appResultRuForeign[ wordId ] === true ){
+                    result.good = result.good + 1;
+                };
             };
         };
 
+        return result;
+    }
+
+    SetAppUserResultToStore( stepNumber ){
+        if( stepNumber === 2 ){
+            let obj = this.GetAppUserResultForOneStep();
+            store.dispatch( setAppResultForeignRu( obj ) );
+
+        }else if( stepNumber === 3 ){
+            let obj = this.GetAppUserResultForOneStep();
+            store.dispatch( setAppResultRuForeign( obj ) );
+        };
+    }
+
+    GetAppUserResultForOneStep(){
+        let result = {};
+        for( let i = 0; i < this.list.length; i++ ){
+            let { mistakes, wordId } = this.list[ i ].GetData();
+            result[ wordId ] = mistakes === 0;
+        };
         return result;
     }
 

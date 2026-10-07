@@ -14,21 +14,18 @@ import { AppLesson } from './../../components/AppLesson/AppLesson.js';
 console.dir('lesson');
 console.log( 'HOST_TO_API_SERVER', HOST_TO_API_SERVER );
 
-const container = document.getElementById('appDev');
-if( container ){
-    const root = createRoot(container);
-
-    root.render(
-        <Provider store={store}>
-            {/* <BrowserRouter> */}
-                <LessonPageApp />
-            {/* </BrowserRouter> */}
-        </Provider>
-    );
-};
 
 if( IS_DEVELOPMENT ){
+    const container = document.getElementById('appDev');
+    if( container ){
+        const root = createRoot(container);
 
+        root.render(
+            <Provider store={store}>
+                <LessonPageApp />
+            </Provider>
+        );
+    };
 }else{
     const container = document.getElementById('appPlace');
     if( container ){

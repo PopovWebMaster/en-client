@@ -30,6 +30,13 @@ export const appDataSlice = createSlice({
 
         learnIsStarted: false,// !!!!!!!!!
 
+        appResultForeignRu: {},
+        appResultRuForeign: {},
+
+        userResult: [],
+        userResultByLessonId: {},
+
+
 
     },
 
@@ -102,6 +109,26 @@ export const appDataSlice = createSlice({
         },
 
 
+
+        setAppResultForeignRu: ( state, action ) => { 
+            state.appResultForeignRu =  action.payload;
+        },
+
+        setAppResultRuForeign: ( state, action ) => { 
+            state.appResultRuForeign =  action.payload;
+        },
+
+
+        setUserResult: ( state, action ) => { 
+            state.userResult =  action.payload;
+        },
+        setUserResultByLessonId: ( state, action ) => { 
+            state.userResultByLessonId =  action.payload;
+        },
+
+
+
+
         
 
         
@@ -130,6 +157,12 @@ export const {
     setCurrentLearnTranscription,
     setLearnIsStarted,
     setCurrentPOSId,
+    setAppResultForeignRu,
+    setAppResultRuForeign,
+
+    setUserResult,
+    setUserResultByLessonId,
+
 
 
    
@@ -162,11 +195,18 @@ export const selectorData = ( state ) => {
         currentLearnTranscription: state.appData.currentLearnTranscription,
         learnIsStarted: state.appData.learnIsStarted,
 
+        appResultForeignRu: state.appData.appResultForeignRu,
+        appResultRuForeign: state.appData.appResultRuForeign,
+
+        userResult: state.appData.userResult,
+        userResultByLessonId: state.appData.userResultByLessonId,
+
+
+
 
         
 
-
-
+        
 
 
 
