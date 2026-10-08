@@ -67,7 +67,7 @@ const LessonsListForOneLanguageComponent = ( props ) => {
                             
                         </h4>
                         <div className = 'LLFOL_row_2'>
-                           <p className = 'LLFOL_description'>
+                            <p className = 'LLFOL_description'>
                                 Простые слова, дом, работа, сеья машины, поход в магазин, глаголы счастья
                             </p> 
                             <div className = 'LLFOL_score'>

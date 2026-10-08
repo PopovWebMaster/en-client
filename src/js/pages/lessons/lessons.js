@@ -11,7 +11,6 @@ import { LessonsPageApp } from './components/LessonsPageApp/LessonsPageApp.js';
 
 import { add_event_click_to_all_lang_buttons } from './../../components/LessonsListForOneLanguage/add_event_click_to_all_lang_buttons.js';
 
-
 console.dir('lessons');
 console.log( 'HOST_TO_API_SERVER', HOST_TO_API_SERVER );
 

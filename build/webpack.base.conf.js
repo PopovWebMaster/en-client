@@ -40,6 +40,12 @@ module.exports = {
     
     module: {
         rules: [
+        // {
+        //     test: /\.ts$/,
+        //     use: 'ts-loader',
+        //     loader: 'babel-loader',
+        //     exclude: '/node_modules/',
+        // },
         {
             test: /\.js$/,
             loader: 'babel-loader',
@@ -100,6 +106,9 @@ module.exports = {
         
         ]
     },
+    // resolve: {
+    //     extensions: ['.ts', '.js'],
+    // },
     plugins: [
 
         new MiniCssExtractPlugin({
