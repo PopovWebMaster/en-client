@@ -36,6 +36,8 @@ export const appDataSlice = createSlice({
         userResult: [],
         userResultByLessonId: {},
 
+        userSuccessList: [],
+
 
 
     },
@@ -127,6 +129,9 @@ export const appDataSlice = createSlice({
         },
 
 
+        setUserSuccessList: ( state, action ) => { 
+            state.userSuccessList =  action.payload;
+        },
 
 
         
@@ -162,6 +167,7 @@ export const {
 
     setUserResult,
     setUserResultByLessonId,
+    setUserSuccessList,
 
 
 
@@ -200,6 +206,8 @@ export const selectorData = ( state ) => {
 
         userResult: state.appData.userResult,
         userResultByLessonId: state.appData.userResultByLessonId,
+        userSuccessList: state.appData.userSuccessList,
+
 
 
 

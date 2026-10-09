@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
@@ -14,6 +14,8 @@ import { selectorData as userInfoSlice } from "../../../../redux/userInfoSlice.j
 import { PageContainer } from './../../../../components/PageContainer/PageContainer.js';
 
 import { LessonsListOfAllLanguages } from './../../../../components/LessonsListOfAllLanguages/LessonsListOfAllLanguages.js';
+
+import { add_MyLessonsSuccess_into_DOM } from './../../../../components/MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
  
 
 const HomePageAppComponent = ( props ) => {
@@ -22,6 +24,10 @@ const HomePageAppComponent = ( props ) => {
         isAuth,
         user_position,
     } = props;
+
+    useEffect( () => {
+        add_MyLessonsSuccess_into_DOM()
+    }, [] );
 
 
 

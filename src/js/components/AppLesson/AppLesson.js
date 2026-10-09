@@ -20,6 +20,7 @@ import { ProgressScale } from './components/ProgressScale/ProgressScale.js';
 import { SetAppDataToStore } from './../SetAppDataToStore/SetAppDataToStore.js';
 import { SetCurrentStepDataToStore } from './../SetCurrentStepDataToStore/SetCurrentStepDataToStore.js';
 import { AppDisplay } from './components/AppDisplay/AppDisplay.js';
+import { add_MyLessonsSuccess_into_DOM } from './../MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
 
 
 const AppLessonComponent = ( props ) => {
@@ -31,6 +32,7 @@ const AppLessonComponent = ( props ) => {
 
     useEffect( () => {
         add_WordsListAsText_to_DOM();
+        add_MyLessonsSuccess_into_DOM();
     }, [] );
 
 

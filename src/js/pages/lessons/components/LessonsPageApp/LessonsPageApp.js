@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 // import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
@@ -11,6 +11,7 @@ import { PageContainer } from './../../../../components/PageContainer/PageContai
 
 import { LessonsListOfAllLanguages } from './../../../../components/LessonsListOfAllLanguages/LessonsListOfAllLanguages.js';
 
+import { add_MyLessonsSuccess_into_DOM } from './../../../../components/MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
  
 const LessonsPageAppComponent = ( props ) => {
 
@@ -18,6 +19,10 @@ const LessonsPageAppComponent = ( props ) => {
         isAuth,
         user_position,
     } = props;
+
+    useEffect( () => {
+        add_MyLessonsSuccess_into_DOM();
+    }, [] );
 
     
     const click = () => {

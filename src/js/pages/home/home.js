@@ -13,6 +13,8 @@ import { HomePageApp } from './components/HomePageApp/HomePageApp.js';
 
 import { add_event_click_to_all_lang_buttons } from './../../components/LessonsListForOneLanguage/add_event_click_to_all_lang_buttons.js';
 
+import { add_MyLessonsSuccess_into_DOM } from './../../components/MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
+
 
 console.dir('home');
 console.log( 'HOST_TO_API_SERVER', HOST_TO_API_SERVER );
@@ -32,5 +34,6 @@ if( container ){
 
 if( IS_DEVELOPMENT === false ){
     add_event_click_to_all_lang_buttons();
+    add_MyLessonsSuccess_into_DOM();
 };
 

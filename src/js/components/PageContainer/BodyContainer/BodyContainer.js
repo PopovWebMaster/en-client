@@ -8,7 +8,7 @@ import './bс_media_screen.scss';
 
 import { ScrollContainer } from './../../ScrollContainer/ScrollContainer.js';
 
-import { MySuccessBtn } from './../MySuccessBtn/MySuccessBtn.js';
+// import { MySuccessBtn } from './../MySuccessBtn/MySuccessBtn.js';
 
 export const BodyContainer = ( props ) => {
 
@@ -41,9 +41,15 @@ export const BodyContainer = ( props ) => {
 
                         </div>
 
+                        <div id = 'mySuccess'>
+                            
+                        </div>
+
                         <div className = 'header_right_wrap'>
 
-                            <MySuccessBtn />
+                            {/* <MySuccessBtn /> */}
+
+                            
 
 
 
