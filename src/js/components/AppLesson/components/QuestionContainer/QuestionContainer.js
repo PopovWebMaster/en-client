@@ -25,13 +25,13 @@ const QuestionContainerComponent = ( props ) => {
 
 
     const click = ( e ) => {
-        let CN = e.target.className;
+        // let CN = e.target.className;
 
-        if( CN.indexOf( 'AL_lessonTask' ) === -1 ){ // тут костыли
-            if( CN !== 'text'){
+        // if( CN.indexOf( 'AL_lessonTask' ) === -1 ){ // тут костыли
+        //     if( CN !== 'text'){
                 clickHandler();
-            };
-        };
+        //     };
+        // };
         
     }
 
@@ -39,12 +39,12 @@ const QuestionContainerComponent = ( props ) => {
 
     return (
 
-        <div className = { `AL_QuestionContainer ${isHovered? 'isHovered': ''}` } onClick = { click }>
+        <div className = { `AL_QuestionContainer ${isHovered? 'isHovered': ''}` }>
             <div className = 'taskWrap'>
                 <LessonTask />
             </div>
 
-            <div className = 'AL_AppStep_body_wrap'>
+            <div className = 'AL_AppStep_body_wrap' onClick = { click }>
                 { children }
             </div>
 

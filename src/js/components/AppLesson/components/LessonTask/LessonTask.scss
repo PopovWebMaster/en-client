@@ -1,175 +1,138 @@
+$anim_speed: 0.2s;
+
 .AL_lessonTask_wrap, #AL_lessonTask{
     font-size: 1em;
-    position: relative;
+    // position: relative;
     cursor: pointer;
     width: 100%;
-    // background-color: rgba(255, 0, 0, 0.5);
-
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;
-    
+
 
     .AL_lessonTask{
         font-size: 0.78em;
         flex-grow: 0;
-        background-color: #ffffff;
-        margin: 0.4em 0;
-        padding: 0.4em 0.9em;
+        background-color: #63cea2;
+        padding: 0.4em 0;
         border: 1px solid #84d5b3;
+
         border-radius: 0.1em;
         z-index: 2000;
 
         position: relative;
         height: fit-content;
-        // max-width: 100%;
 
-        display: flex;
-        // flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        align-content: center;
+        width: 8em;
 
-        // width: 70vw;
-        // max-width: 40em;
+        height: 1.4em;
+        overflow: hidden;
 
-        width: calc( 100% - 2em );
+        z-index: 2100;
+        transition: background-color $anim_speed ease-in-out, width $anim_speed ease-in-out $anim_speed, height $anim_speed ease-in-out ;
 
-        >span{
-            line-height: 1.2em;
-        }
-
-
-        .AL_lessonTask_text{
-            font-size: 0.9em;
-            color: #494949;
-            display: inline-block;
-
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-
-            // width: 45vw;
-            max-width: 100%;
-            flex-grow: 1;
-
-            .AL_lessonTask_title{
-                padding: 0 0.5em;
-                color: #ff3c3c;
-                
-            }
-
-        }
-
-        .AL_lessonTask_btn{
-            font-size: 0.8em;
-            flex-grow: 0;
-            
-
+        .AL_LT_btn{
+            font-size: 1em;
+            width: 100%;
+            // height: 1em;
             display: flex;
-            justify-content: flex-end;
+            justify-content: space-between;
             align-items: center;
             align-content: center;
+            height: 1.4em;
+            
+            .AL_LT_btn_text{
+                font-size: 0.94em;
+                color: #ffffff;
+                padding: 0 0 0 1em;
+            }
+            .AL_LT_btn_text.AL_LT_btn_text_show{
+                color: #3d8b6b;
+                transition: color $anim_speed ease-in-out;
+            }
 
-
-            >.icon{
+            .AL_LT_btn_icon{
                 font-size: 1em;
-                color: #1059b8;
-            }
-            >.text{
-                font-size: 1em;
-                color: #1059b8;
-                margin-left: 0.5em;
-            }
+                padding: 0.1em;
 
+                .AL_LT_btn_icon_arr{
+                    font-size: 1em;
+                    color: #ffffff;
+                    padding: 0 0.5em 0 0;
+                }
+                .AL_LT_btn_icon_arr.AL_LT_btn_icon_arr_show{
+                    display: none;
+                }
+
+                .AL_LT_btn_icon_cross{
+                    font-size: 1.1em;
+                    // border: 1px solid #34343400;
+                    border-radius: 0.1em;
+                    // margin: 0.2em 0.9em;
+                    padding: 0.3em 0.3em 0.4em 0.3em;
+                    color: #838383;
+                    background-color: #ededed;
+                    display: none;
+                    opacity: 0;
+                    transition: opacity $anim_speed ease-in-out 1s;
+                }
+                .AL_LT_btn_icon_cross:hover{
+                    color: #6e6e6e;
+                    background-color: #e0e0e0;
+                }
+                .AL_LT_btn_icon_cross.AL_LT_btn_icon_cross_show{
+                    display: inline;
+                    opacity: 1;
+                    transition: opacity $anim_speed ease-in-out 1s;
+                }
+            }
         }
 
-        .AL_lessonTask_btn:hover{
-            >.icon{
-                color: #07418d;
-            }
-            >.text{
-                color: #07418d;
-            }
-        }
-
-
-        
-
-    }
-
-    .AL_lessonTask:hover{
-        background-color: #e3f3f9;
-    }
-
-    .AL_lessonTask.AL_lessonTask_isOpen{
-        font-size: 1em;
-
-        position: absolute;
-        top: 1em;
-        left: 1em;
-
-        // text-overflow: inherit;
-        // white-space: normal;
-        // overflow: hidden;
-        // width: auto;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;;
-        align-content: center;
-
-        padding: 1em 1.6em;
-
-        height: fit-content;
-        
-
-        >span{
-            line-height: 2.2em;
-        }
-
-        .AL_lessonTask_text{
-            text-overflow: inherit;
-            white-space: normal;
-            overflow: hidden;
-            width: auto;
+        .AL_LT_text{
+            font-size: 1.2em;
+            padding: 0.5em;
             text-indent: 1em;
+            line-height: 1.8em;
+            color: #343434;
         }
 
-        .AL_lessonTask_btn{
-            // font-size: 1em;
-            flex-grow: 1;
-            width: 100%;
-
-        }
-        
     }
-    .AL_lessonTask.AL_lessonTask_isOpen:hover{
+
+    .AL_lessonTask.AL_lessonTask_show{
+        // width: calc( 100% - 2em );
+        width: calc( 100% - 2px );
+
+        height: 14em;
         background-color: #ffffff;
+        transition: background-color $anim_speed ease-in-out, width $anim_speed ease-in-out, height $anim_speed ease-in-out $anim_speed ;
     }
 
-    .AL_LT_curtain{
+
+    .AL_lessonTask_curtain{
+        background-color: #01010100;
         position: fixed;
-        top: -7.41em;
-        left: -1.5em;
-        width: 100vw;
-        height: 100vh;
-        background-color: #00000082;
-        z-index: 100;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        z-index: 2000;
+        transition: background-color $anim_speed ease-in-out, width 0s ease-in-out $anim_speed, height 0s ease-in-out $anim_speed ;
+
     }
 
+    .AL_lessonTask_curtain.AL_lessonTask_curtain_show{
+        background-color: #01010175;
+        width: 100%;
+        height: 100%;
+        transition: background-color $anim_speed ease-in-out, width 0s ease-in-out 0s, height 0s ease-in-out 0s ;
+    }
 
 }
 
 
 
 #AL_lessonTask{
-    // font-size: 1em;
-    // position: relative;
-    // cursor: pointer;
-
     position: fixed;
     top: 0;
     left: 0;
