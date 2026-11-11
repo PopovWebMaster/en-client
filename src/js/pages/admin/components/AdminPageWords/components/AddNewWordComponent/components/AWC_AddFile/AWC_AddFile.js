@@ -39,7 +39,7 @@ const AWC_AddFileComponent = ( props ) => {
     }, [ isOpen, files ] );
 
     const change = ( files_arr ) => {
-
+        
         let list = getFileNamesList( files_arr );
 
         setFileNamesList( list );

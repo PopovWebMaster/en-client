@@ -15,6 +15,8 @@ export const wordsSlice = createSlice({
         CTRL_wordsIdList: [],
         isOpenTopicAddAlert: false,
 
+        wordsListSortingValue: null,
+
         
 
        
@@ -48,6 +50,16 @@ export const wordsSlice = createSlice({
             state.commandToSaveShanges =  action.payload;
         },
 
+
+        setWordsListSortingValue: ( state, action ) => {
+            state.wordsListSortingValue =  action.payload;
+        },
+
+
+
+
+        
+
         
 
         
@@ -62,6 +74,7 @@ export const {
     setCTRL_wordsIdList,
     setIsOpenTopicAddAlert,
     setCommandToSaveShanges,
+    setWordsListSortingValue,
 
 
    
@@ -79,6 +92,10 @@ export const selectorData = ( state ) => {
         CTRL_wordsIdList:          state.words.CTRL_wordsIdList,
 
         isOpenTopicAddAlert: state.words.isOpenTopicAddAlert,
+        wordsListSortingValue: state.words.wordsListSortingValue,
+
+
+        
 
 
 

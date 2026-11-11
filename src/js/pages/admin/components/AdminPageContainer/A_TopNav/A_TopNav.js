@@ -28,6 +28,7 @@ const A_TopNavComponent = ( props ) => {
     } = props;
 
     const create = () => {
+        
         let arr = get_route_list();
 
         let div = arr.map( ( item, index ) => {

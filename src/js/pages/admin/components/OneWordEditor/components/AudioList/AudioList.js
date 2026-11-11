@@ -19,6 +19,7 @@ import { AudioButtonAdd } from './AudioButtonAdd/AudioButtonAdd.js';
 
 
 
+
 const AudioListComponent = ( props ) => {
 
     let {
@@ -49,12 +50,30 @@ const AudioListComponent = ( props ) => {
 
     }, [ wordListById, wordId ] );
 
+
+
+
+
+
     const click = ( base64 ) => {
         
         if( base64 ){
             const audio = new Audio();
             audio.src = base64;
             audio.play();
+            // console.dir( audio );
+
+
+            // var df = document.createDocumentFragment();
+            // var snd = new Audio(base64);
+            // df.appendChild(snd); // keep in fragment until finished playing
+            // snd.addEventListener('ended', function () {df.removeChild(snd);});
+            // snd.play();
+
+            // audio_play
+
+
+
         };
 
     }

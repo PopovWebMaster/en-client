@@ -1,0 +1,36 @@
+.WLSB_BtnContainer{
+    font-size: 0.86em;
+    border: 1px solid #b9b9b9;
+
+    padding: 0.1em .5em 0.2em 0.5em;
+    margin: 0 1px 0 0;
+    background-color: #efefef;
+    cursor: pointer;
+    user-select: none;
+
+    .WLSB_BtnContainer_name{
+        font-size: 0.76em;
+        color: #767676;
+    }
+
+    .WLSB_BtnContainer_icon{
+        font-size: 0.8em;
+        margin-left: 0.2em;
+        color: #062813;
+    }
+}
+
+.WLSB_BtnContainer_active, .WLSB_BtnContainer:hover{
+    background-color: #bdffef;
+    border-color: #50b099;
+    .WLSB_BtnContainer_name{
+        color: #4d3c3c;
+    }
+}
+.WLSB_BtnContainer:active{
+    // border: 1px solid #7a7a7a;
+    border-color: #3c8f7c;
+    .WLSB_BtnContainer_name{
+        color: #ffb3b3;
+    }
+}

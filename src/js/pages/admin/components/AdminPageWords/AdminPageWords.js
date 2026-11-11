@@ -24,6 +24,8 @@ import { ButtonAddWordsGroup } from './../ButtonAddWordsGroup/ButtonAddWordsGrou
 import { ButtonDownloadWordsGroupe } from './../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
 import { ButtonWordsAsText } from './../ButtonWordsAsText/ButtonWordsAsText.js';
 
+import { WordsListControlPanel } from './../WordsListControlPanel/WordsListControlPanel.js';
+
 
 const AdminPageWordsComponent = ( props ) => {
 
@@ -31,6 +33,7 @@ const AdminPageWordsComponent = ( props ) => {
         languageKeyName,
 
     } = props;
+
     let what_to_take = [
         'wordList', 'partOfSpeechList', 'topicsList',
     ];
@@ -44,10 +47,12 @@ const AdminPageWordsComponent = ( props ) => {
             >
                 <A_TopButtonsContainer>
 
-                    <div className = 'A_TopButtonsLeftBlock'>
+                    <WordsListControlPanel />
+
+                    {/* <div className = 'A_TopButtonsLeftBlock'>
                         <WordsCount />
                         <WordsSortingButtons />
-                    </div>
+                    </div> */}
 
                     <ButtonWordsAsText />
 

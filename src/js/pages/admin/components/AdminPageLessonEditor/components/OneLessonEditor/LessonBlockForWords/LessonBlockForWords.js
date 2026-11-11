@@ -57,13 +57,8 @@ const LessonBlockForWordsComponent = ( props ) => {
             <div className = 'OLE_topButtonsWrap'>
 
                 <div className = 'OLE_topButtons_left'>
-
-                    
-
                     <WordsCount />
                     <WordsSortingButtons />
-
-
                 </div>
                 
                 <ButtonWordsAsText />

@@ -46,7 +46,6 @@ const AdminMainPageComponent = ( props ) => {
 
                 <A_TopButtonsContainer>
                     <SaveMainChanges />
-
                 </A_TopButtonsContainer>
 
                 <div className = 'AMP_AdminMainPage'>

@@ -54,7 +54,16 @@ const AudioButtonAddComponent = ( props ) => {
                 reader.onload = (e) => resolve(e.target.result);
                 reader.readAsDataURL(audioFile);
             });
-        }
+        };
+
+
+
+        /*
+            весь этот долбаный бред что здесь ниже написан было лень переписыватать.
+            Работает и хер с ним.
+            Если хочешь, переделай.
+
+        */
 
         let base64List = [];
         for( let i = 0; i < files.length; i++ ){
@@ -63,8 +72,55 @@ const AudioButtonAddComponent = ( props ) => {
 
                 const [ prefix, base64 ] = result.split(',');
 
+                // console.dir( result );
+
                 if( base64[0] !== '/' ){
-                    alert( 'Этот аудио файл нельзя добавить, что-то с ним не так' );
+                    
+
+                    if( result.indexOf( 'data:audio/mpeg;base64,' ) !== -1 ){
+
+                        let name = files[ i ].name;
+                        base64List.push( {
+                            name: name,
+                            base64: result,
+                        } );
+
+                        // console.dir( prefix );
+
+
+
+
+                        // data:audio/mpeg;base64,//
+
+                        if( i + 1 === files.length  ){
+
+                            send_request_to_server({
+                                route: 'admin/add-audio-files-to-word',
+                                data: {
+                                    keyName: languageKeyName,
+                                    // lessonId: currentLessonId,
+                                    foreignWordId: wordId,
+                                    files: base64List,
+                                },
+                                addLessonId: true,
+                                successCallback: ( resp ) => {
+                                    console.dir( 'resp' );
+                                    console.dir( resp );
+
+                                    if( resp.ok ){
+                                        set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                    };
+                                },
+                            });
+
+                        }
+
+
+
+                    }else{
+                        alert( 'Этот аудио файл нельзя добавить, что-то с ним не так' );
+                    };
+
                 }else{
                     let name = files[ i ].name;
                     base64List.push( {

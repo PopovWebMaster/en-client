@@ -3,7 +3,7 @@ import { get_new_route } from './../vendors/get_new_route.js';
 
 export const ADMIN_ROUTES = {
     MAIN:      get_new_route({ route: '/admin',          title: 'Главная',    icon: 'icon-home',       name: 'MAIN' } ),
-    WORDS:     get_new_route({ route: '/admin/words',    title: 'Слова',      icon: 'icon-doc-text',   name: 'WORDS' } ),
+    WORDS:     get_new_route({ route: '/admin/words',    title: 'Буфер слов',      icon: 'icon-doc-text',   name: 'WORDS' } ),
     LESSONS:   get_new_route({ route: '/admin/lessons',  title: 'Уроки',      icon: 'icon-book',       name: 'LESSONS' } ),
     TOPIC:     get_new_route({ route: '/admin/topic',    title: 'Темы',       icon: 'icon-book',       name: 'TOPIC' } ),
     TESTS:     get_new_route({ route: '/admin/tests',    title: 'Тесты',      icon: 'icon-thumbs-up',  name: 'TESTS' } ),

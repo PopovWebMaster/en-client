@@ -12,6 +12,8 @@ import { selectorData as wordsSlice } from './../../../../../../redux/admin/word
 import { ScrollContainer } from './../../../../../../components/ScrollContainer/ScrollContainer.js';
 import { SetTopicAlertForGroup } from './SetTopicAlertForGroup/SetTopicAlertForGroup.js';
 
+import { WordsListSorting } from './WordsListSorting/WordsListSorting.js';
+
 
 
 const FreeWordsListComponent = ( props ) => {
@@ -41,12 +43,15 @@ const FreeWordsListComponent = ( props ) => {
 
     return (
         <ScrollContainer height = { height } >
-            <div className = 'freeWordsList'>
+            <WordsListSorting>
+                <div className = 'freeWordsList'>
 
-                <SetTopicAlertForGroup />
+                    <SetTopicAlertForGroup />
 
-                { create( wordList ) }
-            </div>
+                    { create( wordList ) }
+                </div>
+
+            </WordsListSorting>
         </ScrollContainer>
         
     )
