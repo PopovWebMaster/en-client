@@ -24,12 +24,12 @@ const WLSB_BtnContainerComponent = ( props ) => {
     const click = () => {
         clickHandler();
 
-        let freeWordsList = document.querySelector( '.freeWordsList' );
-        if( freeWordsList ){
-            freeWordsList.scrollIntoView( {behavior: "smooth", block: "start", inline: "start"});
-        }else{
-            console.error( 'Тревога! не получатеся прокрутить наверх из кнопки WLSB_BtnContainer' );
-        };
+        // let freeWordsList = document.querySelector( '.freeWordsList' );
+        // if( freeWordsList ){
+        //     // freeWordsList.scrollIntoView( {behavior: "smooth", block: "start", inline: "start"});
+        // }else{
+        //     console.error( 'Тревога! не получатеся прокрутить наверх из кнопки WLSB_BtnContainer' );
+        // };
         
 
     }

@@ -27,6 +27,9 @@ import { ButtonWordsAsText } from './../../../../ButtonWordsAsText/ButtonWordsAs
 
 import { WordsCount } from './../../../../WordsCount/WordsCount.js';
 import { WordsSortingButtons } from './../../../../WordsSortingButtons/WordsSortingButtons.js';
+
+import { WordsListControlPanel } from './../../../../WordsListControlPanel/WordsListControlPanel.js';
+
  
 
 const LessonBlockForWordsComponent = ( props ) => {
@@ -55,11 +58,13 @@ const LessonBlockForWordsComponent = ( props ) => {
             makeStiking = { true }
         >
             <div className = 'OLE_topButtonsWrap'>
+                
+                <WordsListControlPanel />
 
-                <div className = 'OLE_topButtons_left'>
+                {/* <div className = 'OLE_topButtons_left'>
                     <WordsCount />
                     <WordsSortingButtons />
-                </div>
+                </div> */}
                 
                 <ButtonWordsAsText />
                 <ButtonAddWordsGroup />

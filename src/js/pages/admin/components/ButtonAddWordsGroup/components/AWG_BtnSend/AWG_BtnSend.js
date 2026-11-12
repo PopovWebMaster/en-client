@@ -66,7 +66,7 @@ const AWG_BtnSendComponent = ( props ) => {
                         }
                     };
                 }
-            });
+            }, true );
 
         };
     }

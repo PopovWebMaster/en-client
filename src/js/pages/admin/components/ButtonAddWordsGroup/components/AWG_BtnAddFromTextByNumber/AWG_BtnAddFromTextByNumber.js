@@ -109,7 +109,7 @@ const AWG_BtnAddFromTextByNumberComponent = ( props ) => {
                 />)}
 
             <AWG_BtnAddFile
-                title =         'текстовый (почислу)'
+                title =         'текстовый (по числу)'
                 accept =        { [ '.txt' ] }
                 clickHandler =  { click }
                 inputHandler =  { inputHandler }

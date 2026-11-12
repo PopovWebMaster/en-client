@@ -27,7 +27,7 @@ export const BodyContainer = ( props ) => {
 
                             <a href = '#' className = 'siteLogo' >
                                 <span className = 'SL_cercle'></span>
-                                <span className = 'SL_leng'>Leng</span>
+                                <span className = 'SL_leng'>Lang</span>
                                 <span className = 'SL_dash'>-</span>
                                 <span className = 'SL_learn'>Learn</span>
                                 <span className = 'SL_dom'>.ru</span>

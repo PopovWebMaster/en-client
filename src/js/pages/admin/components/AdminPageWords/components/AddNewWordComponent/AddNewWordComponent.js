@@ -39,6 +39,12 @@ const AddNewWordComponentComponent = ( props ) => {
     } = props;
 
     let [ top, setTop ] = useState( 0 );
+
+    useEffect( () => {
+        return () => {
+            setNewWordContainerIsOpen( false );
+        };
+    }, [] );
     
 
     useEffect( () => {

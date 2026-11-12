@@ -1,10 +1,10 @@
 
 import React from "react";
 
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
-import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js'
+// import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js'
 
 import './WordsListSortButtons.scss';
 
@@ -22,7 +22,7 @@ import { WLCP_BtnForeignByBadRu } from './WLCP_BtnForeignByBadRu/WLCP_BtnForeign
 const WordsListSortButtonsComponent = ( props ) => {
 
     let {
-        wordList,
+        // wordList,
 
     } = props;
 
@@ -48,13 +48,13 @@ const WordsListSortButtonsComponent = ( props ) => {
 
 export function WordsListSortButtons( props ){
 
-    const words = useSelector( wordsSlice );
+    // const words = useSelector( wordsSlice );
     // const dispatch = useDispatch();
 
     return (
         <WordsListSortButtonsComponent
             { ...props }
-            wordList = { words.wordList }
+            // wordList = { words.wordList }
             // setNewWordContainerIsOpen = { ( val ) => { dispatch( setNewWordContainerIsOpen( val ) ) } }
 
         />

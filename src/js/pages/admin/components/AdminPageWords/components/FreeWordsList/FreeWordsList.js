@@ -1,11 +1,11 @@
 
-import React, { useRef, useState, useEffect }   from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './FreeWordsList.scss';
 
-import { OneFreeWordItem } from './OneFreeWordItem/OneFreeWordItem.js';
+// import { OneFreeWordItem } from './OneFreeWordItem/OneFreeWordItem.js';
 import { OneWordEditor } from './../../../OneWordEditor/OneWordEditor.js';
 
 import { selectorData as wordsSlice } from './../../../../../../redux/admin/wordsSlice.js';
