@@ -25,99 +25,22 @@ import './SetCurrentStepDataToStore.scss';
 
 // import { update_learn_data_to_store } from './../../helpers/update_learn_data_to_store.js';
 
-import { AppLearnModeClass } from './../../classes/AppLearnModeClass.js';
+// import { AppLearnModeClass } from './../../classes/AppLearnModeClass.js';
 
 
 const SetCurrentStepDataToStoreComponent = ( props ) => {
 
     let {
         currentStepNomber,
-        setCurrentStepTask,
-        setCurrentProgress,
-        setAppMessage,
 
-        taskForStep_1,
-        taskForStep_2,
-        taskForStep_3,
         children,
 
-        currentGroupIndex,
-        learnWordsGroupe,
-
-        setCurrentGroupIndex,
-
-        setCurrentLearnWordId,
-        setCurrentLearnForeign,
-        setCurrentLearnRu,
-        setCurrentLearnTranscription,
-
-
-        appWordsListById,
-
-        setLearnIsStarted,
 
     } = props;
 
     useEffect( () => {
 
-        // setCurrentGroupIndex( null );
-        // setCurrentLearnWordId( null );
-        // setCurrentLearnForeign( '' );
-        // setCurrentLearnRu( '' );
-        // setCurrentLearnTranscription( '' );
-        // setLearnIsStarted( false );
-
-        // if( currentStepNomber === null ){
-            
-        // }else{
-        //     let currentTask = '';
-
-        //     if( currentStepNomber === 1 ){
-        //         currentTask = taskForStep_1;
-        //     }else if( currentStepNomber === 2 ){
-        //         currentTask = taskForStep_2;
-        //     }else if( currentStepNomber === 3 ){
-        //         currentTask = taskForStep_3;
-        //     };
-
-        //     setCurrentStepTask( currentTask );
-        //     // setCurrentProgress( 0 );
-        //     // setAppMessage( '' );
-        //     // update_learn_data_to_store();
-
-
-        // };
-
-        // let AppLearnMode = new AppLearnModeClass;
-        // AppLearnMode.StartForStep( currentStepNomber );
-
-        // console.dir( AppLearnMode );
-
-        
-
-
-
-
     }, [ currentStepNomber ] );
-
-    // useEffect( () => {
-    //     if( currentGroupIndex !== null ){
-    //         if( learnWordsGroupe[ currentGroupIndex ] ){
-    //             let { wordId } = learnWordsGroupe[ currentGroupIndex ];
-    //             if( appWordsListById[ wordId ] ){
-    //                 let { foreign, ru, transcription } = appWordsListById[ wordId ];
-
-    //                 setCurrentLearnWordId( wordId );
-    //                 setCurrentLearnForeign( foreign );
-    //                 setCurrentLearnRu( ru );
-    //                 setCurrentLearnTranscription( transcription );
-    //             };
-
-
-    //         };
-    //     };
-
-    // }, [ currentGroupIndex ] );
 
     
     return (

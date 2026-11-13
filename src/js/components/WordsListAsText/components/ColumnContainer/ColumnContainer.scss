@@ -7,3 +7,19 @@
     align-content: flex-start;
     
 }
+@media screen and (min-width: 740px) and (max-width: 1180px){
+    .WLAT_ListColumn{
+        font-size: 1.1em;
+    }
+
+}
+@media screen and (min-width: 480px) and (max-width: 740px){
+    .WLAT_ListColumn{
+        font-size: 1.2em;
+    }
+}
+@media screen and (min-width: 10px) and (max-width: 480px){
+    .WLAT_ListColumn{
+        font-size: 1.4em;
+    }
+}

@@ -96,7 +96,11 @@ const AppStep_2Component = ( props ) => {
 
         let resp = response.trim();
         if( resp === '' ){
-            setAnswer( '' );
+            if( answer === resp ){
+                setAnswer( ' ' );
+            }else{
+                setAnswer( '' );
+            };
             setAnswerIsCorrect( false );
         }else{
             if( resp.toLowerCase() === currentLearnRu.toLowerCase() ){

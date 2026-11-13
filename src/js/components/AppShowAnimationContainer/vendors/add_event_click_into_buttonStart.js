@@ -16,7 +16,7 @@ export const add_event_click_into_buttonStart = () => {
             btn.onclick = () => {
                 textPlace_DOM_controller.hide();
                 store.dispatch( setShowStatus( true ) );
-                set_current_step_to_store( 1 );
+                set_current_step_to_store( 2 );
             };
 
         }else{

@@ -20,6 +20,7 @@ import {
 
     setRepeatCircleLength,
     setCorrectAnswersLength,
+    setTextBeforeButtonStart,
 } from './../redux/settingsSlice.js';
 
 
@@ -42,6 +43,7 @@ export const set_app_data_to_store = ( appData ) => {
         correctAnswersLength,
         partOfSpeechList,
         userResult,
+        textBeforeButtonStart,
 
     } = appData;
     console.dir( 'appData' );
@@ -66,6 +68,9 @@ export const set_app_data_to_store = ( appData ) => {
         store.dispatch( setMessageAfterStep_3( messageAfterStep_3 ) );
         store.dispatch( setRepeatCircleLength( Number( repeatCircleLength ) ) );
         store.dispatch( setCorrectAnswersLength( Number( correctAnswersLength ) ) );
+        store.dispatch( setTextBeforeButtonStart(  textBeforeButtonStart ) );
+
+
 
     }else{
 
@@ -80,10 +85,11 @@ export const set_app_data_to_store = ( appData ) => {
         storeApp.dispatch( setMessageAfterStep_1( messageAfterStep_1 ) );
         storeApp.dispatch( setMessageAfterStep_2( messageAfterStep_2 ) );
         storeApp.dispatch( setMessageAfterStep_3( messageAfterStep_3 ) );
-
+        storeApp.dispatch( setTextBeforeButtonStart( textBeforeButtonStart ) );
 
         storeApp.dispatch( setRepeatCircleLength( Number( repeatCircleLength ) ) );
         storeApp.dispatch( setCorrectAnswersLength( Number( correctAnswersLength ) ) );
+        
 
     };
 

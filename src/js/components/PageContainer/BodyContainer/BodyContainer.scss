@@ -311,6 +311,9 @@
             position: relative;
 
 
+
+
+
             p.text{
                 font-size: 0.9em;
                 padding: 0.3em 1em;
@@ -320,9 +323,21 @@
                 text-indent: 2em;
                 max-width: 60em;
                 // width: 60em;
-                // width: 100%;
+                width: calc( 100% - 3em );
 
                 // flex-grow: 1;
+            }
+
+            .text_before_button_start{
+                font-size: 0.78em;
+                padding: 0.5em 1em;
+                color: #e11919;
+                line-height: 1.4em;
+                max-width: 60em;
+                text-align: center;
+                margin-top: 1em;
+                background-color: #faf6f6;
+                border-radius: 0.1em;
             }
 
             .lessonPage{

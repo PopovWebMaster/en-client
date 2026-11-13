@@ -27,6 +27,8 @@ import { MessageAfterStep_1 } from './components/MessageAfterStep_1/MessageAfter
 import { MessageAfterStep_2 } from './components/MessageAfterStep_2/MessageAfterStep_2.js';
 import { MessageAfterStep_3 } from './components/MessageAfterStep_3/MessageAfterStep_3.js';
 
+import { TextBeforeButtonStart } from './components/TextBeforeButtonStart/TextBeforeButtonStart.js';
+
 
 const AdminPageSettingsComponent = ( props ) => {
 
@@ -54,6 +56,8 @@ const AdminPageSettingsComponent = ( props ) => {
 
                 <div className = 'AMP_AdminPageSettings'>
 
+                    <TextBeforeButtonStart />
+                    <br/><br/>
                     <ButtonNameStep_1 />
                     <TaskTextStep_1 />
                     <MessageAfterStep_1 />

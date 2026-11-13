@@ -1,6 +1,6 @@
 #wordsListAsText{
     font-size: 1em;
-    padding-top: 2em;
+    padding-top: 1.6em;
     max-width: 60em;
     flex-grow: 1;
     width: calc( 100% - 2px );
@@ -12,12 +12,6 @@
         border-radius: 0.1em;
         border: 1px solid #e6d5cb;
     
-
-        // display: flex;
-        // flex-wrap: wrap;
-        // justify-content: center;
-        // align-items: center;
-        // align-content: center;
         max-width: 56em;
 
         position: relative;

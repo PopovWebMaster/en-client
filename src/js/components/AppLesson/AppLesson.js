@@ -43,7 +43,7 @@ const AppLessonComponent = ( props ) => {
             <AppShowAnimationContainer>
                 <SetAppWordsListToStore>
                     <SetAppDataToStore>
-                        <SetCurrentStepDataToStore>
+                        {/* <SetCurrentStepDataToStore> */}
                             <div className = 'appLesson'>
 
                                 
@@ -53,7 +53,7 @@ const AppLessonComponent = ( props ) => {
 
 
                             </div>
-                        </SetCurrentStepDataToStore>
+                        {/* </SetCurrentStepDataToStore> */}
                     </SetAppDataToStore>
                 </SetAppWordsListToStore>
             </AppShowAnimationContainer>

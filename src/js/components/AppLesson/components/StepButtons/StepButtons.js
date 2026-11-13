@@ -18,7 +18,7 @@ const StepButtonsComponent = ( props ) => {
         // setShowStatus,
         currentStepNomber,
 
-        buttonNameStep_1,
+        // buttonNameStep_1,
         buttonNameStep_2,
         buttonNameStep_3,
 
@@ -35,12 +35,12 @@ const StepButtonsComponent = ( props ) => {
     return (
 
         <div className = 'AL_StepButtons_wrap' >
-            <div
+            {/* <div
                 className = { `AL_StepButtons_btn ${ currentStepNomber === 1? 'isActive': '' }` }
                 onClick = { () => { click( 1 ) } }
             >
                 <span>{ buttonNameStep_1 }</span>
-            </div>
+            </div> */}
 
             <div
                 className = { `AL_StepButtons_btn ${ currentStepNomber === 2? 'isActive': '' }` }

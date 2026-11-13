@@ -31,16 +31,14 @@ const OneRowItemComponent = ( props ) => {
 
     const hover = ( e ) => {
         let parentWidth = blockRef.current.parentElement.offsetWidth;
-        let visibleWidth = visibleRef.current.offsetWidth;
+        // let visibleWidth = visibleRef.current.offsetWidth;
         let hiddenWidth = hiddenRef.current.offsetWidth;
         let left = blockRef.current.offsetLeft;
 
         if( ( left + hiddenWidth + 10 ) < parentWidth ){
             setClassForHidden( 'VL_top_left' );
-            // blockRef.current.classList.add('VL_top_left');
             
         }else{
-            // blockRef.current.classList.add('VL_top_right');
             setClassForHidden( 'VL_top_right' );
         };
 
@@ -48,13 +46,6 @@ const OneRowItemComponent = ( props ) => {
 
     const leave = ( e ) => {
         setClassForHidden( '' );
-        // let arr = [ ...blockRef.current.classList ];
-        // if( arr.indexOf( 'VL_top_left' ) !== -1 ){
-        //     blockRef.current.classList.remove('VL_top_left');
-        // };
-        // if( arr.indexOf( 'VL_top_right' ) !== -1 ){
-        //     blockRef.current.classList.remove('VL_top_right');  
-        // }
         
     }
 
@@ -75,7 +66,12 @@ const OneRowItemComponent = ( props ) => {
             ref = { blockRef }
             onClick = { click }
         >
-            <span className = { `WLAT_ORI_visibleLang ${ visibleLang === 'foreign'? 'visibleForeign': ''}` } ref = { visibleRef }>{ visibleLang === 'foreign'? foreign: ru },<span className = 'WLAT_ORI_hiddenLang_triangle'></span></span>
+            <span 
+                className = { `WLAT_ORI_visibleLang ${ visibleLang === 'foreign'? 'visibleForeign': ''}` } 
+                ref = { visibleRef }
+            >
+                { visibleLang === 'foreign'? foreign: ru },<span className = 'WLAT_ORI_hiddenLang_triangle'></span>
+            </span>
             <span className = 'WLAT_ORI_hiddenLang' ref = { hiddenRef }>{ visibleLang === 'foreign'? ru: foreign }</span>
         </div>
             

@@ -65,7 +65,12 @@ const AppStep_3Component = ( props ) => {
     const acceptResponse = () => {
         let resp = response.trim();
         if( resp === '' ){
-            setAnswer( '' );
+            if( answer === resp ){
+                setAnswer( ' ' );
+            }else{
+                setAnswer( '' );
+            };
+            // setAnswer( '' );
             setAnswerIsCorrect( false );
         }else{
             if( resp.toLowerCase() === currentLearnForeign.toLowerCase() ){

@@ -24,7 +24,7 @@ export const settingsSlice = createSlice({
         repeatCircleLength: 1,
         correctAnswersLength: 1,
 
-
+        textBeforeButtonStart: '',
 
 
 
@@ -76,6 +76,10 @@ export const settingsSlice = createSlice({
             state.messageAfterStep_3 =  action.payload;
         },
 
+        setTextBeforeButtonStart: ( state, action ) => { 
+            state.textBeforeButtonStart =  action.payload;
+        },
+
 
 
 
@@ -103,6 +107,8 @@ export const {
 
     setRepeatCircleLength,
     setCorrectAnswersLength,
+
+    setTextBeforeButtonStart,
    
 
 } = settingsSlice.actions;
@@ -126,6 +132,8 @@ export const selectorData = ( state ) => {
 
         repeatCircleLength:     state.settings.repeatCircleLength,
         correctAnswersLength:   state.settings.correctAnswersLength,
+        textBeforeButtonStart:   state.settings.textBeforeButtonStart,
+
 
 
 

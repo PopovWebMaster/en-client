@@ -25,6 +25,7 @@ export const save_settings_data_on_server = ( callback = () => {} ) => {
 
         repeatCircleLength,
         correctAnswersLength,
+        textBeforeButtonStart,
 
     } = settings;
 
@@ -45,6 +46,8 @@ export const save_settings_data_on_server = ( callback = () => {} ) => {
 
             repeatCircleLength,
             correctAnswersLength,
+
+            textBeforeButtonStart,
         },
         addKeyName: true,
         

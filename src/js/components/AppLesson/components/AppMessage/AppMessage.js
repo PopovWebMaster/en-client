@@ -21,7 +21,7 @@ const AppMessageComponent = ( props ) => {
 
     const click = () => {
         if( currentStepNomber === 3 ){
-            setCurrentStepNomber( 1 );
+            setCurrentStepNomber( 2 );
         }else{
             setCurrentStepNomber( currentStepNomber + 1 );
         };

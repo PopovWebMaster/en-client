@@ -11,7 +11,7 @@ const ButtonStartAppComponent = ( props ) => {
 
     let {
         // click,
-        title = 'Начнёмс',
+        // title = 'Начнёмс',
     } = props;
 
 
@@ -20,8 +20,10 @@ const ButtonStartAppComponent = ( props ) => {
             id = { 'buttonStartApp' }
             // onClick = { click }
         >
-            <span className = 'BSA_icon icon-thumbs-up'></span>
-            <span className = 'BSA_title'>{ title }</span>
+            {/* <span className = 'BSA_icon icon-thumbs-up'></span> */}
+            <span className = 'BSA_icon icon-chart-line'></span>
+
+            <span className = 'BSA_title'>Тренинг памяти</span>
         </div>
 
     )

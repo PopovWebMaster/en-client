@@ -40,12 +40,12 @@ const AdminPageAppComponent = ( props ) => {
             
             // navigate( `/admin` );
             // navigate( ADMIN_ROUTES.MAIN.ROUTE );
-            navigate( ADMIN_ROUTES.WORDS.ROUTE );
+            // navigate( ADMIN_ROUTES.WORDS.ROUTE );
             // navigate( ADMIN_ROUTES.LESSONS.ROUTE );
             // navigate( ADMIN_ROUTES.MAIN.ROUTE );
 
             // navigate( ADMIN_ROUTES.TESTS.ROUTE );
-            // navigate( ADMIN_ROUTES.SETTINGS.ROUTE );
+            navigate( ADMIN_ROUTES.SETTINGS.ROUTE );
 
 
             // navigate( ADMIN_ROUTES.TOPIC.ROUTE );

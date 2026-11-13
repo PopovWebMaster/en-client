@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { selectorData as appWordsSlice } from './../../redux/appWordsSlice.js';
 
 import './WordsListAsText.scss';
-// import { app_audio_play_random } from './../../helpers/app_audio_play_random.js';
 
 import { ButtonsPanel } from './components/ButtonsPanel/ButtonsPanel.js';
 
@@ -14,10 +13,6 @@ import { ListRowForeign }       from './components/ListRowForeign/ListRowForeign
 import { ListColumnForeign }    from './components/ListColumnForeign/ListColumnForeign.js';
 import { ListRowRu }            from './components/ListRowRu/ListRowRu.js';
 import { ListColumnRu }         from './components/ListColumnRu/ListColumnRu.js';
-
-
-
-
 
 
 
@@ -34,8 +29,6 @@ const WordsListAsTextComponent = ( props ) => {
 
     let [ list, setList ] = useState( [] );
 
-    // console.dir( 'appWordsList' );
-    // console.dir( appWordsList );
 
     useEffect( () => {
         let arr = [];
@@ -61,60 +54,6 @@ const WordsListAsTextComponent = ( props ) => {
 
 
 
-    // const create = ( arr, activeRuLang  ) => {
-
-    //     let  span = arr.map( ( item, index ) => {
-    //         let {
-    //             foreign,
-    //             id,
-    //             ru,
-    //         } = item;
-
-    //         if( activeRuLang ){
-    //             // return (
-    //             //     <span 
-    //             //         key = { index }
-    //             //         data-title = { foreign }
-    //             //         className = 'forTitle'
-    //             //     >{ ru },</span>
-    //             // );
-    //              return (
-    //                 <span 
-    //                     key = { index }
-    //                     data-title = { foreign }
-    //                     className = 'forTitle'
-    //                 >{ ru },</span> 
-                       
-    //             );
-    //         }else{
-    //             return (
-    //                 <span 
-    //                     key = { index }
-    //                     onClick = { () => { app_audio_play_random( id ) } }
-    //                     data-title = { ru }
-    //                     className = 'forTitle'
-    //                 >{ foreign },</span>
-    //             );
-    //         };
-
-    //     } );
-
-    //     return span;
-
-    // };
-
-    // const shuffle = () => {
-    //     const newArr = [...list];
-
-    //     for (let i = newArr.length - 1; i > 0; i--) {
-    //         const j = Math.floor( Math.random() * (i + 1));
-    //         [ newArr[i], newArr[j]] = [newArr[j], newArr[i] ];
-    //     };
-
-    //     setList( newArr );
-    // }
-
-
     const createList = ( arr, isRow, isForeign ) => {
         let result = '';
 
@@ -136,25 +75,26 @@ const WordsListAsTextComponent = ( props ) => {
 
     }
 
-
-
-
-
-
     return (
-        <div className = 'wordsListAsText'>
 
-            <ButtonsPanel
-                isRow =         { isRow }
-                setIsRow =      { setIsRow }
-                isForeign =     { isForeign }
-                setIsForeign =  { setIsForeign }
-                list =          { list }
-                setList =       { setList }
-            />
+        
+        <div id = 'wordsListAsText'>
+            <div className = 'wordsListAsText'>
 
-            { createList( list, isRow, isForeign ) }
+                <ButtonsPanel
+                    isRow =         { isRow }
+                    setIsRow =      { setIsRow }
+                    isForeign =     { isForeign }
+                    setIsForeign =  { setIsForeign }
+                    list =          { list }
+                    setList =       { setList }
+                />
+
+                { createList( list, isRow, isForeign ) }
+            </div>
+
         </div>
+
 
     )
 

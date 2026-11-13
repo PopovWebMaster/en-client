@@ -69,7 +69,7 @@ export class ProgressClass {
     }
 
     SetToStore(){
-        store.dispatch( setCurrentProgress( this.procent ) );
+        store.dispatch( setCurrentProgress( Math.floor( this.procent ) ) );
     }
 
 }
