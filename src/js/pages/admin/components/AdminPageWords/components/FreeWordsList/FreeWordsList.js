@@ -13,6 +13,7 @@ import { ScrollContainer } from './../../../../../../components/ScrollContainer/
 import { SetTopicAlertForGroup } from './SetTopicAlertForGroup/SetTopicAlertForGroup.js';
 
 import { WordsListSorting } from './WordsListSorting/WordsListSorting.js';
+import { AlphaScrollButtons } from './AlphaScrollButtons/AlphaScrollButtons.js';
 
 
 
@@ -42,17 +43,27 @@ const FreeWordsListComponent = ( props ) => {
 
 
     return (
-        <ScrollContainer height = { height } >
-            <WordsListSorting>
-                <div className = 'freeWordsList'>
+           
+            <ScrollContainer height = { height } >
 
-                    <SetTopicAlertForGroup />
+                
+                <WordsListSorting>
 
-                    { create( wordList ) }
-                </div>
+                        
+                    <div className = 'freeWordsList'>
 
-            </WordsListSorting>
-        </ScrollContainer>
+                        <AlphaScrollButtons />
+
+                        <SetTopicAlertForGroup />
+
+
+
+                        { create( wordList ) }
+                    </div>
+
+                </WordsListSorting>
+            </ScrollContainer>
+        
         
     )
 

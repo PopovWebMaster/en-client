@@ -24,6 +24,8 @@ const ListRowForeignComponent = ( props ) => {
                 ru,
             } = item;
 
+            // console.dir( item );
+
             return (
                 <OneRowItem
                     key =           { index }

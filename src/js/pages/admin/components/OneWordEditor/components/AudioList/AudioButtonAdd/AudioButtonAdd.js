@@ -108,7 +108,9 @@ const AudioButtonAddComponent = ( props ) => {
                                     console.dir( resp );
 
                                     if( resp.ok ){
-                                        set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                        // set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                        set_word_list_to_store( resp.wordList );
+
                                     };
                                 },
                             });
@@ -145,7 +147,9 @@ const AudioButtonAddComponent = ( props ) => {
                                 console.dir( resp );
 
                                 if( resp.ok ){
-                                    set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                    // set_word_list_to_store( resp.wordList, [ 'audio' ] );
+                                    set_word_list_to_store( resp.wordList );
+
                                 };
                             },
                         });

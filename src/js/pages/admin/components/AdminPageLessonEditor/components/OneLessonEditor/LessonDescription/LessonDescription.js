@@ -38,7 +38,7 @@ const LessonDescriptionComponent = ( props ) => {
                 title =         'Краткое описание. Видно в меню со списком уроков, кратко о чём этот урок.'
                 value =         { lessonValue }
                 setValue =      { setLessonValue }
-                max =           { 255 }
+                max =           { 500 }
                 asTextArea =    { true }
                 blure =         { blurHandler }
             />

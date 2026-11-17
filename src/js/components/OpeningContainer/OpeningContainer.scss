@@ -9,7 +9,9 @@
 
     .OC_wrap{
         font-size: 1em;
-        padding: 0 0.5em;
+        // padding: 0 0.5em;
+        // margin: 0 0.5em;
+
         
 
         opacity: 0;
@@ -80,6 +82,8 @@
     // overflow: auto;
     .OC_wrap{
         opacity: 1;
-        padding: 0.5em;
+        // padding: 0.5em;
+        // margin: 0.5em 0;
+
     }
 }

@@ -55,6 +55,18 @@ const OneRowItemComponent = ( props ) => {
         };
     };
 
+    const getTranscr = ( word_id ) => {
+        let res = '';
+        // if( appWordsListById[ word_id ] ){
+        //     if(  appWordsListById[ word_id ].transcription !== '' ){
+        //         res = <span className = 'WLAT_ORI_hiddenTranscr'>{ `[${appWordsListById[ word_id ].transcription}]` }</span>;
+        //     };
+        // }
+
+        return res;
+
+    };
+
 
 
     return (
@@ -70,9 +82,13 @@ const OneRowItemComponent = ( props ) => {
                 className = { `WLAT_ORI_visibleLang ${ visibleLang === 'foreign'? 'visibleForeign': ''}` } 
                 ref = { visibleRef }
             >
-                { visibleLang === 'foreign'? foreign: ru },<span className = 'WLAT_ORI_hiddenLang_triangle'></span>
+                { visibleLang === 'foreign'? <>{foreign}{ getTranscr( id ) }</>: ru },<span className = 'WLAT_ORI_hiddenLang_triangle'></span>
+                
             </span>
-            <span className = 'WLAT_ORI_hiddenLang' ref = { hiddenRef }>{ visibleLang === 'foreign'? ru: foreign }</span>
+            <span className = 'WLAT_ORI_hiddenLang' ref = { hiddenRef }>
+                { visibleLang === 'foreign'? ru: foreign }
+                
+            </span>
         </div>
             
     )

@@ -28,6 +28,7 @@ const AudioListComponent = ( props ) => {
         wordListById,
         languageKeyName,
         currentLessonId,
+        wordList,
 
     } = props;
 
@@ -35,7 +36,11 @@ const AudioListComponent = ( props ) => {
 
     useEffect( () => {
 
+
+
+
         if( wordListById[ wordId ] ){
+
             let arr = [];
             let { audio } = wordListById[ wordId ];
             for( let i = 0; i < audio.length; i++ ){
@@ -48,7 +53,7 @@ const AudioListComponent = ( props ) => {
 
         };
 
-    }, [ wordListById, wordId ] );
+    }, [wordList,  wordListById, wordId ] );
 
 
 
@@ -94,7 +99,9 @@ const AudioListComponent = ( props ) => {
                 console.dir( resp );
 
                 if( resp.ok ){
+                    // set_word_list_to_store( resp.wordList, [ 'audio' ] );
                     set_word_list_to_store( resp.wordList, [ 'audio' ] );
+
                 };
             },
         }, true );
@@ -164,6 +171,8 @@ export function AudioList( props ){
         <AudioListComponent
             { ...props }
             wordListById = { words.wordListById }
+            wordList = { words.wordList }
+
             languageKeyName = { language.languageKeyName }
             currentLessonId = { lessons.currentLessonId }
 

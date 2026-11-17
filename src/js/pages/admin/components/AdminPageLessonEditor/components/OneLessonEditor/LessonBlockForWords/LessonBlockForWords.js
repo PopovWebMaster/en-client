@@ -25,8 +25,8 @@ import { ButtonWordsAsText } from './../../../../ButtonWordsAsText/ButtonWordsAs
 // import { WordsCount } from './../WordsCount/WordsCount.js';
 // import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
 
-import { WordsCount } from './../../../../WordsCount/WordsCount.js';
-import { WordsSortingButtons } from './../../../../WordsSortingButtons/WordsSortingButtons.js';
+// import { WordsCount } from './../../../../WordsCount/WordsCount.js';
+// import { WordsSortingButtons } from './../../../../WordsSortingButtons/WordsSortingButtons.js';
 
 import { WordsListControlPanel } from './../../../../WordsListControlPanel/WordsListControlPanel.js';
 

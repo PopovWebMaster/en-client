@@ -140,9 +140,9 @@ const ButtonWordsAsTextComponent = ( props ) => {
                     fontSize: '0.75em'
                 }}
                 icon = { 'icon-doc-text' }
+                title = 'Список'
 
                 click = { click }
-                title = ''
             />
         </div>
     )

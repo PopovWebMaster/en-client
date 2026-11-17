@@ -158,8 +158,9 @@ const RemoveWordBtnComponent = ( props ) => {
             className = 'OFW_RemoveWordBtn'
             onClick = { click }
         >
-            <span className = 'icon-trash icon'></span>
-            <span className = 'text'>Удалить</span>
+            <span className = { `icon ${currentLessonId === null? 'icon-trash': 'icon-reply'}` }></span>
+
+            <span className = 'text'>{ currentLessonId === null? 'Удалить': 'В буфер' }</span>
 
         </div>
     </>)

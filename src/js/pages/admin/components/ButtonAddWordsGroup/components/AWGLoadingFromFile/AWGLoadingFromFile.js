@@ -10,6 +10,7 @@ import { clearAll } from './../../../../../../redux/admin/wordsSelectedListSlice
 
 import { AWG_BtnAddFromJsonProject } from './../AWG_BtnAddFromJsonProject/AWG_BtnAddFromJsonProject.js';
 import { AWG_BtnAddFromTextByNumber } from './../AWG_BtnAddFromTextByNumber/AWG_BtnAddFromTextByNumber.js';
+import { AWG_BtnAddFromExcelText } from './../AWG_BtnAddFromExcelText/AWG_BtnAddFromExcelText.js';
 
 
 const AWGLoadingFromFileComponent = ( props ) => {
@@ -46,7 +47,12 @@ const AWGLoadingFromFileComponent = ( props ) => {
             <AWG_BtnAddFromTextByNumber
                 clickHandler = { clickHandler }
                 setFileName = { setFileName }
+                setListHandler = { setListHandler }
+            />
 
+            <AWG_BtnAddFromExcelText
+                clickHandler = { clickHandler }
+                setFileName = { setFileName }
                 setListHandler = { setListHandler }
             />
 

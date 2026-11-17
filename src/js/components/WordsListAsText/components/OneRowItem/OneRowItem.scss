@@ -30,11 +30,20 @@
                 opacity: 0;
             }
 
+            >.WLAT_ORI_hiddenTranscr{
+                font-size: 0.86em;
+                color: #979595;
+                margin-left: 0.3em;
+            }
+
         }
 
         >.WLAT_ORI_visibleLang:hover{
             background-color: #ffffff;
             border: 1px solid #e7c5b2;
+            >.WLAT_ORI_hiddenTranscr{
+                color: #757474;
+            }
         }
         >.WLAT_ORI_visibleLang.visibleForeign:active{
             color: #e50000;
@@ -62,6 +71,8 @@
             transition: opacity 0.3s linear 0.3s;
 
             opacity: 0;
+
+
 
 
         }

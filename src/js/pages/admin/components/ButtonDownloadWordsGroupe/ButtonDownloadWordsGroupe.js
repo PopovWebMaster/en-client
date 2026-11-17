@@ -53,7 +53,7 @@ const ButtonDownloadWordsGroupeComponent = ( props ) => {
                 icon = { '' }
 
                 click = { click }
-                title = 'Скачать проект'
+                title = 'Скачать'
             />
         </div>
     )

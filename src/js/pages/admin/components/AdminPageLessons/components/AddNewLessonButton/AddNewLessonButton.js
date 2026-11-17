@@ -67,6 +67,12 @@ const AddNewLessonButtonComponent = ( props ) => {
         
 
     }
+
+    const change  = ( e ) => {
+        let val = e.target.value;
+        setNewTitle( val );
+
+    }
    
 
     return (
@@ -82,7 +88,7 @@ const AddNewLessonButtonComponent = ( props ) => {
                 <AWInputText
                     title =     { 'Название урока' }
                     value =     { newTitle }
-                    onChange =  { setNewTitle }
+                    onChange =  { change }
                     max =       { LESSON_TITLE.MAX }
                 />
 

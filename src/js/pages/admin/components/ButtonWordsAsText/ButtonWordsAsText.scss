@@ -2,14 +2,15 @@
     font-size: 1em;
     position: relative;
 
-    margin: 0 1em 0 0;
+    // margin: 0 1em 0 0;
 
     >.ButtonAdd{
         min-width: 1em;
-        padding: .36em .64em;
+        padding: .3em .64em;
 
         >.ButtonAdd_icon{
-            margin-right: 0em;
+            margin-right: 0.2em;
+            padding: 0em 0 0;
         }
     }
 

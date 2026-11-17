@@ -1,0 +1,52 @@
+.FWL_AlphaScrollButtons{
+        font-size: 1em;
+        position: sticky;
+        top: 0.5em;
+        left: 0;
+        width: 3em;
+        height: 0;
+        // height: calc( 100vh - 7em );
+        // background-color: red;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        z-index: 2000;
+
+        .FWL_AlphaScrollButtons_btns{
+            font-size: 1em;
+            position: sticky;
+            top: 6em;
+            left: 0;
+            width: 3.4em;
+            max-height: calc( 100vh - 15em );
+
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: flex-start;
+            z-index: 2000;
+            >span{
+                font-size: 0.9em;
+                background-color: #b7ddba;
+                border: 1px solid #4faf57;
+                color: #343443;
+                padding: 0.1em 0;
+                text-align: center;
+                width: 1.6em;
+                border-radius: 0.1em;
+                margin: 0 0.2em 0.2em 0;
+                cursor: pointer;
+                user-select: none;
+            }
+            >span:hover{
+                
+                background-color: #5ebc66;
+            }
+            >span:active{
+                color: #fdfdfd;
+            }
+
+        }
+    }

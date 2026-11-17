@@ -1,7 +1,7 @@
 
-import React, { useRef, useState, useEffect }   from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './AdminPageWords.scss';
 
@@ -18,8 +18,6 @@ import { FreeWordsList } from './components/FreeWordsList/FreeWordsList.js';
 import { AddNewWordComponent } from './components/AddNewWordComponent/AddNewWordComponent.js';
 import { SaveWordsChanges } from './components/SaveWordsChanges/SaveWordsChanges.js';
 
-import { WordsCount } from './../WordsCount/WordsCount.js';
-import { WordsSortingButtons } from './../WordsSortingButtons/WordsSortingButtons.js';
 import { ButtonAddWordsGroup } from './../ButtonAddWordsGroup/ButtonAddWordsGroup.js';
 import { ButtonDownloadWordsGroupe } from './../ButtonDownloadWordsGroupe/ButtonDownloadWordsGroupe.js';
 import { ButtonWordsAsText } from './../ButtonWordsAsText/ButtonWordsAsText.js';
@@ -48,11 +46,6 @@ const AdminPageWordsComponent = ( props ) => {
                 <A_TopButtonsContainer>
 
                     <WordsListControlPanel />
-
-                    {/* <div className = 'A_TopButtonsLeftBlock'>
-                        <WordsCount />
-                        <WordsSortingButtons />
-                    </div> */}
 
                     <ButtonWordsAsText />
 

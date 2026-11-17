@@ -65,9 +65,12 @@ const AWGWSL_OneWordComponent = ( props ) => {
 
     const click = () => {
         let arr = [];
+        // console.dir( 'list' );
+        // console.dir( list );
+
         for( let i = 0; i < list.length; i++ ){
             let item = structuredClone( list[ i ] );
-            if( item.id === id ){
+            if( item.foreign === foreign ){
                 item.isSelected = !item.isSelected;
             };
             arr.push( item );

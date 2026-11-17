@@ -38,7 +38,7 @@ const AddNewWordComponent_ = ( props ) => {
                         fontSize: '0.75em'
                     }}
                     click = { click }
-                    title = 'Добавить'
+                    title = 'Слово'
                 />
             </div>
 

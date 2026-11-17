@@ -37,10 +37,10 @@ const PageTextEditComponent = ( props ) => {
     return (
         <div className = 'APLE_PageTitleEdit'>
             <OC_Input
-                title =         'Текст на странице урока'
+                title =         'Текст на странице. (Enter - новый параграф. <b> - жирный) <a>-ссылка'
                 value =         { pageValue }
                 setValue =      { setPageValue }
-                max =           { 255 }
+                max =           { 2000 }
                 asTextArea =    { true }
                 blure =         { blurHandler }
                 // chackStatuse =  { null }// true false null

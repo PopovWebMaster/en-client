@@ -35,16 +35,16 @@ const LessonBlockContainerComponent = ( props ) => {
                 let elem = blockRef.current;
                 elem.scrollIntoView( {behavior: "smooth", block: "center", inline: "start"}); 
 
-                let APC_body = document.querySelector( '.APC_body' );
-                APC_body.style.setProperty('--st', -(document.documentElement.scrollTop) + "px");
-                APC_body.classList.add('noscroll');
+                // let APC_body = document.querySelector( '.APC_body' );
+                // APC_body.style.setProperty('--st', -(document.documentElement.scrollTop) + "px");
+                // APC_body.classList.add('noscroll');
 
                 clearTimeout( timerId );
             }, 500 );
         }else{
             let APC_body = document.querySelector( '.APC_body' );
                 // APC_body.style.setProperty('--st', -(document.documentElement.scrollTop) + "px");
-                APC_body.classList.remove('noscroll');
+                // APC_body.classList.remove('noscroll');
         }
 
     }, [ isOpen ] );

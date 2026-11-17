@@ -31,6 +31,7 @@ const OneWordEditorComponent = ( props ) => {
 
             
             <div className = 'OWE_line_1'>
+                <span className = 'OWE_line_1_wordId'>{wordId}</span>
 
                 <div className = 'OWE_line_topic'>
                     <Message wordId = { wordId } />
