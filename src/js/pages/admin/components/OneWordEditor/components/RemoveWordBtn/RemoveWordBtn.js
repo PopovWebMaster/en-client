@@ -17,6 +17,8 @@ import { send_request_to_server } from './../../../../../../helpers/send_request
 import { set_word_list_to_store } from './../../../../../../helpers/set_word_list_to_store.js';
 import { save_word_list_changes_on_server } from './../../../../../../helpers/save_word_list_changes_on_server.js';
 
+import { get_words_list_without_one_word } from './../../vendors/get_words_list_without_one_word.js';
+
 
 
 const RemoveWordBtnComponent = ( props ) => {
@@ -62,7 +64,9 @@ const RemoveWordBtnComponent = ( props ) => {
                 console.dir( resp );
 
                 if( resp.ok ){
-                    set_word_list_to_store( resp.wordList );
+                    // set_word_list_to_store( resp.wordList );
+                    let list = get_words_list_without_one_word( wordId );
+                    set_word_list_to_store( list );
                     setIsOpen( false );
                     setIsOpenConfirmSave( false );
                 };

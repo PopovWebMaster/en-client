@@ -7,9 +7,10 @@
         height: 0;
         // height: calc( 100vh - 7em );
         // background-color: red;
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
+        display: flex;
+        flex-direction: row;
+        
+        justify-content: flex-start;
         z-index: 2000;
 
         .FWL_AlphaScrollButtons_btns{
@@ -21,13 +22,15 @@
             max-height: calc( 100vh - 15em );
 
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             align-content: flex-start;
             z-index: 2000;
+
             >span{
+
                 font-size: 0.9em;
                 background-color: #b7ddba;
                 border: 1px solid #4faf57;
@@ -40,9 +43,52 @@
                 cursor: pointer;
                 user-select: none;
             }
+            >span.isActive{
+                background-color: #5ebc66;
+            }
             >span:hover{
                 
                 background-color: #5ebc66;
+            }
+            >span:active{
+                color: #fdfdfd;
+            }
+
+        }
+
+        .FWL_AlphaScrollButtons_btns_sec{
+            font-size: 1em;
+            position: sticky;
+            top: 6em;
+            left: 0;
+            width: 3.4em;
+            max-height: calc( 100vh - 15em );
+            // height: calc( 100vh - 15em );
+            // background-color: red;
+
+
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            align-content: flex-start;
+            z-index: 2000;
+            >span{
+                font-size: 0.9em;
+                background-color: #5ebc66;
+                border: 1px solid #4faf57;
+                color: #343443;
+                padding: 0.1em 0;
+                text-align: center;
+                width: 1.6em;
+                border-radius: 0.1em;
+                margin: 0 0.2em 0.2em 0;
+                cursor: pointer;
+                user-select: none;
+            }
+            >span:hover{
+                background-color: #93e299;
             }
             >span:active{
                 color: #fdfdfd;

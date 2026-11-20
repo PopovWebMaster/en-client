@@ -1,7 +1,7 @@
 
 import React, { useRef, useState, useEffect }   from "react";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import './SelectedLessons.scss';
 
@@ -17,7 +17,7 @@ import { AWButtonAdd } from './../../../../../../../components/AlertWindowContai
 import { OFL_OneLesson } from './../OFL_OneLesson/OFL_OneLesson.js';
 
 import { set_word_list_to_store } from './../../../../../../../helpers/set_word_list_to_store.js';
-
+import { get_words_list_without_one_word } from './../../../vendors/get_words_list_without_one_word.js';
 
 
 
@@ -72,6 +72,7 @@ const SelectedLessonsComponent = ( props ) => {
     }, [ isOpen ] );
 
     const addWords = () => {
+        
         if( isReady ){
             
             let nextLessonId = null;
@@ -96,17 +97,22 @@ const SelectedLessonsComponent = ( props ) => {
                     console.dir( resp );
 
                     if( resp.ok ){
-                        if( resp.wordList ){
-                            set_word_list_to_store( resp.wordList );
-                            setIsOpen( false );
 
-                        };
+                        let list = get_words_list_without_one_word( wordId );
+                        set_word_list_to_store( list );
+                        setIsOpen( false );
+
+                        // if( resp.wordList ){
+                        //     set_word_list_to_store( resp.wordList );
+                        //     setIsOpen( false );
+                        // };
                     }
 
 
                 },
             }, true );
         };
+        
 
     };
 
