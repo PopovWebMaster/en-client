@@ -27,10 +27,10 @@ const AWButtonAddComponent = ( props ) => {
     return (
         <div className = 'AW_item AWButtonAdd'>
             <span 
-                className = { isReady? `${icon} AWButtonAdd_isActive`: icon }
+                className = { isReady? `${icon} AWButtonAdd_isActive`: `${icon} AWButtonAdd_noActive` }
 
                 onClick = { click }
-            ><span>{ title }</span></span>
+            ><span className = 'AWButtonAdd_title'>{ title }</span></span>
         </div>
     )
 

@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect }   from "react";
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
-import './ItemOrder.scss';
+// import './ItemOrder.scss';
 
 import { selectorData as testsSlice, setTestsListIsChanged } from './../../../../../../../redux/admin/testsSlice.js';
 import { move_lesson_item } from './vendors/move_lesson_item.js';

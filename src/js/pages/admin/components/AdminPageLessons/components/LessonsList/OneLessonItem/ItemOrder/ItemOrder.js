@@ -13,6 +13,8 @@ import { set_lesson_list_to_store } from './../../../../../../../../helpers/set_
 
 // import { set_lesson_list_to_store } from './set_lesson_list_to_store.js';
 
+import { SetOrderPosBtn } from './SetOrderPosBtn/SetOrderPosBtn.js';
+
 
 const ItemOrderComponent = ( props ) => {
 
@@ -95,12 +97,53 @@ const ItemOrderComponent = ( props ) => {
         
     }
 
+    const setOrder = ( val ) => {
+
+        console.dir( 'val' );
+        console.dir( val );
+
+        let lessonId_clicked = null;
+        let lessonId_moved = null;
+
+        for( let i = 0; i < lessonList.length; i++ ){
+            if( lessonList[ i ].order === value ){
+                lessonId_clicked = lessonList[ i ].id;
+            }else if( lessonList[ i ].order === val ){
+                lessonId_moved = lessonList[ i ].id;
+            };
+        };
+
+        let newLessonList = [];
+        for( let i = 0; i < lessonList.length; i++ ){
+            let item = structuredClone( lessonList[ i ] );
+            if( item.id === lessonId_clicked ){
+                item.order = val;
+            };
+            if( item.id === lessonId_moved ){
+                item.order = value;
+            };
+
+            newLessonList.push( item );
+
+        };
+
+        set_lesson_list_to_store( newLessonList );
+        setLessonListIsChanged( true );
+
+    }
+
 
     return (<>
 
         
         <div className = 'APL_ItemOrder' >
             {/* <span className = 'APL_ItemOrder_value'>{ value }</span> */}
+            <SetOrderPosBtn
+                lessonId =  { lessonId }
+                value =     { value }
+                setOrder = { setOrder }
+            />
+
             <div className = 'APL_ItemOrder_BtnWrap'>
                 <span
                     className = 'APL_ItemOrder_btn icon-up-dir'

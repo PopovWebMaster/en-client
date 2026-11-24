@@ -52,7 +52,7 @@ const AlertWindowContainerComponent = ( props ) => {
                 >
                     <div className = 'AWC_window_header'>
                         <div className = 'AWC_window_header_title'>
-                            <h2>{ title }</h2>
+                            <h2 className = 'AWC_window_header_title_h2'>{ title }</h2>
                         </div>
                         <div className = 'AWC_window_header_close'>
                             <span 

@@ -55,6 +55,10 @@ export const set_lesson_list_to_store = ( lesson_list ) => {
         obj[ id ] = item;
     };
 
+    console.dir( 'arr' );
+    console.dir( arr );
+
+
     store.dispatch( setLessonList( arr ) );
     store.dispatch( setLessonListById( obj ) );
 

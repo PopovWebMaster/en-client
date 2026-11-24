@@ -89,6 +89,30 @@ const OneLessonItemComponent = ( props ) => {
             'TSB_left',
             'APL_ItemOrder_btn',
             'APL_TitleInput_inp',
+            'APL_IO_SetOrderPosBtn',
+            'APL_IO_SetOrderPosBtn_value',
+
+            'AlertWindowContainer',
+            'AWC_window',
+            'AWC_window_header',
+            'AWC_window_header_title_h2',
+            'AWC_window_header_title',
+            'AWC_window_header_close',
+            'icon-cancel-2',
+            'AWC_window_body',
+
+            'AWInputText',
+            'AW_item_title',
+            'AW_input_text_wrap',
+            'AW_input_text',
+            'AW_input_text_btnAdd',
+            'AW_input_text_btnAdd_title',
+            'AWButtonAdd',
+            'AWButtonAdd_isActive',
+            'AWButtonAdd_noActive',
+            'AWButtonAdd_title',
+
+
         ];
         let { classList } = e.target;
 

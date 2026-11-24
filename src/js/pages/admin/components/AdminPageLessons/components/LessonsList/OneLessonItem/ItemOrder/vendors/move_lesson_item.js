@@ -29,7 +29,6 @@ export const move_lesson_item = ( order, where, callback = () => {} ) => { // up
             }, 200 );
 
         };
-
     };
 
     

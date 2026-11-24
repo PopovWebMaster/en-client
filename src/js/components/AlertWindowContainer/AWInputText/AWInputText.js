@@ -33,7 +33,7 @@ const AWInputTextComponent = ( props ) => {
 
     return (
         <div className = 'AW_item AWInputText'>
-            <h3>{ title }</h3>
+            <h3 className = 'AW_item_title'>{ title }</h3>
 
             <div className = 'AW_input_text_wrap'>
                 <input 
