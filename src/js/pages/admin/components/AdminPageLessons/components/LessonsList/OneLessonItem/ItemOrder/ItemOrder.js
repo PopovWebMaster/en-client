@@ -99,8 +99,8 @@ const ItemOrderComponent = ( props ) => {
 
     const setOrder = ( val ) => {
 
-        console.dir( 'val' );
-        console.dir( val );
+        // console.dir( 'val' );
+        // console.dir( val );
 
         let lessonId_clicked = null;
         let lessonId_moved = null;
@@ -120,7 +120,7 @@ const ItemOrderComponent = ( props ) => {
                 item.order = val;
             };
             if( item.id === lessonId_moved ){
-                item.order = value;
+                item.order = val + 1;
             };
 
             newLessonList.push( item );

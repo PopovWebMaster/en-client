@@ -59,6 +59,7 @@ const AWC_AddFileComponent = ( props ) => {
 
             audioToBase64( files_arr[i] ).then( ( result ) => {
                 let name = files_arr[ i ].name;
+
                 base64List.push( {
                     name: name,
                     base64: result

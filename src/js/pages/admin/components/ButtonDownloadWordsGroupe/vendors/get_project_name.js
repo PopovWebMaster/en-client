@@ -1,15 +1,15 @@
 
 import store from './../../../../../redux/admin/store.js';
 
+
 export const get_project_name = ( selectedCount ) => {
 
-    let { language, lessons } = store.getState();
-    let { languageName } = language;
-    let { currentLessonId, currentLessonLevelName } = lessons;
+    let { lessons } = store.getState();
+    let { currentLessonId, currentLessonTitle } = lessons;
 
-    let result = `${languageName}. Cвободные слова. (${selectedCount} слов)`;
-    if( currentLessonId !== null ){
-        result = `${languageName}. ${currentLessonLevelName}. (${selectedCount} слов)`;
+    let result = `${currentLessonTitle} (${selectedCount} слов)`;
+    if( currentLessonId === null ){
+        result = `(${selectedCount} слов)`;
     };
 
     return result;

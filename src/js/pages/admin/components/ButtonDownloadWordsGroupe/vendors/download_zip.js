@@ -2,6 +2,8 @@
 import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 
+import { EMPTY_AUDIO_BASE_64 } from './../../../config/emptyAudioBase64.js';
+
 export const download_zip = ( params ) => {
     let { 
         keyName,
@@ -39,6 +41,10 @@ export const download_zip = ( params ) => {
     const zip = new JSZip();
     const folder = zip.folder( projectName );
     folder.folder( 'audio' );
+    folder.folder( 'audio_empty' );
+    folder.folder( 'audio_исходники' );
+
+
 
     let files = [];
 
@@ -77,6 +83,23 @@ export const download_zip = ( params ) => {
     for( let i = 0; i < files.length; i++ ){
         folder.file( 'audio/' + files[ i ].name, files[ i ].blob );
     };
+
+
+    let listWords = '';
+    for( let i = 0; i < list.length; i++ ){
+        let { foreign } = list[ i ];
+
+        let fileName = `${foreign.toLowerCase()}.mp3`;
+        let blob = base64ToBlob( EMPTY_AUDIO_BASE_64, 'audio/mp3' );
+        folder.file( 'audio_empty/' + fileName, blob );
+
+        if( foreign.trim() !== '' ){
+            listWords = `${listWords}${foreign}${`\n`}`;
+        };
+    };
+
+    folder.file( `список ${projectName}.txt`, listWords );
+
 
 
     folder.file( 'words.json', JSON.stringify( {
