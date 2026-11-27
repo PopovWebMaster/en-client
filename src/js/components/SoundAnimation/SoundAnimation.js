@@ -37,9 +37,10 @@ const SoundAnimationComponent = ( props ) => {
                 </div>
                 { asButton === false? (
                     <div className = 'SA_soundReplay'>
-                        <span className = 'icon icon-arrows-cw'></span>
-                        <span className = 'text'>Повторить</span>
+                        {/* <span className = 'icon icon-arrows-cw'></span> */}
+                        <span className = 'text'>Повторить звук (Shift + Enter)</span>
                     </div>
+                    
                 ): '' }
                 
             </div>

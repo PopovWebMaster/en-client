@@ -30,6 +30,11 @@ export const save_user_lesson_result_on_server = ( params ) => {
             if( resp.ok ){
                 if( resp.userResult ){
                     set_user_result_to_store( resp.userResult );
+
+
+
+
+                    
                 };
             };
                 

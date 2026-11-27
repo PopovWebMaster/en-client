@@ -68,7 +68,8 @@ const AppStep_2Component = ( props ) => {
 
 
 
-    const play_audio = ( wordId ) => {
+    const play_audio = ( ) => {
+        let wordId = AppLearn.GetCurrentWordId();
         if( isPlaying === false ){
             setRunAnimation( true );
             setIsPlaying( true );
@@ -105,17 +106,42 @@ const AppStep_2Component = ( props ) => {
         }else{
             if( resp.toLowerCase() === currentLearnRu.toLowerCase() ){
                 setAnswerIsCorrect( true );
+                setAnswer( response );
             }else{
-                setAnswerIsCorrect( false );
+                let correctStr = currentLearnRu.toLowerCase();
+                let arr = correctStr.split( ',' );
+                let correctArr = [];
+                for( let i = 0; i < arr.length; i++ ){
+                    let str = arr[ i ].toLowerCase().trim();
+                    correctArr.push( str );
+                };
+                let respLower = resp.toLowerCase();
+                if( correctArr.indexOf( respLower ) === -1 ){
+                    setAnswerIsCorrect( false );
+                    setAnswer( resp );
+                }else{
+                    setAnswerIsCorrect( true );
+                    setAnswer( correctStr );
+                };
+
+                // console.dir( correctArr );
+
+                
+
+
+
+
+                // setAnswerIsCorrect( false );
             };
-            setAnswer( resp );
+            // setAnswer( resp );
+            // setAnswer( response );
         };
 
         AppLearn.Next( resp.toLowerCase() === answerCorrect.toLowerCase() );
         
 
     }
-    
+
 
     return (
 
@@ -124,7 +150,9 @@ const AppStep_2Component = ( props ) => {
 
                 <SoundAnimation
                     runAnimation =      { runAnimation }
-                    clickHandler = { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
+                    // clickHandler = { () => { play_audio( AppLearn.GetCurrentWordId() ) } }
+                    clickHandler = { play_audio }
+
                 />
                 <AppResponseInput
                     responseValue =     { response }
@@ -134,6 +162,7 @@ const AppStep_2Component = ( props ) => {
                     answer =            { answer }
                     answerIsCorrect =   { answerIsCorrect }
                     answerCorrect =     { answerCorrect }
+                    playAudio = { play_audio }
 
                 />
 

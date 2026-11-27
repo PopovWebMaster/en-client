@@ -6,9 +6,6 @@
     height: 10em;
 
     width: 100%;
-    // width: 70vw;
-
-    // max-width: 40em;
     max-width: 50em;
     position: relative;
 
@@ -63,6 +60,17 @@
 @media (max-height: 360px){
     .AL_QuestionContainer{
         height: 5.8em;
+
+    }
+}
+@media (max-height: 350px){
+    .AL_QuestionContainer{
+        height: 1em;
+        background-color: none;
+        border: none;
+        .taskWrap{
+            display: none;
+        }
 
     }
 }

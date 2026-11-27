@@ -31,6 +31,10 @@ const ProgressScaleComponent = ( props ) => {
                     ></div>
                 </div>
             </div>
+
+            <div className = 'AL_ProgressScale_info'>
+                <span>Пройдите весь прогресс от начала и до конца, тогда ваш результат будет добавлен в "Мой успех"</span>
+            </div>
             
         </div>
 

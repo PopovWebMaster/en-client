@@ -20,6 +20,7 @@ const LessonPageAppComponent = ( props ) => {
     let {
         showStatus,
         setShowStatus,
+        store,
     } = props;
 
 
@@ -43,7 +44,7 @@ const LessonPageAppComponent = ( props ) => {
             </div>
 
             <div id = 'appPlace'>
-                <AppLesson />
+                <AppLesson store = { store }/>
             </div>
         </PageContainer>
 

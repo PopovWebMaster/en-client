@@ -24,6 +24,8 @@ const AppResponseInputComponent = ( props ) => {
         answerIsCorrect = false,
         answerCorrect = '',
 
+        playAudio = () => {},
+
     } = props;
     let refInp = useRef();
 
@@ -37,8 +39,18 @@ const AppResponseInputComponent = ( props ) => {
     }
     const enter = ( e ) => {
         if( e.which === 13 ){
-            acceptResponse();
+            if( e.shiftKey === true ){
+                playAudio();
+            }else{
+                acceptResponse();
+            };
         };
+    }
+
+    const blur = () => {
+
+        refInp.current.focus();
+
     }
 
 
@@ -60,6 +72,7 @@ const AppResponseInputComponent = ( props ) => {
                     value  = { responseValue }
                     onChange = { change }
                     onKeyDown = { enter }
+                    onBlur = { blur }
                     className = 'AppResponseInput_inp'
                     placeholder = { placeholder }
                     ref = { refInp }

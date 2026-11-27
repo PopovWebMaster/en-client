@@ -52,6 +52,7 @@ const AppDisplayComponent = ( props ) => {
 
         <div className = 'AL_AppDisplay' >
             
+            
             <div className = 'AL_AppDisplay_wrap'>
                 { create( appMessage, currentStepNomber ) }
 

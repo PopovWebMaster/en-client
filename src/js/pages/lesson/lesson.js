@@ -22,7 +22,7 @@ if( IS_DEVELOPMENT ){
 
         root.render(
             <Provider store={store}>
-                <LessonPageApp />
+                <LessonPageApp store={store}/>
             </Provider>
         );
     };
@@ -34,7 +34,7 @@ if( IS_DEVELOPMENT ){
         root.render(
             <Provider store={store}>
                 {/* <BrowserRouter> */}
-                    <AppLesson />
+                    <AppLesson store={store}/>
                 {/* </BrowserRouter> */}
             </Provider>
         );

@@ -47,8 +47,6 @@ const QuestionContainerComponent = ( props ) => {
             <div className = 'AL_AppStep_body_wrap' onClick = { click }>
                 { children }
             </div>
-
-            
         </div>
 
     )

@@ -2,6 +2,22 @@
     font-size: 1em;
     width: calc( 100% - 2em );
     padding: 0 1em 0.4em 1em;
+    position: relative;
+
+    .AL_ProgressScale_info{
+        font-size: 1em;
+        width: 100%;
+        position: absolute;
+        top: 1.4em;
+        right: 1em;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        >span{
+            font-size: 0.7em;
+            color: #e75050;
+        }
+    }
 
     .AL_ProgressScale_wrap{
         font-size: 1em;
@@ -52,6 +68,14 @@
         
 
 
+    }
+}
+
+@media (max-height: 400px){
+    .AL_ProgressScale{
+        .AL_ProgressScale_info{
+            display: none;
+        }
     }
 }
 
