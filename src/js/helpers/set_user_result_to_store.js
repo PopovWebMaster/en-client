@@ -7,6 +7,10 @@ export const set_user_result_to_store = ( userResult ) => {
     let arr = [];
     let obj = {};
 
+    // console.dir( 'userResult <<<<<<<<<<<<<<<<<<<<<<<<<' );
+    // console.dir( userResult );
+
+
     for( let i = 0; i < userResult.length; i++ ){
         let item = structuredClone( userResult[ i ] );
         let { lessonId } = item;

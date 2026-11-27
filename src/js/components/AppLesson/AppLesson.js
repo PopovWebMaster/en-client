@@ -1,9 +1,9 @@
 
-import React, { useState, useEffect }   from "react";
+import React, { useState, useEffect, useMemo }   from "react";
 
 // import { selectorData as appControlSlise, setShowStatus } from './../../redux/appControlSlise.js';
 
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { useDispatch } from 'react-redux';
 
 import './AppLesson.scss';
@@ -22,18 +22,25 @@ import { SetAppDataToStore } from './../SetAppDataToStore/SetAppDataToStore.js';
 import { AppDisplay } from './components/AppDisplay/AppDisplay.js';
 import { add_MyLessonsSuccess_into_DOM } from './../MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
 
+// import { selectorData as appDataSlice } from './../../redux/appDataSlice.js';
+import { selectorData as appDataSlice } from './../../redux/appDataSlice.js';
+
+
 
 const AppLessonComponent = ( props ) => {
 
     let {
         // showStatus,
         // setShowStatus,
-        store,
+        // store,
+        userSuccessList,
+        userResult,
     } = props;
 
     useEffect( () => {
         add_WordsListAsText_to_DOM();
-        add_MyLessonsSuccess_into_DOM( store );
+        add_MyLessonsSuccess_into_DOM();
+        
     }, [] );
 
 
@@ -72,9 +79,16 @@ export function AppLesson( props ){
     // const appControl = useSelector( appControlSlise );
     // const dispatch = useDispatch();
 
+    const appData = useSelector( appDataSlice );
+
     return (
         <AppLessonComponent
             { ...props }
+            userSuccessList = { appData.userSuccessList }
+            userResult = { appData.userResult }
+
+
+            
             // showStatus = { appControl.showStatus }
             // setShowStatus = { ( val ) => { dispatch( setShowStatus( val ) ) } }
 

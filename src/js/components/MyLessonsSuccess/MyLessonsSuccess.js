@@ -14,6 +14,10 @@ import { MLS_TextSpan } from './components/MLS_TextSpan/MLS_TextSpan.js';
 import { MLS_OneCountSpan } from './components/MLS_OneCountSpan/MLS_OneCountSpan.js';
 import { get_elem_width_px } from './vendors/get_elem_width_px.js';
 
+// import store from './../../redux/store.js';
+
+// import { connect } from 'react-redux'
+
 const MyLessonsSuccessComponent = ( props ) => {
 
     let {
@@ -172,6 +176,13 @@ const MyLessonsSuccessComponent = ( props ) => {
 
 };
 
+// const mapStateToProps = function(state) {
+//   return {
+//     // userSuccessList: state.appData.userSuccessList
+//   }
+// }
+
+// export default connect(mapStateToProps)(ProfileComponent);
 
 export function MyLessonsSuccess( props ){
 
@@ -185,13 +196,22 @@ export function MyLessonsSuccess( props ){
 
             // setLanguageAlias = { ( val ) => { dispatch( setLanguageAlias( val ) ) } }
 
-
-            
-
-
-
         />
     );
 
+    // return connect( mapStateToProps )(
+
+
+    //     <MyLessonsSuccessComponent
+    //         { ...props }
+    //         userSuccessList = { appData.userSuccessList }
+
+    //         // setLanguageAlias = { ( val ) => { dispatch( setLanguageAlias( val ) ) } }
+
+    //     />
+    // );
+
 
 }
+
+// export default connect(mapStateToProps)(MyLessonsSuccess);

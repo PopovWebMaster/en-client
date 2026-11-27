@@ -9,6 +9,7 @@ import './lesson.scss';
 
 import { LessonPageApp } from './components/LessonPageApp/LessonPageApp.js';
 import { AppLesson } from './../../components/AppLesson/AppLesson.js';
+// import { add_MyLessonsSuccess_into_DOM } from './../../components/MyLessonsSuccess/add_MyLessonsSuccess_into_DOM.js';
 
 
 console.dir('lesson');
@@ -22,9 +23,11 @@ if( IS_DEVELOPMENT ){
 
         root.render(
             <Provider store={store}>
-                <LessonPageApp store={store}/>
+                <LessonPageApp />
             </Provider>
         );
+
+        
     };
 }else{
     const container = document.getElementById('appPlace');
@@ -34,10 +37,11 @@ if( IS_DEVELOPMENT ){
         root.render(
             <Provider store={store}>
                 {/* <BrowserRouter> */}
-                    <AppLesson store={store}/>
+                    <AppLesson />
                 {/* </BrowserRouter> */}
             </Provider>
         );
+
     };
 
 

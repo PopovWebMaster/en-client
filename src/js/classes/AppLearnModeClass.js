@@ -11,7 +11,6 @@ import { ProgressClass } from './vendors/ProgressClass.js';
 
 import { save_user_lesson_result_on_server } from './../helpers/save_user_lesson_result_on_server.js';
 
-
 export class AppLearnModeClass extends AppMetodsClass {
 
     constructor(){
@@ -99,6 +98,17 @@ export class AppLearnModeClass extends AppMetodsClass {
 
             this.FinishMessage.SetMessageToStore();
         };
+
+
+
+
+
+
+
+
+
+
+
 
     }
 
